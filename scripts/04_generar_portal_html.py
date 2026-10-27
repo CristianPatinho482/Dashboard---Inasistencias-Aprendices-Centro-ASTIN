@@ -15,6 +15,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data" / "processed"
 OUT = ROOT / "outputs" / "portal_astin.html"
+PAGES_OUT = ROOT / "github-pages" / "index.html"
+ROOT_INDEX = ROOT / "index.html"
 CHART_JS = ROOT / "tools" / "chartjs" / "chart.umd.min.js"
 LOGO = ROOT / "CaracterizacionAprendicesASTIN.Report" / "StaticResources" / "RegisteredResources" / "sena_logo.png"
 
@@ -298,7 +300,12 @@ def main() -> None:
     logo = base64.b64encode(LOGO.read_bytes()).decode("ascii") if LOGO.exists() else ""
     html = HTML_TEMPLATE.replace("@@DATA@@", data_json).replace("@@CHARTJS@@", chart_js).replace("@@LOGO@@", logo)
     OUT.write_text(html, encoding="utf-8")
+    PAGES_OUT.parent.mkdir(parents=True, exist_ok=True)
+    PAGES_OUT.write_text(html, encoding="utf-8")
+    ROOT_INDEX.write_text(html, encoding="utf-8")
     print(f"Portal generado: {OUT}")
+    print(f"Copia lista para GitHub Pages: {PAGES_OUT}")
+    print(f"Página principal lista para GitHub Pages: {ROOT_INDEX}")
     print(f"Corte: {payload['generatedAt']} · tamaño: {OUT.stat().st_size:,} bytes · datos agregados incrustados")
 
 
