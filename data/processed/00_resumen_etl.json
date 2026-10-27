@@ -1,0 +1,389 @@
+{
+  "fuente": "C:\\Users\\capatino\\Desktop\\Inasistencias\\Inasistencias.xls",
+  "corte": "2026-10-23",
+  "registros_origen": 16691,
+  "registros_invalidos": 0,
+  "duplicados_exactos": 446,
+  "registros_validos": 16245,
+  "aprendices_unicos": 1508,
+  "fichas": 85,
+  "programas": 26,
+  "horas_perdidas": 75969,
+  "pct_inasistencias_justificadas": 7.85,
+  "pct_inasistencias_no_justificadas": 90.61,
+  "pct_inasistencias_sin_informacion": 1.54,
+  "pct_horas_no_justificadas": 90.46,
+  "retardos": 381,
+  "horas_retardo": 423,
+  "registros_outlier_horas": 33,
+  "registros_requieren_revision": 1272,
+  "pct_registros_requieren_revision": 7.83,
+  "registros_con_soporte": 148,
+  "registros_sin_justificacion": 19,
+  "registros_no_clasificados": 229,
+  "justificaciones_unicas": 1268,
+  "aprendices_reincidentes": 1095,
+  "aprendices_reincidentes_altos": 640,
+  "aprendices_alerta_desercion": 249,
+  "aprendices_alerta_texto": 135,
+  "aprendices_alerta_patron": 148,
+  "aprendices_riesgo_alto": 337,
+  "fichas_alto_riesgo": 14,
+  "fichas_evaluadas": 57,
+  "fichas_muestra_baja": 28,
+  "programas_alto_riesgo": 6,
+  "programas_evaluados": 20,
+  "programas_muestra_baja": 6,
+  "por_mes": [
+    {
+      "Mes": 2,
+      "inasistencias": 1116,
+      "horas": 6244,
+      "aprendices": 340,
+      "mes": "Febrero",
+      "variacion_horas_pct": NaN
+    },
+    {
+      "Mes": 3,
+      "inasistencias": 1691,
+      "horas": 11358,
+      "aprendices": 552,
+      "mes": "Marzo",
+      "variacion_horas_pct": 81.9026265214606
+    },
+    {
+      "Mes": 4,
+      "inasistencias": 1940,
+      "horas": 9102,
+      "aprendices": 564,
+      "mes": "Abril",
+      "variacion_horas_pct": -19.86265187533016
+    },
+    {
+      "Mes": 5,
+      "inasistencias": 2528,
+      "horas": 14112,
+      "aprendices": 704,
+      "mes": "Mayo",
+      "variacion_horas_pct": 55.04284772577455
+    },
+    {
+      "Mes": 6,
+      "inasistencias": 2176,
+      "horas": 8769,
+      "aprendices": 660,
+      "mes": "Junio",
+      "variacion_horas_pct": -37.861394557823125
+    },
+    {
+      "Mes": 7,
+      "inasistencias": 2107,
+      "horas": 8476,
+      "aprendices": 648,
+      "mes": "Julio",
+      "variacion_horas_pct": -3.341315999543848
+    },
+    {
+      "Mes": 8,
+      "inasistencias": 811,
+      "horas": 3305,
+      "aprendices": 414,
+      "mes": "Agosto",
+      "variacion_horas_pct": -61.00755073147711
+    },
+    {
+      "Mes": 9,
+      "inasistencias": 2586,
+      "horas": 9910,
+      "aprendices": 701,
+      "mes": "Septiembre",
+      "variacion_horas_pct": 199.84871406959152
+    },
+    {
+      "Mes": 10,
+      "inasistencias": 1290,
+      "horas": 4693,
+      "aprendices": 491,
+      "mes": "Octubre",
+      "variacion_horas_pct": -52.64379414732594
+    }
+  ],
+  "top_fichas": [
+    {
+      "FichaID": "3442110",
+      "IndiceRiesgoCorte": 91.4,
+      "NivelRiesgoCorte": "Alto",
+      "Horas": 2679,
+      "Aprendices": 26,
+      "Inasistencias": 586
+    },
+    {
+      "FichaID": "3411424",
+      "IndiceRiesgoCorte": 90.3,
+      "NivelRiesgoCorte": "Alto",
+      "Horas": 2628,
+      "Aprendices": 26,
+      "Inasistencias": 618
+    },
+    {
+      "FichaID": "3411438",
+      "IndiceRiesgoCorte": 88.6,
+      "NivelRiesgoCorte": "Alto",
+      "Horas": 3340,
+      "Aprendices": 29,
+      "Inasistencias": 961
+    },
+    {
+      "FichaID": "3406050",
+      "IndiceRiesgoCorte": 84.5,
+      "NivelRiesgoCorte": "Alto",
+      "Horas": 1927,
+      "Aprendices": 18,
+      "Inasistencias": 431
+    },
+    {
+      "FichaID": "3442083",
+      "IndiceRiesgoCorte": 84.0,
+      "NivelRiesgoCorte": "Alto",
+      "Horas": 2736,
+      "Aprendices": 30,
+      "Inasistencias": 919
+    },
+    {
+      "FichaID": "3409328",
+      "IndiceRiesgoCorte": 83.1,
+      "NivelRiesgoCorte": "Alto",
+      "Horas": 1689,
+      "Aprendices": 14,
+      "Inasistencias": 326
+    },
+    {
+      "FichaID": "3411436",
+      "IndiceRiesgoCorte": 82.2,
+      "NivelRiesgoCorte": "Alto",
+      "Horas": 3440,
+      "Aprendices": 18,
+      "Inasistencias": 255
+    },
+    {
+      "FichaID": "3411446",
+      "IndiceRiesgoCorte": 81.5,
+      "NivelRiesgoCorte": "Alto",
+      "Horas": 2529,
+      "Aprendices": 30,
+      "Inasistencias": 575
+    },
+    {
+      "FichaID": "3418377",
+      "IndiceRiesgoCorte": 80.9,
+      "NivelRiesgoCorte": "Alto",
+      "Horas": 2096,
+      "Aprendices": 23,
+      "Inasistencias": 443
+    },
+    {
+      "FichaID": "3411432",
+      "IndiceRiesgoCorte": 78.0,
+      "NivelRiesgoCorte": "Alto",
+      "Horas": 3653,
+      "Aprendices": 49,
+      "Inasistencias": 706
+    }
+  ],
+  "top_programas": [
+    {
+      "NombrePrograma": "Coordinacion en Sistemas Integrados de Gestion",
+      "Horas": 19182,
+      "Aprendices": 279,
+      "Inasistencias": 5261
+    },
+    {
+      "NombrePrograma": "Monitoreo Ambiental",
+      "Horas": 9205,
+      "Aprendices": 218,
+      "Inasistencias": 2062
+    },
+    {
+      "NombrePrograma": "Trabajo de la Madera",
+      "Horas": 5566,
+      "Aprendices": 39,
+      "Inasistencias": 437
+    },
+    {
+      "NombrePrograma": "Modelado 3D para la Industria",
+      "Horas": 5307,
+      "Aprendices": 52,
+      "Inasistencias": 1204
+    },
+    {
+      "NombrePrograma": "Gestion de Proyectos de Desarrollo Economico y Social",
+      "Horas": 4579,
+      "Aprendices": 91,
+      "Inasistencias": 1001
+    },
+    {
+      "NombrePrograma": "Coordinacion de Procesos Logisticos",
+      "Horas": 4422,
+      "Aprendices": 145,
+      "Inasistencias": 422
+    },
+    {
+      "NombrePrograma": "Desarrollo de Componentes Mecanicos",
+      "Horas": 4218,
+      "Aprendices": 81,
+      "Inasistencias": 944
+    },
+    {
+      "NombrePrograma": "Aplicacion de Procedimientos de Laboratorio Quimico",
+      "Horas": 4186,
+      "Aprendices": 167,
+      "Inasistencias": 944
+    },
+    {
+      "NombrePrograma": "Desarrollo y Modelado de Productos Industriales",
+      "Horas": 4162,
+      "Aprendices": 77,
+      "Inasistencias": 881
+    },
+    {
+      "NombrePrograma": "Gestión de la Producción Industrial",
+      "Horas": 3065,
+      "Aprendices": 110,
+      "Inasistencias": 802
+    }
+  ],
+  "scoring": {
+    "tipo": "Índice compuesto de percentiles (priorización relativa, no probabilidad)",
+    "universo": "Fichas y programas con >= 5 aprendices y >= 100 horas",
+    "pesos": {
+      "intensidad_horas_aprendiz": 0.4,
+      "frecuencia_inas_aprendiz": 0.25,
+      "pct_horas_no_justificadas": 0.2,
+      "volumen_horas": 0.15
+    },
+    "cortes": {
+      "bajo": "<45",
+      "medio": "45-69.9",
+      "alto": ">=70"
+    },
+    "aprendiz": {
+      "formula": "70% faltas no justificadas (tope 20) + 30% horas (tope 100)",
+      "cortes": {
+        "bajo": "<45",
+        "medio": "45-69.9",
+        "alto": ">=70"
+      }
+    },
+    "alerta_desercion": "Texto explícito de retiro/deserción o (última novedad <=45 días y >=10 faltas no justificadas y >=80 horas no justificadas)"
+  },
+  "calidad": {
+    "jornada_cobertura_pct": 0.0,
+    "modalidad_cobertura_pct": 0.0,
+    "estado_academico_oficial": false,
+    "matricula_total_oficial": false,
+    "centro_costo_inferido": "ASTIN-PALMIRA",
+    "duplicados_metodo": "Duplicados exactos tras normalizar espacios, fechas y horas"
+  },
+  "top_programas_riesgo": [
+    {
+      "NombrePrograma": "Modelado 3D para la Industria",
+      "IndiceRiesgoCorte": 90.5,
+      "NivelRiesgoCorte": "Alto",
+      "Horas": 5307,
+      "Inasistencias": 1204,
+      "Aprendices": 52,
+      "PctHorasNoJust": 0.99,
+      "MuestraSuficiente": 1
+    },
+    {
+      "NombrePrograma": "Fabricación de Productos Plásticos por Inyección y Soplado",
+      "IndiceRiesgoCorte": 80.8,
+      "NivelRiesgoCorte": "Alto",
+      "Horas": 1927,
+      "Inasistencias": 431,
+      "Aprendices": 18,
+      "PctHorasNoJust": 0.92,
+      "MuestraSuficiente": 1
+    },
+    {
+      "NombrePrograma": "Trabajo de la Madera",
+      "IndiceRiesgoCorte": 77.8,
+      "NivelRiesgoCorte": "Alto",
+      "Horas": 5566,
+      "Inasistencias": 437,
+      "Aprendices": 39,
+      "PctHorasNoJust": 0.89,
+      "MuestraSuficiente": 1
+    },
+    {
+      "NombrePrograma": "Coordinacion en Sistemas Integrados de Gestion",
+      "IndiceRiesgoCorte": 75.2,
+      "NivelRiesgoCorte": "Alto",
+      "Horas": 19182,
+      "Inasistencias": 5261,
+      "Aprendices": 279,
+      "PctHorasNoJust": 0.89,
+      "MuestraSuficiente": 1
+    },
+    {
+      "NombrePrograma": "Desarrollo y Modelado de Productos Industriales",
+      "IndiceRiesgoCorte": 70.5,
+      "NivelRiesgoCorte": "Alto",
+      "Horas": 4162,
+      "Inasistencias": 881,
+      "Aprendices": 77,
+      "PctHorasNoJust": 0.94,
+      "MuestraSuficiente": 1
+    },
+    {
+      "NombrePrograma": "Desarrollo de Componentes Mecanicos",
+      "IndiceRiesgoCorte": 70.2,
+      "NivelRiesgoCorte": "Alto",
+      "Horas": 4218,
+      "Inasistencias": 944,
+      "Aprendices": 81,
+      "PctHorasNoJust": 0.94,
+      "MuestraSuficiente": 1
+    },
+    {
+      "NombrePrograma": "Análisis de Materiales para la Industria",
+      "IndiceRiesgoCorte": 65.5,
+      "NivelRiesgoCorte": "Medio",
+      "Horas": 1472,
+      "Inasistencias": 429,
+      "Aprendices": 20,
+      "PctHorasNoJust": 0.85,
+      "MuestraSuficiente": 1
+    },
+    {
+      "NombrePrograma": "Fabricación de Moldes y Troqueles",
+      "IndiceRiesgoCorte": 62.5,
+      "NivelRiesgoCorte": "Medio",
+      "Horas": 2306,
+      "Inasistencias": 630,
+      "Aprendices": 45,
+      "PctHorasNoJust": 0.91,
+      "MuestraSuficiente": 1
+    },
+    {
+      "NombrePrograma": "Gestion de Proyectos de Desarrollo Economico y Social",
+      "IndiceRiesgoCorte": 61.0,
+      "NivelRiesgoCorte": "Medio",
+      "Horas": 4579,
+      "Inasistencias": 1001,
+      "Aprendices": 91,
+      "PctHorasNoJust": 0.91,
+      "MuestraSuficiente": 1
+    },
+    {
+      "NombrePrograma": "Transformacion de Polimeros por Extrusion de Pelicula",
+      "IndiceRiesgoCorte": 55.2,
+      "NivelRiesgoCorte": "Medio",
+      "Horas": 958,
+      "Inasistencias": 253,
+      "Aprendices": 26,
+      "PctHorasNoJust": 0.99,
+      "MuestraSuficiente": 1
+    }
+  ]
+}

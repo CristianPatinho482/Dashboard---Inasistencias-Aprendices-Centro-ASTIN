@@ -1,0 +1,138 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "aad095eaf6510d54f372",
+  "position": {
+    "x": 760,
+    "y": 458,
+    "width": 480,
+    "height": 196,
+    "z": 10
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "• 16.691 registros de origen; 446 duplicados exactos removidos y 16.245 registros válidos.",
+                    "textStyle": {
+                      "fontFamily": "Work Sans",
+                      "fontSize": "8.2pt",
+                      "color": "#667A72"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "• Nombres y documentos se enmascaran; el detalle nominal está en data/restricted.",
+                    "textStyle": {
+                      "fontFamily": "Work Sans",
+                      "fontSize": "8.2pt",
+                      "color": "#667A72"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "• La clasificación de justificaciones es por reglas; 1.272 casos requieren revisión.",
+                    "textStyle": {
+                      "fontFamily": "Work Sans",
+                      "fontSize": "8.2pt",
+                      "color": "#667A72"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "• No se informa jornada, modalidad ni matrícula total: los indicadores se expresan sobre aprendices con inasistencias.",
+                    "textStyle": {
+                      "fontFamily": "Work Sans",
+                      "fontSize": "8.2pt",
+                      "color": "#667A72"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "• Las 33 horas atípicas se conservan y se señalan; no se imputan valores.",
+                    "textStyle": {
+                      "fontFamily": "Work Sans",
+                      "fontSize": "8.2pt",
+                      "color": "#667A72"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "• Índice de riesgo: 40% horas por aprendiz, 25% inasistencias por aprendiz, 20% horas no justificadas y 15% volumen; solo fichas con ≥5 aprendices y ≥100 horas.",
+                    "textStyle": {
+                      "fontFamily": "Work Sans",
+                      "fontSize": "8.2pt",
+                      "color": "#667A72"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

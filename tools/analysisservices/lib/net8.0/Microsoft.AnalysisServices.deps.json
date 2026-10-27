@@ -1,0 +1,88 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "Microsoft.AnalysisServices/1.0.0": {
+        "dependencies": {
+          "Microsoft.AnalysisServices.Core": "1.0.0",
+          "Microsoft.AnalysisServices.Runtime.Core": "1.0.0",
+          "Microsoft.AnalysisServices.Tabular": "1.0.0",
+          "Microsoft.AnalysisServices.Tabular.Json": "1.0.0"
+        },
+        "runtime": {
+          "Microsoft.AnalysisServices.dll": {}
+        }
+      },
+      "Microsoft.Identity.Client/4.83.3": {
+        "dependencies": {
+          "Microsoft.IdentityModel.Abstractions": "8.14.0",
+          "System.Diagnostics.DiagnosticSource": "10.0.3",
+          "System.ValueTuple": "4.6.1"
+        }
+      },
+      "Microsoft.Identity.Client.Broker/4.83.3": {
+        "dependencies": {
+          "Microsoft.Identity.Client": "4.83.3",
+          "Microsoft.Identity.Client.NativeInterop": "0.20.4"
+        }
+      },
+      "Microsoft.Identity.Client.NativeInterop/0.20.4": {},
+      "Microsoft.IdentityModel.Abstractions/8.14.0": {},
+      "System.Diagnostics.DiagnosticSource/10.0.3": {},
+      "System.ValueTuple/4.6.1": {}
+    }
+  },
+  "libraries": {
+    "Microsoft.AnalysisServices/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.Identity.Client/4.83.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-XNJJn5uctuGvl3u6qzAof2TNysAZ/PPVKzkAglxvTO5XHgff/Ibs1+yi2G26Xrf6X/f780kS4fMKKdHcGb96hQ==",
+      "path": "microsoft.identity.client/4.83.3",
+      "hashPath": "microsoft.identity.client.4.83.3.nupkg.sha512"
+    },
+    "Microsoft.Identity.Client.Broker/4.83.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-1yn682hgnCimnYR27Ne/SRMWxCWUZtCKjYwPzWbjrfhqBF1GS7bDlPZkF4yvJxl90Y+xzDdZFh4u9pcGIFSEvw==",
+      "path": "microsoft.identity.client.broker/4.83.3",
+      "hashPath": "microsoft.identity.client.broker.4.83.3.nupkg.sha512"
+    },
+    "Microsoft.Identity.Client.NativeInterop/0.20.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-JHlfJ8oolxj20sNlwdIh8H8MZtzVQ55MyOjrIrQCtD/KJL5x8EOjQxafYu8AEYZOCSW+09DQnRogGk+J37BURA==",
+      "path": "microsoft.identity.client.nativeinterop/0.20.4",
+      "hashPath": "microsoft.identity.client.nativeinterop.0.20.4.nupkg.sha512"
+    },
+    "Microsoft.IdentityModel.Abstractions/8.14.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-iwbCpSjD3ehfTwBhtSNEtKPK0ICun6ov7Ibx6ISNA9bfwIyzI2Siwyi9eJFCJBwxowK9xcA1mj+jBWiigeqgcQ==",
+      "path": "microsoft.identitymodel.abstractions/8.14.0",
+      "hashPath": "microsoft.identitymodel.abstractions.8.14.0.nupkg.sha512"
+    },
+    "System.Diagnostics.DiagnosticSource/10.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-IuZXyF3K5X+mCsBKIQ87Cn/V4Nyb39vyCbzfH/AkoneSWNV/ExGQ/I0m4CEaVAeFh9fW6kp2NVObkmevd1Ys7A==",
+      "path": "system.diagnostics.diagnosticsource/10.0.3",
+      "hashPath": "system.diagnostics.diagnosticsource.10.0.3.nupkg.sha512"
+    },
+    "System.ValueTuple/4.6.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-+RJT4qaekpZ7DDLhf+LTjq+E48jieKiY9ulJ+BoxKmZblIJfIJT8Ufcaa/clQqnYvWs8jugfGSMu8ylS0caG0w==",
+      "path": "system.valuetuple/4.6.1",
+      "hashPath": "system.valuetuple.4.6.1.nupkg.sha512"
+    }
+  }
+}

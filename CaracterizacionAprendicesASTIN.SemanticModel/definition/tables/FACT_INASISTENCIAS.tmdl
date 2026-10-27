@@ -1,0 +1,788 @@
+table FACT_INASISTENCIAS
+	lineageTag: aaca04ea-5c54-413b-bd4c-28ea9be8d3a8
+
+	measure 'Total horas perdidas' = SUM ( FACT_INASISTENCIAS[CantidadHoras] )
+		formatString: #,##0
+		displayFolder: 00 KPIs
+		lineageTag: 6719e8af-512a-4061-85e1-cd4bffdb6ae2
+
+	measure 'Total inasistencias' = COUNTROWS ( FACT_INASISTENCIAS )
+		formatString: #,##0
+		displayFolder: 00 KPIs
+		lineageTag: 89ce799b-5791-4f16-8ac1-777988dcaa33
+
+	measure 'Aprendices con inasistencias' = DISTINCTCOUNT ( FACT_INASISTENCIAS[AprendizID] )
+		formatString: #,##0
+		displayFolder: 00 KPIs
+		lineageTag: 16d7308d-1281-446b-b928-cac4f6a86a55
+
+	measure 'Fichas con inasistencias' = DISTINCTCOUNT ( FACT_INASISTENCIAS[FichaID] )
+		formatString: #,##0
+		displayFolder: 00 KPIs
+		lineageTag: 42d4488e-1faa-4dfa-b823-2d2d59695a2a
+
+	measure 'Programas con inasistencias' = DISTINCTCOUNT ( FACT_INASISTENCIAS[ProgramaID] )
+		formatString: #,##0
+		displayFolder: 00 KPIs
+		lineageTag: 3ce210df-4e37-48db-90f3-4b0e223e0152
+
+	measure '% horas no justificadas' = DIVIDE ( [Horas no justificadas], [Total horas perdidas] )
+		formatString: 0.0%
+		displayFolder: 00 KPIs
+		lineageTag: c4f75b91-8752-481b-95c0-919ce3a7a4dc
+
+	measure '% horas justificadas' = DIVIDE ( [Horas justificadas], [Total horas perdidas] )
+		formatString: 0.0%
+		displayFolder: 00 KPIs
+		lineageTag: 3455fa94-6bb4-4e93-b942-a9511a4d1eb7
+
+	measure '% horas sin información' = DIVIDE ( [Horas sin información], [Total horas perdidas] )
+		formatString: 0.0%
+		displayFolder: 00 KPIs
+		lineageTag: 66e2c385-3e5a-47b7-98de-921b56c9ee67
+
+	measure 'Horas por inasistencia' = DIVIDE ( [Total horas perdidas], [Total inasistencias] )
+		formatString: #,##0.0
+		displayFolder: 00 KPIs
+		lineageTag: a2ce7a91-e461-487c-a37c-d498a45d630c
+
+	measure 'Días con inasistencias' = DISTINCTCOUNT ( FACT_INASISTENCIAS[Fecha] )
+		formatString: #,##0
+		displayFolder: 00 KPIs
+		lineageTag: 59ac9f9b-ee0d-43c8-941e-cad670cc8f08
+
+	measure 'Fichas en riesgo alto' = CALCULATE ( DISTINCTCOUNT ( FACT_INASISTENCIAS[FichaID] ), DIM_FICHA[NivelRiesgoCorte] = "Alto" )
+		formatString: #,##0
+		displayFolder: 00 KPIs
+		lineageTag: 6762bcdc-4fe7-43a9-841e-44e63d11eb33
+
+	measure 'Programas en riesgo alto' = CALCULATE ( DISTINCTCOUNT ( FACT_INASISTENCIAS[ProgramaID] ), DIM_PROGRAMA[NivelRiesgoCorte] = "Alto" )
+		formatString: #,##0
+		displayFolder: 00 KPIs
+		lineageTag: 32600fed-fea7-4e64-a537-6d0b14db9131
+
+	measure 'Casos posible deserción' = CALCULATE ( [Aprendices con inasistencias], FACT_INASISTENCIAS[EsAlertaDesercionAprendiz] = 1 )
+		formatString: #,##0
+		displayFolder: 00 KPIs
+		lineageTag: 6588b2a2-0b0e-4a86-ab67-3c00f9bab737
+
+	measure 'Horas justificadas' = CALCULATE ( [Total horas perdidas], FACT_INASISTENCIAS[EsJustificada] = 1 )
+		formatString: #,##0
+		displayFolder: 01 Inasistencias
+		lineageTag: 66bbc710-29d3-410b-8580-9c53e9f301cf
+
+	measure 'Horas no justificadas' = CALCULATE ( [Total horas perdidas], FACT_INASISTENCIAS[EsNoJustificada] = 1 )
+		formatString: #,##0
+		displayFolder: 01 Inasistencias
+		lineageTag: 54fc2d29-807b-4cf2-a926-9728cc33c3ff
+
+	measure 'Horas sin información' = CALCULATE ( [Total horas perdidas], FACT_INASISTENCIAS[EsSinInformacion] = 1 )
+		formatString: #,##0
+		displayFolder: 01 Inasistencias
+		lineageTag: 9ee75ac0-e923-4bf7-a9b5-528720118ae6
+
+	measure 'Inasistencias justificadas' = CALCULATE ( [Total inasistencias], FACT_INASISTENCIAS[EsJustificada] = 1 )
+		formatString: #,##0
+		displayFolder: 01 Inasistencias
+		lineageTag: 41314ece-a90a-45f9-850e-382d8839c5f5
+
+	measure 'Inasistencias no justificadas' = CALCULATE ( [Total inasistencias], FACT_INASISTENCIAS[EsNoJustificada] = 1 )
+		formatString: #,##0
+		displayFolder: 01 Inasistencias
+		lineageTag: 75032553-6bb3-4ceb-8cc0-6f356691bfd1
+
+	measure 'Inasistencias sin información' = CALCULATE ( [Total inasistencias], FACT_INASISTENCIAS[EsSinInformacion] = 1 )
+		formatString: #,##0
+		displayFolder: 01 Inasistencias
+		lineageTag: cf47cb0c-fe9b-48af-8e29-95f6687ce799
+
+	measure '% inasistencias no justificadas' = DIVIDE ( [Inasistencias no justificadas], [Total inasistencias] )
+		formatString: 0.0%
+		displayFolder: 01 Inasistencias
+		lineageTag: be8eda48-4516-47e0-9d9d-57a01328e594
+
+	measure '% inasistencias justificadas' = DIVIDE ( [Inasistencias justificadas], [Total inasistencias] )
+		formatString: 0.0%
+		displayFolder: 01 Inasistencias
+		lineageTag: 86534b36-bd0c-4185-8388-7eab1fcc928b
+
+	measure '% inasistencias sin información' = DIVIDE ( [Inasistencias sin información], [Total inasistencias] )
+		formatString: 0.0%
+		displayFolder: 01 Inasistencias
+		lineageTag: a0db10d3-660f-4811-81df-b84112211c83
+
+	measure 'Horas de retardo' = CALCULATE ( [Total horas perdidas], FACT_INASISTENCIAS[EsRetardo] = 1 )
+		formatString: #,##0
+		displayFolder: 01 Inasistencias
+		lineageTag: 64329576-2f49-42d6-a2bd-3f745a0f1432
+
+	measure 'Cantidad de retardos' = CALCULATE ( [Total inasistencias], FACT_INASISTENCIAS[EsRetardo] = 1 )
+		formatString: #,##0
+		displayFolder: 01 Inasistencias
+		lineageTag: 3e8039fd-0c61-4406-ac05-281244c211c6
+
+	measure '% horas de retardo' = DIVIDE ( [Horas de retardo], [Total horas perdidas] )
+		formatString: 0.0%
+		displayFolder: 01 Inasistencias
+		lineageTag: af4e6e05-0688-40d7-ad73-df391f8ac079
+
+	measure 'Horas no justificadas por inasistencia' = DIVIDE ( [Horas no justificadas], [Inasistencias no justificadas] )
+		formatString: #,##0.0
+		displayFolder: 01 Inasistencias
+		lineageTag: 194bce43-0684-4929-835d-ef9ad95020a6
+
+	measure 'Horas de ausencia' = CALCULATE ( [Total horas perdidas], FACT_INASISTENCIAS[EsAusencia] = 1 )
+		formatString: #,##0
+		displayFolder: 01 Inasistencias
+		lineageTag: 1cbc98c2-8ac3-4754-8d9e-f45901bbf417
+
+	measure 'Inasistencias sin retardo' = CALCULATE ( [Total inasistencias], FACT_INASISTENCIAS[EsAusencia] = 1 )
+		formatString: #,##0
+		displayFolder: 01 Inasistencias
+		lineageTag: 2926e7f5-b7fe-42e5-915e-8aa91670fed1
+
+	measure 'Fichas en riesgo medio' = CALCULATE ( DISTINCTCOUNT ( FACT_INASISTENCIAS[FichaID] ), DIM_FICHA[NivelRiesgoCorte] = "Medio" )
+		formatString: #,##0
+		displayFolder: 02 Riesgo
+		lineageTag: ee76a2b4-a356-4dfc-9bcf-443bac9f0c26
+
+	measure 'Fichas muestra insuficiente' = CALCULATE ( DISTINCTCOUNT ( FACT_INASISTENCIAS[FichaID] ), DIM_FICHA[NivelRiesgoCorte] = "Muestra baja" )
+		formatString: #,##0
+		displayFolder: 02 Riesgo
+		lineageTag: 80d9e452-687c-4720-8051-8dc0c2b58170
+
+	measure '% fichas en riesgo alto' = DIVIDE ( [Fichas en riesgo alto], [Fichas con inasistencias] )
+		formatString: 0.0%
+		displayFolder: 02 Riesgo
+		lineageTag: 934d24be-6484-4260-875f-93c3df582e19
+
+	measure 'Programas en riesgo medio' = CALCULATE ( DISTINCTCOUNT ( FACT_INASISTENCIAS[ProgramaID] ), DIM_PROGRAMA[NivelRiesgoCorte] = "Medio" )
+		formatString: #,##0
+		displayFolder: 02 Riesgo
+		lineageTag: 544b6ff6-b004-4a17-be49-e84203f052fb
+
+	measure 'Programas muestra insuficiente' = CALCULATE ( DISTINCTCOUNT ( FACT_INASISTENCIAS[ProgramaID] ), DIM_PROGRAMA[NivelRiesgoCorte] = "Muestra baja" )
+		formatString: #,##0
+		displayFolder: 02 Riesgo
+		lineageTag: 2d82ab0f-5d5c-476b-b30f-944e97f58940
+
+	measure 'Índice de riesgo promedio de fichas' = AVERAGEX ( VALUES ( FACT_INASISTENCIAS[FichaID] ), CALCULATE ( MAX ( DIM_FICHA[IndiceRiesgoCorte] ) ) )
+		formatString: 0.0
+		displayFolder: 02 Riesgo
+		lineageTag: 6485204e-2a2a-4dd2-91ef-8c2568b91749
+
+	measure 'Índice de riesgo promedio de programas' = AVERAGEX ( VALUES ( FACT_INASISTENCIAS[ProgramaID] ), CALCULATE ( MAX ( DIM_PROGRAMA[IndiceRiesgoCorte] ) ) )
+		formatString: 0.0
+		displayFolder: 02 Riesgo
+		lineageTag: c8614ebc-fcf2-4f85-80ce-9b7ed8834b55
+
+	measure 'Máximo índice de riesgo de ficha' = MAXX ( VALUES ( FACT_INASISTENCIAS[FichaID] ), CALCULATE ( MAX ( DIM_FICHA[IndiceRiesgoCorte] ) ) )
+		formatString: 0.0
+		displayFolder: 02 Riesgo
+		lineageTag: 9faf4017-b2c0-4901-a7c7-50c6e9671111
+
+	measure 'Ficha crítica principal' =
+			VAR Ranking = ADDCOLUMNS ( VALUES ( FACT_INASISTENCIAS[FichaID] ), "@Score", CALCULATE ( MAX ( DIM_FICHA[IndiceRiesgoCorte] ) ) )
+			VAR Top1 = TOPN ( 1, FILTER ( Ranking, NOT ISBLANK ( [@Score] ) ), [@Score], DESC )
+			RETURN CONCATENATEX ( Top1, FACT_INASISTENCIAS[FichaID], ", " )
+		displayFolder: 02 Riesgo
+		lineageTag: 2d0ed0f4-4708-4a69-b5a3-a15729345db0
+
+	measure 'Programa crítico principal' =
+			VAR Ranking = ADDCOLUMNS ( VALUES ( FACT_INASISTENCIAS[ProgramaID] ), "@Score", CALCULATE ( MAX ( DIM_PROGRAMA[IndiceRiesgoCorte] ) ) )
+			VAR Top1 = TOPN ( 1, FILTER ( Ranking, NOT ISBLANK ( [@Score] ) ), [@Score], DESC )
+			RETURN CONCATENATEX ( Top1, DIM_PROGRAMA[NombrePrograma], ", " )
+		displayFolder: 02 Riesgo
+		lineageTag: 9f59d6bd-18d7-4f27-9c8d-effbd2af80a0
+
+	measure 'Aprendices en riesgo alto' = CALCULATE ( [Aprendices con inasistencias], FACT_INASISTENCIAS[NivelRiesgoAprendiz] = "Alto" )
+		formatString: #,##0
+		displayFolder: 02 Riesgo
+		lineageTag: 612da97d-4315-477a-aa2e-b7dde6dff68c
+
+	measure '% aprendices en riesgo alto' = DIVIDE ( [Aprendices en riesgo alto], [Aprendices con inasistencias] )
+		formatString: 0.0%
+		displayFolder: 02 Riesgo
+		lineageTag: 97e5ec1f-c6df-430e-8134-ae1414ee12a3
+
+	measure 'Aprendices en riesgo medio' = CALCULATE ( [Aprendices con inasistencias], FACT_INASISTENCIAS[NivelRiesgoAprendiz] = "Medio" )
+		formatString: #,##0
+		displayFolder: 02 Riesgo
+		lineageTag: 49697312-248d-4e23-a917-8ac3866ee1de
+
+	measure 'Aprendices en riesgo bajo' = CALCULATE ( [Aprendices con inasistencias], FACT_INASISTENCIAS[NivelRiesgoAprendiz] = "Bajo" )
+		formatString: #,##0
+		displayFolder: 02 Riesgo
+		lineageTag: 43218bbe-74ad-4f74-9d29-ac481512e729
+
+	measure 'Horas no justificadas por aprendiz' = DIVIDE ( [Horas no justificadas], [Aprendices con inasistencias] )
+		formatString: #,##0.0
+		displayFolder: 02 Riesgo
+		lineageTag: 7fc7f411-f5c2-4e77-98ab-48738ed74298
+
+	measure 'Casos con alerta por texto' = CALCULATE ( [Aprendices con inasistencias], FACT_INASISTENCIAS[EsAlertaDesercionAprendiz] = 1, DIM_APRENDIZ[MotivoAlertaDesercion] IN { "Texto de retiro/deserción", "Texto y patrón" } )
+		formatString: #,##0
+		displayFolder: 02 Riesgo
+		lineageTag: eb57eaec-1a50-42e7-a5f5-ea5ee959f529
+
+	measure 'Casos con alerta por patrón' = CALCULATE ( [Aprendices con inasistencias], FACT_INASISTENCIAS[EsAlertaDesercionAprendiz] = 1, DIM_APRENDIZ[MotivoAlertaDesercion] IN { "Patrón de ausencias", "Texto y patrón" } )
+		formatString: #,##0
+		displayFolder: 02 Riesgo
+		lineageTag: 847efa7d-397e-4823-8b3e-c42d4f87643b
+
+	measure '% aprendices con alerta' = DIVIDE ( [Casos posible deserción], [Aprendices con inasistencias] )
+		formatString: 0.0%
+		displayFolder: 02 Riesgo
+		lineageTag: 636531bc-a609-4408-aef5-bbd67c233d30
+
+	measure 'Horas no justificadas en fichas de alto riesgo' = CALCULATE ( [Horas no justificadas], DIM_FICHA[NivelRiesgoCorte] = "Alto" )
+		formatString: #,##0
+		displayFolder: 02 Riesgo
+		lineageTag: cc3979ac-501c-4b90-836c-521c20e21176
+
+	measure 'Aprendices afectados en fichas de alto riesgo' = CALCULATE ( [Aprendices con inasistencias], DIM_FICHA[NivelRiesgoCorte] = "Alto" )
+		formatString: #,##0
+		displayFolder: 02 Riesgo
+		lineageTag: 4bcc21b3-c922-42a5-9354-1463b372d8bc
+
+	measure 'Horas promedio por aprendiz' = DIVIDE ( [Total horas perdidas], [Aprendices con inasistencias] )
+		formatString: #,##0.0
+		displayFolder: 03 Aprendices
+		lineageTag: 41034307-00c3-4384-8ddc-20744e72248f
+
+	measure 'Inasistencias promedio por aprendiz' = DIVIDE ( [Total inasistencias], [Aprendices con inasistencias] )
+		formatString: #,##0.0
+		displayFolder: 03 Aprendices
+		lineageTag: d2657ba8-c29a-40a0-b371-0fafb60713a8
+
+	measure 'Mediana de inasistencias por aprendiz' = MEDIANX ( VALUES ( FACT_INASISTENCIAS[AprendizID] ), CALCULATE ( [Total inasistencias] ) )
+		formatString: #,##0.0
+		displayFolder: 03 Aprendices
+		lineageTag: 38fc6442-29ff-4ce6-841d-d24e3c085115
+
+	measure 'Máximo de inasistencias por aprendiz' = MAXX ( VALUES ( FACT_INASISTENCIAS[AprendizID] ), CALCULATE ( [Total inasistencias] ) )
+		formatString: #,##0
+		displayFolder: 03 Aprendices
+		lineageTag: 43b2967c-1f55-4317-8000-97e27719aac2
+
+	measure 'Aprendices reincidentes' = CALCULATE ( [Aprendices con inasistencias], FACT_INASISTENCIAS[EsReincidenteAprendiz] = 1 )
+		formatString: #,##0
+		displayFolder: 03 Aprendices
+		lineageTag: 970a7664-be81-4cca-8170-8084f958927e
+
+	measure 'Aprendices reincidentes altos' = CALCULATE ( [Aprendices con inasistencias], FACT_INASISTENCIAS[EsReincidenteAltoAprendiz] = 1 )
+		formatString: #,##0
+		displayFolder: 03 Aprendices
+		lineageTag: 46298104-548b-4cf7-85be-aef6c4430971
+
+	measure 'Tasa de reincidencia' = DIVIDE ( [Aprendices reincidentes], [Aprendices con inasistencias] )
+		formatString: 0.0%
+		displayFolder: 03 Aprendices
+		lineageTag: 956d4e16-9b3b-487a-a475-b6b26d08c935
+
+	measure '% aprendices reincidentes' = DIVIDE ( [Aprendices reincidentes], [Aprendices con inasistencias] )
+		formatString: 0.0%
+		displayFolder: 03 Aprendices
+		lineageTag: 62f5a311-1b43-4d51-af78-028c2df48764
+
+	measure 'Aprendices con una sola inasistencia' = COUNTROWS ( FILTER ( VALUES ( FACT_INASISTENCIAS[AprendizID] ), CALCULATE ( [Total inasistencias] ) = 1 ) )
+		formatString: #,##0
+		displayFolder: 03 Aprendices
+		lineageTag: 848c75f0-6ab1-42b4-8240-b698c2f6e3a4
+
+	measure '% aprendices con una sola inasistencia' = DIVIDE ( [Aprendices con una sola inasistencia], [Aprendices con inasistencias] )
+		formatString: 0.0%
+		displayFolder: 03 Aprendices
+		lineageTag: bf533da2-7b1f-4780-80cc-49183097f0d4
+
+	measure 'Aprendices en más de una ficha' = COUNTROWS ( FILTER ( VALUES ( FACT_INASISTENCIAS[AprendizID] ), CALCULATE ( DISTINCTCOUNT ( FACT_INASISTENCIAS[FichaID] ) ) > 1 ) )
+		formatString: #,##0
+		displayFolder: 03 Aprendices
+		lineageTag: f8ca04ba-790e-45a4-b194-69ffc0b33e9d
+
+	measure '% aprendices en más de una ficha' = DIVIDE ( [Aprendices en más de una ficha], [Aprendices con inasistencias] )
+		formatString: 0.0%
+		displayFolder: 03 Aprendices
+		lineageTag: 5af349f1-7d22-41b7-a90b-b4024e6a34cf
+
+	measure 'Aprendices con retardo' = CALCULATE ( [Aprendices con inasistencias], FACT_INASISTENCIAS[EsRetardo] = 1 )
+		formatString: #,##0
+		displayFolder: 03 Aprendices
+		lineageTag: 617cd0a0-206b-4e29-a118-5effb7a10e44
+
+	measure '% aprendices con retardo' = DIVIDE ( [Aprendices con retardo], [Aprendices con inasistencias] )
+		formatString: 0.0%
+		displayFolder: 03 Aprendices
+		lineageTag: 4821f0fd-efdb-4cc7-a98b-5218a9c5cf0b
+
+	measure 'Aprendices con horas no justificadas' = CALCULATE ( [Aprendices con inasistencias], FACT_INASISTENCIAS[EsNoJustificada] = 1 )
+		formatString: #,##0
+		displayFolder: 03 Aprendices
+		lineageTag: 0b9e3e3b-8c67-4422-b0d8-b6d1175dfe8a
+
+	measure '% aprendices con horas no justificadas' = DIVIDE ( [Aprendices con horas no justificadas], [Aprendices con inasistencias] )
+		formatString: 0.0%
+		displayFolder: 03 Aprendices
+		lineageTag: a55cf000-d998-4e27-bbc7-53896c80fe33
+
+	measure 'Horas último mes' =
+			VAR FechaMax = CALCULATE ( MAX ( FACT_INASISTENCIAS[Fecha] ), REMOVEFILTERS ( DIM_CALENDARIO ) )
+			VAR InicioMes = DATE ( YEAR ( FechaMax ), MONTH ( FechaMax ), 1 )
+			RETURN CALCULATE ( [Total horas perdidas], DIM_CALENDARIO[Fecha] >= InicioMes && DIM_CALENDARIO[Fecha] <= FechaMax )
+		formatString: #,##0
+		displayFolder: 04 Tendencias
+		lineageTag: dafecdcd-4bf5-4815-8bb1-48b7a59d5ed2
+
+	measure 'Horas mes anterior' =
+			VAR FechaMax = CALCULATE ( MAX ( FACT_INASISTENCIAS[Fecha] ), REMOVEFILTERS ( DIM_CALENDARIO ) )
+			VAR InicioMes = DATE ( YEAR ( FechaMax ), MONTH ( FechaMax ), 1 )
+			VAR InicioAnterior = EDATE ( InicioMes, -1 )
+			RETURN CALCULATE ( [Total horas perdidas], DIM_CALENDARIO[Fecha] >= InicioAnterior && DIM_CALENDARIO[Fecha] < InicioMes )
+		formatString: #,##0
+		displayFolder: 04 Tendencias
+		lineageTag: f03f119b-1261-48ab-bc5b-9a28827d01f5
+
+	measure 'Variación % horas mes' = DIVIDE ( [Horas último mes] - [Horas mes anterior], [Horas mes anterior] )
+		formatString: +0.0%;-0.0%;0.0%
+		displayFolder: 04 Tendencias
+		lineageTag: 629391f8-4a76-4240-87a2-d71da1b85200
+
+	measure 'Horas YTD' =
+			VAR FechaMax = CALCULATE ( MAX ( FACT_INASISTENCIAS[Fecha] ), REMOVEFILTERS ( DIM_CALENDARIO ) )
+			RETURN CALCULATE ( [Total horas perdidas], DATESYTD ( DIM_CALENDARIO[Fecha] ), DIM_CALENDARIO[Fecha] <= FechaMax )
+		formatString: #,##0
+		displayFolder: 04 Tendencias
+		lineageTag: 2d5166fd-8af5-4bf6-8125-7ac5ef3e6509
+
+	measure 'Inasistencias último mes' =
+			VAR FechaMax = CALCULATE ( MAX ( FACT_INASISTENCIAS[Fecha] ), REMOVEFILTERS ( DIM_CALENDARIO ) )
+			VAR InicioMes = DATE ( YEAR ( FechaMax ), MONTH ( FechaMax ), 1 )
+			RETURN CALCULATE ( [Total inasistencias], DIM_CALENDARIO[Fecha] >= InicioMes && DIM_CALENDARIO[Fecha] <= FechaMax )
+		formatString: #,##0
+		displayFolder: 04 Tendencias
+		lineageTag: be3bb039-4286-4ec5-a767-4696f49f96ed
+
+	measure 'Inasistencias mes anterior' =
+			VAR FechaMax = CALCULATE ( MAX ( FACT_INASISTENCIAS[Fecha] ), REMOVEFILTERS ( DIM_CALENDARIO ) )
+			VAR InicioMes = DATE ( YEAR ( FechaMax ), MONTH ( FechaMax ), 1 )
+			VAR InicioAnterior = EDATE ( InicioMes, -1 )
+			RETURN CALCULATE ( [Total inasistencias], DIM_CALENDARIO[Fecha] >= InicioAnterior && DIM_CALENDARIO[Fecha] < InicioMes )
+		formatString: #,##0
+		displayFolder: 04 Tendencias
+		lineageTag: 440699cf-c47c-4a70-842d-1349f3537762
+
+	measure 'Variación % inasistencias mes' = DIVIDE ( [Inasistencias último mes] - [Inasistencias mes anterior], [Inasistencias mes anterior] )
+		formatString: +0.0%;-0.0%;0.0%
+		displayFolder: 04 Tendencias
+		lineageTag: 22f10fdf-a8f7-4ac3-b92f-295c3178e53c
+
+	measure 'Aprendices último mes' =
+			VAR FechaMax = CALCULATE ( MAX ( FACT_INASISTENCIAS[Fecha] ), REMOVEFILTERS ( DIM_CALENDARIO ) )
+			VAR InicioMes = DATE ( YEAR ( FechaMax ), MONTH ( FechaMax ), 1 )
+			RETURN CALCULATE ( [Aprendices con inasistencias], DIM_CALENDARIO[Fecha] >= InicioMes && DIM_CALENDARIO[Fecha] <= FechaMax )
+		formatString: #,##0
+		displayFolder: 04 Tendencias
+		lineageTag: 5a2d74c4-ef3f-4c81-b5da-132c1d4fa19e
+
+	measure 'Horas no justificadas último mes' =
+			VAR FechaMax = CALCULATE ( MAX ( FACT_INASISTENCIAS[Fecha] ), REMOVEFILTERS ( DIM_CALENDARIO ) )
+			VAR InicioMes = DATE ( YEAR ( FechaMax ), MONTH ( FechaMax ), 1 )
+			RETURN CALCULATE ( [Horas no justificadas], DIM_CALENDARIO[Fecha] >= InicioMes && DIM_CALENDARIO[Fecha] <= FechaMax )
+		formatString: #,##0
+		displayFolder: 04 Tendencias
+		lineageTag: 4ed593cf-186e-484b-8987-cf01aed05f5b
+
+	measure '% horas no justificadas último mes' = DIVIDE ( [Horas no justificadas último mes], [Horas último mes] )
+		formatString: 0.0%
+		displayFolder: 04 Tendencias
+		lineageTag: 262387e3-6f42-468a-8ee2-467b22cf7afd
+
+	measure 'Promedio mensual de horas' =
+			VAR Meses = FILTER ( VALUES ( DIM_CALENDARIO[AnioMes] ), CALCULATE ( [Total inasistencias] ) > 0 )
+			RETURN AVERAGEX ( Meses, CALCULATE ( [Total horas perdidas] ) )
+		formatString: #,##0
+		displayFolder: 04 Tendencias
+		lineageTag: bf197f68-f80e-4793-afcc-4916924257c9
+
+	measure 'Mes con más horas' =
+			VAR Meses = ADDCOLUMNS ( FILTER ( VALUES ( DIM_CALENDARIO[EtiquetaMes] ), CALCULATE ( [Total inasistencias] ) > 0 ), "@Horas", CALCULATE ( [Total horas perdidas] ) )
+			RETURN MAXX ( TOPN ( 1, Meses, [@Horas], DESC ), DIM_CALENDARIO[EtiquetaMes] )
+		displayFolder: 04 Tendencias
+		lineageTag: 81500e02-fb0f-49f9-b1e8-040b7db91f1d
+
+	measure 'Horas del mes pico' =
+			VAR Meses = ADDCOLUMNS ( FILTER ( VALUES ( DIM_CALENDARIO[EtiquetaMes] ), CALCULATE ( [Total inasistencias] ) > 0 ), "@Horas", CALCULATE ( [Total horas perdidas] ) )
+			RETURN MAXX ( TOPN ( 1, Meses, [@Horas], DESC ), [@Horas] )
+		formatString: #,##0
+		displayFolder: 04 Tendencias
+		lineageTag: 358a9a2c-a718-490d-a6c1-76f3ae870d29
+
+	measure 'Promedio móvil 3 meses de horas' =
+			VAR FechaMax = CALCULATE ( MAX ( FACT_INASISTENCIAS[Fecha] ), REMOVEFILTERS ( DIM_CALENDARIO ) )
+			VAR Fin = EOMONTH ( FechaMax, 0 )
+			RETURN CALCULATE ( AVERAGEX ( VALUES ( DIM_CALENDARIO[AnioMes] ), [Total horas perdidas] ), DATESINPERIOD ( DIM_CALENDARIO[Fecha], Fin, -3, MONTH ) )
+		formatString: #,##0
+		displayFolder: 04 Tendencias
+		lineageTag: 1803e4d5-7194-4c78-989c-8ad85bfbef50
+
+	measure 'Registros origen' = 16691
+		formatString: #,##0
+		displayFolder: 00 KPIs
+		lineageTag: 4fb48936-9283-4e50-9559-37d3e1884d61
+
+	measure 'Duplicados removidos' = 446
+		formatString: #,##0
+		displayFolder: 00 KPIs
+		lineageTag: 4532243e-33f7-48f9-adaa-cfc3591b0e4b
+
+	measure '% duplicados removidos' = DIVIDE ( 446, 16691 )
+		formatString: 0.00%
+		displayFolder: 00 KPIs
+		lineageTag: 68f30dbc-8133-4af5-849b-07b4e2d4585e
+
+	measure 'Registros sin justificación' = CALCULATE ( COUNTROWS ( FACT_INASISTENCIAS ), ISBLANK ( FACT_INASISTENCIAS[JustificacionOriginal] ) )
+		formatString: #,##0
+		displayFolder: 00 KPIs
+		lineageTag: 274f6e7e-2042-429d-bb7b-c24e9d2f9eb8
+
+	measure 'Registros no clasificados' = CALCULATE ( COUNTROWS ( FACT_INASISTENCIAS ), FACT_INASISTENCIAS[CategoriaJustificacion] = "Sin información" )
+		formatString: #,##0
+		displayFolder: 00 KPIs
+		lineageTag: b13c0175-2e11-42be-8e4f-e1b9b5dc7e86
+
+	measure 'Registros que requieren revisión' = CALCULATE ( COUNTROWS ( FACT_INASISTENCIAS ), FACT_INASISTENCIAS[RequiereRevision] = 1 )
+		formatString: #,##0
+		displayFolder: 00 KPIs
+		lineageTag: 8fffa436-513f-4025-a407-96ded2b60a6a
+
+	measure '% registros que requieren revisión' = DIVIDE ( [Registros que requieren revisión], [Total inasistencias] )
+		formatString: 0.0%
+		displayFolder: 00 KPIs
+		lineageTag: 3b72bdfe-1c15-4550-8117-e67d927c55cb
+
+	measure 'Registros con horas atípicas' = CALCULATE ( COUNTROWS ( FACT_INASISTENCIAS ), FACT_INASISTENCIAS[EsOutlierHoras] = 1 )
+		formatString: #,##0
+		displayFolder: 00 KPIs
+		lineageTag: a1b50bb7-952d-45f3-bf60-7069ac90e740
+
+	measure 'Justificaciones únicas' = DISTINCTCOUNT ( FACT_INASISTENCIAS[JustificacionOriginal] )
+		formatString: #,##0
+		displayFolder: 00 KPIs
+		lineageTag: 34115039-ed06-4b70-9a01-ec2ab7540b2e
+
+	measure 'Cobertura jornada' = 0
+		formatString: 0.0%
+		displayFolder: 00 KPIs
+		lineageTag: 553299e8-1af5-426d-8710-41220055facf
+
+	measure 'Cobertura modalidad' = 0
+		formatString: 0.0%
+		displayFolder: 00 KPIs
+		lineageTag: 37429b4d-fa8e-46c9-a9ab-755d4d637a0e
+
+	measure 'Cobertura estado académico' = 0
+		formatString: 0.0%
+		displayFolder: 00 KPIs
+		lineageTag: 9a0a7b2e-bfdc-4d4e-aacf-d1ed3e5bc635
+
+	measure 'Cobertura matrícula' = 0
+		formatString: 0.0%
+		displayFolder: 00 KPIs
+		lineageTag: f9d2d92a-6f2e-48ee-868a-0fa4d9764e55
+
+	measure 'Cobertura documento' = DIVIDE ( CALCULATE ( [Aprendices con inasistencias], FACT_INASISTENCIAS[TieneDocumentoAprendiz] = 1 ), [Aprendices con inasistencias] )
+		formatString: 0.0%
+		displayFolder: 00 KPIs
+		lineageTag: 46cd1718-3334-4f9c-84f9-374fc05c0497
+
+	measure 'Fichas sin jornada' = CALCULATE ( DISTINCTCOUNT ( FACT_INASISTENCIAS[FichaID] ), DIM_FICHA[Jornada] = "No informada" )
+		formatString: #,##0
+		displayFolder: 00 KPIs
+		lineageTag: e418f58f-0813-4a62-9ab0-c7c11c4b675a
+
+	measure 'Programas sin nivel formativo' = CALCULATE ( DISTINCTCOUNT ( FACT_INASISTENCIAS[ProgramaID] ), DIM_PROGRAMA[NivelFormacion] = "No informado" )
+		formatString: #,##0
+		displayFolder: 00 KPIs
+		lineageTag: 687a37a4-3dc0-4927-af67-26a971210918
+
+	measure 'Fecha mínima de novedad' = MIN ( FACT_INASISTENCIAS[Fecha] )
+		formatString: dd/mm/yyyy
+		displayFolder: 00 KPIs
+		lineageTag: 1ec29080-7ffa-426b-997a-421e5b1eb109
+
+	measure 'Fecha máxima de novedad' = MAX ( FACT_INASISTENCIAS[Fecha] )
+		formatString: dd/mm/yyyy
+		displayFolder: 00 KPIs
+		lineageTag: f9e0c480-6787-4ff2-8f4f-564d72e8afc0
+
+	measure 'Días de cobertura' = DATEDIFF ( MIN ( FACT_INASISTENCIAS[Fecha] ), MAX ( FACT_INASISTENCIAS[Fecha] ), DAY ) + 1
+		formatString: #,##0
+		displayFolder: 00 KPIs
+		lineageTag: ee98d33d-8dbe-4c66-94f8-50957e864f23
+
+	measure 'Top 10 Horas Ficha' =
+			VAR Ranking = RANKX ( ALLSELECTED ( DIM_FICHA[FichaID] ), [Total horas perdidas], , DESC, Dense )
+			RETURN IF ( NOT ISBLANK ( [Total horas perdidas] ) && Ranking <= 10, [Total horas perdidas] )
+		formatString: #,##0
+		displayFolder: 01 Inasistencias
+		lineageTag: 9cb5ce90-af1a-43c7-9d91-fdec598bb496
+
+	measure 'Top 10 Horas No Justificadas Ficha' =
+			VAR Ranking = RANKX ( ALLSELECTED ( DIM_FICHA[FichaID] ), [Horas no justificadas], , DESC, Dense )
+			RETURN IF ( NOT ISBLANK ( [Horas no justificadas] ) && Ranking <= 10, [Horas no justificadas] )
+		formatString: #,##0
+		displayFolder: 01 Inasistencias
+		lineageTag: 93325c35-4a22-4c5a-b2c3-442f49d538f4
+
+	measure 'Top 10 Horas Programa' =
+			VAR Ranking = RANKX ( ALLSELECTED ( DIM_PROGRAMA[NombrePrograma] ), [Total horas perdidas], , DESC, Dense )
+			RETURN IF ( NOT ISBLANK ( [Total horas perdidas] ) && Ranking <= 10, [Total horas perdidas] )
+		formatString: #,##0
+		displayFolder: 01 Inasistencias
+		lineageTag: 3661fef7-521d-456f-9da6-2bc24fa4be5a
+
+	measure 'Top 10 Horas No Justificadas Programa' =
+			VAR Ranking = RANKX ( ALLSELECTED ( DIM_PROGRAMA[NombrePrograma] ), [Horas no justificadas], , DESC, Dense )
+			RETURN IF ( NOT ISBLANK ( [Horas no justificadas] ) && Ranking <= 10, [Horas no justificadas] )
+		formatString: #,##0
+		displayFolder: 01 Inasistencias
+		lineageTag: 8eb87058-628d-4bee-a09d-151964107f44
+
+	measure 'Top 10 Aprendices Programa' =
+			VAR Ranking = RANKX ( ALLSELECTED ( DIM_PROGRAMA[NombrePrograma] ), [Aprendices con inasistencias], , DESC, Dense )
+			RETURN IF ( NOT ISBLANK ( [Aprendices con inasistencias] ) && Ranking <= 10, [Aprendices con inasistencias] )
+		formatString: #,##0
+		displayFolder: 03 Aprendices
+		lineageTag: d89ef706-8463-4a3e-bea2-503591a919f6
+
+	measure 'Top 10 Índice de Riesgo Ficha' =
+			VAR Universo = FILTER ( ALLSELECTED ( DIM_FICHA[FichaID] ), CALCULATE ( MAX ( DIM_FICHA[MuestraSuficiente] ) ) = 1 )
+			VAR Ranking = RANKX ( Universo, [Índice de riesgo promedio de fichas], , DESC, Dense )
+			RETURN IF ( CALCULATE ( MAX ( DIM_FICHA[MuestraSuficiente] ) ) = 1 && Ranking <= 10, [Índice de riesgo promedio de fichas] )
+		formatString: 0.0
+		displayFolder: 02 Riesgo
+		lineageTag: 711cde3f-fe69-4dbf-9ced-e973da2a59c5
+
+	column InasistenciaID
+		dataType: string
+		isHidden
+		lineageTag: 6b127812-40e4-48a9-a2b6-8f95a812f034
+		summarizeBy: none
+		sourceColumn: InasistenciaID
+
+	column Fecha
+		dataType: dateTime
+		formatString: yyyy-MM-dd
+		lineageTag: 59b269a5-873d-4860-b759-4b5fa896e91a
+		summarizeBy: none
+		sourceColumn: Fecha
+
+	column FechaFin
+		dataType: dateTime
+		formatString: yyyy-MM-dd
+		lineageTag: c28cb23f-435b-4c32-8f61-435775515cca
+		summarizeBy: none
+		sourceColumn: FechaFin
+
+	column FichaID
+		dataType: string
+		isHidden
+		lineageTag: 4ba6910e-6e20-41eb-9a85-6571c83bb98b
+		summarizeBy: none
+		sourceColumn: FichaID
+
+	column AprendizID
+		dataType: string
+		isHidden
+		lineageTag: c5123b83-35ea-4e6d-bb9b-641d398289d2
+		summarizeBy: none
+		sourceColumn: AprendizID
+
+	column ProgramaID
+		dataType: string
+		isHidden
+		lineageTag: 2dc306ad-e774-403f-8f3c-1420d1eec8f6
+		summarizeBy: none
+		sourceColumn: ProgramaID
+
+	column Instructor
+		dataType: string
+		lineageTag: 1bc9ed98-ca30-412d-9341-7dc5acc5c9df
+		summarizeBy: none
+		sourceColumn: Instructor
+
+	column CantidadHoras
+		dataType: int64
+		formatString: #,##0
+		lineageTag: bf6964b4-f499-4183-93b0-02ce681c3563
+		summarizeBy: none
+		sourceColumn: CantidadHoras
+
+	column DiasCubiertos
+		dataType: int64
+		formatString: 0
+		lineageTag: 9fc476b0-3511-493b-ac9f-7e2989a139ba
+		summarizeBy: none
+		sourceColumn: DiasCubiertos
+
+	column HorasPorDia
+		dataType: double
+		formatString: #,##0.00
+		lineageTag: 07f29025-49fa-4906-af0c-20c8fbb47450
+		summarizeBy: none
+		sourceColumn: HorasPorDia
+
+	column EsOutlierHoras
+		dataType: int64
+		formatString: 0
+		lineageTag: 09ef3e45-40f0-4f2b-8715-dc292e1ad166
+		summarizeBy: none
+		sourceColumn: EsOutlierHoras
+
+	column JustificacionOriginal
+		dataType: string
+		lineageTag: 2c137fb8-c835-4621-a25b-76180e9c4174
+		summarizeBy: none
+		sourceColumn: JustificacionOriginal
+
+	column CategoriaJustificacion
+		dataType: string
+		lineageTag: 63e95b73-66f6-4fda-8034-f47a867c0452
+		summarizeBy: none
+		sourceColumn: CategoriaJustificacion
+
+	column TipoJustificacion
+		dataType: string
+		lineageTag: cd96a2d0-8506-4d8d-9a55-4e3ab47cfb09
+		summarizeBy: none
+		sourceColumn: TipoJustificacion
+
+	column ConfianzaClasificacion
+		dataType: string
+		lineageTag: 8c269b3f-1741-4ef6-99c6-948a4c40aa99
+		summarizeBy: none
+		sourceColumn: ConfianzaClasificacion
+
+	column RequiereRevision
+		dataType: int64
+		formatString: 0
+		lineageTag: ca00b749-903f-471f-be90-56027779fda9
+		summarizeBy: none
+		sourceColumn: RequiereRevision
+
+	column ReglaClasificacion
+		dataType: string
+		lineageTag: 319e7fc6-142a-424f-8b23-cbf6eb4cb892
+		summarizeBy: none
+		sourceColumn: ReglaClasificacion
+
+	column TieneSoporte
+		dataType: int64
+		formatString: 0
+		lineageTag: 7dc6de9c-18d7-4268-a1a3-15fd8700a019
+		summarizeBy: none
+		sourceColumn: TieneSoporte
+
+	column EsRetardo
+		dataType: int64
+		formatString: 0
+		lineageTag: ea569ef4-68ae-4a1c-b76b-a7d37feff922
+		summarizeBy: none
+		sourceColumn: EsRetardo
+
+	column EsAusencia
+		dataType: int64
+		formatString: 0
+		lineageTag: 19cec4f8-1655-478c-af7b-92fc3eaf7a63
+		summarizeBy: none
+		sourceColumn: EsAusencia
+
+	column EsJustificada
+		dataType: int64
+		formatString: 0
+		lineageTag: 48844078-3bd8-48a5-b91c-dbbe5cff3482
+		summarizeBy: none
+		sourceColumn: EsJustificada
+
+	column EsNoJustificada
+		dataType: int64
+		formatString: 0
+		lineageTag: e6cec3b0-822e-4f24-a1db-41ba761e918d
+		summarizeBy: none
+		sourceColumn: EsNoJustificada
+
+	column EsSinInformacion
+		dataType: int64
+		formatString: 0
+		lineageTag: 6fa06cb6-3482-4df9-ab41-52bb9f0afd8d
+		summarizeBy: none
+		sourceColumn: EsSinInformacion
+
+	column EsReincidenteAprendiz
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: e5aa0c10-6628-438b-a439-6177e397bf06
+		summarizeBy: none
+		sourceColumn: EsReincidenteAprendiz
+
+	column EsReincidenteAltoAprendiz
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 4cdd230b-cb0b-48ba-8b5f-51f096a26a5a
+		summarizeBy: none
+		sourceColumn: EsReincidenteAltoAprendiz
+
+	column EsAlertaDesercionAprendiz
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 44ab8bcb-79b9-467e-aaa2-9c910d4568f0
+		summarizeBy: none
+		sourceColumn: EsAlertaDesercionAprendiz
+
+	column NivelRiesgoAprendiz
+		dataType: string
+		isHidden
+		lineageTag: 239c950c-47a6-432c-ae79-cef433d048d1
+		summarizeBy: none
+		sourceColumn: NivelRiesgoAprendiz
+
+	column TieneDocumentoAprendiz
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 88d19767-ee25-4a2e-9704-90a20e368b36
+		summarizeBy: none
+		sourceColumn: TieneDocumentoAprendiz
+
+	column Anio
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: a1d7f15e-4a32-441f-8d67-a657b863e902
+		summarizeBy: none
+		sourceColumn: Anio
+
+	column Mes
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 2073df32-1a01-428a-b023-76d12090b802
+		summarizeBy: none
+		sourceColumn: Mes
+
+	partition FACT_INASISTENCIAS = m
+		mode: import
+		source =
+				let
+					Origen = Csv.Document(File.Contents(RutaDatos & "\FACT_INASISTENCIAS.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+					Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars=true]),
+					Tipos = Table.TransformColumnTypes(Encabezados,{{"InasistenciaID", type text}, {"Fecha", type date}, {"FechaFin", type date}, {"FichaID", type text}, {"AprendizID", type text}, {"ProgramaID", type text}, {"Instructor", type text}, {"CantidadHoras", Int64.Type}, {"DiasCubiertos", Int64.Type}, {"EsOutlierHoras", Int64.Type}, {"JustificacionOriginal", type text}, {"CategoriaJustificacion", type text}, {"TipoJustificacion", type text}, {"ConfianzaClasificacion", type text}, {"RequiereRevision", Int64.Type}, {"ReglaClasificacion", type text}, {"TieneSoporte", Int64.Type}, {"EsRetardo", Int64.Type}, {"EsAusencia", Int64.Type}, {"EsJustificada", Int64.Type}, {"EsNoJustificada", Int64.Type}, {"EsSinInformacion", Int64.Type}, {"EsReincidenteAprendiz", Int64.Type}, {"EsReincidenteAltoAprendiz", Int64.Type}, {"EsAlertaDesercionAprendiz", Int64.Type}, {"NivelRiesgoAprendiz", type text}, {"TieneDocumentoAprendiz", Int64.Type}, {"Anio", Int64.Type}, {"Mes", Int64.Type}}),
+					Decimales = Table.TransformColumns(Tipos,{
+						{"HorasPorDia", each if _ = null then null else if Text.Trim(_) = "" then null else Number.FromText(Text.Trim(_), "en-US"), type number}
+					})
+				in
+					Decimales
+
