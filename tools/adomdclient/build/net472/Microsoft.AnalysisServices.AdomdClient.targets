@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>F:\dbs\sh\uikp\0929_225033\cmd\25\Directory.Packages.props;;F:\dbs\sh\uikp\0929_225033\cmd\25\Tools\scopas\Extensions\Scopas.Common.props;F:\dbs\sh\uikp\0929_225033\cmd\25\Tools\scopas\Extensions\Scopas.Generic.props;F:\dbs\sh\uikp\0929_225033\cmd\25\Sql\Picasso\objectmodels\nugets\AdomdClient\Microsoft.AnalysisServices.AdomdClient.BuildLogic.props;F:\dbs\sh\uikp\0929_225033\cmd\25\Tools\scopas\Extensions\Scopas.NetFx.props;F:\dbs\Cx\uikp\MsBuild.Corext.17.14.41\Current\bin\amd64\Microsoft.Xaml.targets;F:\dbs\sh\uikp\0929_225033\cmd\25\Tools\scopas\Extensions\Scopas.Common.targets;F:\dbs\sh\uikp\0929_225033\cmd\25\Tools\scopas\Extensions\Scopas.GenericSdk.targets;F:\dbs\el\uikp\Build\Picasso\Picasso.Nuget.tasks</MSBuildAllProjects>
+  </PropertyGroup>
+
+  <!--
+  ===============================================================================
+    Add Compression Support Binaries
+  ===============================================================================
+  -->
+
+  <Target Name="AddXpressBinaries" BeforeTargets="GetCopyToOutputDirectoryItems" Condition="'$(UsingMicrosoftNETSdk)'!='true'">
+    <!-- Identify the binaries that enable compression support -->
+    <PropertyGroup>
+      <_TargetArchitecture Condition="'$(PlatformTargetAsMSBuildArchitectureExplicitlySet)'=='true'">$(PlatformTargetAsMSBuildArchitecture)</_TargetArchitecture>
+      <_TargetArchitecture Condition="'$(_TargetArchitecture)'=='' AND ('$(PlatformTarget)'=='x86' OR ('$(PlatformTarget)'=='x64' AND '$(MSBuildExtensionsPath64)'!=''))">$(PlatformTarget)</_TargetArchitecture>
+      <_TargetArchitecture Condition="'$(_TargetArchitecture)'=='' AND ('$(PlatformTarget)'=='AnyCPU' OR '$(PlatformTarget)'=='') AND '$(Prefer32Bit)'=='true'">x86</_TargetArchitecture>
+      <_TargetArchitecture Condition="'$(_TargetArchitecture)'=='' AND ('$(PlatformTarget)'=='AnyCPU' OR '$(PlatformTarget)'=='')">x64</_TargetArchitecture>
+    </PropertyGroup>    
+    <PropertyGroup Condition="'$(_TargetArchitecture)'!=''">
+      <_XpressDllPath>$(MsBuildThisFileDirectory)..\..\runtimes\win-$(_TargetArchitecture)\native\msasxpress.dll</_XpressDllPath>
+    </PropertyGroup>
+    
+    <!-- Add the binaries to the set of files that are placed in the build output location -->
+    <ItemGroup>
+      <_XpressBinary Include="$(_XpressDllPath)" Condition="Exists('$(_XpressDllPath)')">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        <Visible>false</Visible>
+      </_XpressBinary>
+    </ItemGroup>
+    <ItemGroup Condition="'@(_XpressBinary)'!=''">
+      <_XpressBinaryWithTargetPath Include="@(_XpressBinary)">
+        <TargetPath>%(_XpressBinary.Filename)%(_XpressBinary.Extension)</TargetPath>
+      </_XpressBinaryWithTargetPath>
+    </ItemGroup>
+    <ItemGroup Condition="'@(_XpressBinaryWithTargetPath)'!=''">
+      <AllItemsFullPathWithTargetPath Include="@(_XpressBinaryWithTargetPath)" />
+      <_SourceItemsToCopyToOutputDirectoryAlways Include="@(_XpressBinaryWithTargetPath)" Condition="'%(_XpressBinaryWithTargetPath.CopyToOutputDirectory)'=='Always'" />
+      <_SourceItemsToCopyToOutputDirectory Include="@(_XpressBinaryWithTargetPath)" Condition="'%(_XpressBinaryWithTargetPath.CopyToOutputDirectory)'=='PreserveNewest'" />
+    </ItemGroup>
+  </Target>
+</Project>

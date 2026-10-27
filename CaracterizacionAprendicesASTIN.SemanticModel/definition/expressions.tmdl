@@ -1,0 +1,5 @@
+expression RutaDatos = "C:\Users\capatino\Documents\Inasistencias Sofía Plus\data\processed" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 707d108d-2100-424b-bdbd-a1939ade63a2
+
+	annotation PBI_ResultType = Text
+

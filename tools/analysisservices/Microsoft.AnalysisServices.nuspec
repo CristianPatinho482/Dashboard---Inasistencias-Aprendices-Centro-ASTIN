@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>Microsoft.AnalysisServices</id>
+    <version>19.118.3</version>
+    <authors>Microsoft</authors>
+    <owners>NuGetAnalysisSrvs</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <licenseUrl>https://go.microsoft.com/fwlink/?linkid=852989</licenseUrl>
+    <projectUrl>https://docs.microsoft.com/en-us/sql/analysis-services/tabular-models/tabular-models-ssas?view=sql-server-2017</projectUrl>
+    <description>Analysis Management Objects (AMO) is a .Net library that allows modeling and administration of Microsoft Analysis Services.</description>
+    <releaseNotes>NuGet package for Microsoft.AnalysisServices</releaseNotes>
+    <copyright>© Microsoft Corporation. All rights reserved.</copyright>
+    <tags>SSAS AMO Microsoft Analysis-Services</tags>
+    <dependencies>
+      <dependency id="Microsoft.Identity.Client" version="4.83.3" />
+      <dependency id="Microsoft.Identity.Client.Broker" version="4.83.3" />
+    </dependencies>
+  </metadata>
+</package>

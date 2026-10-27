@@ -1,0 +1,171 @@
+table DIM_FICHA
+	lineageTag: 3f4fabc9-78e2-4490-b670-7499bf52f1ac
+
+	column FichaID
+		dataType: string
+		lineageTag: c6a399af-6418-487e-b614-25e6b980b97e
+		summarizeBy: none
+		sourceColumn: FichaID
+
+	column ProgramaID
+		dataType: string
+		isHidden
+		lineageTag: 592ec883-c6c1-4b93-b998-055cadfacfb9
+		summarizeBy: none
+		sourceColumn: ProgramaID
+
+	column InstructorPrincipal
+		dataType: string
+		lineageTag: 51f6118e-5660-4e21-a612-83cb6225cfcf
+		summarizeBy: none
+		sourceColumn: InstructorPrincipal
+
+	column TotalInstructores
+		dataType: int64
+		formatString: 0
+		lineageTag: 989ae96a-cc08-4d7f-8a6f-686d97f1352e
+		summarizeBy: none
+		sourceColumn: TotalInstructores
+
+	column Jornada
+		dataType: string
+		lineageTag: 81820f5d-e0bb-42e5-8484-96fe5df59dd2
+		summarizeBy: none
+		sourceColumn: Jornada
+
+	column Modalidad
+		dataType: string
+		lineageTag: ced4de9e-4fb7-49aa-a280-2b16db83436e
+		summarizeBy: none
+		sourceColumn: Modalidad
+
+	column Sede
+		dataType: string
+		lineageTag: 2db152fd-a66e-4c6b-8ae2-2f964efe8d9b
+		summarizeBy: none
+		sourceColumn: Sede
+
+	column CentroCosto
+		dataType: string
+		lineageTag: 90ca23f1-3eda-4400-a1c3-c960ddcf47eb
+		summarizeBy: none
+		sourceColumn: CentroCosto
+
+	column LineaFormacion
+		dataType: string
+		lineageTag: 25650a6a-4e08-43d5-acff-da09a839b154
+		summarizeBy: none
+		sourceColumn: LineaFormacion
+
+	column EstadoFicha
+		dataType: string
+		lineageTag: a2e321b7-16dd-4634-8339-6b7d858b0a78
+		summarizeBy: none
+		sourceColumn: EstadoFicha
+
+	column DiasSinNovedad
+		dataType: int64
+		formatString: 0
+		lineageTag: a0364c57-c77c-409d-9cd0-3a6ef4fc62be
+		summarizeBy: none
+		sourceColumn: DiasSinNovedad
+
+	column Aprendices
+		dataType: int64
+		formatString: #,##0
+		lineageTag: 189c188e-6050-47df-b8fd-5f43a423888b
+		summarizeBy: none
+		sourceColumn: Aprendices
+
+	column Inasistencias
+		dataType: int64
+		formatString: #,##0
+		lineageTag: 72d64cd2-4b0c-439c-aa9c-226d12c5bc70
+		summarizeBy: none
+		sourceColumn: Inasistencias
+
+	column Horas
+		dataType: int64
+		formatString: #,##0
+		lineageTag: 34764050-81b9-4d0c-ac26-9d905b601f3e
+		summarizeBy: none
+		sourceColumn: Horas
+
+	column HorasNoJustificadas
+		dataType: int64
+		formatString: #,##0
+		lineageTag: e7386f2c-65b3-42f2-bfec-e49ae72c0fad
+		summarizeBy: none
+		sourceColumn: HorasNoJustificadas
+
+	column PctHorasNoJust
+		dataType: double
+		formatString: 0.0%
+		lineageTag: cec8e64d-9f63-4e27-8a55-2f4c2443ba99
+		summarizeBy: none
+		sourceColumn: PctHorasNoJust
+
+	column HorasPorAprendiz
+		dataType: double
+		formatString: #,##0.0
+		lineageTag: 8297ecf3-09cd-4476-be75-53aaf3078bb1
+		summarizeBy: none
+		sourceColumn: HorasPorAprendiz
+
+	column InasPorAprendiz
+		dataType: double
+		formatString: #,##0.0
+		lineageTag: 02bad8d5-4a95-4765-810b-774ba1fd0e2a
+		summarizeBy: none
+		sourceColumn: InasPorAprendiz
+
+	column MuestraSuficiente
+		dataType: int64
+		formatString: 0
+		lineageTag: ee7f9e9c-a592-4af5-8977-034738231d81
+		summarizeBy: none
+		sourceColumn: MuestraSuficiente
+
+	column IndiceRiesgoCorte
+		dataType: double
+		formatString: 0.0
+		lineageTag: 1a4e9c2e-cf1b-4cf9-93d7-310c54fba30d
+		summarizeBy: none
+		sourceColumn: IndiceRiesgoCorte
+
+	column NivelRiesgoCorte
+		dataType: string
+		lineageTag: 64439fc5-bff4-4a55-85f8-89ca819f14af
+		summarizeBy: none
+		sourceColumn: NivelRiesgoCorte
+
+	column PrimeraNovedad
+		dataType: dateTime
+		formatString: yyyy-MM-dd
+		lineageTag: 33797f63-6c8a-48c7-8c6c-3ddffabc86b0
+		summarizeBy: none
+		sourceColumn: PrimeraNovedad
+
+	column UltimaNovedad
+		dataType: dateTime
+		formatString: yyyy-MM-dd
+		lineageTag: 1291ef9d-2661-4f5b-9b05-7e6e376855a3
+		summarizeBy: none
+		sourceColumn: UltimaNovedad
+
+	partition DIM_FICHA = m
+		mode: import
+		source =
+				let
+					Origen = Csv.Document(File.Contents(RutaDatos & "\DIM_FICHA.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+					Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars=true]),
+					Tipos = Table.TransformColumnTypes(Encabezados,{{"FichaID", type text}, {"ProgramaID", type text}, {"InstructorPrincipal", type text}, {"TotalInstructores", Int64.Type}, {"Jornada", type text}, {"Modalidad", type text}, {"Sede", type text}, {"CentroCosto", type text}, {"LineaFormacion", type text}, {"EstadoFicha", type text}, {"DiasSinNovedad", Int64.Type}, {"Aprendices", Int64.Type}, {"Inasistencias", Int64.Type}, {"Horas", Int64.Type}, {"HorasNoJustificadas", Int64.Type}, {"MuestraSuficiente", Int64.Type}, {"NivelRiesgoCorte", type text}, {"PrimeraNovedad", type date}, {"UltimaNovedad", type date}}),
+					Decimales = Table.TransformColumns(Tipos,{
+						{"PctHorasNoJust", each if _ = null then null else if Text.Trim(_) = "" then null else Number.FromText(Text.Trim(_), "en-US"), type number},
+						{"HorasPorAprendiz", each if _ = null then null else if Text.Trim(_) = "" then null else Number.FromText(Text.Trim(_), "en-US"), type number},
+						{"InasPorAprendiz", each if _ = null then null else if Text.Trim(_) = "" then null else Number.FromText(Text.Trim(_), "en-US"), type number},
+						{"IndiceRiesgoCorte", each if _ = null then null else if Text.Trim(_) = "" then null else Number.FromText(Text.Trim(_), "en-US"), type number}
+					})
+				in
+					Decimales
+

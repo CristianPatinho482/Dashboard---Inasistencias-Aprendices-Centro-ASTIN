@@ -1,0 +1,16 @@
+relationship 1f2d8a10-6c1d-4a5e-9f01-8c4b7d2e6a01
+	fromColumn: FACT_INASISTENCIAS.Fecha
+	toColumn: DIM_CALENDARIO.Fecha
+
+relationship 2a3e9b21-7d2e-4b6f-8a12-9d5c8e3f7b02
+	fromColumn: FACT_INASISTENCIAS.FichaID
+	toColumn: DIM_FICHA.FichaID
+
+relationship 3b4f0c32-8e3f-4c70-9b23-0e6d9f4a8c03
+	fromColumn: FACT_INASISTENCIAS.AprendizID
+	toColumn: DIM_APRENDIZ.AprendizID
+
+relationship 4c5a1d43-9f40-4d81-8c34-1f7ea05b9d04
+	fromColumn: FACT_INASISTENCIAS.ProgramaID
+	toColumn: DIM_PROGRAMA.ProgramaID
+

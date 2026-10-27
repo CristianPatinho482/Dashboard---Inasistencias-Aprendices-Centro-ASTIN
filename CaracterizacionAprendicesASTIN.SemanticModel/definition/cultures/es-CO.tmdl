@@ -1,0 +1,179 @@
+cultureInfo es-CO
+
+	linguisticMetadata =
+			{
+			  "Version": "2.0.0",
+			  "Language": "en-US",
+			  "Entities": {
+			    "dim_ficha.fichaid": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_FICHA",
+			          "ConceptualProperty": "FichaID"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Ficha": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "dim_ficha.pcthorasnojust": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_FICHA",
+			          "ConceptualProperty": "PctHorasNoJust"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% no justificado": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "dim_ficha.indiceriesgocorte": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_FICHA",
+			          "ConceptualProperty": "IndiceRiesgoCorte"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Índice": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "dim_ficha.nivelriesgocorte": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_FICHA",
+			          "ConceptualProperty": "NivelRiesgoCorte"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Nivel": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "dim_programa.nombreprograma": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_PROGRAMA",
+			          "ConceptualProperty": "NombrePrograma"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Programa": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "dim_programa.indiceriesgocorte": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_PROGRAMA",
+			          "ConceptualProperty": "IndiceRiesgoCorte"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Índice": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "dim_programa.nivelriesgocorte": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_PROGRAMA",
+			          "ConceptualProperty": "NivelRiesgoCorte"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Nivel": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "dim_programa.horasnojustificadas": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_PROGRAMA",
+			          "ConceptualProperty": "HorasNoJustificadas"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Horas no justif.": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    }
+			  }
+			}
+		contentType: json
+

@@ -1,0 +1,171 @@
+table DIM_APRENDIZ
+	lineageTag: 7c698b3e-b2fd-4e30-b2c7-2ce2bbdde6c1
+
+	column AprendizID
+		dataType: string
+		isHidden
+		lineageTag: 7733415b-0901-45c0-bbab-79541feca960
+		summarizeBy: none
+		sourceColumn: AprendizID
+
+	column TipoDocumento
+		dataType: string
+		lineageTag: 8b98fc5b-da9f-4aae-8bd0-853be233b197
+		summarizeBy: none
+		sourceColumn: TipoDocumento
+
+	column DocumentoEnmascarado
+		dataType: string
+		lineageTag: 1b719996-3b90-4175-baa3-594364506d77
+		summarizeBy: none
+		sourceColumn: DocumentoEnmascarado
+
+	column Iniciales
+		dataType: string
+		lineageTag: e036cc00-6833-41db-bd38-818d633b49fc
+		summarizeBy: none
+		sourceColumn: Iniciales
+
+	column FichaPrincipal
+		dataType: string
+		lineageTag: 8e6b5917-1cd1-4931-be5e-67382faee9fe
+		summarizeBy: none
+		sourceColumn: FichaPrincipal
+
+	column ProgramaPrincipal
+		dataType: string
+		isHidden
+		lineageTag: 7518d78e-9784-49c5-8216-301c42b6b180
+		summarizeBy: none
+		sourceColumn: ProgramaPrincipal
+
+	column Inasistencias
+		dataType: int64
+		formatString: #,##0
+		lineageTag: 124964b1-9b22-48d3-93e5-a749f0fcf2b5
+		summarizeBy: none
+		sourceColumn: Inasistencias
+
+	column Horas
+		dataType: int64
+		formatString: #,##0
+		lineageTag: 37cb6ce3-9e23-4ebb-95ab-3bef68b2031e
+		summarizeBy: none
+		sourceColumn: Horas
+
+	column Justificadas
+		dataType: int64
+		formatString: #,##0
+		lineageTag: f5448287-6991-46b1-9445-e332897c633d
+		summarizeBy: none
+		sourceColumn: Justificadas
+
+	column NoJustificadas
+		dataType: int64
+		formatString: #,##0
+		lineageTag: 86e8c9d1-e867-483d-b86d-7c1fb1696c9c
+		summarizeBy: none
+		sourceColumn: NoJustificadas
+
+	column Retardos
+		dataType: int64
+		formatString: #,##0
+		lineageTag: 6502fe8b-c127-4f8f-b3f7-d80888173265
+		summarizeBy: none
+		sourceColumn: Retardos
+
+	column HorasNoJustificadas
+		dataType: int64
+		formatString: #,##0
+		lineageTag: d60c0021-1d3c-422d-91f0-a93cc59605e4
+		summarizeBy: none
+		sourceColumn: HorasNoJustificadas
+
+	column ScoreRiesgo
+		dataType: double
+		formatString: 0.0
+		lineageTag: 7946809b-d4d3-4994-98fe-1c551cce0cb7
+		summarizeBy: none
+		sourceColumn: ScoreRiesgo
+
+	column NivelRiesgo
+		dataType: string
+		lineageTag: a7905240-fade-4d31-b793-6f1a7c975c81
+		summarizeBy: none
+		sourceColumn: NivelRiesgo
+
+	column EstadoAsistencia
+		dataType: string
+		lineageTag: fd965316-8c18-4a88-8280-7eb02ba3dd80
+		summarizeBy: none
+		sourceColumn: EstadoAsistencia
+
+	column EsReincidente
+		dataType: int64
+		formatString: 0
+		lineageTag: d1137063-505c-4d43-8981-aa17c56d22d3
+		summarizeBy: none
+		sourceColumn: EsReincidente
+
+	column EsReincidenteAlto
+		dataType: int64
+		formatString: 0
+		lineageTag: 7550e187-32fc-4f63-9685-01d2b25200fe
+		summarizeBy: none
+		sourceColumn: EsReincidenteAlto
+
+	column AlertaDesercion
+		dataType: int64
+		formatString: 0
+		lineageTag: 0e10b68d-949c-4c92-93c3-2bb59cd92272
+		summarizeBy: none
+		sourceColumn: AlertaDesercion
+
+	column MotivoAlertaDesercion
+		dataType: string
+		lineageTag: 13fcfe01-748f-407c-abc0-e3de8bc88755
+		summarizeBy: none
+		sourceColumn: MotivoAlertaDesercion
+
+	column DiasDesdeUltimaNovedad
+		dataType: int64
+		formatString: #,##0
+		lineageTag: cb284d78-b877-45d4-85c7-0e540bf2b627
+		summarizeBy: none
+		sourceColumn: DiasDesdeUltimaNovedad
+
+	column PrimeraNovedad
+		dataType: dateTime
+		formatString: yyyy-MM-dd
+		lineageTag: a30e65cc-33bc-4a47-b18b-3c2898a4b894
+		summarizeBy: none
+		sourceColumn: PrimeraNovedad
+
+	column UltimaNovedad
+		dataType: dateTime
+		formatString: yyyy-MM-dd
+		lineageTag: ded3a44a-31a8-49e4-bcd6-0f2248e283a8
+		summarizeBy: none
+		sourceColumn: UltimaNovedad
+
+	column EsTopRiesgo =
+			IF ( RANKX ( ALL ( DIM_APRENDIZ[AprendizID] ), DIM_APRENDIZ[ScoreRiesgo], , DESC, Dense ) <= 15, 1, 0)
+			dataType: int64
+			formatString: 0
+			isHidden
+			summarizeBy: none
+		lineageTag: 05199b80-cb95-41fa-a0b0-65f8c15d3b0a
+
+	partition DIM_APRENDIZ = m
+		mode: import
+		source =
+				let
+					Origen = Csv.Document(File.Contents(RutaDatos & "\DIM_APRENDIZ.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+					Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars=true]),
+					Tipos = Table.TransformColumnTypes(Encabezados,{{"AprendizID", type text}, {"TipoDocumento", type text}, {"DocumentoEnmascarado", type text}, {"Iniciales", type text}, {"FichaPrincipal", type text}, {"ProgramaPrincipal", type text}, {"Inasistencias", Int64.Type}, {"Horas", Int64.Type}, {"Justificadas", Int64.Type}, {"NoJustificadas", Int64.Type}, {"Retardos", Int64.Type}, {"HorasNoJustificadas", Int64.Type}, {"NivelRiesgo", type text}, {"EstadoAsistencia", type text}, {"EsReincidente", Int64.Type}, {"EsReincidenteAlto", Int64.Type}, {"AlertaDesercion", Int64.Type}, {"MotivoAlertaDesercion", type text}, {"DiasDesdeUltimaNovedad", Int64.Type}, {"PrimeraNovedad", type date}, {"UltimaNovedad", type date}}),
+					Decimales = Table.TransformColumns(Tipos,{
+						{"ScoreRiesgo", each if _ = null then null else if Text.Trim(_) = "" then null else Number.FromText(Text.Trim(_), "en-US"), type number}
+					})
+				in
+					Decimales
+

@@ -1,0 +1,15 @@
+model CaracterizacionAprendicesASTIN
+	culture: es-CO
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: es-CO
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table DIM_CALENDARIO
+ref table DIM_APRENDIZ
+ref table DIM_FICHA
+ref table DIM_PROGRAMA
+ref table FACT_INASISTENCIAS
+
+ref cultureInfo es-CO
+

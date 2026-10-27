@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "CaracterizacionAprendicesASTIN"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "a7c1e4f2-3b5d-4e6a-9f70-1c2d3e4f5a6b"
+  }
+}
