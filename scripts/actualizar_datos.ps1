@@ -87,7 +87,10 @@ try {
     if ($PublicarPortal) {
         git -C $root diff --quiet HEAD -- index.html
         if ($LASTEXITCODE -eq 1) {
-            git -C $root commit --only -m 'Actualiza portal de inasistencias' -- index.html
+            git -C $root commit --only -m 'Actualiza portal y definiciones del reporte' -- `
+                index.html `
+                CaracterizacionAprendicesASTIN.Report/definition `
+                CaracterizacionAprendicesASTIN.SemanticModel/definition
             if ($LASTEXITCODE -ne 0) {
                 throw 'No se pudo crear el commit del portal. Revise identidad Git, cambios pendientes y estado de la rama.'
             }
