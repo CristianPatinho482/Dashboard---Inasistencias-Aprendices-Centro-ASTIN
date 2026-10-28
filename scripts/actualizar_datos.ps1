@@ -1,5 +1,5 @@
 <#
-Actualiza los datos, el modelo Power BI, el informe PBIR y el portal HTML desde el Excel del Escritorio.
+Actualiza los datos, el modelo Power BI, el informe PBIR y el portal HTML desde el Excel sincronizado en OneDrive.
 Después, actualice el modelo abierto en Power BI Desktop con Inicio > Actualizar.
 #>
 $ErrorActionPreference = 'Stop'
@@ -10,7 +10,7 @@ $pipeline = @(
     '03_generar_reporte_pbir.py',
     '04_generar_portal_html.py'
 )
-$sourceFile = Join-Path $env:USERPROFILE 'Desktop\Inasistencias\Inasistencias.xls'
+$sourceFile = Join-Path $env:USERPROFILE 'OneDrive - Servicio Nacional de Aprendizaje\Equipo ASTIN-DESAROLLOS POWER-BI - RAPS ASTIN 2026\Inasistencias.xls'
 
 if (-not (Test-Path -LiteralPath $sourceFile)) {
     throw "No se encontró el archivo fuente: $sourceFile"

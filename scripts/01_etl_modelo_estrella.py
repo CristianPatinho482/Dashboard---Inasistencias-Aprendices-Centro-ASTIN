@@ -2,10 +2,10 @@
 """
 ETL · Caracterización de Aprendices Centro ASTIN
 ------------------------------------------------
-Construye el modelo estrella a partir de data/raw/Inasistencias.xls.
+Construye el modelo estrella a partir del archivo Inasistencias.xls configurado en INASISTENCIAS_SOURCE.
 
 Entradas:
-    data/raw/Inasistencias.xls
+    C:\Users\capatino\OneDrive - Servicio Nacional de Aprendizaje\Equipo ASTIN-DESAROLLOS POWER-BI - RAPS ASTIN 2026\Inasistencias.xls
 
 Salidas:
     data/processed/DIM_CALENDARIO.csv
@@ -43,7 +43,7 @@ import pandas as pd
 BASE = Path(__file__).resolve().parents[1]
 RAW = Path(os.environ.get(
     "INASISTENCIAS_SOURCE",
-    str(Path.home() / "Desktop" / "Inasistencias" / "Inasistencias.xls"),
+    str(Path.home() / "OneDrive - Servicio Nacional de Aprendizaje" / "Equipo ASTIN-DESAROLLOS POWER-BI - RAPS ASTIN 2026" / "Inasistencias.xls"),
 ))
 OUT = BASE / "data" / "processed"
 RESTRICTED = BASE / "data" / "restricted"
