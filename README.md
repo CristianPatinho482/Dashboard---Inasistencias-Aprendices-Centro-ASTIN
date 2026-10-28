@@ -8,7 +8,7 @@ Solución de analítica académica para caracterizar aprendices y hacer seguimie
 - `CaracterizacionAprendicesASTIN.Report`: cinco páginas y visualizaciones PBIR, tema institucional SENA y tipografía Work Sans.
 - `CaracterizacionAprendicesASTIN.SemanticModel`: modelo estrella, relaciones, columnas y medidas DAX.
 - `outputs/portal_astin.html`: portal HTML estático con Chart.js 4.6.1 y datos agregados incrustados; funciona sin conexión y no consulta servidores externos.
-- `C:\Users\capatino\Desktop\Inasistencias\Inasistencias.xls`: archivo Excel de entrada identificado en el equipo. Reemplace este archivo para procesar un nuevo extracto.
+- `C:\Users\capatino\OneDrive - Servicio Nacional de Aprendizaje\Equipo ASTIN-DESAROLLOS POWER-BI - RAPS ASTIN 2026\Inasistencias.xls`: archivo Excel de entrada que el bot sobrescribe en OneDrive.
 - `data/processed`: dimensiones, tabla de hechos y resumen del ETL.
 - `data/restricted/DIM_APRENDIZ_PII.csv`: datos personales identificables; no importar ni publicar.
 - `scripts/01_etl_modelo_estrella.py`: limpieza, reglas de clasificación, riesgo y generación de tablas.
@@ -53,7 +53,7 @@ La imputación de una novedad al calendario usa `Fecha Inicio`. Los intervalos c
 
 En Windows, con Python disponible y las dependencias `pandas` y `xlrd` instaladas:
 
-1. Reemplace `C:\Users\capatino\Desktop\Inasistencias\Inasistencias.xls` manteniendo las columnas y la hoja `Sheet1` que consume el ETL.
+1. El bot sobrescribe `C:\Users\capatino\OneDrive - Servicio Nacional de Aprendizaje\Equipo ASTIN-DESAROLLOS POWER-BI - RAPS ASTIN 2026\Inasistencias.xls`, manteniendo las columnas y la hoja `Sheet1` que consume el ETL.
 2. Desde PowerShell, en la carpeta del proyecto, ejecute el pipeline ETL + modelo + PBIR:
 
    ```powershell
@@ -77,4 +77,4 @@ Al modificar columnas de origen, actualice primero el ETL, luego la especificaci
 
 ## Fuentes y límites
 
-El equipo contiene `C:\Users\capatino\Desktop\Inasistencias\Inasistencias.xls` y el manual `C:\Users\capatino\Desktop\Inasistencias\Manual de identidad corporativa sena 2024.pdf`; el proyecto incluye además `Diseño dashboards.pdf`. No se encontró un catálogo maestro adicional. El tema del informe aplica identidad SENA disponible en los recursos del proyecto. Jornada, modalidad, estado académico oficial, matrícula oficial y centro de costo maestro no están cubiertos de forma suficiente por el origen; la cobertura y los campos inferidos se marcan en el modelo/resumen, sin presentarlos como datos oficiales. La tabla de PII está separada y excluida del PBIP.
+El archivo de entrada se encuentra en la carpeta OneDrive descrita arriba. El manual `C:\Users\capatino\Desktop\Inasistencias\Manual de identidad corporativa sena 2024.pdf` y `Diseño dashboards.pdf` respaldan el diseño. No se encontró un catálogo maestro adicional. El tema del informe aplica identidad SENA disponible en los recursos del proyecto. Jornada, modalidad, estado académico oficial, matrícula oficial y centro de costo maestro no están cubiertos de forma suficiente por el origen; la cobertura y los campos inferidos se marcan en el modelo/resumen, sin presentarlos como datos oficiales. La tabla de PII está separada y excluida del PBIP.
