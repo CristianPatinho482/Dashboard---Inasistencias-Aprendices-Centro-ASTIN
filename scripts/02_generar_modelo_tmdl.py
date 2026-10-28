@@ -410,6 +410,11 @@ def escribir_tabla(nombre: str, spec: dict) -> None:
 
 def main() -> None:
     TABLES_DIR.mkdir(parents=True, exist_ok=True)
+    # El modelo usa DIM_CALENDARIO explícita; se quitan las tablas automáticas
+    # de fecha creadas por Power BI Desktop para evitar referencias/variaciones huérfanas.
+    for pattern in ("LocalDateTable_*.tmdl", "DateTableTemplate_*.tmdl"):
+        for generated_table in TABLES_DIR.glob(pattern):
+            generated_table.unlink()
     for nombre, spec in TABLAS.items():
         escribir_tabla(nombre, spec)
 
@@ -421,6 +426,7 @@ def main() -> None:
 \tsourceQueryCulture: es-CO
 
 {refs}
+\tannotation __PBI_TimeIntelligenceEnabled = 0
 """,
         encoding="utf-8",
     )

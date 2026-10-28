@@ -13,3 +13,5 @@ ref table FACT_INASISTENCIAS
 
 ref cultureInfo es-CO
 
+annotation __PBI_TimeIntelligenceEnabled = 0
+
