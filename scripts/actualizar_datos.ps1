@@ -4,7 +4,8 @@ Después, actualice el modelo abierto en Power BI Desktop con Inicio > Actualiza
 #>
 param(
     [switch]$PublicarPortal,
-    [switch]$CopiarSalidasSharePoint
+    [switch]$CopiarSalidasSharePoint,
+    [switch]$SoloSiFuenteNueva
 )
 
 $ErrorActionPreference = 'Stop'
@@ -17,11 +18,43 @@ $pipeline = @(
     '05_generar_consulta_interna.py'
 )
 $sourceFile = Join-Path $env:USERPROFILE 'OneDrive - Servicio Nacional de Aprendizaje\Equipo ASTIN-DESAROLLOS POWER-BI - RAPS ASTIN 2026\Inasistencias.xls'
+$stateDirectory = Join-Path $env:LOCALAPPDATA 'InasistenciasASTIN'
+$statePath = Join-Path $stateDirectory 'estado_actualizacion.json'
+$logDirectory = Join-Path $stateDirectory 'logs'
+New-Item -ItemType Directory -Path $logDirectory -Force | Out-Null
+$logPath = Join-Path $logDirectory ("actualizar_datos_{0}.log" -f (Get-Date -Format 'yyyyMMdd'))
 
 if (-not (Test-Path -LiteralPath $sourceFile)) {
     throw "No se encontró el archivo fuente: $sourceFile"
 }
 
+$sourceHash = $null
+if ($SoloSiFuenteNueva) {
+    # Espera a que OneDrive/bot termine de escribir antes de leer el Excel.
+    $stable = $false
+    for ($attempt = 0; $attempt -lt 6; $attempt++) {
+        $first = Get-Item -LiteralPath $sourceFile
+        Start-Sleep -Seconds 5
+        $second = Get-Item -LiteralPath $sourceFile
+        if ($first.Length -eq $second.Length -and $first.LastWriteTimeUtc -eq $second.LastWriteTimeUtc) {
+            $stable = $true
+            break
+        }
+    }
+    if (-not $stable) {
+        throw 'El archivo todavía está cambiando; se intentará de nuevo en la siguiente ejecución programada.'
+    }
+    $sourceHash = (Get-FileHash -LiteralPath $sourceFile -Algorithm SHA256).Hash
+    if (Test-Path -LiteralPath $statePath) {
+        $previousState = Get-Content -LiteralPath $statePath -Raw | ConvertFrom-Json
+        if ($previousState.source_sha256 -eq $sourceHash) {
+            Write-Host 'El archivo de origen no cambió; no se requiere actualizar ni publicar.' -ForegroundColor DarkGray
+            exit 0
+        }
+    }
+}
+
+Start-Transcript -Path $logPath -Append | Out-Null
 Push-Location $root
 $previousSource = $env:INASISTENCIAS_SOURCE
 try {
@@ -58,18 +91,27 @@ try {
             if ($LASTEXITCODE -ne 0) {
                 throw 'No se pudo crear el commit del portal. Revise identidad Git, cambios pendientes y estado de la rama.'
             }
-            git -C $root push origin main
-            if ($LASTEXITCODE -ne 0) {
-                throw 'El portal se generó, pero GitHub rechazó el push. Revise conexión, credenciales y sincronización de main.'
-            }
-            Write-Host 'Portal actualizado y enviado a GitHub Pages (solo index.html).' -ForegroundColor Green
+            Write-Host 'Se creó un commit con el portal agregado actualizado.' -ForegroundColor Green
         }
         elseif ($LASTEXITCODE -ne 0) {
             throw 'No se pudo comparar index.html con Git. Verifique que el proyecto tenga un repositorio Git válido.'
         }
         else {
-            Write-Host 'El portal no cambió; no se creó un commit ni se envió a GitHub.' -ForegroundColor DarkGray
+            Write-Host 'El contenido del portal no cambió; no se creó un commit adicional.' -ForegroundColor DarkGray
         }
+        git -C $root push origin main
+        if ($LASTEXITCODE -ne 0) {
+            throw 'GitHub rechazó el push. Revise conexión, credenciales y sincronización de main.'
+        }
+        Write-Host 'La rama main quedó sincronizada con GitHub Pages.' -ForegroundColor Green
+    }
+    if ($SoloSiFuenteNueva -and $null -ne $sourceHash) {
+        New-Item -ItemType Directory -Path $stateDirectory -Force | Out-Null
+        $state = @{
+            source_sha256 = $sourceHash
+            completed_at = (Get-Date).ToString('o')
+        } | ConvertTo-Json
+        [System.IO.File]::WriteAllText($statePath, $state, [System.Text.UTF8Encoding]::new($false))
     }
     Write-Host 'Datos, modelo, reporte y portal regenerados desde OneDrive. Portal: outputs\portal_astin.html; GitHub Pages: index.html. En Power BI Desktop, use Inicio > Actualizar.' -ForegroundColor Green
 }
@@ -81,4 +123,5 @@ finally {
         $env:INASISTENCIAS_SOURCE = $previousSource
     }
     Pop-Location
+    Stop-Transcript | Out-Null
 }

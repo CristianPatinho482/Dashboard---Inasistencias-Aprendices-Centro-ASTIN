@@ -16,7 +16,7 @@ REPORT = os.path.join(ROOT, "CaracterizacionAprendicesASTIN.Report")
 DEF = os.path.join(REPORT, "definition")
 PAGES = os.path.join(DEF, "pages")
 RESOURCES = os.path.join(REPORT, "StaticResources", "RegisteredResources")
-VISUAL_SCHEMA = "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json"
+VISUAL_SCHEMA = "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json"
 PAGE_SCHEMA = "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json"
 MESES_CORTOS_ES = ("ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic")
 
