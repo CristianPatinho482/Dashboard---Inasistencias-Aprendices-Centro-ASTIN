@@ -1,166 +1,142 @@
 table DIM_PROGRAMA
-	lineageTag: 07c7e7c7-5baf-4ddc-b0fa-348faec57c3d
 
 	column ProgramaID
 		dataType: string
 		isHidden
-		lineageTag: 94a26094-eb02-4b57-a40d-088a509fc5b4
 		summarizeBy: none
 		sourceColumn: ProgramaID
 
 	column NombrePrograma
 		dataType: string
-		lineageTag: ffcf8408-2d8d-4c18-8380-573a196b5fd7
 		summarizeBy: none
 		sourceColumn: NombrePrograma
 
 	column NombreOriginal
 		dataType: string
 		isHidden
-		lineageTag: 546d1713-1025-48dc-90d3-f8c210362f0a
 		summarizeBy: none
 		sourceColumn: NombreOriginal
 
 	column LineaFormacion
 		dataType: string
-		lineageTag: dadbf790-19e0-4507-9a8f-54c1ba04c9b9
 		summarizeBy: none
 		sourceColumn: LineaFormacion
 
 	column TipoFormacion
 		dataType: string
-		lineageTag: 2d6503f0-7e41-42db-a717-c55dbd52f025
 		summarizeBy: none
 		sourceColumn: TipoFormacion
 
 	column CentroCosto
 		dataType: string
-		lineageTag: 08040372-6977-44f0-9f28-957d87761f85
 		summarizeBy: none
 		sourceColumn: CentroCosto
 
 	column CentroFormacion
 		dataType: string
-		lineageTag: ce6d33bd-e5b2-4712-8aef-93ab7d43089d
 		summarizeBy: none
 		sourceColumn: CentroFormacion
 
 	column Regional
 		dataType: string
-		lineageTag: 61a4fcbd-f10a-49aa-b9af-ed5f8261b2b9
 		summarizeBy: none
 		sourceColumn: Regional
 
 	column NivelFormacion
 		dataType: string
-		lineageTag: 9cef03fc-f48e-4617-9ab4-ff16d8e290ed
 		summarizeBy: none
 		sourceColumn: NivelFormacion
 
 	column Aprendices
 		dataType: int64
 		formatString: #,##0
-		lineageTag: 6beaacb4-76a8-4545-b0ac-102952195579
 		summarizeBy: none
 		sourceColumn: Aprendices
 
 	column Inasistencias
 		dataType: int64
 		formatString: #,##0
-		lineageTag: 7cc610ed-ac41-4c36-96bc-65c382189b0f
 		summarizeBy: none
 		sourceColumn: Inasistencias
 
 	column Horas
 		dataType: int64
 		formatString: #,##0
-		lineageTag: 7ebcab76-d762-47a2-b66f-217f3b031fd5
 		summarizeBy: none
 		sourceColumn: Horas
 
 	column HorasNoJustificadas
 		dataType: int64
 		formatString: #,##0
-		lineageTag: c014cc38-c424-4d66-8f70-a90b9f7a05ef
 		summarizeBy: none
 		sourceColumn: HorasNoJustificadas
 
 	column PctHorasNoJust
 		dataType: double
 		formatString: 0.0%
-		lineageTag: e33845bb-f697-486f-83f1-926d8c4a9dd5
 		summarizeBy: none
 		sourceColumn: PctHorasNoJust
 
 	column HorasPorAprendiz
 		dataType: double
 		formatString: #,##0.0
-		lineageTag: cb202504-6824-4d45-a166-b3d4490dcf6c
 		summarizeBy: none
 		sourceColumn: HorasPorAprendiz
 
 	column InasPorAprendiz
 		dataType: double
 		formatString: #,##0.0
-		lineageTag: d15492bc-50cb-4d7c-8b62-9b0a0a24bca3
 		summarizeBy: none
 		sourceColumn: InasPorAprendiz
 
 	column MuestraSuficiente
 		dataType: int64
 		formatString: 0
-		lineageTag: a07dca72-15a4-4030-9e19-7406b7a41253
 		summarizeBy: none
 		sourceColumn: MuestraSuficiente
 
 	column IndiceRiesgoCorte
 		dataType: double
 		formatString: 0.0
-		lineageTag: 2c7251f5-bdb2-4f50-a0a9-701552914399
 		summarizeBy: none
 		sourceColumn: IndiceRiesgoCorte
 
 	column NivelRiesgoCorte
 		dataType: string
-		lineageTag: 12eca410-fa5e-4aca-94b9-d9edb6984a1b
 		summarizeBy: none
 		sourceColumn: NivelRiesgoCorte
 
 	column RankingHoras
 		dataType: int64
-		isHidden
 		formatString: 0
-		lineageTag: 2185fccd-50d8-4cd1-86cc-98f7b4d15277
+		isHidden
 		summarizeBy: none
 		sourceColumn: RankingHoras
 
 	column PrimeraNovedad
 		dataType: dateTime
 		formatString: yyyy-MM-dd
-		lineageTag: 1538b378-fb79-41f0-a32a-e6ac8a186a5f
 		summarizeBy: none
 		sourceColumn: PrimeraNovedad
 
 	column UltimaNovedad
 		dataType: dateTime
 		formatString: yyyy-MM-dd
-		lineageTag: 9c34cf8b-cfaf-47d8-841d-5a8c8d5866fc
 		summarizeBy: none
 		sourceColumn: UltimaNovedad
 
 	partition DIM_PROGRAMA = m
 		mode: import
 		source =
-				let
-					Origen = Csv.Document(File.Contents(RutaDatos & "\DIM_PROGRAMA.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
-					Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars=true]),
-					Tipos = Table.TransformColumnTypes(Encabezados,{{"ProgramaID", type text}, {"NombrePrograma", type text}, {"NombreOriginal", type text}, {"LineaFormacion", type text}, {"TipoFormacion", type text}, {"CentroCosto", type text}, {"CentroFormacion", type text}, {"Regional", type text}, {"NivelFormacion", type text}, {"Aprendices", Int64.Type}, {"Inasistencias", Int64.Type}, {"Horas", Int64.Type}, {"HorasNoJustificadas", Int64.Type}, {"MuestraSuficiente", Int64.Type}, {"NivelRiesgoCorte", type text}, {"RankingHoras", Int64.Type}, {"PrimeraNovedad", type date}, {"UltimaNovedad", type date}}),
-					Decimales = Table.TransformColumns(Tipos,{
-						{"PctHorasNoJust", each if _ = null then null else if Text.Trim(_) = "" then null else Number.FromText(Text.Trim(_), "en-US"), type number},
-						{"HorasPorAprendiz", each if _ = null then null else if Text.Trim(_) = "" then null else Number.FromText(Text.Trim(_), "en-US"), type number},
-						{"InasPorAprendiz", each if _ = null then null else if Text.Trim(_) = "" then null else Number.FromText(Text.Trim(_), "en-US"), type number},
-						{"IndiceRiesgoCorte", each if _ = null then null else if Text.Trim(_) = "" then null else Number.FromText(Text.Trim(_), "en-US"), type number}
-					})
-				in
-					Decimales
-
+			let
+				Origen = let Coincidencia = Table.SelectRows(ArchivosSharePoint, each [Folder Path] = RutaDatosSharePoint and [Name] = "DIM_PROGRAMA.csv"), Binario = if Table.RowCount(Coincidencia) = 0 then error "No se encontró DIM_PROGRAMA.csv en SharePoint." else Coincidencia{0}[Content] in Csv.Document(Binario,[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars=true]),
+				Tipos = Table.TransformColumnTypes(Encabezados,{{"ProgramaID", type text}, {"NombrePrograma", type text}, {"NombreOriginal", type text}, {"LineaFormacion", type text}, {"TipoFormacion", type text}, {"CentroCosto", type text}, {"CentroFormacion", type text}, {"Regional", type text}, {"NivelFormacion", type text}, {"Aprendices", Int64.Type}, {"Inasistencias", Int64.Type}, {"Horas", Int64.Type}, {"HorasNoJustificadas", Int64.Type}, {"MuestraSuficiente", Int64.Type}, {"NivelRiesgoCorte", type text}, {"RankingHoras", Int64.Type}, {"PrimeraNovedad", type date}, {"UltimaNovedad", type date}}),
+				Decimales = Table.TransformColumns(Tipos,{
+					{"PctHorasNoJust", each if _ = null then null else if Text.Trim(_) = "" then null else Number.FromText(Text.Trim(_), "en-US"), type number},
+					{"HorasPorAprendiz", each if _ = null then null else if Text.Trim(_) = "" then null else Number.FromText(Text.Trim(_), "en-US"), type number},
+					{"InasPorAprendiz", each if _ = null then null else if Text.Trim(_) = "" then null else Number.FromText(Text.Trim(_), "en-US"), type number},
+					{"IndiceRiesgoCorte", each if _ = null then null else if Text.Trim(_) = "" then null else Number.FromText(Text.Trim(_), "en-US"), type number}
+				})
+			in
+				Decimales

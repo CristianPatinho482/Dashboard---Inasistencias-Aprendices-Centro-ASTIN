@@ -5,26 +5,31 @@ Solución de analítica académica para caracterizar aprendices y hacer seguimie
 ## Estructura
 
 - `CaracterizacionAprendicesASTIN.pbip`: punto de entrada del proyecto.
-- `CaracterizacionAprendicesASTIN.Report`: cinco páginas y visualizaciones PBIR, tema institucional SENA y tipografía Work Sans.
+- `CaracterizacionAprendicesASTIN.Report`: seis páginas y visualizaciones PBIR, tema institucional SENA y tipografía Work Sans.
 - `CaracterizacionAprendicesASTIN.SemanticModel`: modelo estrella, relaciones, columnas y medidas DAX.
 - `outputs/portal_astin.html`: portal HTML estático con Chart.js 4.6.1 y datos agregados incrustados; funciona sin conexión y no consulta servidores externos.
-- `C:\Users\capatino\OneDrive - Servicio Nacional de Aprendizaje\Equipo ASTIN-DESAROLLOS POWER-BI - RAPS ASTIN 2026\Inasistencias.xls`: archivo Excel de entrada que el bot sobrescribe en OneDrive.
+- `outputs/consulta_interna.html`: vista local interactiva con identidad de aprendices, filtros de ficha/instructor/fechas y semáforo semanal. Está excluida de Git y no debe copiarse al sitio público.
+- `github-pages/index.html`: copia publicable del portal; se regenera automáticamente junto con el portal.
+- `C:\Users\capatino\OneDrive - Servicio Nacional de Aprendizaje\Equipo ASTIN-DESAROLLOS POWER-BI - RAPS ASTIN 2026\Inasistencias.xls`: Excel que el bot sobrescribe en OneDrive.
 - `data/processed`: dimensiones, tabla de hechos y resumen del ETL.
-- `data/restricted/DIM_APRENDIZ_PII.csv`: datos personales identificables; no importar ni publicar.
+- `data/restricted/DIM_APRENDIZ_PII.csv`: fuente local restringida. El PBIR incorpora solo `NombreCompleto` a `DIM_APRENDIZ` para la página de consulta interna; nunca debe publicarse en el portal ni incluirse en exportaciones compartidas sin controles de acceso.
 - `scripts/01_etl_modelo_estrella.py`: limpieza, reglas de clasificación, riesgo y generación de tablas.
 - `scripts/02_generar_modelo_tmdl.py`: generador del modelo semántico.
 - `scripts/03_generar_reporte_pbir.py`: generador del informe PBIR.
 - `scripts/04_generar_portal_html.py`: generador del portal HTML autocontenido.
+- `scripts/05_generar_consulta_interna.py`: generador de la vista nominal local; la salida se actualiza con `actualizar_datos.ps1` y no se publica.
 - `tools/chartjs`: distribución de Chart.js y licencia MIT, incorporadas en el HTML al generar el portal.
 - `scripts/actualizar_datos.ps1`: comando operativo para reprocesar la fuente.
+- `scripts/06_preparar_salidas_sharepoint.py`: prepara una lista permitida de salidas ETL para SharePoint y vacía campos identificables.
+- `config/sharepoint.example.json`: ejemplo de configuración sin credenciales; `config/sharepoint.json` es local y está excluido de Git.
 - `docs`: documentación detallada del modelo y las medidas.
 
 ## Tablas y relaciones
 
 | Tabla | Grano / clave | Contenido |
 |---|---|---|
-| `DIM_CALENDARIO` | Una fila por fecha / `Fecha` | Año, trimestre, mes, semana, día y periodos; se genera para cubrir los años observados en el origen. |
-| `DIM_APRENDIZ` | Una fila por aprendiz seudonimizado / `AprendizID` | Indicadores agregados de inasistencia, reincidencia y riesgo. No contiene nombres ni documento en claro. |
+| `DIM_CALENDARIO` | Una fila por fecha / `Fecha` | Año, trimestre, mes, semana, lunes de semana, día y periodos; se genera para cubrir los años observados en el origen. |
+| `DIM_APRENDIZ` | Una fila por aprendiz / `AprendizID` | Indicadores agregados de inasistencia, reincidencia y riesgo. Para consulta interna, el nombre se combina desde la fuente restringida; el documento permanece excluido. |
 | `DIM_FICHA` | Una fila por ficha / `FichaID` | Programa, jornada/modalidad disponibles, centro de costo y riesgo agregado. |
 | `DIM_PROGRAMA` | Una fila por programa / `ProgramaID` | Catálogo, línea y nivel formativo derivado cuando es posible. |
 | `FACT_INASISTENCIAS` | Una fila por novedad depurada / `InasistenciaID` | Fechas, horas, claves, clasificación, soporte y banderas de análisis. |
@@ -40,6 +45,7 @@ Las carpetas de medidas son `00 KPIs`, `01 Inasistencias`, `02 Riesgo`, `03 Apre
 3. `02 Fichas y Programas en Riesgo`: rankings, riesgo por ficha/programa, evolución temporal y justificación.
 4. `03 Análisis Detallado`: desagregación para analizar patrones y casos.
 5. `04 Calidad de Datos`: cobertura, registros dudosos, duplicados y reglas de depuración.
+6. `05 Consulta semanal`: filtro por ficha, instructor e intervalo de fechas; lista aprendices, cuenta registros y suma horas. El semáforo aplica los umbrales de horas no justificadas a la peor semana del intervalo.
 
 El tema aplica la paleta institucional SENA y Work Sans. El informe utiliza lienzo 16:9 y navegación entre páginas.
 
@@ -60,14 +66,14 @@ En Windows, con Python disponible y las dependencias `pandas` y `xlrd` instalada
    .\scripts\actualizar_datos.ps1
    ```
 
-3. Abra `CaracterizacionAprendicesASTIN.pbip` en Power BI Desktop y seleccione **Inicio > Actualizar** para volver a cargar los CSV generados.
+3. Abra `CaracterizacionAprendicesASTIN.pbip` en Power BI Desktop y seleccione **Inicio > Actualizar** para volver a cargar los CSV generados. La fecha “Última descarga” corresponde a la modificación del Excel sincronizado; el corte analítico sigue siendo la máxima `Fecha Fin` encontrada en sus datos.
 4. Revise la página `04 Calidad de Datos` y `data/processed/00_resumen_etl.json` antes de distribuir el informe.
 
-El mismo comando genera `outputs/portal_astin.html`. Abra ese archivo en Edge/Chrome para usar el portal o aloje el HTML en un servidor web institucional. El portal incrusta Chart.js y agrega solo datos por programa, mes, motivo, ficha con muestra suficiente y nivel de riesgo. No incluye identificadores, nombres, documentos, instructores ni textos libres por aprendiz. Aun con datos agregados, trate el portal como información institucional: para distribución interna use alojamiento autenticado y no lo publique en una URL pública sin autorización de datos.
+El mismo comando genera `outputs/portal_astin.html`, `github-pages/index.html` y la raíz `index.html`, que es la entrada del sitio actual de GitHub Pages. Para publicar una actualización del portal, envíe el nuevo `index.html` a `main`; GitHub Pages no consulta OneDrive por sí solo. No suba datos fuente ni carpetas restringidas. El portal agrega datos por programa, mes, motivo, ficha con muestra suficiente y nivel de riesgo. No incluye nombres, documentos, instructores ni textos libres por aprendiz. Aun con datos agregados, trátelo como información institucional y publique solo con autorización. Consulte [la guía de GitHub Pages](docs/publicacion_github_pages.md) y [la guía de automatización](docs/automatizacion.md).
 
-El modelo semántico importa CSV locales. Por eso, reemplazar el Excel requiere reprocesar ETL, modelo e informe antes de actualizar el PBIP; la actualización programada de Power BI Service no ejecuta este script ni puede leer un archivo local del equipo. Para actualización programada en Service, ubique Excel/CSV y salidas ETL en SharePoint/OneDrive o almacenamiento accesible por gateway, migre el origen del modelo a esa ubicación y configure credenciales/gateway. Este paso de despliegue no queda habilitado automáticamente por el PBIP.
+Por defecto el modelo importa CSV locales. Se agregó un modo SharePoint configurable para que el modelo lea las salidas ETL desde el sitio institucional. La automatización prepara solo una lista permitida, omite `DIM_APRENDIZ_PII.csv` y vacía nombre, iniciales y documento enmascarado antes de copiar. No se suben credenciales al repositorio. El modo cloud requiere crear una carpeta de salidas, completar la configuración local, regenerar el PBIP y validar credenciales en Power BI Desktop y Service.
 
-El parámetro `RutaDatos` del modelo apunta a `data/processed` del equipo donde se generó. Si se mueve el proyecto a otro equipo, vuelva a ejecutar `python .\scripts\02_generar_modelo_tmdl.py` y abra/refresque el PBIP; revise que Power BI Desktop acepte el origen local.
+En modo local, `RutaDatos` y `RutaDatosRestringidos` apuntan a `data/processed` y `data/restricted`. En modo SharePoint, `SitioSharePoint` y `RutaDatosSharePoint` apuntan al sitio y a la carpeta de CSV aprobados. La página de consulta semanal cambia de nombre a código seudónimo; el modelo cloud no importa PII. El identificador seudónimo y los eventos individuales siguen siendo información institucional sensible y requieren permisos apropiados. El portal de GitHub Pages sigue siendo agregado. Consulte [configuración de SharePoint](docs/automatizacion.md#salidas-etl-en-sharepoint).
 
 ## Publicación y mantenimiento
 
@@ -77,4 +83,4 @@ Al modificar columnas de origen, actualice primero el ETL, luego la especificaci
 
 ## Fuentes y límites
 
-El archivo de entrada se encuentra en la carpeta OneDrive descrita arriba. El manual `C:\Users\capatino\Desktop\Inasistencias\Manual de identidad corporativa sena 2024.pdf` y `Diseño dashboards.pdf` respaldan el diseño. No se encontró un catálogo maestro adicional. El tema del informe aplica identidad SENA disponible en los recursos del proyecto. Jornada, modalidad, estado académico oficial, matrícula oficial y centro de costo maestro no están cubiertos de forma suficiente por el origen; la cobertura y los campos inferidos se marcan en el modelo/resumen, sin presentarlos como datos oficiales. La tabla de PII está separada y excluida del PBIP.
+El archivo de entrada se lee de la carpeta OneDrive descrita arriba; el manual visual disponible se localizó previamente en `C:\Users\capatino\Desktop\Inasistencias\Manual de identidad corporativa sena 2024.pdf`, junto con `Diseño dashboards.pdf` en el proyecto. No se encontró un catálogo maestro adicional. El tema del informe aplica identidad SENA disponible en los recursos del proyecto. Jornada, modalidad, estado académico oficial, matrícula oficial y centro de costo maestro no están cubiertos de forma suficiente por el origen; la cobertura y los campos inferidos se marcan en el modelo/resumen, sin presentarlos como datos oficiales. La tabla restringida conserva el documento; solo el nombre se importa al modelo para el uso interno solicitado. El modelo PBIP no es por sí mismo un control de acceso: publique la vista nominal únicamente en un espacio institucional con permisos/RLS apropiados. El portal GitHub Pages no es adecuado para esta vista porque su sitio actual es público.

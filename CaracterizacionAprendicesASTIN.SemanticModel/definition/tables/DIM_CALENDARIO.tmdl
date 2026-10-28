@@ -1,138 +1,124 @@
 table DIM_CALENDARIO
-	lineageTag: 9b742405-b86b-4f35-8624-239d69bd6bea
 	dataCategory: Time
 
 	column Fecha
 		dataType: dateTime
 		isKey
 		formatString: yyyy-MM-dd
-		lineageTag: 7609171d-8f20-4238-84d8-b4c131fb524a
 		summarizeBy: none
 		sourceColumn: Fecha
 
 	column Anio
 		dataType: int64
 		formatString: 0
-		lineageTag: fb5afe4f-a413-4a68-826c-b6f0bbe2e0c1
 		summarizeBy: none
 		sourceColumn: Anio
 
 	column Trimestre
 		dataType: int64
 		formatString: 0
-		lineageTag: 6bc492c7-1722-408b-9e2c-fe92a85b2c8e
 		summarizeBy: none
 		sourceColumn: Trimestre
 
 	column Mes
 		dataType: int64
 		formatString: 0
-		lineageTag: fe70fcc6-2e32-4193-ad1e-285760570172
 		summarizeBy: none
 		sourceColumn: Mes
 
 	column NombreMes
 		dataType: string
-		lineageTag: 77d82fc8-a2a5-4744-afda-2a9a0c7da894
 		summarizeBy: none
-		sourceColumn: NombreMes
 		sortByColumn: Mes
+		sourceColumn: NombreMes
 
 	column MesCorto
 		dataType: string
-		lineageTag: d74d47a9-05e5-443d-8239-df967b07e4f1
 		summarizeBy: none
-		sourceColumn: MesCorto
 		sortByColumn: Mes
+		sourceColumn: MesCorto
 
 	column AnioMes
 		dataType: string
-		lineageTag: 7b5930e9-f688-4598-95d2-1aa44da3157b
 		summarizeBy: none
 		sourceColumn: AnioMes
 
 	column EtiquetaMes
 		dataType: string
-		lineageTag: 94e0a268-da97-4a9d-ae5e-a475b5794aea
 		summarizeBy: none
-		sourceColumn: EtiquetaMes
 		sortByColumn: OrdenAnioMes
+		sourceColumn: EtiquetaMes
 
 	column OrdenAnioMes
 		dataType: int64
 		formatString: 0
-		lineageTag: 133efe7b-73de-489a-b4a5-598c4330bd03
 		summarizeBy: none
 		sourceColumn: OrdenAnioMes
 
 	column SemanaISO
 		dataType: int64
 		formatString: 0
-		lineageTag: a4313699-97f5-4a63-b20c-bed52d35cab5
 		summarizeBy: none
 		sourceColumn: SemanaISO
+
+	column InicioSemana
+		dataType: dateTime
+		formatString: yyyy-MM-dd
+		summarizeBy: none
+		sourceColumn: InicioSemana
 
 	column Dia
 		dataType: int64
 		formatString: 0
-		lineageTag: cc238d37-d61b-41a8-bbc6-5bbb27f75aea
 		summarizeBy: none
 		sourceColumn: Dia
 
 	column NombreDia
 		dataType: string
-		lineageTag: 9b03888a-ded6-4720-b4c1-74cf17636a91
 		summarizeBy: none
 		sourceColumn: NombreDia
 
 	column EsFinSemana
 		dataType: int64
 		formatString: 0
-		lineageTag: e2225b72-fe13-4273-b2bb-570ad56046bf
 		summarizeBy: none
 		sourceColumn: EsFinSemana
 
 	column Periodo
 		dataType: string
-		lineageTag: 4c0b1dd8-38eb-440a-81f5-42d7aa982996
 		summarizeBy: none
 		sourceColumn: Periodo
 
 	column EsMesCompleto
 		dataType: int64
 		formatString: 0
-		lineageTag: b0bfa399-d3a3-4f33-b287-13a777e98e4e
 		summarizeBy: none
 		sourceColumn: EsMesCompleto
 
 	column FechaCorte
 		dataType: dateTime
 		formatString: yyyy-MM-dd
-		lineageTag: ce35e79d-433e-4ad4-8474-59d428effe0b
 		summarizeBy: none
 		sourceColumn: FechaCorte
 
 	column DiasDesdeCorte
 		dataType: int64
 		formatString: 0
-		lineageTag: eb0dec2b-0f8f-40cf-acc3-32b0b797b111
 		summarizeBy: none
 		sourceColumn: DiasDesdeCorte
 
 	column FechaKey
 		dataType: int64
 		formatString: 0
-		lineageTag: 9e693037-aae9-4ab2-ba85-fdadba1bbbab
 		summarizeBy: none
 		sourceColumn: FechaKey
 
 	partition DIM_CALENDARIO = m
 		mode: import
 		source =
-				let
-					Origen = Csv.Document(File.Contents(RutaDatos & "\DIM_CALENDARIO.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
-					Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars=true]),
-					Tipos = Table.TransformColumnTypes(Encabezados,{{"Fecha", type date}, {"Anio", Int64.Type}, {"Trimestre", Int64.Type}, {"Mes", Int64.Type}, {"NombreMes", type text}, {"MesCorto", type text}, {"AnioMes", type text}, {"EtiquetaMes", type text}, {"OrdenAnioMes", Int64.Type}, {"SemanaISO", Int64.Type}, {"Dia", Int64.Type}, {"NombreDia", type text}, {"EsFinSemana", Int64.Type}, {"Periodo", type text}, {"EsMesCompleto", Int64.Type}, {"FechaCorte", type date}, {"DiasDesdeCorte", Int64.Type}, {"FechaKey", Int64.Type}})
-				in
-					Tipos
-
+			let
+				Origen = let Coincidencia = Table.SelectRows(ArchivosSharePoint, each [Folder Path] = RutaDatosSharePoint and [Name] = "DIM_CALENDARIO.csv"), Binario = if Table.RowCount(Coincidencia) = 0 then error "No se encontró DIM_CALENDARIO.csv en SharePoint." else Coincidencia{0}[Content] in Csv.Document(Binario,[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars=true]),
+				Tipos = Table.TransformColumnTypes(Encabezados,{{"Fecha", type date}, {"Anio", Int64.Type}, {"Trimestre", Int64.Type}, {"Mes", Int64.Type}, {"NombreMes", type text}, {"MesCorto", type text}, {"AnioMes", type text}, {"EtiquetaMes", type text}, {"OrdenAnioMes", Int64.Type}, {"SemanaISO", Int64.Type}, {"InicioSemana", type date}, {"Dia", Int64.Type}, {"NombreDia", type text}, {"EsFinSemana", Int64.Type}, {"Periodo", type text}, {"EsMesCompleto", Int64.Type}, {"FechaCorte", type date}, {"DiasDesdeCorte", Int64.Type}, {"FechaKey", Int64.Type}})
+			in
+				Tipos
