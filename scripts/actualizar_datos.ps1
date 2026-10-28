@@ -85,12 +85,15 @@ try {
         Write-Host 'Salidas ETL preparadas y copiadas a SharePoint. No se incluyó DIM_APRENDIZ_PII.csv; valores de identificación directa en DIM_APRENDIZ fueron vaciados. Espere a que OneDrive termine la sincronización antes de refrescar Power BI Service.' -ForegroundColor Green
     }
     if ($PublicarPortal) {
-        git -C $root diff --quiet HEAD -- index.html
+        $publishPaths = @(
+            'index.html',
+            'CaracterizacionAprendicesASTIN.Report/definition',
+            'CaracterizacionAprendicesASTIN.SemanticModel/definition'
+        )
+        git -C $root diff --quiet HEAD -- $publishPaths
         if ($LASTEXITCODE -eq 1) {
             git -C $root commit --only -m 'Actualiza portal y definiciones del reporte' -- `
-                index.html `
-                CaracterizacionAprendicesASTIN.Report/definition `
-                CaracterizacionAprendicesASTIN.SemanticModel/definition
+                $publishPaths
             if ($LASTEXITCODE -ne 0) {
                 throw 'No se pudo crear el commit del portal. Revise identidad Git, cambios pendientes y estado de la rama.'
             }
