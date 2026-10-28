@@ -1,152 +1,188 @@
 table DIM_APRENDIZ
-	lineageTag: 7c698b3e-b2fd-4e30-b2c7-2ce2bbdde6c1
+	lineageTag: 355a7e45-f5c1-4197-907b-8e9cff8151f4
 
 	column AprendizID
 		dataType: string
 		isHidden
-		lineageTag: 7733415b-0901-45c0-bbab-79541feca960
+		lineageTag: b020144f-ea2b-469c-bad5-92419473876d
 		summarizeBy: none
 		sourceColumn: AprendizID
 
 	column TipoDocumento
 		dataType: string
-		lineageTag: 8b98fc5b-da9f-4aae-8bd0-853be233b197
+		lineageTag: 0d55f5da-a3d2-4f1f-b772-7dabdfba484d
 		summarizeBy: none
 		sourceColumn: TipoDocumento
 
 	column DocumentoEnmascarado
 		dataType: string
-		lineageTag: 1b719996-3b90-4175-baa3-594364506d77
+		lineageTag: dd1622b6-cc9e-41cd-ac7f-7ac004e42ab5
 		summarizeBy: none
 		sourceColumn: DocumentoEnmascarado
 
 	column Iniciales
 		dataType: string
-		lineageTag: e036cc00-6833-41db-bd38-818d633b49fc
+		lineageTag: 3670af0d-6d4e-4384-a93e-a34314ea9e5e
 		summarizeBy: none
 		sourceColumn: Iniciales
 
 	column FichaPrincipal
 		dataType: string
-		lineageTag: 8e6b5917-1cd1-4931-be5e-67382faee9fe
+		lineageTag: 72b56419-ee7e-4979-b51f-52229c67e6ed
 		summarizeBy: none
 		sourceColumn: FichaPrincipal
 
 	column ProgramaPrincipal
 		dataType: string
 		isHidden
-		lineageTag: 7518d78e-9784-49c5-8216-301c42b6b180
+		lineageTag: 45eac3ea-3573-46e8-ba6c-4b309c240d6a
 		summarizeBy: none
 		sourceColumn: ProgramaPrincipal
 
 	column Inasistencias
 		dataType: int64
 		formatString: #,##0
-		lineageTag: 124964b1-9b22-48d3-93e5-a749f0fcf2b5
-		summarizeBy: none
+		lineageTag: 109dfaf9-ae1d-4312-8b38-a741d4d2b763
+		summarizeBy: sum
 		sourceColumn: Inasistencias
+
+		annotation SummarizationSetBy = Automatic
 
 	column Horas
 		dataType: int64
 		formatString: #,##0
-		lineageTag: 37cb6ce3-9e23-4ebb-95ab-3bef68b2031e
-		summarizeBy: none
+		lineageTag: 92367aad-4109-4bd5-928a-c790932afc44
+		summarizeBy: sum
 		sourceColumn: Horas
+
+		annotation SummarizationSetBy = Automatic
 
 	column Justificadas
 		dataType: int64
 		formatString: #,##0
-		lineageTag: f5448287-6991-46b1-9445-e332897c633d
-		summarizeBy: none
+		lineageTag: 594b6471-a6c8-4d3e-9694-664d654a1d36
+		summarizeBy: sum
 		sourceColumn: Justificadas
+
+		annotation SummarizationSetBy = Automatic
 
 	column NoJustificadas
 		dataType: int64
 		formatString: #,##0
-		lineageTag: 86e8c9d1-e867-483d-b86d-7c1fb1696c9c
-		summarizeBy: none
+		lineageTag: d3343573-8b20-4e6a-a964-a4f749d33cb1
+		summarizeBy: sum
 		sourceColumn: NoJustificadas
+
+		annotation SummarizationSetBy = Automatic
 
 	column Retardos
 		dataType: int64
 		formatString: #,##0
-		lineageTag: 6502fe8b-c127-4f8f-b3f7-d80888173265
-		summarizeBy: none
+		lineageTag: 4023958d-f32d-44fe-8780-7255fe4dc754
+		summarizeBy: sum
 		sourceColumn: Retardos
+
+		annotation SummarizationSetBy = Automatic
 
 	column HorasNoJustificadas
 		dataType: int64
 		formatString: #,##0
-		lineageTag: d60c0021-1d3c-422d-91f0-a93cc59605e4
-		summarizeBy: none
+		lineageTag: 2473b3d5-ab11-49b1-b27c-0153febd7f12
+		summarizeBy: sum
 		sourceColumn: HorasNoJustificadas
+
+		annotation SummarizationSetBy = Automatic
 
 	column ScoreRiesgo
 		dataType: double
 		formatString: 0.0
-		lineageTag: 7946809b-d4d3-4994-98fe-1c551cce0cb7
-		summarizeBy: none
+		lineageTag: 0949bac6-fb23-4f72-af86-3ba224dbe531
+		summarizeBy: sum
 		sourceColumn: ScoreRiesgo
+
+		annotation SummarizationSetBy = Automatic
 
 	column NivelRiesgo
 		dataType: string
-		lineageTag: a7905240-fade-4d31-b793-6f1a7c975c81
+		lineageTag: 8f1271af-5173-495e-84a5-66b44e3cb5fb
 		summarizeBy: none
 		sourceColumn: NivelRiesgo
 
 	column EstadoAsistencia
 		dataType: string
-		lineageTag: fd965316-8c18-4a88-8280-7eb02ba3dd80
+		lineageTag: 0ba6cb73-e048-4709-9b85-08f664702fbb
 		summarizeBy: none
 		sourceColumn: EstadoAsistencia
 
 	column EsReincidente
 		dataType: int64
 		formatString: 0
-		lineageTag: d1137063-505c-4d43-8981-aa17c56d22d3
-		summarizeBy: none
+		lineageTag: b60ebde2-a136-4fac-a711-7a30b740872a
+		summarizeBy: sum
 		sourceColumn: EsReincidente
+
+		annotation SummarizationSetBy = Automatic
 
 	column EsReincidenteAlto
 		dataType: int64
 		formatString: 0
-		lineageTag: 7550e187-32fc-4f63-9685-01d2b25200fe
-		summarizeBy: none
+		lineageTag: 23100b4f-87de-40b4-a14f-1faf984d0595
+		summarizeBy: sum
 		sourceColumn: EsReincidenteAlto
+
+		annotation SummarizationSetBy = Automatic
 
 	column AlertaDesercion
 		dataType: int64
 		formatString: 0
-		lineageTag: 0e10b68d-949c-4c92-93c3-2bb59cd92272
-		summarizeBy: none
+		lineageTag: 3001c8ae-310c-492f-a091-991d3460c54a
+		summarizeBy: sum
 		sourceColumn: AlertaDesercion
+
+		annotation SummarizationSetBy = Automatic
 
 	column MotivoAlertaDesercion
 		dataType: string
-		lineageTag: 13fcfe01-748f-407c-abc0-e3de8bc88755
+		lineageTag: 01a8ace3-8150-4988-a74f-95f16e8409ab
 		summarizeBy: none
 		sourceColumn: MotivoAlertaDesercion
 
 	column DiasDesdeUltimaNovedad
 		dataType: int64
 		formatString: #,##0
-		lineageTag: cb284d78-b877-45d4-85c7-0e540bf2b627
-		summarizeBy: none
+		lineageTag: 7287f6a0-5e79-4cb4-bc56-71b606146e1f
+		summarizeBy: sum
 		sourceColumn: DiasDesdeUltimaNovedad
+
+		annotation SummarizationSetBy = Automatic
 
 	column PrimeraNovedad
 		dataType: dateTime
 		formatString: yyyy-MM-dd
-		lineageTag: a30e65cc-33bc-4a47-b18b-3c2898a4b894
+		lineageTag: 5a6b1bcd-84d8-411a-aabd-5a8e452418b7
 		summarizeBy: none
 		sourceColumn: PrimeraNovedad
+
+		variation Variation
+			isDefault
+			relationship: 23d94064-67f6-4669-b63e-b1a7d2125798
+			defaultHierarchy: LocalDateTable_2d570b6f-8a44-4937-8300-4bbd7a9c7d5e.'Jerarquía de fechas'
+
+		annotation UnderlyingDateTimeDataType = Date
 
 	column UltimaNovedad
 		dataType: dateTime
 		formatString: yyyy-MM-dd
-		lineageTag: ded3a44a-31a8-49e4-bcd6-0f2248e283a8
+		lineageTag: d696a50e-9c18-4d39-8c52-99c2e9534519
 		summarizeBy: none
 		sourceColumn: UltimaNovedad
+
+		variation Variation
+			isDefault
+			relationship: 05913615-3722-4576-b2e4-2b7f7af4a8d2
+			defaultHierarchy: LocalDateTable_500a3f48-9a88-4a35-8252-68e176ea0e0e.'Jerarquía de fechas'
+
+		annotation UnderlyingDateTimeDataType = Date
 
 	column EsTopRiesgo =
 			IF ( RANKX ( ALL ( DIM_APRENDIZ[AprendizID] ), DIM_APRENDIZ[ScoreRiesgo], , DESC, Dense ) <= 15, 1, 0)
@@ -154,18 +190,28 @@ table DIM_APRENDIZ
 			formatString: 0
 			isHidden
 			summarizeBy: none
-		lineageTag: 05199b80-cb95-41fa-a0b0-65f8c15d3b0a
+		lineageTag: 7c97922d-7fed-4076-95ca-b87e58f50d10
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column NombreCompleto
+		dataType: string
+		lineageTag: c5db9e3e-296e-4f6a-8f4d-71d9e230fce1
+		summarizeBy: none
+		sourceColumn: NombreCompleto
 
 	partition DIM_APRENDIZ = m
 		mode: import
 		source =
 				let
-					Origen = Csv.Document(File.Contents(RutaDatos & "\DIM_APRENDIZ.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+					Origen = let Coincidencia = Table.SelectRows(ArchivosSharePoint, each [Folder Path] = RutaDatosSharePoint and [Name] = "DIM_APRENDIZ.csv"), Binario = if Table.RowCount(Coincidencia) = 0 then error "No se encontró DIM_APRENDIZ.csv en SharePoint." else Coincidencia{0}[Content] in Csv.Document(Binario,[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
 					Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars=true]),
 					Tipos = Table.TransformColumnTypes(Encabezados,{{"AprendizID", type text}, {"TipoDocumento", type text}, {"DocumentoEnmascarado", type text}, {"Iniciales", type text}, {"FichaPrincipal", type text}, {"ProgramaPrincipal", type text}, {"Inasistencias", Int64.Type}, {"Horas", Int64.Type}, {"Justificadas", Int64.Type}, {"NoJustificadas", Int64.Type}, {"Retardos", Int64.Type}, {"HorasNoJustificadas", Int64.Type}, {"NivelRiesgo", type text}, {"EstadoAsistencia", type text}, {"EsReincidente", Int64.Type}, {"EsReincidenteAlto", Int64.Type}, {"AlertaDesercion", Int64.Type}, {"MotivoAlertaDesercion", type text}, {"DiasDesdeUltimaNovedad", Int64.Type}, {"PrimeraNovedad", type date}, {"UltimaNovedad", type date}}),
 					Decimales = Table.TransformColumns(Tipos,{
 						{"ScoreRiesgo", each if _ = null then null else if Text.Trim(_) = "" then null else Number.FromText(Text.Trim(_), "en-US"), type number}
-					})
+					}),
+					SinIdentidad = Table.AddColumn(Decimales, "NombreCompleto", each null, type text)
 				in
-					Decimales
+					SinIdentidad
 

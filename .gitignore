@@ -1,0 +1,5 @@
+**/.pbi/localSettings.json
+**/.pbi/cache.abf
+**/__pycache__/
+outputs/consulta_interna.html
+config/sharepoint.json

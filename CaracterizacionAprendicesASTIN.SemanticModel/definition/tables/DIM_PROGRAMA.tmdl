@@ -1,128 +1,146 @@
 table DIM_PROGRAMA
-	lineageTag: 07c7e7c7-5baf-4ddc-b0fa-348faec57c3d
+	lineageTag: 6271471f-fdb0-40e9-bb3d-86156b869f5c
 
 	column ProgramaID
 		dataType: string
 		isHidden
-		lineageTag: 94a26094-eb02-4b57-a40d-088a509fc5b4
+		lineageTag: db5818ba-e99f-47fc-8d3c-930461d5ebda
 		summarizeBy: none
 		sourceColumn: ProgramaID
 
 	column NombrePrograma
 		dataType: string
-		lineageTag: ffcf8408-2d8d-4c18-8380-573a196b5fd7
+		lineageTag: d1568ed0-6cf5-437d-aa5a-63c8804a5703
 		summarizeBy: none
 		sourceColumn: NombrePrograma
 
 	column NombreOriginal
 		dataType: string
 		isHidden
-		lineageTag: 546d1713-1025-48dc-90d3-f8c210362f0a
+		lineageTag: a2b6c8af-4619-4cf1-a41e-90ded3b38a4f
 		summarizeBy: none
 		sourceColumn: NombreOriginal
 
 	column LineaFormacion
 		dataType: string
-		lineageTag: dadbf790-19e0-4507-9a8f-54c1ba04c9b9
+		lineageTag: 109a871c-4847-43a4-8ffc-2c9687b4f591
 		summarizeBy: none
 		sourceColumn: LineaFormacion
 
 	column TipoFormacion
 		dataType: string
-		lineageTag: 2d6503f0-7e41-42db-a717-c55dbd52f025
+		lineageTag: feffa494-ef01-4ba7-b659-814d92eff165
 		summarizeBy: none
 		sourceColumn: TipoFormacion
 
 	column CentroCosto
 		dataType: string
-		lineageTag: 08040372-6977-44f0-9f28-957d87761f85
+		lineageTag: a9bc4a60-6e07-4e8c-a145-6923ff2bb8bd
 		summarizeBy: none
 		sourceColumn: CentroCosto
 
 	column CentroFormacion
 		dataType: string
-		lineageTag: ce6d33bd-e5b2-4712-8aef-93ab7d43089d
+		lineageTag: 033d044e-51f2-4261-8cd9-75ca93f245c2
 		summarizeBy: none
 		sourceColumn: CentroFormacion
 
 	column Regional
 		dataType: string
-		lineageTag: 61a4fcbd-f10a-49aa-b9af-ed5f8261b2b9
+		lineageTag: 4ccd80b0-95e6-4b0c-9f9d-6c500bf6722d
 		summarizeBy: none
 		sourceColumn: Regional
 
 	column NivelFormacion
 		dataType: string
-		lineageTag: 9cef03fc-f48e-4617-9ab4-ff16d8e290ed
+		lineageTag: c1c06807-1850-45a2-8f2f-f32a984cca92
 		summarizeBy: none
 		sourceColumn: NivelFormacion
 
 	column Aprendices
 		dataType: int64
 		formatString: #,##0
-		lineageTag: 6beaacb4-76a8-4545-b0ac-102952195579
-		summarizeBy: none
+		lineageTag: e80dfe3d-2c9d-45a8-b378-5caa1468c1f0
+		summarizeBy: sum
 		sourceColumn: Aprendices
+
+		annotation SummarizationSetBy = Automatic
 
 	column Inasistencias
 		dataType: int64
 		formatString: #,##0
-		lineageTag: 7cc610ed-ac41-4c36-96bc-65c382189b0f
-		summarizeBy: none
+		lineageTag: eb0efb9a-3fb2-42c8-b827-9ce5f11b3213
+		summarizeBy: sum
 		sourceColumn: Inasistencias
+
+		annotation SummarizationSetBy = Automatic
 
 	column Horas
 		dataType: int64
 		formatString: #,##0
-		lineageTag: 7ebcab76-d762-47a2-b66f-217f3b031fd5
-		summarizeBy: none
+		lineageTag: 98324a92-df5c-4c1c-89fc-3d494294adac
+		summarizeBy: sum
 		sourceColumn: Horas
+
+		annotation SummarizationSetBy = Automatic
 
 	column HorasNoJustificadas
 		dataType: int64
 		formatString: #,##0
-		lineageTag: c014cc38-c424-4d66-8f70-a90b9f7a05ef
-		summarizeBy: none
+		lineageTag: 95f7b595-d881-4eb9-b6e3-75a614d6a586
+		summarizeBy: sum
 		sourceColumn: HorasNoJustificadas
+
+		annotation SummarizationSetBy = Automatic
 
 	column PctHorasNoJust
 		dataType: double
 		formatString: 0.0%
-		lineageTag: e33845bb-f697-486f-83f1-926d8c4a9dd5
-		summarizeBy: none
+		lineageTag: ed3527e2-0929-4741-92c8-c21e8af92dbb
+		summarizeBy: sum
 		sourceColumn: PctHorasNoJust
+
+		annotation SummarizationSetBy = Automatic
 
 	column HorasPorAprendiz
 		dataType: double
 		formatString: #,##0.0
-		lineageTag: cb202504-6824-4d45-a166-b3d4490dcf6c
-		summarizeBy: none
+		lineageTag: c5e03c95-6366-4291-9041-5e79630fb797
+		summarizeBy: sum
 		sourceColumn: HorasPorAprendiz
+
+		annotation SummarizationSetBy = Automatic
 
 	column InasPorAprendiz
 		dataType: double
 		formatString: #,##0.0
-		lineageTag: d15492bc-50cb-4d7c-8b62-9b0a0a24bca3
-		summarizeBy: none
+		lineageTag: be08632b-dd7d-4bfb-bbd0-7a4f4f5239a3
+		summarizeBy: sum
 		sourceColumn: InasPorAprendiz
+
+		annotation SummarizationSetBy = Automatic
 
 	column MuestraSuficiente
 		dataType: int64
 		formatString: 0
-		lineageTag: a07dca72-15a4-4030-9e19-7406b7a41253
-		summarizeBy: none
+		lineageTag: ae03e720-ceba-4845-b863-9d18b2acc990
+		summarizeBy: sum
 		sourceColumn: MuestraSuficiente
+
+		annotation SummarizationSetBy = Automatic
 
 	column IndiceRiesgoCorte
 		dataType: double
 		formatString: 0.0
-		lineageTag: 2c7251f5-bdb2-4f50-a0a9-701552914399
-		summarizeBy: none
+		lineageTag: 97dfb482-a6e7-402e-8bd5-b5a00a7fe8c7
+		summarizeBy: sum
 		sourceColumn: IndiceRiesgoCorte
+
+		annotation SummarizationSetBy = Automatic
 
 	column NivelRiesgoCorte
 		dataType: string
-		lineageTag: 12eca410-fa5e-4aca-94b9-d9edb6984a1b
+		lineageTag: e35ff8b8-d29a-4900-9db3-88807605a01e
 		summarizeBy: none
 		sourceColumn: NivelRiesgoCorte
 
@@ -130,29 +148,45 @@ table DIM_PROGRAMA
 		dataType: int64
 		isHidden
 		formatString: 0
-		lineageTag: 2185fccd-50d8-4cd1-86cc-98f7b4d15277
-		summarizeBy: none
+		lineageTag: 4dd0716a-5c15-4b24-868e-047e3d9e6994
+		summarizeBy: sum
 		sourceColumn: RankingHoras
+
+		annotation SummarizationSetBy = Automatic
 
 	column PrimeraNovedad
 		dataType: dateTime
 		formatString: yyyy-MM-dd
-		lineageTag: 1538b378-fb79-41f0-a32a-e6ac8a186a5f
+		lineageTag: 58bd0104-4f82-4331-a806-aa5338c31ca6
 		summarizeBy: none
 		sourceColumn: PrimeraNovedad
+
+		variation Variation
+			isDefault
+			relationship: ae710040-f0ed-4394-91b4-5c6d9dcd4e35
+			defaultHierarchy: LocalDateTable_8cb3bad0-44bf-4ed1-8280-82a7d5312a39.'Jerarquía de fechas'
+
+		annotation UnderlyingDateTimeDataType = Date
 
 	column UltimaNovedad
 		dataType: dateTime
 		formatString: yyyy-MM-dd
-		lineageTag: 9c34cf8b-cfaf-47d8-841d-5a8c8d5866fc
+		lineageTag: 0c450994-dc0d-4a66-ad06-3a5c344dc823
 		summarizeBy: none
 		sourceColumn: UltimaNovedad
+
+		variation Variation
+			isDefault
+			relationship: 9cea63e5-8fcc-43c4-9d4d-49de26d7207c
+			defaultHierarchy: LocalDateTable_93cb7792-d16f-400e-b701-2533c4ee6262.'Jerarquía de fechas'
+
+		annotation UnderlyingDateTimeDataType = Date
 
 	partition DIM_PROGRAMA = m
 		mode: import
 		source =
 				let
-					Origen = Csv.Document(File.Contents(RutaDatos & "\DIM_PROGRAMA.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+					Origen = let Coincidencia = Table.SelectRows(ArchivosSharePoint, each [Folder Path] = RutaDatosSharePoint and [Name] = "DIM_PROGRAMA.csv"), Binario = if Table.RowCount(Coincidencia) = 0 then error "No se encontró DIM_PROGRAMA.csv en SharePoint." else Coincidencia{0}[Content] in Csv.Document(Binario,[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
 					Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars=true]),
 					Tipos = Table.TransformColumnTypes(Encabezados,{{"ProgramaID", type text}, {"NombrePrograma", type text}, {"NombreOriginal", type text}, {"LineaFormacion", type text}, {"TipoFormacion", type text}, {"CentroCosto", type text}, {"CentroFormacion", type text}, {"Regional", type text}, {"NivelFormacion", type text}, {"Aprendices", Int64.Type}, {"Inasistencias", Int64.Type}, {"Horas", Int64.Type}, {"HorasNoJustificadas", Int64.Type}, {"MuestraSuficiente", Int64.Type}, {"NivelRiesgoCorte", type text}, {"RankingHoras", Int64.Type}, {"PrimeraNovedad", type date}, {"UltimaNovedad", type date}}),
 					Decimales = Table.TransformColumns(Tipos,{

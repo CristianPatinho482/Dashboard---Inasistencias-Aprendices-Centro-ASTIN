@@ -6,9 +6,13 @@ El modelo usa `FACT_INASISTENCIAS` como tabla de hechos con una fila por registr
 
 `DIM_CALENDARIO` cubre desde el primer día del año de la primera novedad hasta el último día del año que contiene la fecha de corte observada. La fecha analítica de la novedad es `Fecha Inicio`; `Fecha Fin` queda disponible para detalle y duración del intervalo.
 
+El modelo usa `DIM_CALENDARIO` como calendario único y desactiva Auto date/time; así evita tablas de fecha ocultas por columna y sus jerarquías automáticas. El generador también limpia los archivos `LocalDateTable_*` y `DateTableTemplate_*` autogenerados que no forman parte del modelo estrella.
+
+La tabla `DIM_APRENDIZ` conserva las claves y atributos analíticos de aprendices. Para la consulta nominal interna, Power Query incorpora `NombreCompleto` desde `data/restricted/DIM_APRENDIZ_PII.csv` mediante una combinación por `AprendizID`; el documento no se incorpora a la tabla del modelo. La nueva columna `DIM_CALENDARIO[InicioSemana]` identifica el lunes de cada semana y permite medir umbrales semanales dentro de intervalos de fechas.
+
 ## Fuentes, claves y privacidad
 
-El proceso lee `C:\Users\capatino\Desktop\Inasistencias\Inasistencias.xls`, hoja `Sheet1`, y crea cinco CSV en `data/processed`. Se puede cambiar la ruta mediante la variable de entorno `INASISTENCIAS_SOURCE`. El archivo Excel es un extracto transaccional, no una fuente maestra para estado académico o matrícula. `DIM_APRENDIZ` contiene una clave seudonimizada y agregados. Nombres y documentos en claro se mantienen aparte en `data/restricted/DIM_APRENDIZ_PII.csv` y nunca se cargan al modelo.
+El proceso lee `C:\Users\capatino\OneDrive - Servicio Nacional de Aprendizaje\Equipo ASTIN-DESAROLLOS POWER-BI - RAPS ASTIN 2026\Inasistencias.xls`, hoja `Sheet1`, y crea cinco CSV en `data/processed`. La ruta puede sobrescribirse mediante la variable de entorno `INASISTENCIAS_SOURCE`. El resumen registra tanto la fecha máxima `Fecha Fin` de los datos como la última modificación del archivo de origen. El Excel es un extracto transaccional, no una fuente maestra para estado académico o matrícula. `DIM_APRENDIZ` contiene una clave seudonimizada y agregados. Nombres y documentos en claro se mantienen aparte en `data/restricted/DIM_APRENDIZ_PII.csv` y nunca se cargan al modelo.
 
 La clave de aprendiz es un hash estable derivado de la identificación disponible; la clave de novedad es hash de los atributos normalizados del evento. Una identificación ausente puede producir una clave heurística basada en datos de contexto y no equivale a una identidad oficial. Programa y centro de costo se normalizan/derivan de los campos disponibles. El resumen ETL señala las inferencias y métricas de cobertura.
 

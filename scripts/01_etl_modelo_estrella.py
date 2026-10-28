@@ -43,7 +43,12 @@ import pandas as pd
 BASE = Path(__file__).resolve().parents[1]
 RAW = Path(os.environ.get(
     "INASISTENCIAS_SOURCE",
-    str(Path.home() / "Desktop" / "Inasistencias" / "Inasistencias.xls"),
+    str(
+        Path.home()
+        / "OneDrive - Servicio Nacional de Aprendizaje"
+        / "Equipo ASTIN-DESAROLLOS POWER-BI - RAPS ASTIN 2026"
+        / "Inasistencias.xls"
+    ),
 ))
 OUT = BASE / "data" / "processed"
 RESTRICTED = BASE / "data" / "restricted"
@@ -654,6 +659,7 @@ def main() -> None:
     cal["EtiquetaMes"] = cal.apply(lambda r: f"{r['MesCorto']} {r['Anio']}", axis=1)
     cal["OrdenAnioMes"] = cal["Anio"] * 100 + cal["Mes"]
     cal["SemanaISO"] = cal["Fecha"].dt.isocalendar().week.astype(int)
+    cal["InicioSemana"] = cal["Fecha"] - pd.to_timedelta(cal["Fecha"].dt.weekday, unit="D")
     cal["Dia"] = cal["Fecha"].dt.day
     cal["NombreDia"] = cal["Fecha"].dt.dayofweek.map(DIAS)
     cal["EsFinSemana"] = cal["Fecha"].dt.dayofweek.isin([5, 6]).astype(int)
@@ -667,10 +673,11 @@ def main() -> None:
     cal["FechaKey"] = cal["Fecha"].dt.strftime("%Y%m%d").astype(int)
     cal_out = cal[[
         "Fecha", "Anio", "Trimestre", "Mes", "NombreMes", "MesCorto", "AnioMes", "EtiquetaMes",
-        "OrdenAnioMes", "SemanaISO", "Dia", "NombreDia", "EsFinSemana", "Periodo",
+        "OrdenAnioMes", "SemanaISO", "InicioSemana", "Dia", "NombreDia", "EsFinSemana", "Periodo",
         "EsMesCompleto", "FechaCorte", "DiasDesdeCorte", "FechaKey",
     ]].copy()
     cal_out["Fecha"] = cal_out["Fecha"].dt.strftime("%Y-%m-%d")
+    cal_out["InicioSemana"] = cal_out["InicioSemana"].dt.strftime("%Y-%m-%d")
     cal_out["FechaCorte"] = cal_out["FechaCorte"].astype(str)
     cal_out.to_csv(OUT / "DIM_CALENDARIO.csv", index=False, encoding="utf-8")
 
@@ -734,9 +741,11 @@ def main() -> None:
     top_fichas = ficha_out.head(10)[["FichaID", "IndiceRiesgoCorte", "NivelRiesgoCorte", "Horas", "Aprendices", "Inasistencias"]].to_dict(orient="records")
     top_programas = prog_out.head(10)[["NombrePrograma", "Horas", "Aprendices", "Inasistencias"]].to_dict(orient="records")
 
+    fecha_descarga = datetime.fromtimestamp(RAW.stat().st_mtime).astimezone()
     resumen = {
         "fuente": str(RAW),
         "corte": str(corte),
+        "ultima_descarga": fecha_descarga.isoformat(timespec="minutes"),
         "registros_origen": registros_origen,
         "registros_invalidos": n_invalidas,
         "duplicados_exactos": duplicados,

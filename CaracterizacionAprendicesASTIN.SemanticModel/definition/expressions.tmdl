@@ -1,5 +1,15 @@
-expression RutaDatos = "C:\Users\capatino\Documents\Inasistencias Sofía Plus\data\processed" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
-	lineageTag: 707d108d-2100-424b-bdbd-a1939ade63a2
+expression SitioSharePoint = "https://sena4.sharepoint.com/teams/EquipoASTIN-DESAROLLOSPOWER-BI" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 521f048d-c25a-4f52-8ce7-a52b5745f799
 
 	annotation PBI_ResultType = Text
+
+expression RutaDatosSharePoint = "https://sena4.sharepoint.com/teams/EquipoASTIN-DESAROLLOSPOWER-BI/Shared Documents/Reporte Inasistencias/" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: a35e9608-0332-482b-83a0-b4d6d94ae70f
+
+	annotation PBI_ResultType = Text
+
+expression ArchivosSharePoint = SharePoint.Files(SitioSharePoint, [ApiVersion=15])
+	lineageTag: 5da2d3f2-5dca-4de7-b84d-cdee5799015b
+
+	annotation PBI_ResultType = Table
 

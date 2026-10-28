@@ -14,3 +14,38 @@ relationship 4c5a1d43-9f40-4d81-8c34-1f7ea05b9d04
 	fromColumn: FACT_INASISTENCIAS.ProgramaID
 	toColumn: DIM_PROGRAMA.ProgramaID
 
+relationship 23d94064-67f6-4669-b63e-b1a7d2125798
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DIM_APRENDIZ.PrimeraNovedad
+	toColumn: LocalDateTable_2d570b6f-8a44-4937-8300-4bbd7a9c7d5e.Date
+
+relationship 05913615-3722-4576-b2e4-2b7f7af4a8d2
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DIM_APRENDIZ.UltimaNovedad
+	toColumn: LocalDateTable_500a3f48-9a88-4a35-8252-68e176ea0e0e.Date
+
+relationship f3a55c09-7daf-4303-b713-f202211f7764
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DIM_FICHA.PrimeraNovedad
+	toColumn: LocalDateTable_85756691-1f41-452a-afa4-8677996f3405.Date
+
+relationship b8cd2969-a7bb-4315-b4ef-2dcb3719d067
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DIM_FICHA.UltimaNovedad
+	toColumn: LocalDateTable_4d8f0cd1-6644-477a-94aa-338b990c0ba8.Date
+
+relationship ae710040-f0ed-4394-91b4-5c6d9dcd4e35
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DIM_PROGRAMA.PrimeraNovedad
+	toColumn: LocalDateTable_8cb3bad0-44bf-4ed1-8280-82a7d5312a39.Date
+
+relationship 9cea63e5-8fcc-43c4-9d4d-49de26d7207c
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DIM_PROGRAMA.UltimaNovedad
+	toColumn: LocalDateTable_93cb7792-d16f-400e-b701-2533c4ee6262.Date
+
+relationship 84ca1527-5237-41b0-b2fa-7d9f89f88c92
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FACT_INASISTENCIAS.FechaFin
+	toColumn: LocalDateTable_e547e4c0-0dfc-460c-8c93-abf3fbad425b.Date
+

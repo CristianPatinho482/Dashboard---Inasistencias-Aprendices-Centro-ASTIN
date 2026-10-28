@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "b22c08f18debb8bc06a9",
   "position": {
     "x": 980,
     "y": 20,
-    "z": 200,
+    "width": 276,
     "height": 24,
-    "width": 276
+    "z": 200
   },
   "visual": {
     "visualType": "textbox",
@@ -18,11 +18,11 @@
               {
                 "textRuns": [
                   {
-                    "value": "Corte de datos: 23 de octubre de 2026",
+                    "value": "Descarga: 27 oct 2026 16:46",
                     "textStyle": {
                       "fontFamily": "Work Sans",
                       "fontSize": "8.5pt",
-                      "color": "#667a72"
+                      "color": "#667A72"
                     }
                   }
                 ]
