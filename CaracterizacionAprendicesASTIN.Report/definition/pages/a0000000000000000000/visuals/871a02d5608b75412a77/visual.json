@@ -6,7 +6,7 @@
     "y": 642,
     "width": 160,
     "height": 20,
-    "z": 302
+    "z": 303
   },
   "visual": {
     "visualType": "textbox",
@@ -18,11 +18,11 @@
               {
                 "textRuns": [
                   {
-                    "value": "23 de octubre de 2026",
+                    "value": "27 oct 2026 16:46",
                     "textStyle": {
                       "fontFamily": "Work Sans",
                       "fontSize": "9.2pt",
-                      "color": "#FFFFFF"
+                      "color": "#EAF3F6"
                     }
                   }
                 ]

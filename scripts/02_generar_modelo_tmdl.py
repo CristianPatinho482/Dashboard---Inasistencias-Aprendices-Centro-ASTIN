@@ -15,6 +15,7 @@ MODEL = BASE / "CaracterizacionAprendicesASTIN.SemanticModel"
 DEF = MODEL / "definition"
 TABLES_DIR = DEF / "tables"
 DATA = BASE / "data" / "processed"
+RESTRICTED = BASE / "data" / "restricted"
 
 RESUMEN = json.loads((DATA / "00_resumen_etl.json").read_text(encoding="utf-8"))
 
@@ -22,6 +23,20 @@ MODEL_NAME = "CaracterizacionAprendicesASTIN"
 REPORT_NAME = "Caracterización de Aprendices Centro ASTIN"
 # Ruta de carpeta del modelo, relativa al proyecto para que este sea portable.
 RUTA_DATOS = str(DATA)
+CONFIG_SHAREPOINT = BASE / "config" / "sharepoint.json"
+
+def cargar_config_sharepoint() -> dict:
+    """Lee ubicaciones, nunca credenciales; conserva modo local si no hay config."""
+    if CONFIG_SHAREPOINT.exists():
+        return json.loads(CONFIG_SHAREPOINT.read_text(encoding="utf-8"))
+    return {"mode": "Local", "site_url": "", "processed_folder_url": "", "restricted_folder_url": ""}
+
+SP_CONFIG = cargar_config_sharepoint()
+MODO_ORIGEN = str(SP_CONFIG.get("mode", "Local")).strip().lower()
+if MODO_ORIGEN not in {"local", "sharepoint"}:
+    raise ValueError("config/sharepoint.json: mode debe ser 'Local' o 'SharePoint'.")
+if MODO_ORIGEN == "sharepoint" and not all(SP_CONFIG.get(k) for k in ("site_url", "processed_folder_url")):
+    raise ValueError("Configure site_url y processed_folder_url en config/sharepoint.json.")
 
 
 # ---------------------------------------------------------------------------
@@ -42,7 +57,7 @@ TABLAS = {
             c("MesCorto", "string", orden="Mes"), c("AnioMes", "string"),
             c("EtiquetaMes", "string", orden="OrdenAnioMes"),
             c("OrdenAnioMes", "int64", "0"),
-            c("SemanaISO", "int64", "0"), c("Dia", "int64", "0"),
+            c("SemanaISO", "int64", "0"), c("InicioSemana", "dateTime", "yyyy-MM-dd"), c("Dia", "int64", "0"),
             c("NombreDia", "string"), c("EsFinSemana", "int64", "0"),
             c("Periodo", "string"), c("EsMesCompleto", "int64", "0"),
             c("FechaCorte", "dateTime", "yyyy-MM-dd"),
@@ -51,10 +66,11 @@ TABLAS = {
     },
     "DIM_APRENDIZ": {
         "archivo": "DIM_APRENDIZ.csv",
+        "identidad_restringida": True,
         "columnas": [
             c("AprendizID", "string", oculta=True),
             c("TipoDocumento", "string"), c("DocumentoEnmascarado", "string"),
-            c("Iniciales", "string"), c("FichaPrincipal", "string"),
+            c("Iniciales", "string"), c("NombreCompleto", "string"), c("FichaPrincipal", "string"),
             c("ProgramaPrincipal", "string", oculta=True),
             c("Inasistencias", "int64", "#,##0"), c("Horas", "int64", "#,##0"),
             c("Justificadas", "int64", "#,##0"), c("NoJustificadas", "int64", "#,##0"),
@@ -162,6 +178,11 @@ MEDIDAS = [
     # -- 00 KPIs -----------------------------------------------------------
     ("00 KPIs", "Total horas perdidas", "SUM ( FACT_INASISTENCIAS[CantidadHoras] )", "#,##0"),
     ("00 KPIs", "Total inasistencias", "COUNTROWS ( FACT_INASISTENCIAS )", "#,##0"),
+    ("00 KPIs", "Registros válidos al corte", "CALCULATE ( COUNTROWS ( FACT_INASISTENCIAS ), REMOVEFILTERS ( FACT_INASISTENCIAS ), REMOVEFILTERS ( DIM_CALENDARIO ), REMOVEFILTERS ( DIM_APRENDIZ ), REMOVEFILTERS ( DIM_FICHA ), REMOVEFILTERS ( DIM_PROGRAMA ) )", "#,##0"),
+    ("00 KPIs", "Fecha de corte de información", "CALCULATE ( MAX ( FACT_INASISTENCIAS[FechaFin] ), REMOVEFILTERS ( FACT_INASISTENCIAS ), REMOVEFILTERS ( DIM_CALENDARIO ), REMOVEFILTERS ( DIM_APRENDIZ ), REMOVEFILTERS ( DIM_FICHA ), REMOVEFILTERS ( DIM_PROGRAMA ) )", "d mmm yyyy"),
+    ("03 Aprendices", "Horas no justificadas en periodo", "CALCULATE ( [Total horas perdidas], FACT_INASISTENCIAS[EsNoJustificada] = 1 )", "#,##0.0"),
+    ("03 Aprendices", "Máximo semanal horas no justificadas", "MAXX ( VALUES ( DIM_CALENDARIO[InicioSemana] ), [Horas no justificadas en periodo] )", "#,##0.0"),
+    ("03 Aprendices", "Semáforo semanal", 'VAR Horas = [Máximo semanal horas no justificadas]\nRETURN SWITCH ( TRUE (), ISBLANK ( Horas ), BLANK (), Horas < 12, UNICHAR ( 128994 ) & " Verde", Horas <= 16, UNICHAR ( 128993 ) & " Amarillo", UNICHAR ( 128308 ) & " Rojo" )', None),
     ("00 KPIs", "Aprendices con inasistencias", "DISTINCTCOUNT ( FACT_INASISTENCIAS[AprendizID] )", "#,##0"),
     ("00 KPIs", "Fichas con inasistencias", "DISTINCTCOUNT ( FACT_INASISTENCIAS[FichaID] )", "#,##0"),
     ("00 KPIs", "Programas con inasistencias", "DISTINCTCOUNT ( FACT_INASISTENCIAS[ProgramaID] )", "#,##0"),
@@ -378,11 +399,21 @@ def escribir_tabla(nombre: str, spec: dict) -> None:
 
     tipos = ", ".join(
         f'{{"{col["nombre"]}", {M_TIPO[col["tipo"]]}}}'
-        for col in spec["columnas"] if col["tipo"] != "double"
+        for col in spec["columnas"]
+        if col["tipo"] != "double" and not (spec.get("identidad_restringida") and col["nombre"] == "NombreCompleto")
     )
     dobles = [col["nombre"] for col in spec["columnas"] if col["tipo"] == "double"]
+    if MODO_ORIGEN == "sharepoint":
+        archivo_sp = spec["archivo"]
+        fuente = (
+            f'let Coincidencia = Table.SelectRows(ArchivosSharePoint, each [Folder Path] = RutaDatosSharePoint and [Name] = "{archivo_sp}"), '
+            f'Binario = if Table.RowCount(Coincidencia) = 0 then error "No se encontró {archivo_sp} en SharePoint." else Coincidencia{{0}}[Content] '
+            'in Csv.Document(Binario,[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv])'
+        )
+    else:
+        fuente = f'Csv.Document(File.Contents(RutaDatos & "\\{spec["archivo"]}"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv])'
     pasos = [
-        f'\t\t\t\tOrigen = Csv.Document(File.Contents(RutaDatos & "\\{spec["archivo"]}"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),',
+        f'\t\t\t\tOrigen = {fuente},',
         "\t\t\t\tEncabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars=true]),",
         f"\t\t\t\tTipos = Table.TransformColumnTypes(Encabezados,{{{tipos}}})",
     ]
@@ -396,7 +427,24 @@ def escribir_tabla(nombre: str, spec: dict) -> None:
             for c in dobles
         )
         pasos.append(f"\t\t\t\tDecimales = Table.TransformColumns(Tipos,{{\n{decs}\n\t\t\t\t}})")
-    pasos.extend(["\t\t\tin", f"\t\t\t\t{'Decimales' if dobles else 'Tipos'}", ""])
+    paso_final = "Decimales" if dobles else "Tipos"
+    if spec.get("identidad_restringida") and MODO_ORIGEN != "sharepoint":
+        pasos[-1] += ","
+        pasos.extend([
+            '\t\t\t\tOrigenIdentidad = Csv.Document(File.Contents(RutaDatosRestringidos & "\\DIM_APRENDIZ_PII.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),',
+            '\t\t\t\tEncabezadosIdentidad = Table.PromoteHeaders(OrigenIdentidad, [PromoteAllScalars=true]),',
+            '\t\t\t\tSoloIdentidad = Table.SelectColumns(EncabezadosIdentidad, {"AprendizID", "NombreCompleto"}),',
+            f'\t\t\t\tUnirIdentidad = Table.NestedJoin({paso_final}, {{"AprendizID"}}, SoloIdentidad, {{"AprendizID"}}, "Identidad", JoinKind.LeftOuter),',
+            '\t\t\t\tExpandirIdentidad = Table.ExpandTableColumn(UnirIdentidad, "Identidad", {"NombreCompleto"}, {"NombreCompleto"})',
+        ])
+        paso_final = "ExpandirIdentidad"
+    elif spec.get("identidad_restringida") and MODO_ORIGEN == "sharepoint":
+        # SharePoint mantiene solo las salidas agregadas. La columna se conserva
+        # para compatibilidad de esquema, sin cargar nombres de aprendices.
+        pasos[-1] += ","
+        pasos.append(f'\t\t\t\tSinIdentidad = Table.AddColumn({paso_final}, "NombreCompleto", each null, type text)')
+        paso_final = "SinIdentidad"
+    pasos.extend(["\t\t\tin", f"\t\t\t\t{paso_final}", ""])
     lineas.extend([
         f"\tpartition {nombre} = m",
         "\t\tmode: import",
@@ -410,8 +458,9 @@ def escribir_tabla(nombre: str, spec: dict) -> None:
 
 def main() -> None:
     TABLES_DIR.mkdir(parents=True, exist_ok=True)
-    # El modelo usa DIM_CALENDARIO explícita; se quitan las tablas automáticas
-    # de fecha creadas por Power BI Desktop para evitar referencias/variaciones huérfanas.
+    # Power BI Desktop may persist auto-date/time tables in the TMDL folder.
+    # This project uses DIM_CALENDARIO, so discard those generated hierarchies
+    # and disable their creation to avoid dangling variation metadata.
     for pattern in ("LocalDateTable_*.tmdl", "DateTableTemplate_*.tmdl"):
         for generated_table in TABLES_DIR.glob(pattern):
             generated_table.unlink()
@@ -426,17 +475,26 @@ def main() -> None:
 \tsourceQueryCulture: es-CO
 
 {refs}
-\tannotation __PBI_TimeIntelligenceEnabled = 0
+	annotation __PBI_TimeIntelligenceEnabled = 0
 """,
         encoding="utf-8",
     )
 
-    (DEF / "expressions.tmdl").write_text(
-        f'''expression RutaDatos = "{RUTA_DATOS}" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+    if MODO_ORIGEN == "sharepoint":
+        expresiones = f'''expression SitioSharePoint = "{SP_CONFIG["site_url"]}" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
 \tannotation PBI_ResultType = Text
-''',
-        encoding="utf-8",
-    )
+expression RutaDatosSharePoint = "{SP_CONFIG["processed_folder_url"]}" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+\tannotation PBI_ResultType = Text
+expression ArchivosSharePoint = SharePoint.Files(SitioSharePoint, [ApiVersion=15])
+\tannotation PBI_ResultType = Table
+'''
+    else:
+        expresiones = f'''expression RutaDatos = "{RUTA_DATOS}" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+\tannotation PBI_ResultType = Text
+expression RutaDatosRestringidos = "{RESTRICTED}" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+\tannotation PBI_ResultType = Text
+'''
+    (DEF / "expressions.tmdl").write_text(expresiones, encoding="utf-8")
 
     relaciones = [
         ("1f2d8a10-6c1d-4a5e-9f01-8c4b7d2e6a01", "FACT_INASISTENCIAS.Fecha", "DIM_CALENDARIO.Fecha"),

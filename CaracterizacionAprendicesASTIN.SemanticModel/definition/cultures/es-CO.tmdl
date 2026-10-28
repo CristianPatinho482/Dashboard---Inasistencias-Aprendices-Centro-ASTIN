@@ -172,6 +172,141 @@ cultureInfo es-CO
 			          }
 			        }
 			      ]
+			    },
+			    "dim_aprendiz.nombrecompleto": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_APRENDIZ",
+			          "ConceptualProperty": "NombreCompleto"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "fact_inasistencias.total_inasistencias": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FACT_INASISTENCIAS",
+			          "ConceptualProperty": "Total inasistencias"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Inasistencias": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "fact_inasistencias.total_horas_perdidas": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FACT_INASISTENCIAS",
+			          "ConceptualProperty": "Total horas perdidas"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Horas totales": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "fact_inasistencias.horas_no_justificadas_en_periodo": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FACT_INASISTENCIAS",
+			          "ConceptualProperty": "Horas no justificadas en periodo"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "No justificadas · periodo": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "fact_inasistencias.máximo_semanal_horas_no_justificadas": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FACT_INASISTENCIAS",
+			          "ConceptualProperty": "Máximo semanal horas no justificadas"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Peor semana · no justificadas": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "fact_inasistencias.semáforo_semanal": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FACT_INASISTENCIAS",
+			          "ConceptualProperty": "Semáforo semanal"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Semáforo": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "dim_aprendiz.aprendizid": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_APRENDIZ",
+			          "ConceptualProperty": "AprendizID"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Código seudónimo": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
 			    }
 			  }
 			}

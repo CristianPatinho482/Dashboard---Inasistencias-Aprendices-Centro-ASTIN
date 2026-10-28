@@ -6,6 +6,10 @@ Las medidas viven en `FACT_INASISTENCIAS.tmdl` y usan contexto de filtro de las 
 
 `Total inasistencias` cuenta las filas del hecho; `Total horas perdidas` suma `CantidadHoras`; `Aprendices con inasistencias`, `Fichas con inasistencias` y `Programas con inasistencias` cuentan claves distintas dentro del filtro actual. `Fichas en riesgo alto`, `Programas en riesgo alto` y `Casos posible deserción` cuentan las entidades que tienen al menos un registro relacionado con la respectiva bandera de corte. Los porcentajes de horas se calculan sobre horas, no sobre número de registros.
 
+La barra inferior de navegación usa `Registros válidos al corte` (conteo de filas de `FACT_INASISTENCIAS`) y `Fecha de corte de información` (máxima `FechaFin`). Ambas medidas quitan los filtros de las dimensiones y de la tabla de hechos para conservar un valor global idéntico en las seis páginas; Power BI las recalcula al actualizar el modelo.
+
+La página `05 Consulta semanal` usa los filtros de ficha, instructor y rango de fechas. `Horas no justificadas en periodo` suma solo horas marcadas `EsNoJustificada`; `Máximo semanal horas no justificadas` calcula la suma para cada lunes presente en el intervalo y conserva la semana de mayor carga por aprendiz. El semáforo aplica verde para menos de 12 horas, amarillo para 12–16 inclusive y rojo para más de 16. Los totales de inasistencias y horas en la tabla corresponden al intervalo completo seleccionado. Los nombres se leen desde la fuente restringida local y no se agregan al portal HTML público.
+
 Las medidas de calidad contabilizan duplicados removidos desde el resumen ETL, filas sin texto de justificación, filas no clasificadas, registros que requieren revisión, outliers, cobertura y fechas extremas. Los conteos de corte del resumen no reaccionan a filtros del informe; las medidas calculadas desde el hecho sí.
 
 ## 01 Inasistencias
