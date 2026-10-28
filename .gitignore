@@ -1,0 +1,8 @@
+**/.pbi/localSettings.json
+**/.pbi/cache.abf
+**/__pycache__/
+**/LocalDateTable_*.tmdl
+**/DateTableTemplate_*.tmdl
+outputs/consulta_interna.html
+config/sharepoint.json
+github-pages/
