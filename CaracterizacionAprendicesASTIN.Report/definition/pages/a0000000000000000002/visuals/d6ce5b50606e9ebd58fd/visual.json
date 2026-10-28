@@ -4,9 +4,9 @@
   "position": {
     "x": 788,
     "y": 462,
-    "z": 5,
+    "width": 464,
     "height": 206,
-    "width": 464
+    "z": 5
   },
   "visual": {
     "visualType": "tableEx",
@@ -15,6 +15,8 @@
         "Values": {
           "projections": [
             {
+              "queryRef": "DIM_PROGRAMA.NombrePrograma",
+              "nativeQueryRef": "NombrePrograma",
               "field": {
                 "Column": {
                   "Expression": {
@@ -25,11 +27,11 @@
                   "Property": "NombrePrograma"
                 }
               },
-              "queryRef": "DIM_PROGRAMA.NombrePrograma",
-              "nativeQueryRef": "NombrePrograma",
               "displayName": "Programa"
             },
             {
+              "queryRef": "DIM_PROGRAMA.IndiceRiesgoCorte",
+              "nativeQueryRef": "IndiceRiesgoCorte",
               "field": {
                 "Column": {
                   "Expression": {
@@ -40,11 +42,11 @@
                   "Property": "IndiceRiesgoCorte"
                 }
               },
-              "queryRef": "DIM_PROGRAMA.IndiceRiesgoCorte",
-              "nativeQueryRef": "IndiceRiesgoCorte",
               "displayName": "Índice"
             },
             {
+              "queryRef": "DIM_PROGRAMA.NivelRiesgoCorte",
+              "nativeQueryRef": "NivelRiesgoCorte",
               "field": {
                 "Column": {
                   "Expression": {
@@ -55,11 +57,11 @@
                   "Property": "NivelRiesgoCorte"
                 }
               },
-              "queryRef": "DIM_PROGRAMA.NivelRiesgoCorte",
-              "nativeQueryRef": "NivelRiesgoCorte",
               "displayName": "Nivel"
             },
             {
+              "queryRef": "DIM_PROGRAMA.HorasNoJustificadas",
+              "nativeQueryRef": "HorasNoJustificadas",
               "field": {
                 "Column": {
                   "Expression": {
@@ -70,8 +72,6 @@
                   "Property": "HorasNoJustificadas"
                 }
               },
-              "queryRef": "DIM_PROGRAMA.HorasNoJustificadas",
-              "nativeQueryRef": "HorasNoJustificadas",
               "displayName": "Horas no justif."
             }
           ]
@@ -176,6 +176,17 @@
                   "Value": "'Work Sans'"
                 }
               }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#1F3B47'"
+                    }
+                  }
+                }
+              }
             }
           }
         }
@@ -231,7 +242,15 @@
       ],
       "total": [
         {
-          "properties": {}
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
         }
       ],
       "columnWidth": [
@@ -293,6 +312,7 @@
         }
       ]
     },
+    "drillFilterOtherVisuals": true,
     "visualContainerObjects": {
       "visualHeader": [
         {
@@ -410,8 +430,7 @@
           }
         }
       ]
-    },
-    "drillFilterOtherVisuals": true
+    }
   },
   "filterConfig": {
     "filters": [
@@ -428,6 +447,7 @@
           }
         },
         "type": "Categorical",
+        "howCreated": "User",
         "filter": {
           "Version": 2,
           "From": [
@@ -473,8 +493,7 @@
               }
             }
           ]
-        },
-        "howCreated": "User"
+        }
       }
     ]
   }

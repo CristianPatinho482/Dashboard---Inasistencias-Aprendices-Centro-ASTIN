@@ -4,9 +4,9 @@
   "position": {
     "x": 876,
     "y": 462,
-    "z": 5,
+    "width": 380,
     "height": 206,
-    "width": 380
+    "z": 5
   },
   "visual": {
     "visualType": "tableEx",
@@ -15,6 +15,8 @@
         "Values": {
           "projections": [
             {
+              "queryRef": "DIM_APRENDIZ.Iniciales",
+              "nativeQueryRef": "Iniciales",
               "field": {
                 "Column": {
                   "Expression": {
@@ -24,11 +26,11 @@
                   },
                   "Property": "Iniciales"
                 }
-              },
-              "queryRef": "DIM_APRENDIZ.Iniciales",
-              "nativeQueryRef": "Iniciales"
+              }
             },
             {
+              "queryRef": "DIM_APRENDIZ.FichaPrincipal",
+              "nativeQueryRef": "FichaPrincipal",
               "field": {
                 "Column": {
                   "Expression": {
@@ -38,11 +40,11 @@
                   },
                   "Property": "FichaPrincipal"
                 }
-              },
-              "queryRef": "DIM_APRENDIZ.FichaPrincipal",
-              "nativeQueryRef": "FichaPrincipal"
+              }
             },
             {
+              "queryRef": "DIM_APRENDIZ.HorasNoJustificadas",
+              "nativeQueryRef": "HorasNoJustificadas",
               "field": {
                 "Column": {
                   "Expression": {
@@ -52,11 +54,11 @@
                   },
                   "Property": "HorasNoJustificadas"
                 }
-              },
-              "queryRef": "DIM_APRENDIZ.HorasNoJustificadas",
-              "nativeQueryRef": "HorasNoJustificadas"
+              }
             },
             {
+              "queryRef": "DIM_APRENDIZ.DiasDesdeUltimaNovedad",
+              "nativeQueryRef": "DiasDesdeUltimaNovedad",
               "field": {
                 "Column": {
                   "Expression": {
@@ -66,11 +68,11 @@
                   },
                   "Property": "DiasDesdeUltimaNovedad"
                 }
-              },
-              "queryRef": "DIM_APRENDIZ.DiasDesdeUltimaNovedad",
-              "nativeQueryRef": "DiasDesdeUltimaNovedad"
+              }
             },
             {
+              "queryRef": "DIM_APRENDIZ.MotivoAlertaDesercion",
+              "nativeQueryRef": "MotivoAlertaDesercion",
               "field": {
                 "Column": {
                   "Expression": {
@@ -80,9 +82,7 @@
                   },
                   "Property": "MotivoAlertaDesercion"
                 }
-              },
-              "queryRef": "DIM_APRENDIZ.MotivoAlertaDesercion",
-              "nativeQueryRef": "MotivoAlertaDesercion"
+              }
             }
           ]
         }
@@ -186,6 +186,17 @@
                   "Value": "'Work Sans'"
                 }
               }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#1F3B47'"
+                    }
+                  }
+                }
+              }
             }
           }
         }
@@ -241,10 +252,19 @@
       ],
       "total": [
         {
-          "properties": {}
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
         }
       ]
     },
+    "drillFilterOtherVisuals": true,
     "visualContainerObjects": {
       "visualHeader": [
         {
@@ -362,8 +382,7 @@
           }
         }
       ]
-    },
-    "drillFilterOtherVisuals": true
+    }
   },
   "filterConfig": {
     "filters": [
@@ -380,6 +399,7 @@
           }
         },
         "type": "Categorical",
+        "howCreated": "User",
         "filter": {
           "Version": 2,
           "From": [
@@ -418,8 +438,7 @@
               }
             }
           ]
-        },
-        "howCreated": "User"
+        }
       }
     ]
   }

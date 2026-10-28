@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "b22c08f18debb8bc06a9",
   "position": {
     "x": 980,
@@ -18,7 +18,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Descarga: 27 oct 2026 16:46",
+                    "value": "Descarga: 28 oct 2026 16:46",
                     "textStyle": {
                       "fontFamily": "Work Sans",
                       "fontSize": "8.5pt",

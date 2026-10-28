@@ -4,9 +4,9 @@
   "position": {
     "x": 224,
     "y": 462,
-    "z": 5,
+    "width": 552,
     "height": 206,
-    "width": 552
+    "z": 5
   },
   "visual": {
     "visualType": "tableEx",
@@ -15,6 +15,8 @@
         "Values": {
           "projections": [
             {
+              "queryRef": "DIM_FICHA.FichaID",
+              "nativeQueryRef": "FichaID",
               "field": {
                 "Column": {
                   "Expression": {
@@ -25,11 +27,11 @@
                   "Property": "FichaID"
                 }
               },
-              "queryRef": "DIM_FICHA.FichaID",
-              "nativeQueryRef": "FichaID",
               "displayName": "Ficha"
             },
             {
+              "queryRef": "DIM_FICHA.Aprendices",
+              "nativeQueryRef": "Aprendices",
               "field": {
                 "Column": {
                   "Expression": {
@@ -39,11 +41,11 @@
                   },
                   "Property": "Aprendices"
                 }
-              },
-              "queryRef": "DIM_FICHA.Aprendices",
-              "nativeQueryRef": "Aprendices"
+              }
             },
             {
+              "queryRef": "DIM_FICHA.Horas",
+              "nativeQueryRef": "Horas",
               "field": {
                 "Column": {
                   "Expression": {
@@ -53,11 +55,11 @@
                   },
                   "Property": "Horas"
                 }
-              },
-              "queryRef": "DIM_FICHA.Horas",
-              "nativeQueryRef": "Horas"
+              }
             },
             {
+              "queryRef": "DIM_FICHA.PctHorasNoJust",
+              "nativeQueryRef": "PctHorasNoJust",
               "field": {
                 "Column": {
                   "Expression": {
@@ -68,11 +70,11 @@
                   "Property": "PctHorasNoJust"
                 }
               },
-              "queryRef": "DIM_FICHA.PctHorasNoJust",
-              "nativeQueryRef": "PctHorasNoJust",
               "displayName": "% no justificado"
             },
             {
+              "queryRef": "DIM_FICHA.IndiceRiesgoCorte",
+              "nativeQueryRef": "IndiceRiesgoCorte",
               "field": {
                 "Column": {
                   "Expression": {
@@ -83,11 +85,11 @@
                   "Property": "IndiceRiesgoCorte"
                 }
               },
-              "queryRef": "DIM_FICHA.IndiceRiesgoCorte",
-              "nativeQueryRef": "IndiceRiesgoCorte",
               "displayName": "Índice"
             },
             {
+              "queryRef": "DIM_FICHA.NivelRiesgoCorte",
+              "nativeQueryRef": "NivelRiesgoCorte",
               "field": {
                 "Column": {
                   "Expression": {
@@ -98,8 +100,6 @@
                   "Property": "NivelRiesgoCorte"
                 }
               },
-              "queryRef": "DIM_FICHA.NivelRiesgoCorte",
-              "nativeQueryRef": "NivelRiesgoCorte",
               "displayName": "Nivel"
             }
           ]
@@ -204,6 +204,17 @@
                   "Value": "'Work Sans'"
                 }
               }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#1F3B47'"
+                    }
+                  }
+                }
+              }
             }
           }
         }
@@ -259,7 +270,15 @@
       ],
       "total": [
         {
-          "properties": {}
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
         }
       ],
       "columnWidth": [
@@ -349,6 +368,7 @@
         }
       ]
     },
+    "drillFilterOtherVisuals": true,
     "visualContainerObjects": {
       "visualHeader": [
         {
@@ -466,8 +486,7 @@
           }
         }
       ]
-    },
-    "drillFilterOtherVisuals": true
+    }
   },
   "filterConfig": {
     "filters": [
@@ -484,6 +503,7 @@
           }
         },
         "type": "Categorical",
+        "howCreated": "User",
         "filter": {
           "Version": 2,
           "From": [
@@ -529,8 +549,7 @@
               }
             }
           ]
-        },
-        "howCreated": "User"
+        }
       }
     ]
   }

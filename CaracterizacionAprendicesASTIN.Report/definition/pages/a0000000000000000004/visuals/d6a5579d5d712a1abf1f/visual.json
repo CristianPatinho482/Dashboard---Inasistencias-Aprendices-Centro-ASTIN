@@ -4,9 +4,9 @@
   "position": {
     "x": 224,
     "y": 420,
-    "z": 5,
+    "width": 508,
     "height": 248,
-    "width": 508
+    "z": 5
   },
   "visual": {
     "visualType": "tableEx",
@@ -15,6 +15,8 @@
         "Values": {
           "projections": [
             {
+              "queryRef": "FACT_INASISTENCIAS.Fecha",
+              "nativeQueryRef": "Fecha",
               "field": {
                 "Column": {
                   "Expression": {
@@ -24,11 +26,11 @@
                   },
                   "Property": "Fecha"
                 }
-              },
-              "queryRef": "FACT_INASISTENCIAS.Fecha",
-              "nativeQueryRef": "Fecha"
+              }
             },
             {
+              "queryRef": "DIM_APRENDIZ.Iniciales",
+              "nativeQueryRef": "Iniciales",
               "field": {
                 "Column": {
                   "Expression": {
@@ -38,11 +40,11 @@
                   },
                   "Property": "Iniciales"
                 }
-              },
-              "queryRef": "DIM_APRENDIZ.Iniciales",
-              "nativeQueryRef": "Iniciales"
+              }
             },
             {
+              "queryRef": "FACT_INASISTENCIAS.CantidadHoras",
+              "nativeQueryRef": "CantidadHoras",
               "field": {
                 "Column": {
                   "Expression": {
@@ -52,11 +54,11 @@
                   },
                   "Property": "CantidadHoras"
                 }
-              },
-              "queryRef": "FACT_INASISTENCIAS.CantidadHoras",
-              "nativeQueryRef": "CantidadHoras"
+              }
             },
             {
+              "queryRef": "FACT_INASISTENCIAS.TipoJustificacion",
+              "nativeQueryRef": "TipoJustificacion",
               "field": {
                 "Column": {
                   "Expression": {
@@ -66,9 +68,7 @@
                   },
                   "Property": "TipoJustificacion"
                 }
-              },
-              "queryRef": "FACT_INASISTENCIAS.TipoJustificacion",
-              "nativeQueryRef": "TipoJustificacion"
+              }
             }
           ]
         }
@@ -172,6 +172,17 @@
                   "Value": "'Work Sans'"
                 }
               }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#1F3B47'"
+                    }
+                  }
+                }
+              }
             }
           }
         }
@@ -227,10 +238,19 @@
       ],
       "total": [
         {
-          "properties": {}
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
         }
       ]
     },
+    "drillFilterOtherVisuals": true,
     "visualContainerObjects": {
       "visualHeader": [
         {
@@ -348,8 +368,7 @@
           }
         }
       ]
-    },
-    "drillFilterOtherVisuals": true
+    }
   },
   "filterConfig": {
     "filters": [
@@ -366,6 +385,7 @@
           }
         },
         "type": "Categorical",
+        "howCreated": "User",
         "filter": {
           "Version": 2,
           "From": [
@@ -404,8 +424,7 @@
               }
             }
           ]
-        },
-        "howCreated": "User"
+        }
       }
     ]
   }

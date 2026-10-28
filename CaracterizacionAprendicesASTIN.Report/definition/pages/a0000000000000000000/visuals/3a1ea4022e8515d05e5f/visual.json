@@ -4,9 +4,9 @@
   "position": {
     "x": 744,
     "y": 198,
-    "z": 5,
+    "width": 512,
     "height": 206,
-    "width": 512
+    "z": 5
   },
   "visual": {
     "visualType": "donutChart",
@@ -15,6 +15,8 @@
         "Category": {
           "projections": [
             {
+              "queryRef": "FACT_INASISTENCIAS.CategoriaJustificacion",
+              "nativeQueryRef": "CategoriaJustificacion",
               "field": {
                 "Column": {
                   "Expression": {
@@ -24,16 +26,15 @@
                   },
                   "Property": "CategoriaJustificacion"
                 }
-              },
-              "queryRef": "FACT_INASISTENCIAS.CategoriaJustificacion",
-              "nativeQueryRef": "CategoriaJustificacion",
-              "active": true
+              }
             }
           ]
         },
         "Y": {
           "projections": [
             {
+              "queryRef": "FACT_INASISTENCIAS.Total horas perdidas",
+              "nativeQueryRef": "Total horas perdidas",
               "field": {
                 "Measure": {
                   "Expression": {
@@ -43,9 +44,7 @@
                   },
                   "Property": "Total horas perdidas"
                 }
-              },
-              "queryRef": "FACT_INASISTENCIAS.Total horas perdidas",
-              "nativeQueryRef": "Total horas perdidas"
+              }
             }
           ]
         }
@@ -129,6 +128,7 @@
         }
       ]
     },
+    "drillFilterOtherVisuals": true,
     "visualContainerObjects": {
       "visualHeader": [
         {
@@ -246,7 +246,6 @@
           }
         }
       ]
-    },
-    "drillFilterOtherVisuals": true
+    }
   }
 }
