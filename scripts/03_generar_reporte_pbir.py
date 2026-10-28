@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Genera las cinco páginas PBIR del tablero Caracterización de Aprendices ASTIN.
+"""Genera las seis páginas PBIR del tablero Caracterización de Aprendices ASTIN.
 
 El script es idempotente: reconstruye definition/pages y registra el logo SENA.
 """
@@ -9,7 +9,7 @@ import hashlib
 import json
 import os
 import shutil
-from datetime import date
+from datetime import datetime
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 REPORT = os.path.join(ROOT, "CaracterizacionAprendicesASTIN.Report")
@@ -18,14 +18,17 @@ PAGES = os.path.join(DEF, "pages")
 RESOURCES = os.path.join(REPORT, "StaticResources", "RegisteredResources")
 VISUAL_SCHEMA = "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json"
 PAGE_SCHEMA = "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json"
-MESES_ES = ("enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre")
+MESES_CORTOS_ES = ("ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic")
 
 
-def fecha_corte_texto() -> str:
+def fecha_descarga_texto() -> str:
     resumen_path = os.path.join(ROOT, "data", "processed", "00_resumen_etl.json")
     with open(resumen_path, encoding="utf-8") as stream:
-        corte = date.fromisoformat(json.load(stream)["corte"])
-    return f"Corte de datos: {corte.day} de {MESES_ES[corte.month - 1]} de {corte.year}"
+        descarga = datetime.fromisoformat(json.load(stream)["ultima_descarga"])
+    return (
+        f"Descarga: {descarga.day} {MESES_CORTOS_ES[descarga.month - 1]} "
+        f"{descarga.year} {descarga.hour:02d}:{descarga.minute:02d}"
+    )
 
 
 def total_registros_texto() -> str:
@@ -40,6 +43,7 @@ PAGE_IDS = [
     ("a0000000000000000002", "02 Fichas y Programas en Riesgo"),
     ("a0000000000000000003", "03 Análisis Detallado"),
     ("a0000000000000000004", "04 Calidad de Datos"),
+    ("a0000000000000000005", "05 Consulta semanal"),
 ]
 
 NAV = [
@@ -48,6 +52,7 @@ NAV = [
     ("02  Fichas y programas", "a0000000000000000002"),
     ("03  Análisis detallado", "a0000000000000000003"),
     ("04  Calidad de datos", "a0000000000000000004"),
+    ("05  Consulta semanal", "a0000000000000000005"),
 ]
 
 NAVY = "#00304D"
@@ -352,6 +357,39 @@ def add_card(page_id: str, key: str, x: float, y: float, w: float, h: float, mea
     write_visual(page_id, key, {"position": {"x": x + 9, "y": y + 20, "width": w - 18, "height": h - 24, "z": z + 1}, "visual": visual})
 
 
+def add_sidebar_measure(page_id: str, key: str, y: float, measure: str, font_size: float = 9) -> None:
+    """Muestra medidas del modelo en la barra lateral para que respondan al refresh."""
+    visual = {
+        "visualType": "cardVisual",
+        "query": {"queryState": {"Data": {"projections": [meas(measure)]}}},
+        "objects": {
+            "outline": [{"properties": {"show": boolean(False)}, "selector": {"id": "default"}}],
+            "fillCustom": [{"properties": {"show": boolean(False)}}],
+            "divider": [{"properties": {"show": boolean(False)}, "selector": {"id": "default"}}],
+            "label": [{"properties": {"show": boolean(False)}, "selector": {"id": "default"}}],
+            "value": [{
+                "properties": {
+                    "fontFamily": s("Work Sans"),
+                    "fontSize": lit(f"{font_size}D"),
+                    "bold": boolean(True),
+                    "color": solid(WHITE),
+                    "horizontalAlignment": s("left"),
+                },
+                "selector": {"id": "default"},
+            }],
+        },
+        "drillFilterOtherVisuals": True,
+        "visualContainerObjects": {
+            "title": [{"properties": {"show": boolean(False)}}],
+            "background": [{"properties": {"show": boolean(False)}}],
+            "border": [{"properties": {"show": boolean(False)}}],
+            "visualHeader": [{"properties": {"show": boolean(False)}}],
+            "padding": [{"properties": {"top": lit("0D"), "bottom": lit("0D"), "left": lit("0D"), "right": lit("0D")}}],
+        },
+    }
+    write_visual(page_id, key, {"position": {"x": 20, "y": y, "width": 170, "height": 20, "z": 303}, "visual": visual})
+
+
 def add_bar(
     page_id: str,
     key: str,
@@ -612,6 +650,7 @@ def add_slicer(
     title: str,
     entity: str,
     prop: str,
+    mode: str = "Dropdown",
     z: int = 5,
 ) -> None:
     visual = {
@@ -620,7 +659,7 @@ def add_slicer(
         "objects": {
             "header": [{"properties": {"show": boolean(False)}}],
             "items": [{"properties": {"textSize": lit("8D"), "fontFamily": s("Work Sans")}}],
-            "data": [{"properties": {"mode": s("Dropdown")}}],
+            "data": [{"properties": {"mode": s(mode)}}],
         },
         "drillFilterOtherVisuals": True,
         "visualContainerObjects": container(title),
@@ -632,7 +671,7 @@ def page_header(page_id: str, title: str, subtitle: str) -> None:
     add_text(page_id, "header-title", 224, 16, 760, 38, title, size=23, color=NAVY, z=200)
     add_text(page_id, "header-subtitle", 224, 55, 780, 22, subtitle, size=10.5, color=MUTED, z=200)
     add_shape(page_id, "header-accent", 224, 82, 56, 3, fill=GREEN, line=GREEN, z=201)
-    add_text(page_id, "header-date", 980, 20, 276, 24, fecha_corte_texto(), size=8.5, color=MUTED, z=200)
+    add_text(page_id, "header-date", 980, 20, 276, 24, fecha_descarga_texto(), size=8.5, color=MUTED, z=200)
 
 
 def page_footer(page_id: str) -> None:
@@ -656,7 +695,7 @@ def page_footer(page_id: str) -> None:
         688,
         406,
         24,
-        "Datos anonimizados · Fuente: Inasistencias.xls",
+        "Fuente: Inasistencias.xls · Centro ASTIN",
         size=8.2,
         color=MUTED,
         z=200,
@@ -692,9 +731,9 @@ def page_nav(page_id: str) -> None:
         )
 
     add_shape(page_id, "nav-bottom-line", 20, 620, 160, 1, fill="#1D4B66", line="#1D4B66", z=301)
-    add_text(page_id, "nav-bottom-1", 20, 622, 160, 18, "CORTE DE INFORMACIÓN", size=8.0, color="#7FA3B5", z=302)
-    add_text(page_id, "nav-bottom-2", 20, 642, 160, 20, fecha_corte_texto().replace("Corte de datos: ", ""), size=9.2, color=WHITE, z=302)
-    add_text(page_id, "nav-bottom-3", 20, 665, 180, 18, total_registros_texto(), size=8.0, color="#A9C0CE", z=302)
+    add_text(page_id, "nav-bottom-1", 20, 622, 160, 18, "ÚLTIMA DESCARGA", size=8.0, color="#7FA3B5", z=302)
+    add_sidebar_measure(page_id, "nav-bottom-2", 642, "Fecha de corte de información", font_size=9.2)
+    add_sidebar_measure(page_id, "nav-bottom-3", 665, "Registros válidos al corte", font_size=8.0)
 
 
 def kpi_row(page_id: str, items: list) -> None:
@@ -841,7 +880,7 @@ def page_caracterizacion(page_id: str) -> None:
         [
             ("DIM_APRENDIZ", "Iniciales", False),
             ("DIM_APRENDIZ", "DocumentoEnmascarado", False),
-            ("DIM_APRENDIZ", "FichaPrincipal", False),
+            ("FACT_INASISTENCIAS", "FichaID", False),
             ("DIM_APRENDIZ", "NivelRiesgo", False),
             ("DIM_APRENDIZ", "ScoreRiesgo", False),
             ("DIM_APRENDIZ", "Inasistencias", False),
@@ -1043,6 +1082,75 @@ def page_detalle(page_id: str) -> None:
     )
 
 
+def page_consulta_semanal(page_id: str) -> None:
+    config_path = os.path.join(ROOT, "config", "sharepoint.json")
+    sharepoint_mode = False
+    if os.path.isfile(config_path):
+        with open(config_path, encoding="utf-8") as stream:
+            sharepoint_mode = str(json.load(stream).get("mode", "Local")).strip().lower() == "sharepoint"
+    campo_aprendiz = "AprendizID" if sharepoint_mode else "NombreCompleto"
+    etiqueta_aprendiz = "Código seudónimo" if sharepoint_mode else "Aprendiz"
+    titulo_tabla = "Aprendices y horas en el intervalo seleccionado"
+    if sharepoint_mode:
+        titulo_tabla = "Aprendices identificados por código seudónimo"
+    page_header(
+        page_id,
+        "Consulta semanal de aprendices",
+        ("Busca por ficha, instructor y fechas. La identidad se muestra mediante un código seudónimo; "
+         "el semáforo evalúa la semana con más horas no justificadas del intervalo." if sharepoint_mode else
+         "Busca por ficha, instructor y fechas; el semáforo evalúa la semana con más horas no justificadas del intervalo."),
+    )
+    add_slicer(page_id, "filtro-ficha-consulta", 224, 96, 218, 68, "Ficha", "DIM_FICHA", "FichaID")
+    add_slicer(page_id, "filtro-instructor-consulta", 448, 96, 260, 68, "Instructor", "FACT_INASISTENCIAS", "Instructor")
+    add_slicer(page_id, "filtro-fechas-consulta", 714, 96, 542, 68, "Intervalo de fechas", "DIM_CALENDARIO", "Fecha", mode="Between")
+    add_text(
+        page_id,
+        "consulta-umbrales",
+        224,
+        168,
+        1032,
+        18,
+        "Semáforo semanal sobre horas NO justificadas: menos de 12 = verde · 12 a 16 inclusive = amarillo · más de 16 = rojo.",
+        size=9,
+        color=MUTED,
+        z=20,
+    )
+    cards = [
+        ("Aprendices", "Aprendices con inasistencias"),
+        ("Registros de inasistencia", "Total inasistencias"),
+        ("Horas de inasistencia", "Total horas perdidas"),
+        ("Horas no justificadas", "Horas no justificadas en periodo"),
+        ("Máximo semanal no justificado", "Máximo semanal horas no justificadas"),
+    ]
+    for index, (label, measure) in enumerate(cards):
+        add_card(page_id, f"consulta-kpi-{index}", 224 + index * 209, 190, 196, 78, measure, label, z=20)
+    add_table(
+        page_id,
+        "consulta-aprendices",
+        224,
+        278,
+        1032,
+        397,
+        titulo_tabla,
+        [
+            ("DIM_APRENDIZ", campo_aprendiz, False),
+            ("DIM_APRENDIZ", "FichaPrincipal", False),
+            ("FACT_INASISTENCIAS", "Total inasistencias", True),
+            ("FACT_INASISTENCIAS", "Total horas perdidas", True),
+            ("FACT_INASISTENCIAS", "Horas no justificadas en periodo", True),
+            ("FACT_INASISTENCIAS", "Máximo semanal horas no justificadas", True),
+            ("FACT_INASISTENCIAS", "Semáforo semanal", True),
+        ],
+        meas("Máximo semanal horas no justificadas")["field"],
+        widths={campo_aprendiz: 245, "NombreCompleto": 245, "FichaID": 112, "Total inasistencias": 112,
+                "Total horas perdidas": 105, "Horas no justificadas en periodo": 145,
+                "Máximo semanal horas no justificadas": 160, "Semáforo semanal": 112},
+        labels={campo_aprendiz: etiqueta_aprendiz, "NombreCompleto": "Aprendiz", "FichaID": "Ficha", "Total inasistencias": "Inasistencias",
+                "Total horas perdidas": "Horas totales", "Horas no justificadas en periodo": "No justificadas · periodo",
+                "Máximo semanal horas no justificadas": "Peor semana · no justificadas", "Semáforo semanal": "Semáforo"},
+    )
+
+
 def page_calidad(page_id: str) -> None:
     page_header(
         page_id,
@@ -1177,6 +1285,7 @@ def main() -> None:
     page_fichas(PAGE_IDS[2][0])
     page_detalle(PAGE_IDS[3][0])
     page_calidad(PAGE_IDS[4][0])
+    page_consulta_semanal(PAGE_IDS[5][0])
     pages_json = {
         "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/pagesMetadata/1.1.0/schema.json",
         "pageOrder": [p[0] for p in PAGE_IDS],

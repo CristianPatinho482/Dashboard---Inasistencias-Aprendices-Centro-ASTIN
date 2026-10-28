@@ -2,6 +2,13 @@ model CaracterizacionAprendicesASTIN
 	culture: es-CO
 	defaultPowerBIDataSourceVersion: powerBI_V3
 	sourceQueryCulture: es-CO
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["DIM_CALENDARIO","DIM_APRENDIZ","DIM_FICHA","DIM_PROGRAMA","FACT_INASISTENCIAS","SitioSharePoint","RutaDatosSharePoint","ArchivosSharePoint"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
 
 annotation PBI_ProTooling = ["DevMode"]
 
@@ -10,6 +17,14 @@ ref table DIM_APRENDIZ
 ref table DIM_FICHA
 ref table DIM_PROGRAMA
 ref table FACT_INASISTENCIAS
+ref table DateTableTemplate_32d6b6f3-3131-41d1-8345-6a166bbec84b
+ref table LocalDateTable_2d570b6f-8a44-4937-8300-4bbd7a9c7d5e
+ref table LocalDateTable_500a3f48-9a88-4a35-8252-68e176ea0e0e
+ref table LocalDateTable_85756691-1f41-452a-afa4-8677996f3405
+ref table LocalDateTable_4d8f0cd1-6644-477a-94aa-338b990c0ba8
+ref table LocalDateTable_8cb3bad0-44bf-4ed1-8280-82a7d5312a39
+ref table LocalDateTable_93cb7792-d16f-400e-b701-2533c4ee6262
+ref table LocalDateTable_e547e4c0-0dfc-460c-8c93-abf3fbad425b
 
 ref cultureInfo es-CO
 

@@ -1,163 +1,199 @@
 table DIM_FICHA
-	lineageTag: 3f4fabc9-78e2-4490-b670-7499bf52f1ac
+	lineageTag: 76dc2b94-a6b2-4e56-8ee8-b2e944818578
 
 	column FichaID
 		dataType: string
-		lineageTag: c6a399af-6418-487e-b614-25e6b980b97e
+		lineageTag: 49c46ce5-e130-431f-8f37-bde21e34d6bf
 		summarizeBy: none
 		sourceColumn: FichaID
 
 	column ProgramaID
 		dataType: string
 		isHidden
-		lineageTag: 592ec883-c6c1-4b93-b998-055cadfacfb9
+		lineageTag: ead343a4-6149-4f42-b706-676ba161c4d9
 		summarizeBy: none
 		sourceColumn: ProgramaID
 
 	column InstructorPrincipal
 		dataType: string
-		lineageTag: 51f6118e-5660-4e21-a612-83cb6225cfcf
+		lineageTag: 5dd87cca-7d75-44ec-baf2-dbd92c6fe0ab
 		summarizeBy: none
 		sourceColumn: InstructorPrincipal
 
 	column TotalInstructores
 		dataType: int64
 		formatString: 0
-		lineageTag: 989ae96a-cc08-4d7f-8a6f-686d97f1352e
-		summarizeBy: none
+		lineageTag: 7ee74115-1ec7-440f-9bc6-56ca536273f2
+		summarizeBy: sum
 		sourceColumn: TotalInstructores
+
+		annotation SummarizationSetBy = Automatic
 
 	column Jornada
 		dataType: string
-		lineageTag: 81820f5d-e0bb-42e5-8484-96fe5df59dd2
+		lineageTag: b651f46b-73ef-4b7d-b9a7-837808eef59e
 		summarizeBy: none
 		sourceColumn: Jornada
 
 	column Modalidad
 		dataType: string
-		lineageTag: ced4de9e-4fb7-49aa-a280-2b16db83436e
+		lineageTag: 86d9be6a-d54c-4c3b-b0a5-195aca2d199b
 		summarizeBy: none
 		sourceColumn: Modalidad
 
 	column Sede
 		dataType: string
-		lineageTag: 2db152fd-a66e-4c6b-8ae2-2f964efe8d9b
+		lineageTag: 7cd00827-c2f7-4961-93ac-dee5db323bcf
 		summarizeBy: none
 		sourceColumn: Sede
 
 	column CentroCosto
 		dataType: string
-		lineageTag: 90ca23f1-3eda-4400-a1c3-c960ddcf47eb
+		lineageTag: ffcb40db-2284-42ff-af19-99c48189b24c
 		summarizeBy: none
 		sourceColumn: CentroCosto
 
 	column LineaFormacion
 		dataType: string
-		lineageTag: 25650a6a-4e08-43d5-acff-da09a839b154
+		lineageTag: 1c4964d1-a280-4e69-83c9-bf9dc7a6a01c
 		summarizeBy: none
 		sourceColumn: LineaFormacion
 
 	column EstadoFicha
 		dataType: string
-		lineageTag: a2e321b7-16dd-4634-8339-6b7d858b0a78
+		lineageTag: 9a65423f-589c-42bc-9214-85a0c4e04aee
 		summarizeBy: none
 		sourceColumn: EstadoFicha
 
 	column DiasSinNovedad
 		dataType: int64
 		formatString: 0
-		lineageTag: a0364c57-c77c-409d-9cd0-3a6ef4fc62be
-		summarizeBy: none
+		lineageTag: c9f278bf-a31b-4e00-849f-1a2d6f73f885
+		summarizeBy: sum
 		sourceColumn: DiasSinNovedad
+
+		annotation SummarizationSetBy = Automatic
 
 	column Aprendices
 		dataType: int64
 		formatString: #,##0
-		lineageTag: 189c188e-6050-47df-b8fd-5f43a423888b
-		summarizeBy: none
+		lineageTag: f50b9f97-02d4-4713-9bb8-fb07e0809b4b
+		summarizeBy: sum
 		sourceColumn: Aprendices
+
+		annotation SummarizationSetBy = Automatic
 
 	column Inasistencias
 		dataType: int64
 		formatString: #,##0
-		lineageTag: 72d64cd2-4b0c-439c-aa9c-226d12c5bc70
-		summarizeBy: none
+		lineageTag: 73ca1d19-9311-4318-b4c6-f8a5765c66f8
+		summarizeBy: sum
 		sourceColumn: Inasistencias
+
+		annotation SummarizationSetBy = Automatic
 
 	column Horas
 		dataType: int64
 		formatString: #,##0
-		lineageTag: 34764050-81b9-4d0c-ac26-9d905b601f3e
-		summarizeBy: none
+		lineageTag: d9ceffd0-1cab-4553-80c5-df16bc2fc501
+		summarizeBy: sum
 		sourceColumn: Horas
+
+		annotation SummarizationSetBy = Automatic
 
 	column HorasNoJustificadas
 		dataType: int64
 		formatString: #,##0
-		lineageTag: e7386f2c-65b3-42f2-bfec-e49ae72c0fad
-		summarizeBy: none
+		lineageTag: 7fd1d8fd-d888-441c-9b69-b27900eceee9
+		summarizeBy: sum
 		sourceColumn: HorasNoJustificadas
+
+		annotation SummarizationSetBy = Automatic
 
 	column PctHorasNoJust
 		dataType: double
 		formatString: 0.0%
-		lineageTag: cec8e64d-9f63-4e27-8a55-2f4c2443ba99
-		summarizeBy: none
+		lineageTag: e82983fb-aee8-4b4e-9879-5eb52c85e778
+		summarizeBy: sum
 		sourceColumn: PctHorasNoJust
+
+		annotation SummarizationSetBy = Automatic
 
 	column HorasPorAprendiz
 		dataType: double
 		formatString: #,##0.0
-		lineageTag: 8297ecf3-09cd-4476-be75-53aaf3078bb1
-		summarizeBy: none
+		lineageTag: adac2bff-dfbd-4741-8d6f-e2049952202d
+		summarizeBy: sum
 		sourceColumn: HorasPorAprendiz
+
+		annotation SummarizationSetBy = Automatic
 
 	column InasPorAprendiz
 		dataType: double
 		formatString: #,##0.0
-		lineageTag: 02bad8d5-4a95-4765-810b-774ba1fd0e2a
-		summarizeBy: none
+		lineageTag: c8a0082f-9601-4d2d-913c-472afc9180cb
+		summarizeBy: sum
 		sourceColumn: InasPorAprendiz
+
+		annotation SummarizationSetBy = Automatic
 
 	column MuestraSuficiente
 		dataType: int64
 		formatString: 0
-		lineageTag: ee7f9e9c-a592-4af5-8977-034738231d81
-		summarizeBy: none
+		lineageTag: 2ea14820-46a9-4c03-825f-ce2519ea5ea4
+		summarizeBy: sum
 		sourceColumn: MuestraSuficiente
+
+		annotation SummarizationSetBy = Automatic
 
 	column IndiceRiesgoCorte
 		dataType: double
 		formatString: 0.0
-		lineageTag: 1a4e9c2e-cf1b-4cf9-93d7-310c54fba30d
-		summarizeBy: none
+		lineageTag: 5af21855-3741-43e4-9ca2-da7bd8b23c4f
+		summarizeBy: sum
 		sourceColumn: IndiceRiesgoCorte
+
+		annotation SummarizationSetBy = Automatic
 
 	column NivelRiesgoCorte
 		dataType: string
-		lineageTag: 64439fc5-bff4-4a55-85f8-89ca819f14af
+		lineageTag: 077f8104-844e-40e1-b8a7-6af8115bf879
 		summarizeBy: none
 		sourceColumn: NivelRiesgoCorte
 
 	column PrimeraNovedad
 		dataType: dateTime
 		formatString: yyyy-MM-dd
-		lineageTag: 33797f63-6c8a-48c7-8c6c-3ddffabc86b0
+		lineageTag: 45c58a68-aaf0-4db6-98fd-c4321b402e80
 		summarizeBy: none
 		sourceColumn: PrimeraNovedad
+
+		variation Variation
+			isDefault
+			relationship: f3a55c09-7daf-4303-b713-f202211f7764
+			defaultHierarchy: LocalDateTable_85756691-1f41-452a-afa4-8677996f3405.'Jerarquía de fechas'
+
+		annotation UnderlyingDateTimeDataType = Date
 
 	column UltimaNovedad
 		dataType: dateTime
 		formatString: yyyy-MM-dd
-		lineageTag: 1291ef9d-2661-4f5b-9b05-7e6e376855a3
+		lineageTag: 47997ab5-71d5-44eb-be8c-19247fd5f223
 		summarizeBy: none
 		sourceColumn: UltimaNovedad
+
+		variation Variation
+			isDefault
+			relationship: b8cd2969-a7bb-4315-b4ef-2dcb3719d067
+			defaultHierarchy: LocalDateTable_4d8f0cd1-6644-477a-94aa-338b990c0ba8.'Jerarquía de fechas'
+
+		annotation UnderlyingDateTimeDataType = Date
 
 	partition DIM_FICHA = m
 		mode: import
 		source =
 				let
-					Origen = Csv.Document(File.Contents(RutaDatos & "\DIM_FICHA.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+					Origen = let Coincidencia = Table.SelectRows(ArchivosSharePoint, each [Folder Path] = RutaDatosSharePoint and [Name] = "DIM_FICHA.csv"), Binario = if Table.RowCount(Coincidencia) = 0 then error "No se encontró DIM_FICHA.csv en SharePoint." else Coincidencia{0}[Content] in Csv.Document(Binario,[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
 					Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars=true]),
 					Tipos = Table.TransformColumnTypes(Encabezados,{{"FichaID", type text}, {"ProgramaID", type text}, {"InstructorPrincipal", type text}, {"TotalInstructores", Int64.Type}, {"Jornada", type text}, {"Modalidad", type text}, {"Sede", type text}, {"CentroCosto", type text}, {"LineaFormacion", type text}, {"EstadoFicha", type text}, {"DiasSinNovedad", Int64.Type}, {"Aprendices", Int64.Type}, {"Inasistencias", Int64.Type}, {"Horas", Int64.Type}, {"HorasNoJustificadas", Int64.Type}, {"MuestraSuficiente", Int64.Type}, {"NivelRiesgoCorte", type text}, {"PrimeraNovedad", type date}, {"UltimaNovedad", type date}}),
 					Decimales = Table.TransformColumns(Tipos,{

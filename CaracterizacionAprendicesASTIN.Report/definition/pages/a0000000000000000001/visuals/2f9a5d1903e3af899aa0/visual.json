@@ -47,14 +47,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "DIM_APRENDIZ"
+                      "Entity": "FACT_INASISTENCIAS"
                     }
                   },
-                  "Property": "FichaPrincipal"
+                  "Property": "FichaID"
                 }
               },
-              "queryRef": "DIM_APRENDIZ.FichaPrincipal",
-              "nativeQueryRef": "FichaPrincipal"
+              "queryRef": "FACT_INASISTENCIAS.FichaID",
+              "nativeQueryRef": "FichaID"
             },
             {
               "field": {
