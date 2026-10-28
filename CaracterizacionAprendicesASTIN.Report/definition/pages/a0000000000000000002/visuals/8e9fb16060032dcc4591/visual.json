@@ -4,9 +4,9 @@
   "position": {
     "x": 1069,
     "y": 116,
-    "z": 21,
+    "width": 178,
     "height": 68,
-    "width": 178
+    "z": 21
   },
   "visual": {
     "visualType": "cardVisual",
@@ -15,6 +15,8 @@
         "Data": {
           "projections": [
             {
+              "queryRef": "FACT_INASISTENCIAS.Índice de riesgo promedio de fichas",
+              "nativeQueryRef": "Índice de riesgo promedio de fichas",
               "field": {
                 "Measure": {
                   "Expression": {
@@ -24,9 +26,7 @@
                   },
                   "Property": "Índice de riesgo promedio de fichas"
                 }
-              },
-              "queryRef": "FACT_INASISTENCIAS.Índice de riesgo promedio de fichas",
-              "nativeQueryRef": "Índice de riesgo promedio de fichas"
+              }
             }
           ]
         }
@@ -118,6 +118,17 @@
                 }
               }
             },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#00304D'"
+                    }
+                  }
+                }
+              }
+            },
             "horizontalAlignment": {
               "expr": {
                 "Literal": {
@@ -146,6 +157,7 @@
         }
       ]
     },
+    "drillFilterOtherVisuals": true,
     "visualContainerObjects": {
       "title": [
         {
@@ -279,7 +291,6 @@
           }
         }
       ]
-    },
-    "drillFilterOtherVisuals": true
+    }
   }
 }

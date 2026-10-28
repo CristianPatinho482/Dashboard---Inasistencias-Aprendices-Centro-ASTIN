@@ -4,9 +4,9 @@
   "position": {
     "x": 224,
     "y": 278,
-    "z": 5,
+    "width": 1032,
     "height": 397,
-    "width": 1032
+    "z": 5
   },
   "visual": {
     "visualType": "tableEx",
@@ -15,6 +15,8 @@
         "Values": {
           "projections": [
             {
+              "queryRef": "DIM_APRENDIZ.AprendizID",
+              "nativeQueryRef": "AprendizID",
               "field": {
                 "Column": {
                   "Expression": {
@@ -25,11 +27,11 @@
                   "Property": "AprendizID"
                 }
               },
-              "queryRef": "DIM_APRENDIZ.AprendizID",
-              "nativeQueryRef": "AprendizID",
               "displayName": "Código seudónimo"
             },
             {
+              "queryRef": "DIM_APRENDIZ.FichaPrincipal",
+              "nativeQueryRef": "FichaPrincipal",
               "field": {
                 "Column": {
                   "Expression": {
@@ -39,11 +41,11 @@
                   },
                   "Property": "FichaPrincipal"
                 }
-              },
-              "queryRef": "DIM_APRENDIZ.FichaPrincipal",
-              "nativeQueryRef": "FichaPrincipal"
+              }
             },
             {
+              "queryRef": "FACT_INASISTENCIAS.Total inasistencias",
+              "nativeQueryRef": "Total inasistencias",
               "field": {
                 "Measure": {
                   "Expression": {
@@ -54,11 +56,11 @@
                   "Property": "Total inasistencias"
                 }
               },
-              "queryRef": "FACT_INASISTENCIAS.Total inasistencias",
-              "nativeQueryRef": "Total inasistencias",
               "displayName": "Inasistencias"
             },
             {
+              "queryRef": "FACT_INASISTENCIAS.Total horas perdidas",
+              "nativeQueryRef": "Total horas perdidas",
               "field": {
                 "Measure": {
                   "Expression": {
@@ -69,11 +71,11 @@
                   "Property": "Total horas perdidas"
                 }
               },
-              "queryRef": "FACT_INASISTENCIAS.Total horas perdidas",
-              "nativeQueryRef": "Total horas perdidas",
               "displayName": "Horas totales"
             },
             {
+              "queryRef": "FACT_INASISTENCIAS.Horas no justificadas en periodo",
+              "nativeQueryRef": "Horas no justificadas en periodo",
               "field": {
                 "Measure": {
                   "Expression": {
@@ -84,11 +86,11 @@
                   "Property": "Horas no justificadas en periodo"
                 }
               },
-              "queryRef": "FACT_INASISTENCIAS.Horas no justificadas en periodo",
-              "nativeQueryRef": "Horas no justificadas en periodo",
               "displayName": "No justificadas · periodo"
             },
             {
+              "queryRef": "FACT_INASISTENCIAS.Máximo semanal horas no justificadas",
+              "nativeQueryRef": "Máximo semanal horas no justificadas",
               "field": {
                 "Measure": {
                   "Expression": {
@@ -99,11 +101,11 @@
                   "Property": "Máximo semanal horas no justificadas"
                 }
               },
-              "queryRef": "FACT_INASISTENCIAS.Máximo semanal horas no justificadas",
-              "nativeQueryRef": "Máximo semanal horas no justificadas",
               "displayName": "Peor semana · no justificadas"
             },
             {
+              "queryRef": "FACT_INASISTENCIAS.Semáforo semanal",
+              "nativeQueryRef": "Semáforo semanal",
               "field": {
                 "Measure": {
                   "Expression": {
@@ -114,8 +116,6 @@
                   "Property": "Semáforo semanal"
                 }
               },
-              "queryRef": "FACT_INASISTENCIAS.Semáforo semanal",
-              "nativeQueryRef": "Semáforo semanal",
               "displayName": "Semáforo"
             }
           ]
@@ -220,6 +220,17 @@
                   "Value": "'Work Sans'"
                 }
               }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#1F3B47'"
+                    }
+                  }
+                }
+              }
             }
           }
         }
@@ -275,7 +286,15 @@
       ],
       "total": [
         {
-          "properties": {}
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
         }
       ],
       "columnWidth": [
@@ -365,6 +384,7 @@
         }
       ]
     },
+    "drillFilterOtherVisuals": true,
     "visualContainerObjects": {
       "visualHeader": [
         {
@@ -482,7 +502,6 @@
           }
         }
       ]
-    },
-    "drillFilterOtherVisuals": true
+    }
   }
 }

@@ -4,9 +4,9 @@
   "position": {
     "x": 20,
     "y": 665,
-    "z": 303,
+    "width": 170,
     "height": 20,
-    "width": 170
+    "z": 303
   },
   "visual": {
     "visualType": "cardVisual",
@@ -15,6 +15,8 @@
         "Data": {
           "projections": [
             {
+              "queryRef": "FACT_INASISTENCIAS.Registros válidos al corte",
+              "nativeQueryRef": "Registros válidos al corte",
               "field": {
                 "Measure": {
                   "Expression": {
@@ -24,9 +26,7 @@
                   },
                   "Property": "Registros válidos al corte"
                 }
-              },
-              "queryRef": "FACT_INASISTENCIAS.Registros válidos al corte",
-              "nativeQueryRef": "Registros válidos al corte"
+              }
             }
           ]
         }
@@ -118,6 +118,17 @@
                 }
               }
             },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            },
             "horizontalAlignment": {
               "expr": {
                 "Literal": {
@@ -132,6 +143,7 @@
         }
       ]
     },
+    "drillFilterOtherVisuals": true,
     "visualContainerObjects": {
       "title": [
         {
@@ -219,7 +231,6 @@
           }
         }
       ]
-    },
-    "drillFilterOtherVisuals": true
+    }
   }
 }

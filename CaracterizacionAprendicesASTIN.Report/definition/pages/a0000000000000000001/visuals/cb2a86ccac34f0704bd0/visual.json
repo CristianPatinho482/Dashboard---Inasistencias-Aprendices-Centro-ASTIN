@@ -4,9 +4,9 @@
   "position": {
     "x": 224,
     "y": 198,
-    "z": 5,
+    "width": 336,
     "height": 256,
-    "width": 336
+    "z": 5
   },
   "visual": {
     "visualType": "donutChart",
@@ -15,6 +15,8 @@
         "Category": {
           "projections": [
             {
+              "queryRef": "DIM_APRENDIZ.NivelRiesgo",
+              "nativeQueryRef": "NivelRiesgo",
               "field": {
                 "Column": {
                   "Expression": {
@@ -24,16 +26,15 @@
                   },
                   "Property": "NivelRiesgo"
                 }
-              },
-              "queryRef": "DIM_APRENDIZ.NivelRiesgo",
-              "nativeQueryRef": "NivelRiesgo",
-              "active": true
+              }
             }
           ]
         },
         "Y": {
           "projections": [
             {
+              "queryRef": "FACT_INASISTENCIAS.Aprendices con inasistencias",
+              "nativeQueryRef": "Aprendices con inasistencias",
               "field": {
                 "Measure": {
                   "Expression": {
@@ -43,9 +44,7 @@
                   },
                   "Property": "Aprendices con inasistencias"
                 }
-              },
-              "queryRef": "FACT_INASISTENCIAS.Aprendices con inasistencias",
-              "nativeQueryRef": "Aprendices con inasistencias"
+              }
             }
           ]
         }
@@ -129,6 +128,7 @@
         }
       ]
     },
+    "drillFilterOtherVisuals": true,
     "visualContainerObjects": {
       "visualHeader": [
         {
@@ -246,7 +246,6 @@
           }
         }
       ]
-    },
-    "drillFilterOtherVisuals": true
+    }
   }
 }

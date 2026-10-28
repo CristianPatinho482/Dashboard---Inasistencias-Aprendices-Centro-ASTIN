@@ -4,9 +4,9 @@
   "position": {
     "x": 920,
     "y": 198,
-    "z": 5,
+    "width": 336,
     "height": 256,
-    "width": 336
+    "z": 5
   },
   "visual": {
     "visualType": "barChart",
@@ -15,6 +15,8 @@
         "Category": {
           "projections": [
             {
+              "queryRef": "DIM_APRENDIZ.NivelRiesgo",
+              "nativeQueryRef": "NivelRiesgo",
               "field": {
                 "Column": {
                   "Expression": {
@@ -24,16 +26,15 @@
                   },
                   "Property": "NivelRiesgo"
                 }
-              },
-              "queryRef": "DIM_APRENDIZ.NivelRiesgo",
-              "nativeQueryRef": "NivelRiesgo",
-              "active": true
+              }
             }
           ]
         },
         "Y": {
           "projections": [
             {
+              "queryRef": "FACT_INASISTENCIAS.Horas no justificadas",
+              "nativeQueryRef": "Horas no justificadas",
               "field": {
                 "Measure": {
                   "Expression": {
@@ -43,9 +44,7 @@
                   },
                   "Property": "Horas no justificadas"
                 }
-              },
-              "queryRef": "FACT_INASISTENCIAS.Horas no justificadas",
-              "nativeQueryRef": "Horas no justificadas"
+              }
             }
           ]
         }
@@ -180,6 +179,7 @@
         }
       ]
     },
+    "drillFilterOtherVisuals": true,
     "visualContainerObjects": {
       "visualHeader": [
         {
@@ -297,7 +297,6 @@
           }
         }
       ]
-    },
-    "drillFilterOtherVisuals": true
+    }
   }
 }

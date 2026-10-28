@@ -4,9 +4,9 @@
   "position": {
     "x": 224,
     "y": 198,
-    "z": 5,
+    "width": 508,
     "height": 214,
-    "width": 508
+    "z": 5
   },
   "visual": {
     "visualType": "barChart",
@@ -15,6 +15,8 @@
         "Category": {
           "projections": [
             {
+              "queryRef": "FACT_INASISTENCIAS.ConfianzaClasificacion",
+              "nativeQueryRef": "ConfianzaClasificacion",
               "field": {
                 "Column": {
                   "Expression": {
@@ -24,16 +26,15 @@
                   },
                   "Property": "ConfianzaClasificacion"
                 }
-              },
-              "queryRef": "FACT_INASISTENCIAS.ConfianzaClasificacion",
-              "nativeQueryRef": "ConfianzaClasificacion",
-              "active": true
+              }
             }
           ]
         },
         "Y": {
           "projections": [
             {
+              "queryRef": "FACT_INASISTENCIAS.Total inasistencias",
+              "nativeQueryRef": "Total inasistencias",
               "field": {
                 "Measure": {
                   "Expression": {
@@ -43,9 +44,7 @@
                   },
                   "Property": "Total inasistencias"
                 }
-              },
-              "queryRef": "FACT_INASISTENCIAS.Total inasistencias",
-              "nativeQueryRef": "Total inasistencias"
+              }
             }
           ]
         }
@@ -180,6 +179,7 @@
         }
       ]
     },
+    "drillFilterOtherVisuals": true,
     "visualContainerObjects": {
       "visualHeader": [
         {
@@ -297,7 +297,6 @@
           }
         }
       ]
-    },
-    "drillFilterOtherVisuals": true
+    }
   }
 }
