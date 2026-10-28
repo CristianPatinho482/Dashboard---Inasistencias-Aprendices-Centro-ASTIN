@@ -16,19 +16,21 @@ Para una actualización manual, ejecute desde PowerShell en la carpeta del proye
 .\scripts\actualizar_datos.ps1 -PublicarPortal
 ```
 
-El parámetro `-PublicarPortal` crea un commit únicamente para `index.html` y hace `git push origin main` si el archivo cambió. Requiere que Git esté configurado y que `git push origin main` funcione sin solicitar entrada interactiva.
+El parámetro `-PublicarPortal` crea un commit únicamente para `index.html` si cambió y sincroniza `main` con `git push origin main`. Requiere que Git esté configurado y que el push funcione sin solicitar entrada interactiva.
 
-Para programarlo, cree una tarea en **Programador de tareas de Windows** que se ejecute después de la descarga del bot. Use `powershell.exe` como programa, la carpeta del proyecto como **Iniciar en** y estos argumentos:
+Para dejarlo automático en este equipo, ejecute una vez desde PowerShell, en la carpeta del proyecto:
 
-```text
--NoProfile -ExecutionPolicy Bypass -File "C:\Users\capatino\Documents\Inasistencias Sofía Plus\scripts\actualizar_datos.ps1" -PublicarPortal
+```powershell
+.\scripts\registrar_tarea_actualizacion.ps1
 ```
 
-Configure la tarea con la cuenta que tiene acceso a OneDrive y GitHub, y mantenga el equipo encendido, conectado a Internet y con OneDrive sincronizado. GitHub Pages publicará el commit que contenga el nuevo `index.html`.
+La tarea revisa el archivo cada 15 minutos y al iniciar sesión. Espera a que termine de cambiar, compara su huella SHA-256 y ejecuta el proceso solo si detecta un contenido nuevo. Luego crea un commit de `index.html` si cambió y sincroniza `main` con GitHub. El estado y los registros quedan en `%LOCALAPPDATA%\InasistenciasASTIN`; no se guardan credenciales en el repositorio.
+
+La sesión de Windows debe permanecer iniciada para que OneDrive y GitHub Credential Manager estén disponibles; el equipo debe estar encendido y conectado. En **Programador de tareas > Biblioteca del Programador**, la tarea se llama `ASTIN - Actualizar inasistencias y publicar portal`. Los registros están en la ruta indicada arriba. Para forzar una actualización manual, use `.scriptsactualizar_datos.ps1 -PublicarPortal` (sin `-SoloSiFuenteNueva`).
 
 ## 2. Power BI Desktop local
 
-El pipeline regenera los CSV que consume el modelo y reconstruye las definiciones PBIR/TMDL. La barra inferior del informe ahora obtiene la fecha de corte y los registros válidos de medidas DAX globales, de modo que cambian al actualizar el modelo. Después de que el pipeline regenere el PBIR/TMDL, cierre y vuelva a abrir el PBIP una vez para cargar la nueva estructura; luego use **Inicio > Actualizar**. En las siguientes actualizaciones, las dos tarjetas cambian con el refresco de datos.
+El pipeline regenera los CSV que consume el modelo y reconstruye las definiciones PBIR/TMDL. La fecha y hora de última descarga se toma de la modificación del Excel sincronizado y se escribe al regenerar el informe; el total de registros válidos se calcula con una medida DAX global. Power BI Desktop local no se actualiza por el solo hecho de regenerar archivos: cierre y vuelva a abrir el PBIP después de cambios estructurales, y use **Inicio > Actualizar** para recargar datos. La tarea automatizada actualiza y publica el portal GitHub Pages; no automatiza clics ni refresca Power BI Desktop.
 
 Para un flujo desatendido, no se recomienda automatizar clics de la interfaz de Desktop. Use el servicio de Power BI como destino de actualización programada, conectado a los CSV generados mediante gateway o a una ubicación cloud compatible.
 
@@ -68,7 +70,7 @@ Esta alternativa elimina la dependencia de que Service lea una ruta local, pero 
 
 ## Alcance y operación
 
-- La ejecución local puede automatizar ETL y generación de artefactos, pero la carpeta de OneDrive debe estar disponible y terminar de sincronizar antes de la tarea.
+- La tarea automatiza ETL y publicación del portal; OneDrive debe estar disponible y sincronizado. Si el bot conserva la fecha de modificación anterior, la hora del informe reflejará esa marca, no la hora real de descarga.
 - `-PublicarPortal` publica los agregados de `index.html` en el repositorio GitHub configurado. Compruebe la autorización institucional antes de exponer datos públicamente.
 - El equipo genera la fecha de última descarga a partir de la fecha de modificación local del Excel. Si el bot/OneDrive conserva una fecha de modificación anterior, el bot deberá actualizar esa marca o proporcionar un archivo de control con la hora real de descarga.
 - La programación del Service depende del tipo de origen, gateway y capacidad/licencia del espacio de trabajo.

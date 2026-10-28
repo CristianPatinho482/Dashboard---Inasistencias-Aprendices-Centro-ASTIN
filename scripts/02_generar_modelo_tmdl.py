@@ -507,12 +507,12 @@ expression RutaDatosRestringidos = "{RESTRICTED}" meta [IsParameterQuery=true, T
         encoding="utf-8",
     )
 
-    (DEF / "database.tmdl").write_text("database\n\tcompatibilityLevel: 1604\n", encoding="utf-8")
+    (DEF / "database.tmdl").write_text("database\n\tcompatibilityLevel: 1606\n", encoding="utf-8")
 
     (MODEL / "definition.pbism").write_text(
         json.dumps({
             "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/semanticModel/definitionProperties/1.0.0/schema.json",
-            "version": "4.0",
+            "version": "4.2",
             "settings": {},
         }, ensure_ascii=False, indent=2),
         encoding="utf-8",
