@@ -24,7 +24,7 @@ Para dejarlo automático en este equipo, ejecute una vez desde PowerShell, en la
 .\scripts\registrar_tarea_actualizacion.ps1
 ```
 
-La tarea revisa el archivo cada 15 minutos y al iniciar sesión. Espera a que termine de cambiar, compara su huella SHA-256 y ejecuta el proceso solo si detecta un contenido nuevo. Luego crea un commit de `index.html` si cambió y sincroniza `main` con GitHub. El estado y los registros quedan en `%LOCALAPPDATA%\InasistenciasASTIN`; no se guardan credenciales en el repositorio.
+La tarea revisa el archivo cada 15 minutos y al iniciar sesión. Espera a que termine de cambiar, compara su huella SHA-256 y ejecuta el proceso solo si detecta un contenido nuevo. Copia las salidas agregadas a la carpeta de SharePoint configurada y crea un commit de `index.html` y las definiciones PBIR/TMDL si cambiaron; nunca incluye CSV de datos ni `DIM_APRENDIZ_PII.csv`. Después sincroniza `main` con GitHub. El estado y los registros quedan en `%LOCALAPPDATA%\InasistenciasASTIN`; no se guardan credenciales en el repositorio.
 
 La sesión de Windows debe permanecer iniciada para que OneDrive y GitHub Credential Manager estén disponibles; el equipo debe estar encendido y conectado. En **Programador de tareas > Biblioteca del Programador**, la tarea se llama `ASTIN - Actualizar inasistencias y publicar portal`. Los registros están en la ruta indicada arriba. Para forzar una actualización manual, use `.scriptsactualizar_datos.ps1 -PublicarPortal` (sin `-SoloSiFuenteNueva`).
 

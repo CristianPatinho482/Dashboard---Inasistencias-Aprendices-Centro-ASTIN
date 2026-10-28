@@ -11,7 +11,7 @@ $user = "$env:USERDOMAIN\$env:USERNAME"
 
 $action = New-ScheduledTaskAction `
     -Execute $powershell `
-    -Argument "-NoProfile -NonInteractive -ExecutionPolicy Bypass -File `"$updater`" -PublicarPortal -SoloSiFuenteNueva" `
+    -Argument "-NoProfile -NonInteractive -ExecutionPolicy Bypass -File `"$updater`" -PublicarPortal -CopiarSalidasSharePoint -SoloSiFuenteNueva" `
     -WorkingDirectory $root
 
 $atLogOn = New-ScheduledTaskTrigger -AtLogOn -User $user
