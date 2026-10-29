@@ -105,11 +105,15 @@ try {
         else {
             Write-Host 'El contenido del portal no cambió; no se creó un commit adicional.' -ForegroundColor DarkGray
         }
-        git -C $root push origin main
-        if ($LASTEXITCODE -ne 0) {
-            throw 'GitHub rechazó el push. Revise conexión, credenciales y sincronización de main.'
+        $publishBranch = (git -C $root rev-parse --abbrev-ref HEAD).Trim()
+        if ([string]::IsNullOrWhiteSpace($publishBranch) -or $publishBranch -eq 'HEAD') {
+            throw 'No se pudo identificar una rama Git activa para publicar.'
         }
-        Write-Host 'La rama main quedó sincronizada con GitHub Pages.' -ForegroundColor Green
+        git -C $root push origin $publishBranch
+        if ($LASTEXITCODE -ne 0) {
+            throw "GitHub rechazó el push de la rama $publishBranch. Revise conexión, credenciales y sincronización de la rama."
+        }
+        Write-Host "La rama $publishBranch quedó sincronizada con GitHub." -ForegroundColor Green
     }
     if ($SoloSiFuenteNueva -and $null -ne $sourceHash) {
         New-Item -ItemType Directory -Path $stateDirectory -Force | Out-Null

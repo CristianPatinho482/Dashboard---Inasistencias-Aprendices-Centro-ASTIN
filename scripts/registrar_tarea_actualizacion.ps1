@@ -1,5 +1,5 @@
 <#
-Registra una tarea del usuario actual que revisa OneDrive cada 15 minutos.
+Registra una tarea del usuario actual que revisa OneDrive cada 6 horas.
 Requiere iniciar sesión en Windows para que OneDrive y GitHub Credential Manager estén disponibles.
 #>
 $ErrorActionPreference = 'Stop'
@@ -18,7 +18,7 @@ $atLogOn = New-ScheduledTaskTrigger -AtLogOn -User $user
 $repeat = New-ScheduledTaskTrigger `
     -Once `
     -At (Get-Date).AddMinutes(2) `
-    -RepetitionInterval (New-TimeSpan -Minutes 15) `
+    -RepetitionInterval (New-TimeSpan -Hours 6) `
     -RepetitionDuration (New-TimeSpan -Days 3650)
 
 $principal = New-ScheduledTaskPrincipal -UserId $user -LogonType Interactive -RunLevel Limited
@@ -38,5 +38,5 @@ Register-ScheduledTask `
     -Force | Out-Null
 
 Write-Host "Tarea registrada: $taskName" -ForegroundColor Green
-Write-Host 'La tarea se ejecuta al iniciar sesión y cada 15 minutos. Solo procesa el Excel si su contenido cambió.'
+Write-Host 'La tarea se ejecuta al iniciar sesión y cada 6 horas. Solo procesa el Excel si su contenido cambió.'
 Write-Host "Registro local: $(Join-Path $env:LOCALAPPDATA 'InasistenciasASTIN\logs')"
