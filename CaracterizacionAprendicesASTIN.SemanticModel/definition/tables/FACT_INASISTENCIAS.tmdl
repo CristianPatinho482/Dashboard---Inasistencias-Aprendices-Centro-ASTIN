@@ -520,19 +520,19 @@ table FACT_INASISTENCIAS
 		displayFolder: 04 Tendencias
 
 	measure 'Registros origen' = ```
-			16691
+			16687
 			```
 		formatString: #,##0
 		displayFolder: 00 KPIs
 
 	measure 'Duplicados removidos' = ```
-			448
+			446
 			```
 		formatString: #,##0
 		displayFolder: 00 KPIs
 
 	measure '% duplicados removidos' = ```
-			DIVIDE ( 448, 16691 )
+			DIVIDE ( 446, 16687 )
 			```
 		formatString: 0.00%
 		displayFolder: 00 KPIs
