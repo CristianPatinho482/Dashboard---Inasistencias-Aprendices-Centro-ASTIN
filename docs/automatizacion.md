@@ -11,15 +11,16 @@ La carpeta OneDrive debe estar sincronizada localmente en el equipo que ejecuta 
 - `data/` está excluido de Git: `data/raw`, `data/processed`, `data/restricted` y `data/private`. El ETL y el modelo los necesitan en disco, pero no deben viajar en un commit.
 - `config/sharepoint.json`, `api/local.settings.json`, `api/node_modules/` y `.swa/` también están excluidos.
 - El repositorio debe ser privado. El portal agregado puede publicarse, pero la vista nominal solo se expone en Azure Static Web Apps con autenticación y Blob privado.
-- Si el repositorio estuvo público y contuvo `DIM_APRENDIZ_PII.csv`, `Inasistencias.xls` o salidas con nombres, trate el dato como comprometido: haga privado el repositorio, ejecute `scripts/09_limpiar_pii_git.ps1`, abra un ticket en GitHub Support para purgar cachés/objetos y notifique al contacto de privacidad/seguridad. Cambiar la visibilidad no borra el historial ni los forks.
+- Si el repositorio estuvo público y contuvo `DIM_APRENDIZ_PII.csv`, `Inasistencias.xls`, salidas con nombres o la cache del modelo (`.pbi/cache.abf`), trate el dato como comprometido: haga privado el repositorio, ejecute `scripts/09_limpiar_pii_git.ps1`, abra un ticket en GitHub Support para purgar cachés/objetos y notifique al contacto de privacidad/seguridad. Cambiar la visibilidad no borra el historial ni los forks.
 
 ### Limpieza ejecutada el 11 de noviembre de 2026
 
 - El repositorio se hizo privado antes de reescribir el historial y no tiene forks.
-- `scripts/09_limpiar_pii_git.ps1` eliminó las rutas `data/` de todas las ramas y etiquetas con `git-filter-repo`, y publicó el historial reescrito con push forzado.
-- La verificación sobre un clon espejo del remoto encontró 0 rutas `data/` y 0 objetos `DIM_APRENDIZ_PII.csv` o `Inasistencias.xls`. El acceso anónimo al repositorio, al contenido raw y al sitio de GitHub Pages devuelve 404.
+- `scripts/09_limpiar_pii_git.ps1` se ejecutó dos veces con `git-filter-repo`: primero eliminó las rutas `data/`; después eliminó `.pbi/cache.abf` y los `.pbi/localSettings.json`. Publicó el historial reescrito con push forzado de todas las ramas y etiquetas.
+- La verificación sobre un clon espejo del remoto encontró 0 rutas `data/`, 0 rutas `.pbi/cache.abf` o `.pbi/localSettings.json` y 0 objetos `DIM_APRENDIZ_PII.csv`, `Inasistencias.xls`, `cache.abf` o `localSettings.json`. El acceso anónimo al repositorio, al contenido raw y al sitio de GitHub Pages devuelve 404.
+- La rama `main` quedó en `f1e9d24` después de la segunda purga.
 - Se eliminó el artefacto `github-pages` (54 MB) generado antes de la purga, que podía incluir `data/`. No quedan artefactos de Actions. GitHub Pages está deshabilitado y no se ejecutó una compilación nueva después de la purga.
-- Pendiente: solicitar a GitHub Support la purga de vistas y objetos inaccesibles, notificar al contacto de privacidad/seguridad y conservar los respaldos locales fuera del repositorio. Mientras GitHub no complete la purga, una persona con acceso al repositorio todavía puede consultar el commit antiguo por su SHA.
+- Pendiente: solicitar a GitHub Support la purga de vistas y objetos inaccesibles, incluidos los commits antiguos que contenían `data/` y `cache.abf`; notificar al contacto de privacidad/seguridad y conservar los respaldos locales fuera del repositorio. Mientras GitHub no complete la purga, una persona con acceso al repositorio todavía puede consultar esos commits por su SHA.
 - No vuelva a subir las ramas antiguas ni restaure los respaldos dentro del repositorio.
 - Registro completo, verificación y plantillas de notificación: [incidente_pii_2026-11-11.md](incidente_pii_2026-11-11.md).
 

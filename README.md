@@ -2,7 +2,7 @@
 
 Solución de analítica académica para caracterizar aprendices y hacer seguimiento a las inasistencias del Centro ASTIN, Regional Valle del Cauca. Incluye un proyecto Power BI (PBIP/PBIR + TMDL), un portal agregado y una consulta nominal protegida para la página **05 · Consulta semanal**.
 
-> **Datos personales:** `data/` está excluido de Git. El repositorio debe permanecer privado y el portal público nunca debe contener nombres, documentos, justificaciones ni registros individuales. La consulta nominal se publica solo en Azure Static Web Apps con autenticación Entra ID y un Blob privado. Consulte [la guía de Azure](docs/azure_static_web_apps.md). Si el repositorio estuvo público con datos, consulte el [registro del incidente](docs/incidente_pii_2026-11-11.md).
+> **Datos personales:** `data/` está excluido de Git y la cache local del modelo (`.pbi/cache.abf`) tampoco se versiona. El repositorio debe permanecer privado y el portal público nunca debe contener nombres, documentos, justificaciones ni registros individuales. La consulta nominal se publica solo en Azure Static Web Apps con autenticación Entra ID y un Blob privado. Consulte [la guía de Azure](docs/azure_static_web_apps.md). Si el repositorio estuvo público con datos, consulte el [registro del incidente](docs/incidente_pii_2026-11-11.md).
 
 ## Estructura
 
@@ -27,7 +27,7 @@ Solución de analítica académica para caracterizar aprendices y hacer seguimie
 - `scripts/06_preparar_salidas_sharepoint.py`: copia solo salidas aprobadas y vacía campos identificables.
 - `scripts/07_exportar_consulta_web.py`: exportación nominal real a `data/private/` o datos sintéticos con `--demo`.
 - `scripts/08_subir_consulta_azure.ps1`: valida y sube el archivo al Blob privado; opcionalmente genera un SAS de lectura.
-- `scripts/09_limpiar_pii_git.ps1`: respalda y purga `data/` del historial Git; requiere `git-filter-repo`.
+- `scripts/09_limpiar_pii_git.ps1`: respalda y purga `data/`, `.pbi/cache.abf` y `.pbi/localSettings.json` del historial Git; requiere `git-filter-repo`.
 - `scripts/10_sincronizar_agregacion.py`: sincroniza la agregación API/navegador; use `--check` en CI.
 - `scripts/11_limpiar_consulta_local.ps1`: borra las copias nominales locales.
 - `tools/chartjs`: distribución local de Chart.js y licencia MIT.
