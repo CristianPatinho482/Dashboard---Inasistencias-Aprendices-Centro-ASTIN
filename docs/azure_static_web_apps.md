@@ -239,7 +239,7 @@ No configure `CONSULTA_LOCAL_FILE` en Azure: la API intentaría leer una ruta in
    az staticwebapp secrets list --name $swa --resource-group $rg --query properties.apiKey -o tsv
    ```
 
-2. El workflow `.github/workflows/azure-static-web-apps.yml` valida la agregación, ejecuta las pruebas y despliega `web/` + `api/` en cada push a `main`.
+2. El workflow `.github/workflows/azure-static-web-apps.yml` valida la agregación, ejecuta las pruebas y despliega `web/` + `api/` en cada push a `main`. Si `AZURE_STATIC_WEB_APPS_API_TOKEN` no existe, el workflow valida pero omite el despliegue y deja un aviso; configúrelo para publicar.
 3. Para desplegar sin push, ejecute el workflow manualmente desde **Actions > Azure Static Web Apps > Run workflow**.
 
 ### 8B. Function App propia + identidad administrada (recomendado)
