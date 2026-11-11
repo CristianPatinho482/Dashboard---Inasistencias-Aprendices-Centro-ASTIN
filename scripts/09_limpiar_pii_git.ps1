@@ -54,7 +54,14 @@ $top = (& git -C $root rev-parse --show-toplevel 2>$null)
 if ($LASTEXITCODE -ne 0 -or -not $top) {
     throw "La carpeta no es un repositorio Git: $root"
 }
-$root = $top.Trim()
+$top = $top.Trim()
+# Git entrega la ruta en UTF-8; Windows PowerShell 5.1 puede decodificarla mal
+# cuando la ruta tiene tildes. Si la ruta decodificada no existe, se conserva la
+# ruta real del script.
+if (-not (Test-Path -LiteralPath $top -PathType Container)) {
+    $top = (Resolve-Path -LiteralPath $root).Path
+}
+$root = $top
 
 $status = @(& git -C $root status --porcelain)
 if ($status.Count -gt 0) {
