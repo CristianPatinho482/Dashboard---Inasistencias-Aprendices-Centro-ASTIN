@@ -18,7 +18,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Busca por ficha, instructor y fechas. La identidad se muestra mediante un código seudónimo; el semáforo evalúa la semana con más horas no justificadas del intervalo.",
+                    "value": "Busca por ficha, instructor y fechas; el semáforo evalúa la semana con más horas no justificadas del intervalo.",
                     "textStyle": {
                       "fontFamily": "Work Sans",
                       "fontSize": "10.5pt",

@@ -1,0 +1,4085 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-11T09:27:43-05:00",
+  "sourceLabel": "Datos sintéticos de demostración",
+  "synthetic": true,
+  "records": [
+    {
+      "id": "DEMO-0018",
+      "name": "Aprendiz Demo 18",
+      "date": "2026-08-03",
+      "ficha": "9000002",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 4.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0027",
+      "name": "Aprendiz Demo 27",
+      "date": "2026-08-03",
+      "ficha": "9000003",
+      "instructor": "Instructora Demo Diana",
+      "hours": 5.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0028",
+      "name": "Aprendiz Demo 28",
+      "date": "2026-08-03",
+      "ficha": "9000004",
+      "instructor": "Instructor Demo Felipe",
+      "hours": 3.0,
+      "unjustified": 3.0
+    },
+    {
+      "id": "DEMO-0034",
+      "name": "Aprendiz Demo 34",
+      "date": "2026-08-03",
+      "ficha": "9000002",
+      "instructor": "Instructor Demo Felipe",
+      "hours": 5.0,
+      "unjustified": 5.0
+    },
+    {
+      "id": "DEMO-0036",
+      "name": "Aprendiz Demo 36",
+      "date": "2026-08-03",
+      "ficha": "9000004",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 5.0,
+      "unjustified": 5.0
+    },
+    {
+      "id": "DEMO-0042",
+      "name": "Aprendiz Demo 42",
+      "date": "2026-08-03",
+      "ficha": "9000002",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 6.0,
+      "unjustified": 6.0
+    },
+    {
+      "id": "DEMO-0053",
+      "name": "Aprendiz Demo 53",
+      "date": "2026-08-03",
+      "ficha": "9000005",
+      "instructor": "Instructora Demo Laura",
+      "hours": 3.0,
+      "unjustified": 3.0
+    },
+    {
+      "id": "DEMO-0056",
+      "name": "Aprendiz Demo 56",
+      "date": "2026-08-03",
+      "ficha": "9000008",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 8.0,
+      "unjustified": 8.0
+    },
+    {
+      "id": "DEMO-0059",
+      "name": "Aprendiz Demo 59",
+      "date": "2026-08-03",
+      "ficha": "9000003",
+      "instructor": "Instructora Demo Laura",
+      "hours": 4.0,
+      "unjustified": 4.0
+    },
+    {
+      "id": "DEMO-0063",
+      "name": "Aprendiz Demo 63",
+      "date": "2026-08-03",
+      "ficha": "9000007",
+      "instructor": "Instructora Demo Diana",
+      "hours": 3.0,
+      "unjustified": 3.0
+    },
+    {
+      "id": "DEMO-0067",
+      "name": "Aprendiz Demo 67",
+      "date": "2026-08-03",
+      "ficha": "9000003",
+      "instructor": "Instructora Demo Ana",
+      "hours": 3.0,
+      "unjustified": 3.0
+    },
+    {
+      "id": "DEMO-0069",
+      "name": "Aprendiz Demo 69",
+      "date": "2026-08-03",
+      "ficha": "9000005",
+      "instructor": "Instructora Demo Diana",
+      "hours": 4.0,
+      "unjustified": 4.0
+    },
+    {
+      "id": "DEMO-0008",
+      "name": "Aprendiz Demo 08",
+      "date": "2026-08-04",
+      "ficha": "9000008",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 3.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0015",
+      "name": "Aprendiz Demo 15",
+      "date": "2026-08-04",
+      "ficha": "9000007",
+      "instructor": "Instructora Demo Diana",
+      "hours": 4.0,
+      "unjustified": 4.0
+    },
+    {
+      "id": "DEMO-0030",
+      "name": "Aprendiz Demo 30",
+      "date": "2026-08-04",
+      "ficha": "9000006",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 2.0,
+      "unjustified": 2.0
+    },
+    {
+      "id": "DEMO-0040",
+      "name": "Aprendiz Demo 40",
+      "date": "2026-08-04",
+      "ficha": "9000008",
+      "instructor": "Instructor Demo Felipe",
+      "hours": 3.0,
+      "unjustified": 3.0
+    },
+    {
+      "id": "DEMO-0043",
+      "name": "Aprendiz Demo 43",
+      "date": "2026-08-04",
+      "ficha": "9000003",
+      "instructor": "Instructora Demo Ana",
+      "hours": 5.0,
+      "unjustified": 5.0
+    },
+    {
+      "id": "DEMO-0056",
+      "name": "Aprendiz Demo 56",
+      "date": "2026-08-04",
+      "ficha": "9000008",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 8.0,
+      "unjustified": 8.0
+    },
+    {
+      "id": "DEMO-0060",
+      "name": "Aprendiz Demo 60",
+      "date": "2026-08-04",
+      "ficha": "9000004",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 2.0,
+      "unjustified": 2.0
+    },
+    {
+      "id": "DEMO-0016",
+      "name": "Aprendiz Demo 16",
+      "date": "2026-08-05",
+      "ficha": "9000008",
+      "instructor": "Instructor Demo Felipe",
+      "hours": 8.0,
+      "unjustified": 8.0
+    },
+    {
+      "id": "DEMO-0016",
+      "name": "Aprendiz Demo 16",
+      "date": "2026-08-05",
+      "ficha": "9000008",
+      "instructor": "Instructor Demo Felipe",
+      "hours": 3.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0023",
+      "name": "Aprendiz Demo 23",
+      "date": "2026-08-05",
+      "ficha": "9000007",
+      "instructor": "Instructora Demo Laura",
+      "hours": 6.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0043",
+      "name": "Aprendiz Demo 43",
+      "date": "2026-08-05",
+      "ficha": "9000003",
+      "instructor": "Instructora Demo Ana",
+      "hours": 2.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0046",
+      "name": "Aprendiz Demo 46",
+      "date": "2026-08-05",
+      "ficha": "9000006",
+      "instructor": "Instructor Demo Felipe",
+      "hours": 8.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0056",
+      "name": "Aprendiz Demo 56",
+      "date": "2026-08-05",
+      "ficha": "9000008",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 8.0,
+      "unjustified": 8.0
+    },
+    {
+      "id": "DEMO-0070",
+      "name": "Aprendiz Demo 70",
+      "date": "2026-08-05",
+      "ficha": "9000006",
+      "instructor": "Instructor Demo Felipe",
+      "hours": 5.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0072",
+      "name": "Aprendiz Demo 72",
+      "date": "2026-08-05",
+      "ficha": "9000008",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 4.0,
+      "unjustified": 4.0
+    },
+    {
+      "id": "DEMO-0018",
+      "name": "Aprendiz Demo 18",
+      "date": "2026-08-06",
+      "ficha": "9000002",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 4.0,
+      "unjustified": 4.0
+    },
+    {
+      "id": "DEMO-0022",
+      "name": "Aprendiz Demo 22",
+      "date": "2026-08-06",
+      "ficha": "9000006",
+      "instructor": "Instructor Demo Felipe",
+      "hours": 6.0,
+      "unjustified": 6.0
+    },
+    {
+      "id": "DEMO-0025",
+      "name": "Aprendiz Demo 25",
+      "date": "2026-08-06",
+      "ficha": "9000001",
+      "instructor": "Instructora Demo Ana",
+      "hours": 3.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0027",
+      "name": "Aprendiz Demo 27",
+      "date": "2026-08-06",
+      "ficha": "9000003",
+      "instructor": "Instructora Demo Diana",
+      "hours": 3.0,
+      "unjustified": 3.0
+    },
+    {
+      "id": "DEMO-0033",
+      "name": "Aprendiz Demo 33",
+      "date": "2026-08-06",
+      "ficha": "9000001",
+      "instructor": "Instructora Demo Diana",
+      "hours": 8.0,
+      "unjustified": 8.0
+    },
+    {
+      "id": "DEMO-0035",
+      "name": "Aprendiz Demo 35",
+      "date": "2026-08-06",
+      "ficha": "9000003",
+      "instructor": "Instructora Demo Laura",
+      "hours": 4.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0057",
+      "name": "Aprendiz Demo 57",
+      "date": "2026-08-06",
+      "ficha": "9000001",
+      "instructor": "Instructora Demo Diana",
+      "hours": 8.0,
+      "unjustified": 8.0
+    },
+    {
+      "id": "DEMO-0061",
+      "name": "Aprendiz Demo 61",
+      "date": "2026-08-06",
+      "ficha": "9000005",
+      "instructor": "Instructora Demo Ana",
+      "hours": 3.0,
+      "unjustified": 3.0
+    },
+    {
+      "id": "DEMO-0021",
+      "name": "Aprendiz Demo 21",
+      "date": "2026-08-07",
+      "ficha": "9000005",
+      "instructor": "Instructora Demo Diana",
+      "hours": 3.0,
+      "unjustified": 3.0
+    },
+    {
+      "id": "DEMO-0045",
+      "name": "Aprendiz Demo 45",
+      "date": "2026-08-07",
+      "ficha": "9000005",
+      "instructor": "Instructora Demo Diana",
+      "hours": 4.0,
+      "unjustified": 4.0
+    },
+    {
+      "id": "DEMO-0051",
+      "name": "Aprendiz Demo 51",
+      "date": "2026-08-07",
+      "ficha": "9000003",
+      "instructor": "Instructora Demo Diana",
+      "hours": 6.0,
+      "unjustified": 6.0
+    },
+    {
+      "id": "DEMO-0062",
+      "name": "Aprendiz Demo 62",
+      "date": "2026-08-07",
+      "ficha": "9000006",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 4.0,
+      "unjustified": 4.0
+    },
+    {
+      "id": "DEMO-0063",
+      "name": "Aprendiz Demo 63",
+      "date": "2026-08-07",
+      "ficha": "9000007",
+      "instructor": "Instructora Demo Diana",
+      "hours": 8.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0068",
+      "name": "Aprendiz Demo 68",
+      "date": "2026-08-07",
+      "ficha": "9000004",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 6.0,
+      "unjustified": 6.0
+    },
+    {
+      "id": "DEMO-0002",
+      "name": "Aprendiz Demo 02",
+      "date": "2026-08-10",
+      "ficha": "9000002",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 5.0,
+      "unjustified": 5.0
+    },
+    {
+      "id": "DEMO-0035",
+      "name": "Aprendiz Demo 35",
+      "date": "2026-08-10",
+      "ficha": "9000003",
+      "instructor": "Instructora Demo Laura",
+      "hours": 3.0,
+      "unjustified": 3.0
+    },
+    {
+      "id": "DEMO-0045",
+      "name": "Aprendiz Demo 45",
+      "date": "2026-08-10",
+      "ficha": "9000005",
+      "instructor": "Instructora Demo Diana",
+      "hours": 8.0,
+      "unjustified": 8.0
+    },
+    {
+      "id": "DEMO-0052",
+      "name": "Aprendiz Demo 52",
+      "date": "2026-08-10",
+      "ficha": "9000004",
+      "instructor": "Instructor Demo Felipe",
+      "hours": 8.0,
+      "unjustified": 8.0
+    },
+    {
+      "id": "DEMO-0014",
+      "name": "Aprendiz Demo 14",
+      "date": "2026-08-11",
+      "ficha": "9000006",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 3.0,
+      "unjustified": 3.0
+    },
+    {
+      "id": "DEMO-0017",
+      "name": "Aprendiz Demo 17",
+      "date": "2026-08-11",
+      "ficha": "9000001",
+      "instructor": "Instructora Demo Laura",
+      "hours": 6.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0040",
+      "name": "Aprendiz Demo 40",
+      "date": "2026-08-11",
+      "ficha": "9000008",
+      "instructor": "Instructor Demo Felipe",
+      "hours": 4.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0045",
+      "name": "Aprendiz Demo 45",
+      "date": "2026-08-11",
+      "ficha": "9000005",
+      "instructor": "Instructora Demo Diana",
+      "hours": 8.0,
+      "unjustified": 8.0
+    },
+    {
+      "id": "DEMO-0046",
+      "name": "Aprendiz Demo 46",
+      "date": "2026-08-11",
+      "ficha": "9000006",
+      "instructor": "Instructor Demo Felipe",
+      "hours": 5.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0064",
+      "name": "Aprendiz Demo 64",
+      "date": "2026-08-11",
+      "ficha": "9000008",
+      "instructor": "Instructor Demo Felipe",
+      "hours": 2.0,
+      "unjustified": 2.0
+    },
+    {
+      "id": "DEMO-0066",
+      "name": "Aprendiz Demo 66",
+      "date": "2026-08-11",
+      "ficha": "9000002",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 3.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0072",
+      "name": "Aprendiz Demo 72",
+      "date": "2026-08-11",
+      "ficha": "9000008",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 4.0,
+      "unjustified": 4.0
+    },
+    {
+      "id": "DEMO-0030",
+      "name": "Aprendiz Demo 30",
+      "date": "2026-08-12",
+      "ficha": "9000006",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 4.0,
+      "unjustified": 4.0
+    },
+    {
+      "id": "DEMO-0036",
+      "name": "Aprendiz Demo 36",
+      "date": "2026-08-12",
+      "ficha": "9000004",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 6.0,
+      "unjustified": 6.0
+    },
+    {
+      "id": "DEMO-0037",
+      "name": "Aprendiz Demo 37",
+      "date": "2026-08-12",
+      "ficha": "9000005",
+      "instructor": "Instructora Demo Ana",
+      "hours": 5.0,
+      "unjustified": 5.0
+    },
+    {
+      "id": "DEMO-0045",
+      "name": "Aprendiz Demo 45",
+      "date": "2026-08-12",
+      "ficha": "9000005",
+      "instructor": "Instructora Demo Diana",
+      "hours": 8.0,
+      "unjustified": 8.0
+    },
+    {
+      "id": "DEMO-0051",
+      "name": "Aprendiz Demo 51",
+      "date": "2026-08-12",
+      "ficha": "9000003",
+      "instructor": "Instructora Demo Diana",
+      "hours": 6.0,
+      "unjustified": 6.0
+    },
+    {
+      "id": "DEMO-0053",
+      "name": "Aprendiz Demo 53",
+      "date": "2026-08-12",
+      "ficha": "9000005",
+      "instructor": "Instructora Demo Laura",
+      "hours": 8.0,
+      "unjustified": 8.0
+    },
+    {
+      "id": "DEMO-0060",
+      "name": "Aprendiz Demo 60",
+      "date": "2026-08-12",
+      "ficha": "9000004",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 4.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0007",
+      "name": "Aprendiz Demo 07",
+      "date": "2026-08-13",
+      "ficha": "9000007",
+      "instructor": "Instructora Demo Ana",
+      "hours": 8.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0016",
+      "name": "Aprendiz Demo 16",
+      "date": "2026-08-13",
+      "ficha": "9000008",
+      "instructor": "Instructor Demo Felipe",
+      "hours": 5.0,
+      "unjustified": 5.0
+    },
+    {
+      "id": "DEMO-0025",
+      "name": "Aprendiz Demo 25",
+      "date": "2026-08-13",
+      "ficha": "9000001",
+      "instructor": "Instructora Demo Ana",
+      "hours": 2.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0035",
+      "name": "Aprendiz Demo 35",
+      "date": "2026-08-13",
+      "ficha": "9000003",
+      "instructor": "Instructora Demo Laura",
+      "hours": 3.0,
+      "unjustified": 3.0
+    },
+    {
+      "id": "DEMO-0038",
+      "name": "Aprendiz Demo 38",
+      "date": "2026-08-13",
+      "ficha": "9000006",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 3.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0044",
+      "name": "Aprendiz Demo 44",
+      "date": "2026-08-13",
+      "ficha": "9000004",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 8.0,
+      "unjustified": 8.0
+    },
+    {
+      "id": "DEMO-0045",
+      "name": "Aprendiz Demo 45",
+      "date": "2026-08-13",
+      "ficha": "9000005",
+      "instructor": "Instructora Demo Diana",
+      "hours": 4.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0050",
+      "name": "Aprendiz Demo 50",
+      "date": "2026-08-13",
+      "ficha": "9000002",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 2.0,
+      "unjustified": 2.0
+    },
+    {
+      "id": "DEMO-0060",
+      "name": "Aprendiz Demo 60",
+      "date": "2026-08-13",
+      "ficha": "9000004",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 3.0,
+      "unjustified": 3.0
+    },
+    {
+      "id": "DEMO-0061",
+      "name": "Aprendiz Demo 61",
+      "date": "2026-08-13",
+      "ficha": "9000005",
+      "instructor": "Instructora Demo Ana",
+      "hours": 5.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0062",
+      "name": "Aprendiz Demo 62",
+      "date": "2026-08-13",
+      "ficha": "9000006",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 3.0,
+      "unjustified": 3.0
+    },
+    {
+      "id": "DEMO-0069",
+      "name": "Aprendiz Demo 69",
+      "date": "2026-08-13",
+      "ficha": "9000005",
+      "instructor": "Instructora Demo Diana",
+      "hours": 2.0,
+      "unjustified": 2.0
+    },
+    {
+      "id": "DEMO-0018",
+      "name": "Aprendiz Demo 18",
+      "date": "2026-08-14",
+      "ficha": "9000002",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 2.0,
+      "unjustified": 2.0
+    },
+    {
+      "id": "DEMO-0025",
+      "name": "Aprendiz Demo 25",
+      "date": "2026-08-14",
+      "ficha": "9000001",
+      "instructor": "Instructora Demo Ana",
+      "hours": 5.0,
+      "unjustified": 5.0
+    },
+    {
+      "id": "DEMO-0051",
+      "name": "Aprendiz Demo 51",
+      "date": "2026-08-14",
+      "ficha": "9000003",
+      "instructor": "Instructora Demo Diana",
+      "hours": 5.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0052",
+      "name": "Aprendiz Demo 52",
+      "date": "2026-08-14",
+      "ficha": "9000004",
+      "instructor": "Instructor Demo Felipe",
+      "hours": 4.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0070",
+      "name": "Aprendiz Demo 70",
+      "date": "2026-08-14",
+      "ficha": "9000006",
+      "instructor": "Instructor Demo Felipe",
+      "hours": 4.0,
+      "unjustified": 4.0
+    },
+    {
+      "id": "DEMO-0026",
+      "name": "Aprendiz Demo 26",
+      "date": "2026-08-17",
+      "ficha": "9000002",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 4.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0053",
+      "name": "Aprendiz Demo 53",
+      "date": "2026-08-17",
+      "ficha": "9000005",
+      "instructor": "Instructora Demo Laura",
+      "hours": 2.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0054",
+      "name": "Aprendiz Demo 54",
+      "date": "2026-08-17",
+      "ficha": "9000006",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 6.0,
+      "unjustified": 6.0
+    },
+    {
+      "id": "DEMO-0061",
+      "name": "Aprendiz Demo 61",
+      "date": "2026-08-17",
+      "ficha": "9000005",
+      "instructor": "Instructora Demo Ana",
+      "hours": 8.0,
+      "unjustified": 8.0
+    },
+    {
+      "id": "DEMO-0072",
+      "name": "Aprendiz Demo 72",
+      "date": "2026-08-17",
+      "ficha": "9000008",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 4.0,
+      "unjustified": 4.0
+    },
+    {
+      "id": "DEMO-0022",
+      "name": "Aprendiz Demo 22",
+      "date": "2026-08-18",
+      "ficha": "9000006",
+      "instructor": "Instructor Demo Felipe",
+      "hours": 4.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0039",
+      "name": "Aprendiz Demo 39",
+      "date": "2026-08-18",
+      "ficha": "9000007",
+      "instructor": "Instructora Demo Diana",
+      "hours": 5.0,
+      "unjustified": 5.0
+    },
+    {
+      "id": "DEMO-0048",
+      "name": "Aprendiz Demo 48",
+      "date": "2026-08-18",
+      "ficha": "9000008",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 6.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0058",
+      "name": "Aprendiz Demo 58",
+      "date": "2026-08-18",
+      "ficha": "9000002",
+      "instructor": "Instructor Demo Felipe",
+      "hours": 3.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0002",
+      "name": "Aprendiz Demo 02",
+      "date": "2026-08-19",
+      "ficha": "9000002",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 4.0,
+      "unjustified": 4.0
+    },
+    {
+      "id": "DEMO-0013",
+      "name": "Aprendiz Demo 13",
+      "date": "2026-08-19",
+      "ficha": "9000005",
+      "instructor": "Instructora Demo Ana",
+      "hours": 8.0,
+      "unjustified": 8.0
+    },
+    {
+      "id": "DEMO-0017",
+      "name": "Aprendiz Demo 17",
+      "date": "2026-08-19",
+      "ficha": "9000001",
+      "instructor": "Instructora Demo Laura",
+      "hours": 5.0,
+      "unjustified": 5.0
+    },
+    {
+      "id": "DEMO-0020",
+      "name": "Aprendiz Demo 20",
+      "date": "2026-08-19",
+      "ficha": "9000004",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 5.0,
+      "unjustified": 5.0
+    },
+    {
+      "id": "DEMO-0031",
+      "name": "Aprendiz Demo 31",
+      "date": "2026-08-19",
+      "ficha": "9000007",
+      "instructor": "Instructora Demo Ana",
+      "hours": 6.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0042",
+      "name": "Aprendiz Demo 42",
+      "date": "2026-08-19",
+      "ficha": "9000002",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 4.0,
+      "unjustified": 4.0
+    },
+    {
+      "id": "DEMO-0004",
+      "name": "Aprendiz Demo 04",
+      "date": "2026-08-20",
+      "ficha": "9000004",
+      "instructor": "Instructor Demo Felipe",
+      "hours": 5.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0006",
+      "name": "Aprendiz Demo 06",
+      "date": "2026-08-20",
+      "ficha": "9000006",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 3.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0007",
+      "name": "Aprendiz Demo 07",
+      "date": "2026-08-20",
+      "ficha": "9000007",
+      "instructor": "Instructora Demo Ana",
+      "hours": 3.0,
+      "unjustified": 3.0
+    },
+    {
+      "id": "DEMO-0024",
+      "name": "Aprendiz Demo 24",
+      "date": "2026-08-20",
+      "ficha": "9000008",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 4.0,
+      "unjustified": 4.0
+    },
+    {
+      "id": "DEMO-0024",
+      "name": "Aprendiz Demo 24",
+      "date": "2026-08-20",
+      "ficha": "9000008",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 2.0,
+      "unjustified": 2.0
+    },
+    {
+      "id": "DEMO-0031",
+      "name": "Aprendiz Demo 31",
+      "date": "2026-08-20",
+      "ficha": "9000007",
+      "instructor": "Instructora Demo Ana",
+      "hours": 2.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0048",
+      "name": "Aprendiz Demo 48",
+      "date": "2026-08-20",
+      "ficha": "9000008",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 6.0,
+      "unjustified": 6.0
+    },
+    {
+      "id": "DEMO-0050",
+      "name": "Aprendiz Demo 50",
+      "date": "2026-08-20",
+      "ficha": "9000002",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 2.0,
+      "unjustified": 2.0
+    },
+    {
+      "id": "DEMO-0069",
+      "name": "Aprendiz Demo 69",
+      "date": "2026-08-20",
+      "ficha": "9000005",
+      "instructor": "Instructora Demo Diana",
+      "hours": 6.0,
+      "unjustified": 6.0
+    },
+    {
+      "id": "DEMO-0022",
+      "name": "Aprendiz Demo 22",
+      "date": "2026-08-21",
+      "ficha": "9000006",
+      "instructor": "Instructor Demo Felipe",
+      "hours": 8.0,
+      "unjustified": 8.0
+    },
+    {
+      "id": "DEMO-0035",
+      "name": "Aprendiz Demo 35",
+      "date": "2026-08-21",
+      "ficha": "9000003",
+      "instructor": "Instructora Demo Laura",
+      "hours": 8.0,
+      "unjustified": 8.0
+    },
+    {
+      "id": "DEMO-0051",
+      "name": "Aprendiz Demo 51",
+      "date": "2026-08-21",
+      "ficha": "9000003",
+      "instructor": "Instructora Demo Diana",
+      "hours": 4.0,
+      "unjustified": 4.0
+    },
+    {
+      "id": "DEMO-0054",
+      "name": "Aprendiz Demo 54",
+      "date": "2026-08-21",
+      "ficha": "9000006",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 2.0,
+      "unjustified": 2.0
+    },
+    {
+      "id": "DEMO-0072",
+      "name": "Aprendiz Demo 72",
+      "date": "2026-08-21",
+      "ficha": "9000008",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 5.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0009",
+      "name": "Aprendiz Demo 09",
+      "date": "2026-08-24",
+      "ficha": "9000001",
+      "instructor": "Instructora Demo Diana",
+      "hours": 3.0,
+      "unjustified": 3.0
+    },
+    {
+      "id": "DEMO-0026",
+      "name": "Aprendiz Demo 26",
+      "date": "2026-08-24",
+      "ficha": "9000002",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 8.0,
+      "unjustified": 8.0
+    },
+    {
+      "id": "DEMO-0045",
+      "name": "Aprendiz Demo 45",
+      "date": "2026-08-24",
+      "ficha": "9000005",
+      "instructor": "Instructora Demo Diana",
+      "hours": 4.0,
+      "unjustified": 4.0
+    },
+    {
+      "id": "DEMO-0004",
+      "name": "Aprendiz Demo 04",
+      "date": "2026-08-25",
+      "ficha": "9000004",
+      "instructor": "Instructor Demo Felipe",
+      "hours": 3.0,
+      "unjustified": 3.0
+    },
+    {
+      "id": "DEMO-0013",
+      "name": "Aprendiz Demo 13",
+      "date": "2026-08-25",
+      "ficha": "9000005",
+      "instructor": "Instructora Demo Ana",
+      "hours": 5.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0026",
+      "name": "Aprendiz Demo 26",
+      "date": "2026-08-25",
+      "ficha": "9000002",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 2.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0027",
+      "name": "Aprendiz Demo 27",
+      "date": "2026-08-25",
+      "ficha": "9000003",
+      "instructor": "Instructora Demo Diana",
+      "hours": 2.0,
+      "unjustified": 2.0
+    },
+    {
+      "id": "DEMO-0031",
+      "name": "Aprendiz Demo 31",
+      "date": "2026-08-25",
+      "ficha": "9000007",
+      "instructor": "Instructora Demo Ana",
+      "hours": 4.0,
+      "unjustified": 4.0
+    },
+    {
+      "id": "DEMO-0036",
+      "name": "Aprendiz Demo 36",
+      "date": "2026-08-25",
+      "ficha": "9000004",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 2.0,
+      "unjustified": 2.0
+    },
+    {
+      "id": "DEMO-0043",
+      "name": "Aprendiz Demo 43",
+      "date": "2026-08-25",
+      "ficha": "9000003",
+      "instructor": "Instructora Demo Ana",
+      "hours": 4.0,
+      "unjustified": 4.0
+    },
+    {
+      "id": "DEMO-0048",
+      "name": "Aprendiz Demo 48",
+      "date": "2026-08-25",
+      "ficha": "9000008",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 2.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0050",
+      "name": "Aprendiz Demo 50",
+      "date": "2026-08-25",
+      "ficha": "9000002",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 5.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0054",
+      "name": "Aprendiz Demo 54",
+      "date": "2026-08-25",
+      "ficha": "9000006",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 4.0,
+      "unjustified": 4.0
+    },
+    {
+      "id": "DEMO-0006",
+      "name": "Aprendiz Demo 06",
+      "date": "2026-08-26",
+      "ficha": "9000006",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 6.0,
+      "unjustified": 6.0
+    },
+    {
+      "id": "DEMO-0008",
+      "name": "Aprendiz Demo 08",
+      "date": "2026-08-26",
+      "ficha": "9000008",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 2.0,
+      "unjustified": 2.0
+    },
+    {
+      "id": "DEMO-0012",
+      "name": "Aprendiz Demo 12",
+      "date": "2026-08-26",
+      "ficha": "9000004",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 4.0,
+      "unjustified": 4.0
+    },
+    {
+      "id": "DEMO-0025",
+      "name": "Aprendiz Demo 25",
+      "date": "2026-08-26",
+      "ficha": "9000001",
+      "instructor": "Instructora Demo Ana",
+      "hours": 3.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0036",
+      "name": "Aprendiz Demo 36",
+      "date": "2026-08-26",
+      "ficha": "9000004",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 2.0,
+      "unjustified": 2.0
+    },
+    {
+      "id": "DEMO-0045",
+      "name": "Aprendiz Demo 45",
+      "date": "2026-08-26",
+      "ficha": "9000005",
+      "instructor": "Instructora Demo Diana",
+      "hours": 2.0,
+      "unjustified": 2.0
+    },
+    {
+      "id": "DEMO-0050",
+      "name": "Aprendiz Demo 50",
+      "date": "2026-08-26",
+      "ficha": "9000002",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 6.0,
+      "unjustified": 6.0
+    },
+    {
+      "id": "DEMO-0058",
+      "name": "Aprendiz Demo 58",
+      "date": "2026-08-26",
+      "ficha": "9000002",
+      "instructor": "Instructor Demo Felipe",
+      "hours": 6.0,
+      "unjustified": 6.0
+    },
+    {
+      "id": "DEMO-0062",
+      "name": "Aprendiz Demo 62",
+      "date": "2026-08-26",
+      "ficha": "9000006",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 3.0,
+      "unjustified": 3.0
+    },
+    {
+      "id": "DEMO-0063",
+      "name": "Aprendiz Demo 63",
+      "date": "2026-08-26",
+      "ficha": "9000007",
+      "instructor": "Instructora Demo Diana",
+      "hours": 5.0,
+      "unjustified": 5.0
+    },
+    {
+      "id": "DEMO-0011",
+      "name": "Aprendiz Demo 11",
+      "date": "2026-08-27",
+      "ficha": "9000003",
+      "instructor": "Instructora Demo Laura",
+      "hours": 3.0,
+      "unjustified": 3.0
+    },
+    {
+      "id": "DEMO-0018",
+      "name": "Aprendiz Demo 18",
+      "date": "2026-08-27",
+      "ficha": "9000002",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 3.0,
+      "unjustified": 3.0
+    },
+    {
+      "id": "DEMO-0026",
+      "name": "Aprendiz Demo 26",
+      "date": "2026-08-27",
+      "ficha": "9000002",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 3.0,
+      "unjustified": 3.0
+    },
+    {
+      "id": "DEMO-0007",
+      "name": "Aprendiz Demo 07",
+      "date": "2026-08-28",
+      "ficha": "9000007",
+      "instructor": "Instructora Demo Ana",
+      "hours": 6.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0008",
+      "name": "Aprendiz Demo 08",
+      "date": "2026-08-28",
+      "ficha": "9000008",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 3.0,
+      "unjustified": 3.0
+    },
+    {
+      "id": "DEMO-0016",
+      "name": "Aprendiz Demo 16",
+      "date": "2026-08-28",
+      "ficha": "9000008",
+      "instructor": "Instructor Demo Felipe",
+      "hours": 5.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0018",
+      "name": "Aprendiz Demo 18",
+      "date": "2026-08-28",
+      "ficha": "9000002",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 5.0,
+      "unjustified": 5.0
+    },
+    {
+      "id": "DEMO-0025",
+      "name": "Aprendiz Demo 25",
+      "date": "2026-08-28",
+      "ficha": "9000001",
+      "instructor": "Instructora Demo Ana",
+      "hours": 2.0,
+      "unjustified": 2.0
+    },
+    {
+      "id": "DEMO-0034",
+      "name": "Aprendiz Demo 34",
+      "date": "2026-08-28",
+      "ficha": "9000002",
+      "instructor": "Instructor Demo Felipe",
+      "hours": 2.0,
+      "unjustified": 2.0
+    },
+    {
+      "id": "DEMO-0041",
+      "name": "Aprendiz Demo 41",
+      "date": "2026-08-28",
+      "ficha": "9000001",
+      "instructor": "Instructora Demo Laura",
+      "hours": 3.0,
+      "unjustified": 3.0
+    },
+    {
+      "id": "DEMO-0054",
+      "name": "Aprendiz Demo 54",
+      "date": "2026-08-28",
+      "ficha": "9000006",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 3.0,
+      "unjustified": 3.0
+    },
+    {
+      "id": "DEMO-0056",
+      "name": "Aprendiz Demo 56",
+      "date": "2026-08-28",
+      "ficha": "9000008",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 3.0,
+      "unjustified": 3.0
+    },
+    {
+      "id": "DEMO-0066",
+      "name": "Aprendiz Demo 66",
+      "date": "2026-08-28",
+      "ficha": "9000002",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 2.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0004",
+      "name": "Aprendiz Demo 04",
+      "date": "2026-08-31",
+      "ficha": "9000004",
+      "instructor": "Instructor Demo Felipe",
+      "hours": 3.0,
+      "unjustified": 3.0
+    },
+    {
+      "id": "DEMO-0005",
+      "name": "Aprendiz Demo 05",
+      "date": "2026-08-31",
+      "ficha": "9000005",
+      "instructor": "Instructora Demo Laura",
+      "hours": 5.0,
+      "unjustified": 5.0
+    },
+    {
+      "id": "DEMO-0006",
+      "name": "Aprendiz Demo 06",
+      "date": "2026-08-31",
+      "ficha": "9000006",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 8.0,
+      "unjustified": 8.0
+    },
+    {
+      "id": "DEMO-0007",
+      "name": "Aprendiz Demo 07",
+      "date": "2026-08-31",
+      "ficha": "9000007",
+      "instructor": "Instructora Demo Ana",
+      "hours": 5.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0023",
+      "name": "Aprendiz Demo 23",
+      "date": "2026-08-31",
+      "ficha": "9000007",
+      "instructor": "Instructora Demo Laura",
+      "hours": 8.0,
+      "unjustified": 8.0
+    },
+    {
+      "id": "DEMO-0023",
+      "name": "Aprendiz Demo 23",
+      "date": "2026-08-31",
+      "ficha": "9000007",
+      "instructor": "Instructora Demo Laura",
+      "hours": 4.0,
+      "unjustified": 4.0
+    },
+    {
+      "id": "DEMO-0029",
+      "name": "Aprendiz Demo 29",
+      "date": "2026-08-31",
+      "ficha": "9000005",
+      "instructor": "Instructora Demo Laura",
+      "hours": 6.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0042",
+      "name": "Aprendiz Demo 42",
+      "date": "2026-08-31",
+      "ficha": "9000002",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 2.0,
+      "unjustified": 2.0
+    },
+    {
+      "id": "DEMO-0051",
+      "name": "Aprendiz Demo 51",
+      "date": "2026-08-31",
+      "ficha": "9000003",
+      "instructor": "Instructora Demo Diana",
+      "hours": 5.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0064",
+      "name": "Aprendiz Demo 64",
+      "date": "2026-08-31",
+      "ficha": "9000008",
+      "instructor": "Instructor Demo Felipe",
+      "hours": 5.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0070",
+      "name": "Aprendiz Demo 70",
+      "date": "2026-08-31",
+      "ficha": "9000006",
+      "instructor": "Instructor Demo Felipe",
+      "hours": 3.0,
+      "unjustified": 3.0
+    },
+    {
+      "id": "DEMO-0005",
+      "name": "Aprendiz Demo 05",
+      "date": "2026-09-01",
+      "ficha": "9000005",
+      "instructor": "Instructora Demo Laura",
+      "hours": 2.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0023",
+      "name": "Aprendiz Demo 23",
+      "date": "2026-09-01",
+      "ficha": "9000007",
+      "instructor": "Instructora Demo Laura",
+      "hours": 8.0,
+      "unjustified": 8.0
+    },
+    {
+      "id": "DEMO-0023",
+      "name": "Aprendiz Demo 23",
+      "date": "2026-09-01",
+      "ficha": "9000007",
+      "instructor": "Instructora Demo Laura",
+      "hours": 5.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0023",
+      "name": "Aprendiz Demo 23",
+      "date": "2026-09-01",
+      "ficha": "9000007",
+      "instructor": "Instructora Demo Laura",
+      "hours": 5.0,
+      "unjustified": 5.0
+    },
+    {
+      "id": "DEMO-0029",
+      "name": "Aprendiz Demo 29",
+      "date": "2026-09-01",
+      "ficha": "9000005",
+      "instructor": "Instructora Demo Laura",
+      "hours": 4.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0032",
+      "name": "Aprendiz Demo 32",
+      "date": "2026-09-01",
+      "ficha": "9000008",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 5.0,
+      "unjustified": 5.0
+    },
+    {
+      "id": "DEMO-0041",
+      "name": "Aprendiz Demo 41",
+      "date": "2026-09-01",
+      "ficha": "9000001",
+      "instructor": "Instructora Demo Laura",
+      "hours": 2.0,
+      "unjustified": 2.0
+    },
+    {
+      "id": "DEMO-0068",
+      "name": "Aprendiz Demo 68",
+      "date": "2026-09-01",
+      "ficha": "9000004",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 2.0,
+      "unjustified": 2.0
+    },
+    {
+      "id": "DEMO-0001",
+      "name": "Aprendiz Demo 01",
+      "date": "2026-09-02",
+      "ficha": "9000001",
+      "instructor": "Instructora Demo Ana",
+      "hours": 3.0,
+      "unjustified": 3.0
+    },
+    {
+      "id": "DEMO-0008",
+      "name": "Aprendiz Demo 08",
+      "date": "2026-09-02",
+      "ficha": "9000008",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 3.0,
+      "unjustified": 3.0
+    },
+    {
+      "id": "DEMO-0015",
+      "name": "Aprendiz Demo 15",
+      "date": "2026-09-02",
+      "ficha": "9000007",
+      "instructor": "Instructora Demo Diana",
+      "hours": 6.0,
+      "unjustified": 6.0
+    },
+    {
+      "id": "DEMO-0018",
+      "name": "Aprendiz Demo 18",
+      "date": "2026-09-02",
+      "ficha": "9000002",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 8.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0023",
+      "name": "Aprendiz Demo 23",
+      "date": "2026-09-02",
+      "ficha": "9000007",
+      "instructor": "Instructora Demo Laura",
+      "hours": 8.0,
+      "unjustified": 8.0
+    },
+    {
+      "id": "DEMO-0040",
+      "name": "Aprendiz Demo 40",
+      "date": "2026-09-02",
+      "ficha": "9000008",
+      "instructor": "Instructor Demo Felipe",
+      "hours": 5.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0047",
+      "name": "Aprendiz Demo 47",
+      "date": "2026-09-02",
+      "ficha": "9000007",
+      "instructor": "Instructora Demo Laura",
+      "hours": 6.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0063",
+      "name": "Aprendiz Demo 63",
+      "date": "2026-09-02",
+      "ficha": "9000007",
+      "instructor": "Instructora Demo Diana",
+      "hours": 2.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0071",
+      "name": "Aprendiz Demo 71",
+      "date": "2026-09-02",
+      "ficha": "9000007",
+      "instructor": "Instructora Demo Laura",
+      "hours": 5.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0003",
+      "name": "Aprendiz Demo 03",
+      "date": "2026-09-03",
+      "ficha": "9000003",
+      "instructor": "Instructora Demo Diana",
+      "hours": 5.0,
+      "unjustified": 5.0
+    },
+    {
+      "id": "DEMO-0013",
+      "name": "Aprendiz Demo 13",
+      "date": "2026-09-03",
+      "ficha": "9000005",
+      "instructor": "Instructora Demo Ana",
+      "hours": 4.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0037",
+      "name": "Aprendiz Demo 37",
+      "date": "2026-09-03",
+      "ficha": "9000005",
+      "instructor": "Instructora Demo Ana",
+      "hours": 5.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0044",
+      "name": "Aprendiz Demo 44",
+      "date": "2026-09-03",
+      "ficha": "9000004",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 6.0,
+      "unjustified": 6.0
+    },
+    {
+      "id": "DEMO-0045",
+      "name": "Aprendiz Demo 45",
+      "date": "2026-09-03",
+      "ficha": "9000005",
+      "instructor": "Instructora Demo Diana",
+      "hours": 2.0,
+      "unjustified": 2.0
+    },
+    {
+      "id": "DEMO-0058",
+      "name": "Aprendiz Demo 58",
+      "date": "2026-09-03",
+      "ficha": "9000002",
+      "instructor": "Instructor Demo Felipe",
+      "hours": 6.0,
+      "unjustified": 6.0
+    },
+    {
+      "id": "DEMO-0009",
+      "name": "Aprendiz Demo 09",
+      "date": "2026-09-04",
+      "ficha": "9000001",
+      "instructor": "Instructora Demo Diana",
+      "hours": 4.0,
+      "unjustified": 4.0
+    },
+    {
+      "id": "DEMO-0016",
+      "name": "Aprendiz Demo 16",
+      "date": "2026-09-04",
+      "ficha": "9000008",
+      "instructor": "Instructor Demo Felipe",
+      "hours": 3.0,
+      "unjustified": 3.0
+    },
+    {
+      "id": "DEMO-0021",
+      "name": "Aprendiz Demo 21",
+      "date": "2026-09-04",
+      "ficha": "9000005",
+      "instructor": "Instructora Demo Diana",
+      "hours": 2.0,
+      "unjustified": 2.0
+    },
+    {
+      "id": "DEMO-0027",
+      "name": "Aprendiz Demo 27",
+      "date": "2026-09-04",
+      "ficha": "9000003",
+      "instructor": "Instructora Demo Diana",
+      "hours": 3.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0032",
+      "name": "Aprendiz Demo 32",
+      "date": "2026-09-04",
+      "ficha": "9000008",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 4.0,
+      "unjustified": 4.0
+    },
+    {
+      "id": "DEMO-0042",
+      "name": "Aprendiz Demo 42",
+      "date": "2026-09-04",
+      "ficha": "9000002",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 2.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0053",
+      "name": "Aprendiz Demo 53",
+      "date": "2026-09-04",
+      "ficha": "9000005",
+      "instructor": "Instructora Demo Laura",
+      "hours": 3.0,
+      "unjustified": 3.0
+    },
+    {
+      "id": "DEMO-0054",
+      "name": "Aprendiz Demo 54",
+      "date": "2026-09-04",
+      "ficha": "9000006",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 6.0,
+      "unjustified": 6.0
+    },
+    {
+      "id": "DEMO-0057",
+      "name": "Aprendiz Demo 57",
+      "date": "2026-09-04",
+      "ficha": "9000001",
+      "instructor": "Instructora Demo Diana",
+      "hours": 6.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0070",
+      "name": "Aprendiz Demo 70",
+      "date": "2026-09-04",
+      "ficha": "9000006",
+      "instructor": "Instructor Demo Felipe",
+      "hours": 4.0,
+      "unjustified": 4.0
+    },
+    {
+      "id": "DEMO-0020",
+      "name": "Aprendiz Demo 20",
+      "date": "2026-09-07",
+      "ficha": "9000004",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 5.0,
+      "unjustified": 5.0
+    },
+    {
+      "id": "DEMO-0034",
+      "name": "Aprendiz Demo 34",
+      "date": "2026-09-07",
+      "ficha": "9000002",
+      "instructor": "Instructor Demo Felipe",
+      "hours": 5.0,
+      "unjustified": 5.0
+    },
+    {
+      "id": "DEMO-0036",
+      "name": "Aprendiz Demo 36",
+      "date": "2026-09-07",
+      "ficha": "9000004",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 6.0,
+      "unjustified": 6.0
+    },
+    {
+      "id": "DEMO-0042",
+      "name": "Aprendiz Demo 42",
+      "date": "2026-09-07",
+      "ficha": "9000002",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 2.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0043",
+      "name": "Aprendiz Demo 43",
+      "date": "2026-09-07",
+      "ficha": "9000003",
+      "instructor": "Instructora Demo Ana",
+      "hours": 8.0,
+      "unjustified": 8.0
+    },
+    {
+      "id": "DEMO-0062",
+      "name": "Aprendiz Demo 62",
+      "date": "2026-09-07",
+      "ficha": "9000006",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 8.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0067",
+      "name": "Aprendiz Demo 67",
+      "date": "2026-09-07",
+      "ficha": "9000003",
+      "instructor": "Instructora Demo Ana",
+      "hours": 2.0,
+      "unjustified": 2.0
+    },
+    {
+      "id": "DEMO-0072",
+      "name": "Aprendiz Demo 72",
+      "date": "2026-09-07",
+      "ficha": "9000008",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 2.0,
+      "unjustified": 2.0
+    },
+    {
+      "id": "DEMO-0009",
+      "name": "Aprendiz Demo 09",
+      "date": "2026-09-08",
+      "ficha": "9000001",
+      "instructor": "Instructora Demo Diana",
+      "hours": 5.0,
+      "unjustified": 5.0
+    },
+    {
+      "id": "DEMO-0013",
+      "name": "Aprendiz Demo 13",
+      "date": "2026-09-08",
+      "ficha": "9000005",
+      "instructor": "Instructora Demo Ana",
+      "hours": 2.0,
+      "unjustified": 2.0
+    },
+    {
+      "id": "DEMO-0013",
+      "name": "Aprendiz Demo 13",
+      "date": "2026-09-08",
+      "ficha": "9000005",
+      "instructor": "Instructora Demo Ana",
+      "hours": 4.0,
+      "unjustified": 4.0
+    },
+    {
+      "id": "DEMO-0026",
+      "name": "Aprendiz Demo 26",
+      "date": "2026-09-08",
+      "ficha": "9000002",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 6.0,
+      "unjustified": 6.0
+    },
+    {
+      "id": "DEMO-0062",
+      "name": "Aprendiz Demo 62",
+      "date": "2026-09-09",
+      "ficha": "9000006",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 2.0,
+      "unjustified": 2.0
+    },
+    {
+      "id": "DEMO-0065",
+      "name": "Aprendiz Demo 65",
+      "date": "2026-09-09",
+      "ficha": "9000001",
+      "instructor": "Instructora Demo Laura",
+      "hours": 2.0,
+      "unjustified": 2.0
+    },
+    {
+      "id": "DEMO-0071",
+      "name": "Aprendiz Demo 71",
+      "date": "2026-09-09",
+      "ficha": "9000007",
+      "instructor": "Instructora Demo Laura",
+      "hours": 8.0,
+      "unjustified": 8.0
+    },
+    {
+      "id": "DEMO-0003",
+      "name": "Aprendiz Demo 03",
+      "date": "2026-09-10",
+      "ficha": "9000003",
+      "instructor": "Instructora Demo Diana",
+      "hours": 8.0,
+      "unjustified": 8.0
+    },
+    {
+      "id": "DEMO-0005",
+      "name": "Aprendiz Demo 05",
+      "date": "2026-09-10",
+      "ficha": "9000005",
+      "instructor": "Instructora Demo Laura",
+      "hours": 5.0,
+      "unjustified": 5.0
+    },
+    {
+      "id": "DEMO-0010",
+      "name": "Aprendiz Demo 10",
+      "date": "2026-09-10",
+      "ficha": "9000002",
+      "instructor": "Instructor Demo Felipe",
+      "hours": 3.0,
+      "unjustified": 3.0
+    },
+    {
+      "id": "DEMO-0026",
+      "name": "Aprendiz Demo 26",
+      "date": "2026-09-10",
+      "ficha": "9000002",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 5.0,
+      "unjustified": 5.0
+    },
+    {
+      "id": "DEMO-0027",
+      "name": "Aprendiz Demo 27",
+      "date": "2026-09-10",
+      "ficha": "9000003",
+      "instructor": "Instructora Demo Diana",
+      "hours": 2.0,
+      "unjustified": 2.0
+    },
+    {
+      "id": "DEMO-0033",
+      "name": "Aprendiz Demo 33",
+      "date": "2026-09-10",
+      "ficha": "9000001",
+      "instructor": "Instructora Demo Diana",
+      "hours": 2.0,
+      "unjustified": 2.0
+    },
+    {
+      "id": "DEMO-0055",
+      "name": "Aprendiz Demo 55",
+      "date": "2026-09-10",
+      "ficha": "9000007",
+      "instructor": "Instructora Demo Ana",
+      "hours": 3.0,
+      "unjustified": 3.0
+    },
+    {
+      "id": "DEMO-0059",
+      "name": "Aprendiz Demo 59",
+      "date": "2026-09-10",
+      "ficha": "9000003",
+      "instructor": "Instructora Demo Laura",
+      "hours": 3.0,
+      "unjustified": 3.0
+    },
+    {
+      "id": "DEMO-0006",
+      "name": "Aprendiz Demo 06",
+      "date": "2026-09-11",
+      "ficha": "9000006",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 2.0,
+      "unjustified": 2.0
+    },
+    {
+      "id": "DEMO-0009",
+      "name": "Aprendiz Demo 09",
+      "date": "2026-09-11",
+      "ficha": "9000001",
+      "instructor": "Instructora Demo Diana",
+      "hours": 6.0,
+      "unjustified": 6.0
+    },
+    {
+      "id": "DEMO-0012",
+      "name": "Aprendiz Demo 12",
+      "date": "2026-09-11",
+      "ficha": "9000004",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 2.0,
+      "unjustified": 2.0
+    },
+    {
+      "id": "DEMO-0038",
+      "name": "Aprendiz Demo 38",
+      "date": "2026-09-11",
+      "ficha": "9000006",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 3.0,
+      "unjustified": 3.0
+    },
+    {
+      "id": "DEMO-0044",
+      "name": "Aprendiz Demo 44",
+      "date": "2026-09-11",
+      "ficha": "9000004",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 6.0,
+      "unjustified": 6.0
+    },
+    {
+      "id": "DEMO-0044",
+      "name": "Aprendiz Demo 44",
+      "date": "2026-09-11",
+      "ficha": "9000004",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 6.0,
+      "unjustified": 6.0
+    },
+    {
+      "id": "DEMO-0072",
+      "name": "Aprendiz Demo 72",
+      "date": "2026-09-11",
+      "ficha": "9000008",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 6.0,
+      "unjustified": 6.0
+    },
+    {
+      "id": "DEMO-0006",
+      "name": "Aprendiz Demo 06",
+      "date": "2026-09-14",
+      "ficha": "9000006",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 2.0,
+      "unjustified": 2.0
+    },
+    {
+      "id": "DEMO-0017",
+      "name": "Aprendiz Demo 17",
+      "date": "2026-09-14",
+      "ficha": "9000001",
+      "instructor": "Instructora Demo Laura",
+      "hours": 8.0,
+      "unjustified": 8.0
+    },
+    {
+      "id": "DEMO-0034",
+      "name": "Aprendiz Demo 34",
+      "date": "2026-09-14",
+      "ficha": "9000002",
+      "instructor": "Instructor Demo Felipe",
+      "hours": 8.0,
+      "unjustified": 8.0
+    },
+    {
+      "id": "DEMO-0044",
+      "name": "Aprendiz Demo 44",
+      "date": "2026-09-14",
+      "ficha": "9000004",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 8.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0045",
+      "name": "Aprendiz Demo 45",
+      "date": "2026-09-14",
+      "ficha": "9000005",
+      "instructor": "Instructora Demo Diana",
+      "hours": 3.0,
+      "unjustified": 3.0
+    },
+    {
+      "id": "DEMO-0049",
+      "name": "Aprendiz Demo 49",
+      "date": "2026-09-14",
+      "ficha": "9000001",
+      "instructor": "Instructora Demo Ana",
+      "hours": 2.0,
+      "unjustified": 2.0
+    },
+    {
+      "id": "DEMO-0053",
+      "name": "Aprendiz Demo 53",
+      "date": "2026-09-14",
+      "ficha": "9000005",
+      "instructor": "Instructora Demo Laura",
+      "hours": 8.0,
+      "unjustified": 8.0
+    },
+    {
+      "id": "DEMO-0054",
+      "name": "Aprendiz Demo 54",
+      "date": "2026-09-14",
+      "ficha": "9000006",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 6.0,
+      "unjustified": 6.0
+    },
+    {
+      "id": "DEMO-0054",
+      "name": "Aprendiz Demo 54",
+      "date": "2026-09-14",
+      "ficha": "9000006",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 3.0,
+      "unjustified": 3.0
+    },
+    {
+      "id": "DEMO-0057",
+      "name": "Aprendiz Demo 57",
+      "date": "2026-09-14",
+      "ficha": "9000001",
+      "instructor": "Instructora Demo Diana",
+      "hours": 3.0,
+      "unjustified": 3.0
+    },
+    {
+      "id": "DEMO-0059",
+      "name": "Aprendiz Demo 59",
+      "date": "2026-09-14",
+      "ficha": "9000003",
+      "instructor": "Instructora Demo Laura",
+      "hours": 6.0,
+      "unjustified": 6.0
+    },
+    {
+      "id": "DEMO-0010",
+      "name": "Aprendiz Demo 10",
+      "date": "2026-09-15",
+      "ficha": "9000002",
+      "instructor": "Instructor Demo Felipe",
+      "hours": 3.0,
+      "unjustified": 3.0
+    },
+    {
+      "id": "DEMO-0019",
+      "name": "Aprendiz Demo 19",
+      "date": "2026-09-15",
+      "ficha": "9000003",
+      "instructor": "Instructora Demo Ana",
+      "hours": 8.0,
+      "unjustified": 8.0
+    },
+    {
+      "id": "DEMO-0049",
+      "name": "Aprendiz Demo 49",
+      "date": "2026-09-15",
+      "ficha": "9000001",
+      "instructor": "Instructora Demo Ana",
+      "hours": 5.0,
+      "unjustified": 5.0
+    },
+    {
+      "id": "DEMO-0051",
+      "name": "Aprendiz Demo 51",
+      "date": "2026-09-15",
+      "ficha": "9000003",
+      "instructor": "Instructora Demo Diana",
+      "hours": 2.0,
+      "unjustified": 2.0
+    },
+    {
+      "id": "DEMO-0069",
+      "name": "Aprendiz Demo 69",
+      "date": "2026-09-15",
+      "ficha": "9000005",
+      "instructor": "Instructora Demo Diana",
+      "hours": 2.0,
+      "unjustified": 2.0
+    },
+    {
+      "id": "DEMO-0009",
+      "name": "Aprendiz Demo 09",
+      "date": "2026-09-16",
+      "ficha": "9000001",
+      "instructor": "Instructora Demo Diana",
+      "hours": 8.0,
+      "unjustified": 8.0
+    },
+    {
+      "id": "DEMO-0015",
+      "name": "Aprendiz Demo 15",
+      "date": "2026-09-16",
+      "ficha": "9000007",
+      "instructor": "Instructora Demo Diana",
+      "hours": 8.0,
+      "unjustified": 8.0
+    },
+    {
+      "id": "DEMO-0022",
+      "name": "Aprendiz Demo 22",
+      "date": "2026-09-16",
+      "ficha": "9000006",
+      "instructor": "Instructor Demo Felipe",
+      "hours": 2.0,
+      "unjustified": 2.0
+    },
+    {
+      "id": "DEMO-0024",
+      "name": "Aprendiz Demo 24",
+      "date": "2026-09-16",
+      "ficha": "9000008",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 4.0,
+      "unjustified": 4.0
+    },
+    {
+      "id": "DEMO-0032",
+      "name": "Aprendiz Demo 32",
+      "date": "2026-09-16",
+      "ficha": "9000008",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 2.0,
+      "unjustified": 2.0
+    },
+    {
+      "id": "DEMO-0062",
+      "name": "Aprendiz Demo 62",
+      "date": "2026-09-16",
+      "ficha": "9000006",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 3.0,
+      "unjustified": 3.0
+    },
+    {
+      "id": "DEMO-0068",
+      "name": "Aprendiz Demo 68",
+      "date": "2026-09-16",
+      "ficha": "9000004",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 4.0,
+      "unjustified": 4.0
+    },
+    {
+      "id": "DEMO-0069",
+      "name": "Aprendiz Demo 69",
+      "date": "2026-09-16",
+      "ficha": "9000005",
+      "instructor": "Instructora Demo Diana",
+      "hours": 8.0,
+      "unjustified": 8.0
+    },
+    {
+      "id": "DEMO-0070",
+      "name": "Aprendiz Demo 70",
+      "date": "2026-09-16",
+      "ficha": "9000006",
+      "instructor": "Instructor Demo Felipe",
+      "hours": 4.0,
+      "unjustified": 4.0
+    },
+    {
+      "id": "DEMO-0018",
+      "name": "Aprendiz Demo 18",
+      "date": "2026-09-17",
+      "ficha": "9000002",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 5.0,
+      "unjustified": 5.0
+    },
+    {
+      "id": "DEMO-0024",
+      "name": "Aprendiz Demo 24",
+      "date": "2026-09-17",
+      "ficha": "9000008",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 2.0,
+      "unjustified": 2.0
+    },
+    {
+      "id": "DEMO-0047",
+      "name": "Aprendiz Demo 47",
+      "date": "2026-09-17",
+      "ficha": "9000007",
+      "instructor": "Instructora Demo Laura",
+      "hours": 6.0,
+      "unjustified": 6.0
+    },
+    {
+      "id": "DEMO-0060",
+      "name": "Aprendiz Demo 60",
+      "date": "2026-09-17",
+      "ficha": "9000004",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 8.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0061",
+      "name": "Aprendiz Demo 61",
+      "date": "2026-09-17",
+      "ficha": "9000005",
+      "instructor": "Instructora Demo Ana",
+      "hours": 8.0,
+      "unjustified": 8.0
+    },
+    {
+      "id": "DEMO-0067",
+      "name": "Aprendiz Demo 67",
+      "date": "2026-09-17",
+      "ficha": "9000003",
+      "instructor": "Instructora Demo Ana",
+      "hours": 5.0,
+      "unjustified": 5.0
+    },
+    {
+      "id": "DEMO-0069",
+      "name": "Aprendiz Demo 69",
+      "date": "2026-09-17",
+      "ficha": "9000005",
+      "instructor": "Instructora Demo Diana",
+      "hours": 6.0,
+      "unjustified": 6.0
+    },
+    {
+      "id": "DEMO-0071",
+      "name": "Aprendiz Demo 71",
+      "date": "2026-09-17",
+      "ficha": "9000007",
+      "instructor": "Instructora Demo Laura",
+      "hours": 3.0,
+      "unjustified": 3.0
+    },
+    {
+      "id": "DEMO-0006",
+      "name": "Aprendiz Demo 06",
+      "date": "2026-09-18",
+      "ficha": "9000006",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 4.0,
+      "unjustified": 4.0
+    },
+    {
+      "id": "DEMO-0007",
+      "name": "Aprendiz Demo 07",
+      "date": "2026-09-18",
+      "ficha": "9000007",
+      "instructor": "Instructora Demo Ana",
+      "hours": 8.0,
+      "unjustified": 8.0
+    },
+    {
+      "id": "DEMO-0008",
+      "name": "Aprendiz Demo 08",
+      "date": "2026-09-18",
+      "ficha": "9000008",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 6.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0024",
+      "name": "Aprendiz Demo 24",
+      "date": "2026-09-18",
+      "ficha": "9000008",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 6.0,
+      "unjustified": 6.0
+    },
+    {
+      "id": "DEMO-0034",
+      "name": "Aprendiz Demo 34",
+      "date": "2026-09-18",
+      "ficha": "9000002",
+      "instructor": "Instructor Demo Felipe",
+      "hours": 2.0,
+      "unjustified": 2.0
+    },
+    {
+      "id": "DEMO-0052",
+      "name": "Aprendiz Demo 52",
+      "date": "2026-09-18",
+      "ficha": "9000004",
+      "instructor": "Instructor Demo Felipe",
+      "hours": 5.0,
+      "unjustified": 5.0
+    },
+    {
+      "id": "DEMO-0056",
+      "name": "Aprendiz Demo 56",
+      "date": "2026-09-18",
+      "ficha": "9000008",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 3.0,
+      "unjustified": 3.0
+    },
+    {
+      "id": "DEMO-0061",
+      "name": "Aprendiz Demo 61",
+      "date": "2026-09-18",
+      "ficha": "9000005",
+      "instructor": "Instructora Demo Ana",
+      "hours": 4.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0071",
+      "name": "Aprendiz Demo 71",
+      "date": "2026-09-18",
+      "ficha": "9000007",
+      "instructor": "Instructora Demo Laura",
+      "hours": 6.0,
+      "unjustified": 6.0
+    },
+    {
+      "id": "DEMO-0001",
+      "name": "Aprendiz Demo 01",
+      "date": "2026-09-21",
+      "ficha": "9000001",
+      "instructor": "Instructora Demo Ana",
+      "hours": 8.0,
+      "unjustified": 8.0
+    },
+    {
+      "id": "DEMO-0020",
+      "name": "Aprendiz Demo 20",
+      "date": "2026-09-21",
+      "ficha": "9000004",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 4.0,
+      "unjustified": 4.0
+    },
+    {
+      "id": "DEMO-0034",
+      "name": "Aprendiz Demo 34",
+      "date": "2026-09-21",
+      "ficha": "9000002",
+      "instructor": "Instructor Demo Felipe",
+      "hours": 8.0,
+      "unjustified": 8.0
+    },
+    {
+      "id": "DEMO-0052",
+      "name": "Aprendiz Demo 52",
+      "date": "2026-09-21",
+      "ficha": "9000004",
+      "instructor": "Instructor Demo Felipe",
+      "hours": 6.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0001",
+      "name": "Aprendiz Demo 01",
+      "date": "2026-09-22",
+      "ficha": "9000001",
+      "instructor": "Instructora Demo Ana",
+      "hours": 8.0,
+      "unjustified": 8.0
+    },
+    {
+      "id": "DEMO-0004",
+      "name": "Aprendiz Demo 04",
+      "date": "2026-09-22",
+      "ficha": "9000004",
+      "instructor": "Instructor Demo Felipe",
+      "hours": 8.0,
+      "unjustified": 8.0
+    },
+    {
+      "id": "DEMO-0034",
+      "name": "Aprendiz Demo 34",
+      "date": "2026-09-22",
+      "ficha": "9000002",
+      "instructor": "Instructor Demo Felipe",
+      "hours": 8.0,
+      "unjustified": 8.0
+    },
+    {
+      "id": "DEMO-0060",
+      "name": "Aprendiz Demo 60",
+      "date": "2026-09-22",
+      "ficha": "9000004",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 6.0,
+      "unjustified": 6.0
+    },
+    {
+      "id": "DEMO-0001",
+      "name": "Aprendiz Demo 01",
+      "date": "2026-09-23",
+      "ficha": "9000001",
+      "instructor": "Instructora Demo Ana",
+      "hours": 8.0,
+      "unjustified": 8.0
+    },
+    {
+      "id": "DEMO-0003",
+      "name": "Aprendiz Demo 03",
+      "date": "2026-09-23",
+      "ficha": "9000003",
+      "instructor": "Instructora Demo Diana",
+      "hours": 2.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0018",
+      "name": "Aprendiz Demo 18",
+      "date": "2026-09-23",
+      "ficha": "9000002",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 2.0,
+      "unjustified": 2.0
+    },
+    {
+      "id": "DEMO-0027",
+      "name": "Aprendiz Demo 27",
+      "date": "2026-09-23",
+      "ficha": "9000003",
+      "instructor": "Instructora Demo Diana",
+      "hours": 4.0,
+      "unjustified": 4.0
+    },
+    {
+      "id": "DEMO-0030",
+      "name": "Aprendiz Demo 30",
+      "date": "2026-09-23",
+      "ficha": "9000006",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 4.0,
+      "unjustified": 4.0
+    },
+    {
+      "id": "DEMO-0033",
+      "name": "Aprendiz Demo 33",
+      "date": "2026-09-23",
+      "ficha": "9000001",
+      "instructor": "Instructora Demo Diana",
+      "hours": 6.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0034",
+      "name": "Aprendiz Demo 34",
+      "date": "2026-09-23",
+      "ficha": "9000002",
+      "instructor": "Instructor Demo Felipe",
+      "hours": 8.0,
+      "unjustified": 8.0
+    },
+    {
+      "id": "DEMO-0044",
+      "name": "Aprendiz Demo 44",
+      "date": "2026-09-23",
+      "ficha": "9000004",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 3.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0066",
+      "name": "Aprendiz Demo 66",
+      "date": "2026-09-23",
+      "ficha": "9000002",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 5.0,
+      "unjustified": 5.0
+    },
+    {
+      "id": "DEMO-0005",
+      "name": "Aprendiz Demo 05",
+      "date": "2026-09-24",
+      "ficha": "9000005",
+      "instructor": "Instructora Demo Laura",
+      "hours": 3.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0012",
+      "name": "Aprendiz Demo 12",
+      "date": "2026-09-24",
+      "ficha": "9000004",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 4.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0016",
+      "name": "Aprendiz Demo 16",
+      "date": "2026-09-24",
+      "ficha": "9000008",
+      "instructor": "Instructor Demo Felipe",
+      "hours": 5.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0036",
+      "name": "Aprendiz Demo 36",
+      "date": "2026-09-24",
+      "ficha": "9000004",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 6.0,
+      "unjustified": 6.0
+    },
+    {
+      "id": "DEMO-0039",
+      "name": "Aprendiz Demo 39",
+      "date": "2026-09-24",
+      "ficha": "9000007",
+      "instructor": "Instructora Demo Diana",
+      "hours": 8.0,
+      "unjustified": 8.0
+    },
+    {
+      "id": "DEMO-0049",
+      "name": "Aprendiz Demo 49",
+      "date": "2026-09-24",
+      "ficha": "9000001",
+      "instructor": "Instructora Demo Ana",
+      "hours": 5.0,
+      "unjustified": 5.0
+    },
+    {
+      "id": "DEMO-0050",
+      "name": "Aprendiz Demo 50",
+      "date": "2026-09-24",
+      "ficha": "9000002",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 3.0,
+      "unjustified": 3.0
+    },
+    {
+      "id": "DEMO-0061",
+      "name": "Aprendiz Demo 61",
+      "date": "2026-09-24",
+      "ficha": "9000005",
+      "instructor": "Instructora Demo Ana",
+      "hours": 5.0,
+      "unjustified": 5.0
+    },
+    {
+      "id": "DEMO-0061",
+      "name": "Aprendiz Demo 61",
+      "date": "2026-09-24",
+      "ficha": "9000005",
+      "instructor": "Instructora Demo Ana",
+      "hours": 4.0,
+      "unjustified": 4.0
+    },
+    {
+      "id": "DEMO-0066",
+      "name": "Aprendiz Demo 66",
+      "date": "2026-09-24",
+      "ficha": "9000002",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 5.0,
+      "unjustified": 5.0
+    },
+    {
+      "id": "DEMO-0071",
+      "name": "Aprendiz Demo 71",
+      "date": "2026-09-24",
+      "ficha": "9000007",
+      "instructor": "Instructora Demo Laura",
+      "hours": 8.0,
+      "unjustified": 8.0
+    },
+    {
+      "id": "DEMO-0009",
+      "name": "Aprendiz Demo 09",
+      "date": "2026-09-25",
+      "ficha": "9000001",
+      "instructor": "Instructora Demo Diana",
+      "hours": 2.0,
+      "unjustified": 2.0
+    },
+    {
+      "id": "DEMO-0014",
+      "name": "Aprendiz Demo 14",
+      "date": "2026-09-25",
+      "ficha": "9000006",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 5.0,
+      "unjustified": 5.0
+    },
+    {
+      "id": "DEMO-0032",
+      "name": "Aprendiz Demo 32",
+      "date": "2026-09-25",
+      "ficha": "9000008",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 6.0,
+      "unjustified": 6.0
+    },
+    {
+      "id": "DEMO-0034",
+      "name": "Aprendiz Demo 34",
+      "date": "2026-09-25",
+      "ficha": "9000002",
+      "instructor": "Instructor Demo Felipe",
+      "hours": 2.0,
+      "unjustified": 2.0
+    },
+    {
+      "id": "DEMO-0039",
+      "name": "Aprendiz Demo 39",
+      "date": "2026-09-25",
+      "ficha": "9000007",
+      "instructor": "Instructora Demo Diana",
+      "hours": 8.0,
+      "unjustified": 8.0
+    },
+    {
+      "id": "DEMO-0053",
+      "name": "Aprendiz Demo 53",
+      "date": "2026-09-25",
+      "ficha": "9000005",
+      "instructor": "Instructora Demo Laura",
+      "hours": 5.0,
+      "unjustified": 5.0
+    },
+    {
+      "id": "DEMO-0027",
+      "name": "Aprendiz Demo 27",
+      "date": "2026-09-28",
+      "ficha": "9000003",
+      "instructor": "Instructora Demo Diana",
+      "hours": 6.0,
+      "unjustified": 6.0
+    },
+    {
+      "id": "DEMO-0033",
+      "name": "Aprendiz Demo 33",
+      "date": "2026-09-28",
+      "ficha": "9000001",
+      "instructor": "Instructora Demo Diana",
+      "hours": 8.0,
+      "unjustified": 8.0
+    },
+    {
+      "id": "DEMO-0035",
+      "name": "Aprendiz Demo 35",
+      "date": "2026-09-28",
+      "ficha": "9000003",
+      "instructor": "Instructora Demo Laura",
+      "hours": 2.0,
+      "unjustified": 2.0
+    },
+    {
+      "id": "DEMO-0053",
+      "name": "Aprendiz Demo 53",
+      "date": "2026-09-28",
+      "ficha": "9000005",
+      "instructor": "Instructora Demo Laura",
+      "hours": 8.0,
+      "unjustified": 8.0
+    },
+    {
+      "id": "DEMO-0061",
+      "name": "Aprendiz Demo 61",
+      "date": "2026-09-28",
+      "ficha": "9000005",
+      "instructor": "Instructora Demo Ana",
+      "hours": 5.0,
+      "unjustified": 5.0
+    },
+    {
+      "id": "DEMO-0065",
+      "name": "Aprendiz Demo 65",
+      "date": "2026-09-28",
+      "ficha": "9000001",
+      "instructor": "Instructora Demo Laura",
+      "hours": 6.0,
+      "unjustified": 6.0
+    },
+    {
+      "id": "DEMO-0072",
+      "name": "Aprendiz Demo 72",
+      "date": "2026-09-28",
+      "ficha": "9000008",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 3.0,
+      "unjustified": 3.0
+    },
+    {
+      "id": "DEMO-0005",
+      "name": "Aprendiz Demo 05",
+      "date": "2026-09-29",
+      "ficha": "9000005",
+      "instructor": "Instructora Demo Laura",
+      "hours": 5.0,
+      "unjustified": 5.0
+    },
+    {
+      "id": "DEMO-0009",
+      "name": "Aprendiz Demo 09",
+      "date": "2026-09-29",
+      "ficha": "9000001",
+      "instructor": "Instructora Demo Diana",
+      "hours": 5.0,
+      "unjustified": 5.0
+    },
+    {
+      "id": "DEMO-0040",
+      "name": "Aprendiz Demo 40",
+      "date": "2026-09-29",
+      "ficha": "9000008",
+      "instructor": "Instructor Demo Felipe",
+      "hours": 3.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0040",
+      "name": "Aprendiz Demo 40",
+      "date": "2026-09-29",
+      "ficha": "9000008",
+      "instructor": "Instructor Demo Felipe",
+      "hours": 2.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0051",
+      "name": "Aprendiz Demo 51",
+      "date": "2026-09-29",
+      "ficha": "9000003",
+      "instructor": "Instructora Demo Diana",
+      "hours": 8.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0054",
+      "name": "Aprendiz Demo 54",
+      "date": "2026-09-29",
+      "ficha": "9000006",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 8.0,
+      "unjustified": 8.0
+    },
+    {
+      "id": "DEMO-0058",
+      "name": "Aprendiz Demo 58",
+      "date": "2026-09-29",
+      "ficha": "9000002",
+      "instructor": "Instructor Demo Felipe",
+      "hours": 6.0,
+      "unjustified": 6.0
+    },
+    {
+      "id": "DEMO-0011",
+      "name": "Aprendiz Demo 11",
+      "date": "2026-09-30",
+      "ficha": "9000003",
+      "instructor": "Instructora Demo Laura",
+      "hours": 3.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0017",
+      "name": "Aprendiz Demo 17",
+      "date": "2026-09-30",
+      "ficha": "9000001",
+      "instructor": "Instructora Demo Laura",
+      "hours": 2.0,
+      "unjustified": 2.0
+    },
+    {
+      "id": "DEMO-0036",
+      "name": "Aprendiz Demo 36",
+      "date": "2026-09-30",
+      "ficha": "9000004",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 3.0,
+      "unjustified": 3.0
+    },
+    {
+      "id": "DEMO-0042",
+      "name": "Aprendiz Demo 42",
+      "date": "2026-09-30",
+      "ficha": "9000002",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 2.0,
+      "unjustified": 2.0
+    },
+    {
+      "id": "DEMO-0062",
+      "name": "Aprendiz Demo 62",
+      "date": "2026-09-30",
+      "ficha": "9000006",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 2.0,
+      "unjustified": 2.0
+    },
+    {
+      "id": "DEMO-0069",
+      "name": "Aprendiz Demo 69",
+      "date": "2026-09-30",
+      "ficha": "9000005",
+      "instructor": "Instructora Demo Diana",
+      "hours": 2.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0071",
+      "name": "Aprendiz Demo 71",
+      "date": "2026-09-30",
+      "ficha": "9000007",
+      "instructor": "Instructora Demo Laura",
+      "hours": 3.0,
+      "unjustified": 3.0
+    },
+    {
+      "id": "DEMO-0012",
+      "name": "Aprendiz Demo 12",
+      "date": "2026-10-01",
+      "ficha": "9000004",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 2.0,
+      "unjustified": 2.0
+    },
+    {
+      "id": "DEMO-0016",
+      "name": "Aprendiz Demo 16",
+      "date": "2026-10-01",
+      "ficha": "9000008",
+      "instructor": "Instructor Demo Felipe",
+      "hours": 6.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0026",
+      "name": "Aprendiz Demo 26",
+      "date": "2026-10-01",
+      "ficha": "9000002",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 6.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0029",
+      "name": "Aprendiz Demo 29",
+      "date": "2026-10-01",
+      "ficha": "9000005",
+      "instructor": "Instructora Demo Laura",
+      "hours": 8.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0033",
+      "name": "Aprendiz Demo 33",
+      "date": "2026-10-01",
+      "ficha": "9000001",
+      "instructor": "Instructora Demo Diana",
+      "hours": 5.0,
+      "unjustified": 5.0
+    },
+    {
+      "id": "DEMO-0052",
+      "name": "Aprendiz Demo 52",
+      "date": "2026-10-01",
+      "ficha": "9000004",
+      "instructor": "Instructor Demo Felipe",
+      "hours": 6.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0063",
+      "name": "Aprendiz Demo 63",
+      "date": "2026-10-01",
+      "ficha": "9000007",
+      "instructor": "Instructora Demo Diana",
+      "hours": 5.0,
+      "unjustified": 5.0
+    },
+    {
+      "id": "DEMO-0006",
+      "name": "Aprendiz Demo 06",
+      "date": "2026-10-02",
+      "ficha": "9000006",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 8.0,
+      "unjustified": 8.0
+    },
+    {
+      "id": "DEMO-0007",
+      "name": "Aprendiz Demo 07",
+      "date": "2026-10-02",
+      "ficha": "9000007",
+      "instructor": "Instructora Demo Ana",
+      "hours": 6.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0014",
+      "name": "Aprendiz Demo 14",
+      "date": "2026-10-05",
+      "ficha": "9000006",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 6.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0017",
+      "name": "Aprendiz Demo 17",
+      "date": "2026-10-05",
+      "ficha": "9000001",
+      "instructor": "Instructora Demo Laura",
+      "hours": 2.0,
+      "unjustified": 2.0
+    },
+    {
+      "id": "DEMO-0045",
+      "name": "Aprendiz Demo 45",
+      "date": "2026-10-05",
+      "ficha": "9000005",
+      "instructor": "Instructora Demo Diana",
+      "hours": 8.0,
+      "unjustified": 8.0
+    },
+    {
+      "id": "DEMO-0009",
+      "name": "Aprendiz Demo 09",
+      "date": "2026-10-06",
+      "ficha": "9000001",
+      "instructor": "Instructora Demo Diana",
+      "hours": 8.0,
+      "unjustified": 8.0
+    },
+    {
+      "id": "DEMO-0015",
+      "name": "Aprendiz Demo 15",
+      "date": "2026-10-06",
+      "ficha": "9000007",
+      "instructor": "Instructora Demo Diana",
+      "hours": 6.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0022",
+      "name": "Aprendiz Demo 22",
+      "date": "2026-10-06",
+      "ficha": "9000006",
+      "instructor": "Instructor Demo Felipe",
+      "hours": 2.0,
+      "unjustified": 2.0
+    },
+    {
+      "id": "DEMO-0033",
+      "name": "Aprendiz Demo 33",
+      "date": "2026-10-06",
+      "ficha": "9000001",
+      "instructor": "Instructora Demo Diana",
+      "hours": 6.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0044",
+      "name": "Aprendiz Demo 44",
+      "date": "2026-10-06",
+      "ficha": "9000004",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 6.0,
+      "unjustified": 6.0
+    },
+    {
+      "id": "DEMO-0056",
+      "name": "Aprendiz Demo 56",
+      "date": "2026-10-06",
+      "ficha": "9000008",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 3.0,
+      "unjustified": 3.0
+    },
+    {
+      "id": "DEMO-0060",
+      "name": "Aprendiz Demo 60",
+      "date": "2026-10-06",
+      "ficha": "9000004",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 4.0,
+      "unjustified": 4.0
+    },
+    {
+      "id": "DEMO-0062",
+      "name": "Aprendiz Demo 62",
+      "date": "2026-10-06",
+      "ficha": "9000006",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 5.0,
+      "unjustified": 5.0
+    },
+    {
+      "id": "DEMO-0002",
+      "name": "Aprendiz Demo 02",
+      "date": "2026-10-07",
+      "ficha": "9000002",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 6.0,
+      "unjustified": 6.0
+    },
+    {
+      "id": "DEMO-0009",
+      "name": "Aprendiz Demo 09",
+      "date": "2026-10-07",
+      "ficha": "9000001",
+      "instructor": "Instructora Demo Diana",
+      "hours": 3.0,
+      "unjustified": 3.0
+    },
+    {
+      "id": "DEMO-0025",
+      "name": "Aprendiz Demo 25",
+      "date": "2026-10-07",
+      "ficha": "9000001",
+      "instructor": "Instructora Demo Ana",
+      "hours": 6.0,
+      "unjustified": 6.0
+    },
+    {
+      "id": "DEMO-0027",
+      "name": "Aprendiz Demo 27",
+      "date": "2026-10-07",
+      "ficha": "9000003",
+      "instructor": "Instructora Demo Diana",
+      "hours": 4.0,
+      "unjustified": 4.0
+    },
+    {
+      "id": "DEMO-0027",
+      "name": "Aprendiz Demo 27",
+      "date": "2026-10-07",
+      "ficha": "9000003",
+      "instructor": "Instructora Demo Diana",
+      "hours": 3.0,
+      "unjustified": 3.0
+    },
+    {
+      "id": "DEMO-0032",
+      "name": "Aprendiz Demo 32",
+      "date": "2026-10-07",
+      "ficha": "9000008",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 6.0,
+      "unjustified": 6.0
+    },
+    {
+      "id": "DEMO-0036",
+      "name": "Aprendiz Demo 36",
+      "date": "2026-10-07",
+      "ficha": "9000004",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 4.0,
+      "unjustified": 4.0
+    },
+    {
+      "id": "DEMO-0052",
+      "name": "Aprendiz Demo 52",
+      "date": "2026-10-07",
+      "ficha": "9000004",
+      "instructor": "Instructor Demo Felipe",
+      "hours": 2.0,
+      "unjustified": 2.0
+    },
+    {
+      "id": "DEMO-0072",
+      "name": "Aprendiz Demo 72",
+      "date": "2026-10-07",
+      "ficha": "9000008",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 4.0,
+      "unjustified": 4.0
+    },
+    {
+      "id": "DEMO-0008",
+      "name": "Aprendiz Demo 08",
+      "date": "2026-10-08",
+      "ficha": "9000008",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 6.0,
+      "unjustified": 6.0
+    },
+    {
+      "id": "DEMO-0017",
+      "name": "Aprendiz Demo 17",
+      "date": "2026-10-08",
+      "ficha": "9000001",
+      "instructor": "Instructora Demo Laura",
+      "hours": 2.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0034",
+      "name": "Aprendiz Demo 34",
+      "date": "2026-10-08",
+      "ficha": "9000002",
+      "instructor": "Instructor Demo Felipe",
+      "hours": 5.0,
+      "unjustified": 5.0
+    },
+    {
+      "id": "DEMO-0035",
+      "name": "Aprendiz Demo 35",
+      "date": "2026-10-08",
+      "ficha": "9000003",
+      "instructor": "Instructora Demo Laura",
+      "hours": 3.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0015",
+      "name": "Aprendiz Demo 15",
+      "date": "2026-10-09",
+      "ficha": "9000007",
+      "instructor": "Instructora Demo Diana",
+      "hours": 2.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0036",
+      "name": "Aprendiz Demo 36",
+      "date": "2026-10-09",
+      "ficha": "9000004",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 4.0,
+      "unjustified": 4.0
+    },
+    {
+      "id": "DEMO-0065",
+      "name": "Aprendiz Demo 65",
+      "date": "2026-10-09",
+      "ficha": "9000001",
+      "instructor": "Instructora Demo Laura",
+      "hours": 3.0,
+      "unjustified": 3.0
+    },
+    {
+      "id": "DEMO-0023",
+      "name": "Aprendiz Demo 23",
+      "date": "2026-10-12",
+      "ficha": "9000007",
+      "instructor": "Instructora Demo Laura",
+      "hours": 2.0,
+      "unjustified": 2.0
+    },
+    {
+      "id": "DEMO-0054",
+      "name": "Aprendiz Demo 54",
+      "date": "2026-10-12",
+      "ficha": "9000006",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 2.0,
+      "unjustified": 2.0
+    },
+    {
+      "id": "DEMO-0054",
+      "name": "Aprendiz Demo 54",
+      "date": "2026-10-12",
+      "ficha": "9000006",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 3.0,
+      "unjustified": 3.0
+    },
+    {
+      "id": "DEMO-0058",
+      "name": "Aprendiz Demo 58",
+      "date": "2026-10-12",
+      "ficha": "9000002",
+      "instructor": "Instructor Demo Felipe",
+      "hours": 3.0,
+      "unjustified": 3.0
+    },
+    {
+      "id": "DEMO-0062",
+      "name": "Aprendiz Demo 62",
+      "date": "2026-10-12",
+      "ficha": "9000006",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 3.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0063",
+      "name": "Aprendiz Demo 63",
+      "date": "2026-10-12",
+      "ficha": "9000007",
+      "instructor": "Instructora Demo Diana",
+      "hours": 6.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0067",
+      "name": "Aprendiz Demo 67",
+      "date": "2026-10-12",
+      "ficha": "9000003",
+      "instructor": "Instructora Demo Ana",
+      "hours": 8.0,
+      "unjustified": 8.0
+    },
+    {
+      "id": "DEMO-0003",
+      "name": "Aprendiz Demo 03",
+      "date": "2026-10-13",
+      "ficha": "9000003",
+      "instructor": "Instructora Demo Diana",
+      "hours": 8.0,
+      "unjustified": 8.0
+    },
+    {
+      "id": "DEMO-0018",
+      "name": "Aprendiz Demo 18",
+      "date": "2026-10-13",
+      "ficha": "9000002",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 5.0,
+      "unjustified": 5.0
+    },
+    {
+      "id": "DEMO-0043",
+      "name": "Aprendiz Demo 43",
+      "date": "2026-10-13",
+      "ficha": "9000003",
+      "instructor": "Instructora Demo Ana",
+      "hours": 8.0,
+      "unjustified": 8.0
+    },
+    {
+      "id": "DEMO-0048",
+      "name": "Aprendiz Demo 48",
+      "date": "2026-10-13",
+      "ficha": "9000008",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 2.0,
+      "unjustified": 2.0
+    },
+    {
+      "id": "DEMO-0067",
+      "name": "Aprendiz Demo 67",
+      "date": "2026-10-13",
+      "ficha": "9000003",
+      "instructor": "Instructora Demo Ana",
+      "hours": 8.0,
+      "unjustified": 8.0
+    },
+    {
+      "id": "DEMO-0072",
+      "name": "Aprendiz Demo 72",
+      "date": "2026-10-13",
+      "ficha": "9000008",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 6.0,
+      "unjustified": 6.0
+    },
+    {
+      "id": "DEMO-0007",
+      "name": "Aprendiz Demo 07",
+      "date": "2026-10-14",
+      "ficha": "9000007",
+      "instructor": "Instructora Demo Ana",
+      "hours": 2.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0008",
+      "name": "Aprendiz Demo 08",
+      "date": "2026-10-14",
+      "ficha": "9000008",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 6.0,
+      "unjustified": 6.0
+    },
+    {
+      "id": "DEMO-0035",
+      "name": "Aprendiz Demo 35",
+      "date": "2026-10-14",
+      "ficha": "9000003",
+      "instructor": "Instructora Demo Laura",
+      "hours": 8.0,
+      "unjustified": 8.0
+    },
+    {
+      "id": "DEMO-0044",
+      "name": "Aprendiz Demo 44",
+      "date": "2026-10-14",
+      "ficha": "9000004",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 6.0,
+      "unjustified": 6.0
+    },
+    {
+      "id": "DEMO-0067",
+      "name": "Aprendiz Demo 67",
+      "date": "2026-10-14",
+      "ficha": "9000003",
+      "instructor": "Instructora Demo Ana",
+      "hours": 8.0,
+      "unjustified": 8.0
+    },
+    {
+      "id": "DEMO-0068",
+      "name": "Aprendiz Demo 68",
+      "date": "2026-10-14",
+      "ficha": "9000004",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 8.0,
+      "unjustified": 8.0
+    },
+    {
+      "id": "DEMO-0070",
+      "name": "Aprendiz Demo 70",
+      "date": "2026-10-14",
+      "ficha": "9000006",
+      "instructor": "Instructor Demo Felipe",
+      "hours": 4.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0070",
+      "name": "Aprendiz Demo 70",
+      "date": "2026-10-14",
+      "ficha": "9000006",
+      "instructor": "Instructor Demo Felipe",
+      "hours": 2.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0025",
+      "name": "Aprendiz Demo 25",
+      "date": "2026-10-15",
+      "ficha": "9000001",
+      "instructor": "Instructora Demo Ana",
+      "hours": 3.0,
+      "unjustified": 3.0
+    },
+    {
+      "id": "DEMO-0034",
+      "name": "Aprendiz Demo 34",
+      "date": "2026-10-15",
+      "ficha": "9000002",
+      "instructor": "Instructor Demo Felipe",
+      "hours": 4.0,
+      "unjustified": 4.0
+    },
+    {
+      "id": "DEMO-0041",
+      "name": "Aprendiz Demo 41",
+      "date": "2026-10-15",
+      "ficha": "9000001",
+      "instructor": "Instructora Demo Laura",
+      "hours": 4.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0053",
+      "name": "Aprendiz Demo 53",
+      "date": "2026-10-15",
+      "ficha": "9000005",
+      "instructor": "Instructora Demo Laura",
+      "hours": 3.0,
+      "unjustified": 3.0
+    },
+    {
+      "id": "DEMO-0071",
+      "name": "Aprendiz Demo 71",
+      "date": "2026-10-15",
+      "ficha": "9000007",
+      "instructor": "Instructora Demo Laura",
+      "hours": 6.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0014",
+      "name": "Aprendiz Demo 14",
+      "date": "2026-10-16",
+      "ficha": "9000006",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 8.0,
+      "unjustified": 8.0
+    },
+    {
+      "id": "DEMO-0015",
+      "name": "Aprendiz Demo 15",
+      "date": "2026-10-16",
+      "ficha": "9000007",
+      "instructor": "Instructora Demo Diana",
+      "hours": 6.0,
+      "unjustified": 6.0
+    },
+    {
+      "id": "DEMO-0021",
+      "name": "Aprendiz Demo 21",
+      "date": "2026-10-16",
+      "ficha": "9000005",
+      "instructor": "Instructora Demo Diana",
+      "hours": 2.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0026",
+      "name": "Aprendiz Demo 26",
+      "date": "2026-10-16",
+      "ficha": "9000002",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 2.0,
+      "unjustified": 2.0
+    },
+    {
+      "id": "DEMO-0044",
+      "name": "Aprendiz Demo 44",
+      "date": "2026-10-16",
+      "ficha": "9000004",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 5.0,
+      "unjustified": 5.0
+    },
+    {
+      "id": "DEMO-0047",
+      "name": "Aprendiz Demo 47",
+      "date": "2026-10-16",
+      "ficha": "9000007",
+      "instructor": "Instructora Demo Laura",
+      "hours": 4.0,
+      "unjustified": 4.0
+    },
+    {
+      "id": "DEMO-0055",
+      "name": "Aprendiz Demo 55",
+      "date": "2026-10-16",
+      "ficha": "9000007",
+      "instructor": "Instructora Demo Ana",
+      "hours": 3.0,
+      "unjustified": 3.0
+    },
+    {
+      "id": "DEMO-0070",
+      "name": "Aprendiz Demo 70",
+      "date": "2026-10-16",
+      "ficha": "9000006",
+      "instructor": "Instructor Demo Felipe",
+      "hours": 8.0,
+      "unjustified": 8.0
+    },
+    {
+      "id": "DEMO-0005",
+      "name": "Aprendiz Demo 05",
+      "date": "2026-10-19",
+      "ficha": "9000005",
+      "instructor": "Instructora Demo Laura",
+      "hours": 4.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0008",
+      "name": "Aprendiz Demo 08",
+      "date": "2026-10-19",
+      "ficha": "9000008",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 8.0,
+      "unjustified": 8.0
+    },
+    {
+      "id": "DEMO-0012",
+      "name": "Aprendiz Demo 12",
+      "date": "2026-10-19",
+      "ficha": "9000004",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 8.0,
+      "unjustified": 8.0
+    },
+    {
+      "id": "DEMO-0015",
+      "name": "Aprendiz Demo 15",
+      "date": "2026-10-19",
+      "ficha": "9000007",
+      "instructor": "Instructora Demo Diana",
+      "hours": 5.0,
+      "unjustified": 5.0
+    },
+    {
+      "id": "DEMO-0018",
+      "name": "Aprendiz Demo 18",
+      "date": "2026-10-19",
+      "ficha": "9000002",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 6.0,
+      "unjustified": 6.0
+    },
+    {
+      "id": "DEMO-0024",
+      "name": "Aprendiz Demo 24",
+      "date": "2026-10-19",
+      "ficha": "9000008",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 6.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0027",
+      "name": "Aprendiz Demo 27",
+      "date": "2026-10-19",
+      "ficha": "9000003",
+      "instructor": "Instructora Demo Diana",
+      "hours": 8.0,
+      "unjustified": 8.0
+    },
+    {
+      "id": "DEMO-0035",
+      "name": "Aprendiz Demo 35",
+      "date": "2026-10-19",
+      "ficha": "9000003",
+      "instructor": "Instructora Demo Laura",
+      "hours": 2.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0049",
+      "name": "Aprendiz Demo 49",
+      "date": "2026-10-19",
+      "ficha": "9000001",
+      "instructor": "Instructora Demo Ana",
+      "hours": 6.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0012",
+      "name": "Aprendiz Demo 12",
+      "date": "2026-10-20",
+      "ficha": "9000004",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 8.0,
+      "unjustified": 8.0
+    },
+    {
+      "id": "DEMO-0014",
+      "name": "Aprendiz Demo 14",
+      "date": "2026-10-20",
+      "ficha": "9000006",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 6.0,
+      "unjustified": 6.0
+    },
+    {
+      "id": "DEMO-0021",
+      "name": "Aprendiz Demo 21",
+      "date": "2026-10-20",
+      "ficha": "9000005",
+      "instructor": "Instructora Demo Diana",
+      "hours": 5.0,
+      "unjustified": 5.0
+    },
+    {
+      "id": "DEMO-0024",
+      "name": "Aprendiz Demo 24",
+      "date": "2026-10-20",
+      "ficha": "9000008",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 3.0,
+      "unjustified": 3.0
+    },
+    {
+      "id": "DEMO-0025",
+      "name": "Aprendiz Demo 25",
+      "date": "2026-10-20",
+      "ficha": "9000001",
+      "instructor": "Instructora Demo Ana",
+      "hours": 4.0,
+      "unjustified": 4.0
+    },
+    {
+      "id": "DEMO-0043",
+      "name": "Aprendiz Demo 43",
+      "date": "2026-10-20",
+      "ficha": "9000003",
+      "instructor": "Instructora Demo Ana",
+      "hours": 4.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0012",
+      "name": "Aprendiz Demo 12",
+      "date": "2026-10-21",
+      "ficha": "9000004",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 8.0,
+      "unjustified": 8.0
+    },
+    {
+      "id": "DEMO-0017",
+      "name": "Aprendiz Demo 17",
+      "date": "2026-10-21",
+      "ficha": "9000001",
+      "instructor": "Instructora Demo Laura",
+      "hours": 3.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0026",
+      "name": "Aprendiz Demo 26",
+      "date": "2026-10-21",
+      "ficha": "9000002",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 4.0,
+      "unjustified": 4.0
+    },
+    {
+      "id": "DEMO-0043",
+      "name": "Aprendiz Demo 43",
+      "date": "2026-10-21",
+      "ficha": "9000003",
+      "instructor": "Instructora Demo Ana",
+      "hours": 3.0,
+      "unjustified": 3.0
+    },
+    {
+      "id": "DEMO-0049",
+      "name": "Aprendiz Demo 49",
+      "date": "2026-10-21",
+      "ficha": "9000001",
+      "instructor": "Instructora Demo Ana",
+      "hours": 4.0,
+      "unjustified": 4.0
+    },
+    {
+      "id": "DEMO-0059",
+      "name": "Aprendiz Demo 59",
+      "date": "2026-10-21",
+      "ficha": "9000003",
+      "instructor": "Instructora Demo Laura",
+      "hours": 5.0,
+      "unjustified": 5.0
+    },
+    {
+      "id": "DEMO-0068",
+      "name": "Aprendiz Demo 68",
+      "date": "2026-10-21",
+      "ficha": "9000004",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 4.0,
+      "unjustified": 4.0
+    },
+    {
+      "id": "DEMO-0072",
+      "name": "Aprendiz Demo 72",
+      "date": "2026-10-21",
+      "ficha": "9000008",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 3.0,
+      "unjustified": 3.0
+    },
+    {
+      "id": "DEMO-0017",
+      "name": "Aprendiz Demo 17",
+      "date": "2026-10-22",
+      "ficha": "9000001",
+      "instructor": "Instructora Demo Laura",
+      "hours": 2.0,
+      "unjustified": 2.0
+    },
+    {
+      "id": "DEMO-0019",
+      "name": "Aprendiz Demo 19",
+      "date": "2026-10-22",
+      "ficha": "9000003",
+      "instructor": "Instructora Demo Ana",
+      "hours": 4.0,
+      "unjustified": 4.0
+    },
+    {
+      "id": "DEMO-0031",
+      "name": "Aprendiz Demo 31",
+      "date": "2026-10-22",
+      "ficha": "9000007",
+      "instructor": "Instructora Demo Ana",
+      "hours": 2.0,
+      "unjustified": 2.0
+    },
+    {
+      "id": "DEMO-0031",
+      "name": "Aprendiz Demo 31",
+      "date": "2026-10-22",
+      "ficha": "9000007",
+      "instructor": "Instructora Demo Ana",
+      "hours": 6.0,
+      "unjustified": 6.0
+    },
+    {
+      "id": "DEMO-0042",
+      "name": "Aprendiz Demo 42",
+      "date": "2026-10-22",
+      "ficha": "9000002",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 2.0,
+      "unjustified": 2.0
+    },
+    {
+      "id": "DEMO-0050",
+      "name": "Aprendiz Demo 50",
+      "date": "2026-10-22",
+      "ficha": "9000002",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 3.0,
+      "unjustified": 3.0
+    },
+    {
+      "id": "DEMO-0052",
+      "name": "Aprendiz Demo 52",
+      "date": "2026-10-22",
+      "ficha": "9000004",
+      "instructor": "Instructor Demo Felipe",
+      "hours": 2.0,
+      "unjustified": 2.0
+    },
+    {
+      "id": "DEMO-0063",
+      "name": "Aprendiz Demo 63",
+      "date": "2026-10-22",
+      "ficha": "9000007",
+      "instructor": "Instructora Demo Diana",
+      "hours": 4.0,
+      "unjustified": 4.0
+    },
+    {
+      "id": "DEMO-0063",
+      "name": "Aprendiz Demo 63",
+      "date": "2026-10-22",
+      "ficha": "9000007",
+      "instructor": "Instructora Demo Diana",
+      "hours": 4.0,
+      "unjustified": 4.0
+    },
+    {
+      "id": "DEMO-0028",
+      "name": "Aprendiz Demo 28",
+      "date": "2026-10-23",
+      "ficha": "9000004",
+      "instructor": "Instructor Demo Felipe",
+      "hours": 3.0,
+      "unjustified": 3.0
+    },
+    {
+      "id": "DEMO-0030",
+      "name": "Aprendiz Demo 30",
+      "date": "2026-10-23",
+      "ficha": "9000006",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 4.0,
+      "unjustified": 4.0
+    },
+    {
+      "id": "DEMO-0035",
+      "name": "Aprendiz Demo 35",
+      "date": "2026-10-23",
+      "ficha": "9000003",
+      "instructor": "Instructora Demo Laura",
+      "hours": 2.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0038",
+      "name": "Aprendiz Demo 38",
+      "date": "2026-10-23",
+      "ficha": "9000006",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 5.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0045",
+      "name": "Aprendiz Demo 45",
+      "date": "2026-10-23",
+      "ficha": "9000005",
+      "instructor": "Instructora Demo Diana",
+      "hours": 2.0,
+      "unjustified": 2.0
+    },
+    {
+      "id": "DEMO-0009",
+      "name": "Aprendiz Demo 09",
+      "date": "2026-10-26",
+      "ficha": "9000001",
+      "instructor": "Instructora Demo Diana",
+      "hours": 4.0,
+      "unjustified": 4.0
+    },
+    {
+      "id": "DEMO-0011",
+      "name": "Aprendiz Demo 11",
+      "date": "2026-10-26",
+      "ficha": "9000003",
+      "instructor": "Instructora Demo Laura",
+      "hours": 8.0,
+      "unjustified": 8.0
+    },
+    {
+      "id": "DEMO-0023",
+      "name": "Aprendiz Demo 23",
+      "date": "2026-10-26",
+      "ficha": "9000007",
+      "instructor": "Instructora Demo Laura",
+      "hours": 3.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0032",
+      "name": "Aprendiz Demo 32",
+      "date": "2026-10-26",
+      "ficha": "9000008",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 3.0,
+      "unjustified": 3.0
+    },
+    {
+      "id": "DEMO-0041",
+      "name": "Aprendiz Demo 41",
+      "date": "2026-10-26",
+      "ficha": "9000001",
+      "instructor": "Instructora Demo Laura",
+      "hours": 5.0,
+      "unjustified": 5.0
+    },
+    {
+      "id": "DEMO-0045",
+      "name": "Aprendiz Demo 45",
+      "date": "2026-10-26",
+      "ficha": "9000005",
+      "instructor": "Instructora Demo Diana",
+      "hours": 5.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0053",
+      "name": "Aprendiz Demo 53",
+      "date": "2026-10-26",
+      "ficha": "9000005",
+      "instructor": "Instructora Demo Laura",
+      "hours": 8.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0068",
+      "name": "Aprendiz Demo 68",
+      "date": "2026-10-26",
+      "ficha": "9000004",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 2.0,
+      "unjustified": 2.0
+    },
+    {
+      "id": "DEMO-0004",
+      "name": "Aprendiz Demo 04",
+      "date": "2026-10-27",
+      "ficha": "9000004",
+      "instructor": "Instructor Demo Felipe",
+      "hours": 8.0,
+      "unjustified": 8.0
+    },
+    {
+      "id": "DEMO-0007",
+      "name": "Aprendiz Demo 07",
+      "date": "2026-10-27",
+      "ficha": "9000007",
+      "instructor": "Instructora Demo Ana",
+      "hours": 4.0,
+      "unjustified": 4.0
+    },
+    {
+      "id": "DEMO-0014",
+      "name": "Aprendiz Demo 14",
+      "date": "2026-10-27",
+      "ficha": "9000006",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 4.0,
+      "unjustified": 4.0
+    },
+    {
+      "id": "DEMO-0041",
+      "name": "Aprendiz Demo 41",
+      "date": "2026-10-27",
+      "ficha": "9000001",
+      "instructor": "Instructora Demo Laura",
+      "hours": 3.0,
+      "unjustified": 3.0
+    },
+    {
+      "id": "DEMO-0041",
+      "name": "Aprendiz Demo 41",
+      "date": "2026-10-27",
+      "ficha": "9000001",
+      "instructor": "Instructora Demo Laura",
+      "hours": 6.0,
+      "unjustified": 6.0
+    },
+    {
+      "id": "DEMO-0052",
+      "name": "Aprendiz Demo 52",
+      "date": "2026-10-27",
+      "ficha": "9000004",
+      "instructor": "Instructor Demo Felipe",
+      "hours": 5.0,
+      "unjustified": 5.0
+    },
+    {
+      "id": "DEMO-0063",
+      "name": "Aprendiz Demo 63",
+      "date": "2026-10-27",
+      "ficha": "9000007",
+      "instructor": "Instructora Demo Diana",
+      "hours": 4.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0063",
+      "name": "Aprendiz Demo 63",
+      "date": "2026-10-27",
+      "ficha": "9000007",
+      "instructor": "Instructora Demo Diana",
+      "hours": 2.0,
+      "unjustified": 2.0
+    },
+    {
+      "id": "DEMO-0067",
+      "name": "Aprendiz Demo 67",
+      "date": "2026-10-27",
+      "ficha": "9000003",
+      "instructor": "Instructora Demo Ana",
+      "hours": 8.0,
+      "unjustified": 8.0
+    },
+    {
+      "id": "DEMO-0067",
+      "name": "Aprendiz Demo 67",
+      "date": "2026-10-27",
+      "ficha": "9000003",
+      "instructor": "Instructora Demo Ana",
+      "hours": 2.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0071",
+      "name": "Aprendiz Demo 71",
+      "date": "2026-10-27",
+      "ficha": "9000007",
+      "instructor": "Instructora Demo Laura",
+      "hours": 5.0,
+      "unjustified": 5.0
+    },
+    {
+      "id": "DEMO-0036",
+      "name": "Aprendiz Demo 36",
+      "date": "2026-10-28",
+      "ficha": "9000004",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 2.0,
+      "unjustified": 2.0
+    },
+    {
+      "id": "DEMO-0043",
+      "name": "Aprendiz Demo 43",
+      "date": "2026-10-28",
+      "ficha": "9000003",
+      "instructor": "Instructora Demo Ana",
+      "hours": 5.0,
+      "unjustified": 5.0
+    },
+    {
+      "id": "DEMO-0059",
+      "name": "Aprendiz Demo 59",
+      "date": "2026-10-28",
+      "ficha": "9000003",
+      "instructor": "Instructora Demo Laura",
+      "hours": 3.0,
+      "unjustified": 3.0
+    },
+    {
+      "id": "DEMO-0060",
+      "name": "Aprendiz Demo 60",
+      "date": "2026-10-28",
+      "ficha": "9000004",
+      "instructor": "Instructor Demo Mateo",
+      "hours": 3.0,
+      "unjustified": 3.0
+    },
+    {
+      "id": "DEMO-0033",
+      "name": "Aprendiz Demo 33",
+      "date": "2026-10-29",
+      "ficha": "9000001",
+      "instructor": "Instructora Demo Diana",
+      "hours": 4.0,
+      "unjustified": 4.0
+    },
+    {
+      "id": "DEMO-0039",
+      "name": "Aprendiz Demo 39",
+      "date": "2026-10-29",
+      "ficha": "9000007",
+      "instructor": "Instructora Demo Diana",
+      "hours": 6.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0001",
+      "name": "Aprendiz Demo 01",
+      "date": "2026-10-30",
+      "ficha": "9000001",
+      "instructor": "Instructora Demo Ana",
+      "hours": 2.0,
+      "unjustified": 2.0
+    },
+    {
+      "id": "DEMO-0008",
+      "name": "Aprendiz Demo 08",
+      "date": "2026-10-30",
+      "ficha": "9000008",
+      "instructor": "Instructor Demo Carlos",
+      "hours": 2.0,
+      "unjustified": 2.0
+    },
+    {
+      "id": "DEMO-0016",
+      "name": "Aprendiz Demo 16",
+      "date": "2026-10-30",
+      "ficha": "9000008",
+      "instructor": "Instructor Demo Felipe",
+      "hours": 6.0,
+      "unjustified": 6.0
+    },
+    {
+      "id": "DEMO-0017",
+      "name": "Aprendiz Demo 17",
+      "date": "2026-10-30",
+      "ficha": "9000001",
+      "instructor": "Instructora Demo Laura",
+      "hours": 5.0,
+      "unjustified": 5.0
+    },
+    {
+      "id": "DEMO-0045",
+      "name": "Aprendiz Demo 45",
+      "date": "2026-10-30",
+      "ficha": "9000005",
+      "instructor": "Instructora Demo Diana",
+      "hours": 3.0,
+      "unjustified": 0.0
+    },
+    {
+      "id": "DEMO-0057",
+      "name": "Aprendiz Demo 57",
+      "date": "2026-10-30",
+      "ficha": "9000001",
+      "instructor": "Instructora Demo Diana",
+      "hours": 6.0,
+      "unjustified": 6.0
+    },
+    {
+      "id": "DEMO-0059",
+      "name": "Aprendiz Demo 59",
+      "date": "2026-10-30",
+      "ficha": "9000003",
+      "instructor": "Instructora Demo Laura",
+      "hours": 4.0,
+      "unjustified": 4.0
+    },
+    {
+      "id": "DEMO-0071",
+      "name": "Aprendiz Demo 71",
+      "date": "2026-10-30",
+      "ficha": "9000007",
+      "instructor": "Instructora Demo Laura",
+      "hours": 8.0,
+      "unjustified": 8.0
+    }
+  ]
+}

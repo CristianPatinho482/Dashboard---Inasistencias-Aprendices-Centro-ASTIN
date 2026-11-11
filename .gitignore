@@ -1,8 +1,41 @@
+# --- Datos institucionales y PII (nunca versionar) ---
+/data/
+/web/data/*
+!/web/data/demo_consulta.json
+/outputs/consulta_interna.html
+
+# --- API y despliegue ---
+api/node_modules/
+api/local.settings.json
+.swa/
+.azure/
+node_modules/
+
+# --- Power BI ---
 **/.pbi/localSettings.json
 **/.pbi/cache.abf
-**/__pycache__/
 **/LocalDateTable_*.tmdl
 **/DateTableTemplate_*.tmdl
-outputs/consulta_interna.html
+*.pbix
+
+# --- Configuración local ---
 config/sharepoint.json
+*.local.json
+
+# --- Python ---
+**/__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# --- Salidas intermedias ---
 github-pages/
+
+# --- Entorno y editores ---
+.env
+.env.*
+!.env.example
+.vscode/
+.idea/
+Thumbs.db
+Desktop.ini

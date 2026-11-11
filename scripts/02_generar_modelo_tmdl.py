@@ -527,7 +527,7 @@ expression RutaDatosRestringidos = "{RESTRICTED}" meta [IsParameterQuery=true, T
         encoding="utf-8",
     )
 
-    (BASE / "CaracterizacionAprendicesASTIN.pbip").write_text(
+    (BASE / "Reporte_Inasistencias_ASTIN _V_3.0.pbip").write_text(
         json.dumps({
             "$schema": "https://developer.microsoft.com/json-schemas/fabric/pbip/pbipProperties/1.0.0/schema.json",
             "version": "1.0",

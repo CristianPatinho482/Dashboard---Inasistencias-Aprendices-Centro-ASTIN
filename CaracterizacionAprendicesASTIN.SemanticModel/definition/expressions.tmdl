@@ -1,6 +1,4 @@
-expression SitioSharePoint = "https://sena4.sharepoint.com/teams/EquipoASTIN-DESAROLLOSPOWER-BI" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+expression RutaDatos = "C:\Users\capatino\Documents\Inasistencias Sofía Plus\data\processed" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
 	annotation PBI_ResultType = Text
-expression RutaDatosSharePoint = "https://sena4.sharepoint.com/teams/EquipoASTIN-DESAROLLOSPOWER-BI/Shared Documents/Reporte Inasistencias/" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+expression RutaDatosRestringidos = "C:\Users\capatino\Documents\Inasistencias Sofía Plus\data\restricted" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
 	annotation PBI_ResultType = Text
-expression ArchivosSharePoint = SharePoint.Files(SitioSharePoint, [ApiVersion=15])
-	annotation PBI_ResultType = Table

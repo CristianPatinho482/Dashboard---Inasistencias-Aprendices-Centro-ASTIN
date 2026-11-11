@@ -5,7 +5,9 @@ Después, actualice el modelo abierto en Power BI Desktop con Inicio > Actualiza
 param(
     [switch]$PublicarPortal,
     [switch]$CopiarSalidasSharePoint,
-    [switch]$SoloSiFuenteNueva
+    [switch]$SoloSiFuenteNueva,
+    [switch]$ExportarConsultaNominal,
+    [string]$StorageAccountConsulta
 )
 
 $ErrorActionPreference = 'Stop'
@@ -15,7 +17,8 @@ $pipeline = @(
     '02_generar_modelo_tmdl.py',
     '03_generar_reporte_pbir.py',
     '04_generar_portal_html.py',
-    '05_generar_consulta_interna.py'
+    '05_generar_consulta_interna.py',
+    '10_sincronizar_agregacion.py'
 )
 $sourceFile = Join-Path $env:USERPROFILE 'OneDrive - Servicio Nacional de Aprendizaje\Equipo ASTIN-DESAROLLOS POWER-BI - RAPS ASTIN 2026\Inasistencias.xls'
 $stateDirectory = Join-Path $env:LOCALAPPDATA 'InasistenciasASTIN'
@@ -65,6 +68,17 @@ try {
         if ($LASTEXITCODE -ne 0) {
             throw "Falló $scriptName con código $LASTEXITCODE. No actualice el modelo hasta corregir el error."
         }
+    }
+    if ($ExportarConsultaNominal -or $StorageAccountConsulta) {
+        python (Join-Path $PSScriptRoot '07_exportar_consulta_web.py')
+        if ($LASTEXITCODE -ne 0) {
+            throw 'Falló la exportación nominal. No se subió nada a Azure.'
+        }
+        Write-Host 'Exportación nominal generada en data\private\consulta_web.json (excluida de Git).' -ForegroundColor Green
+    }
+    if ($StorageAccountConsulta) {
+        & (Join-Path $PSScriptRoot '08_subir_consulta_azure.ps1') -StorageAccount $StorageAccountConsulta -Force
+        Write-Host 'Consulta nominal cargada al Blob privado de Azure.' -ForegroundColor Green
     }
     if ($CopiarSalidasSharePoint) {
         $configPath = Join-Path $root 'config\sharepoint.json'
@@ -124,6 +138,9 @@ try {
         [System.IO.File]::WriteAllText($statePath, $state, [System.Text.UTF8Encoding]::new($false))
     }
     Write-Host 'Datos, modelo, reporte y portal regenerados desde OneDrive. Portal: outputs\portal_astin.html; GitHub Pages: index.html. En Power BI Desktop, use Inicio > Actualizar.' -ForegroundColor Green
+    if ($ExportarConsultaNominal -or $StorageAccountConsulta) {
+        Write-Host 'Consulta nominal: data\private\consulta_web.json. No la agregue a Git.' -ForegroundColor Yellow
+    }
 }
 finally {
     if ($null -eq $previousSource) {

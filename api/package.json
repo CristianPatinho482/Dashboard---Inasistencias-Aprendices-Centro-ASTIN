@@ -1,0 +1,18 @@
+{
+  "name": "astin-consulta-api",
+  "version": "1.0.0",
+  "private": true,
+  "description": "API de consulta nominal de inasistencias para Azure Static Web Apps.",
+  "main": "src/functions/*.js",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  },
+  "dependencies": {
+    "@azure/functions": "^4.7.0",
+    "@azure/identity": "^4.5.0",
+    "@azure/storage-blob": "^12.26.0"
+  }
+}

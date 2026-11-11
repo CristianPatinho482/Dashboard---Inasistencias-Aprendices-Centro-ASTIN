@@ -133,7 +133,7 @@ table DIM_FICHA
 		mode: import
 		source =
 			let
-				Origen = let Coincidencia = Table.SelectRows(ArchivosSharePoint, each [Folder Path] = RutaDatosSharePoint and [Name] = "DIM_FICHA.csv"), Binario = if Table.RowCount(Coincidencia) = 0 then error "No se encontró DIM_FICHA.csv en SharePoint." else Coincidencia{0}[Content] in Csv.Document(Binario,[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				Origen = Csv.Document(File.Contents(RutaDatos & "\DIM_FICHA.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
 				Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars=true]),
 				Tipos = Table.TransformColumnTypes(Encabezados,{{"FichaID", type text}, {"ProgramaID", type text}, {"InstructorPrincipal", type text}, {"TotalInstructores", Int64.Type}, {"Jornada", type text}, {"Modalidad", type text}, {"Sede", type text}, {"CentroCosto", type text}, {"LineaFormacion", type text}, {"EstadoFicha", type text}, {"DiasSinNovedad", Int64.Type}, {"Aprendices", Int64.Type}, {"Inasistencias", Int64.Type}, {"Horas", Int64.Type}, {"HorasNoJustificadas", Int64.Type}, {"MuestraSuficiente", Int64.Type}, {"NivelRiesgoCorte", type text}, {"PrimeraNovedad", type date}, {"UltimaNovedad", type date}}),
 				Decimales = Table.TransformColumns(Tipos,{

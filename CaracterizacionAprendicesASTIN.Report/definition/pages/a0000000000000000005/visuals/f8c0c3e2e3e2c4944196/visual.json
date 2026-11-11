@@ -15,8 +15,8 @@
         "Values": {
           "projections": [
             {
-              "queryRef": "DIM_APRENDIZ.AprendizID",
-              "nativeQueryRef": "AprendizID",
+              "queryRef": "DIM_APRENDIZ.NombreCompleto",
+              "nativeQueryRef": "NombreCompleto",
               "field": {
                 "Column": {
                   "Expression": {
@@ -24,10 +24,10 @@
                       "Entity": "DIM_APRENDIZ"
                     }
                   },
-                  "Property": "AprendizID"
+                  "Property": "NombreCompleto"
                 }
               },
-              "displayName": "Código seudónimo"
+              "displayName": "Aprendiz"
             },
             {
               "queryRef": "DIM_APRENDIZ.FichaPrincipal",
@@ -309,7 +309,7 @@
             }
           },
           "selector": {
-            "metadata": "DIM_APRENDIZ.AprendizID"
+            "metadata": "DIM_APRENDIZ.NombreCompleto"
           }
         },
         {
@@ -412,7 +412,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Aprendices identificados por código seudónimo'"
+                  "Value": "'Aprendices y horas en el intervalo seleccionado'"
                 }
               }
             },

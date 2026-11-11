@@ -12,7 +12,7 @@ La carpeta `github-pages` contiene solo el HTML autocontenido. Chart.js, el logo
 
 ## Configuración del sitio
 
-La URL actual ya está configurada para publicar `main` desde la raíz y ya contiene `index.html`. GitHub Pages despliega la nueva versión al recibir un commit en esa rama. Si se usa otro repositorio, copie solo el contenido de `github-pages` y seleccione `main` → `/(root)` en **Settings → Pages**.
+La URL actual estaba configurada para publicar `main` desde la raíz. Si el repositorio se hace privado, GitHub Pages solo funciona con un plan de GitHub que lo permita; para la versión institucional se recomienda Azure Static Web Apps. Si se usa otro repositorio, copie solo el contenido de `github-pages` y seleccione `main` → `/(root)` en **Settings → Pages**.
 
 Consulte la [documentación oficial para configurar el origen de publicación](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site).
 
@@ -29,7 +29,9 @@ Para combinar ETL y publicación en una operación, ejecute `scripts/actualizar_
 
 ## Privacidad y alcance
 
-El portal contiene datos agregados por programa, mes, motivo, ficha con muestra mínima y nivel de riesgo. Aunque excluye nombres y documentos, los resultados son información institucional y podrían ser sensibles. GitHub Pages es accesible públicamente. El repositorio actual también contiene `data/restricted`; esa carpeta no forma parte del HTML, pero está dentro de un repositorio público y requiere atención independiente. Consulte la [advertencia oficial de GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site).
-# Datos personales y páginas de consulta nominal
+El portal contiene datos agregados por programa, mes, motivo, ficha con muestra mínima y nivel de riesgo. Aunque excluye nombres y documentos, los resultados son información institucional y podrían ser sensibles. GitHub Pages es accesible públicamente; el repositorio debe ser privado y no debe contener `data/`. Si el historial ya publicó `data/restricted`, `data/raw` o salidas con nombres, trate el dato como comprometido y ejecute el procedimiento de purga descrito en [automatización](automatizacion.md#0-datos-git-y-privacidad).
 
-GitHub Pages de este proyecto es público. El dashboard agregado puede publicarse en ese sitio, pero `outputs/consulta_interna.html` incluye nombres y datos de inasistencia por aprendiz: se genera solo localmente, está excluido de Git y no debe copiarse al repositorio ni publicarse en GitHub Pages. Para compartir esta vista, úsese un portal institucional con autenticación y permisos; el carácter interno del enlace por sí solo no restringe su acceso.
+## Datos personales y consulta nominal
+
+La vista nominal con nombres de aprendices **no** se publica en GitHub Pages. `outputs/consulta_interna.html` se genera solo localmente, está excluido de Git y no debe copiarse al repositorio. La versión web autorizada es `web/consulta.html` en Azure Static Web Apps, protegida por Entra ID, el rol `nominal` y un Blob privado. Consulte [la guía de Azure](azure_static_web_apps.md).
+

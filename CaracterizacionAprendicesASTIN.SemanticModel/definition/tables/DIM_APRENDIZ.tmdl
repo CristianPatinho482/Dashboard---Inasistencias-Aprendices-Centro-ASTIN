@@ -141,12 +141,16 @@ table DIM_APRENDIZ
 		mode: import
 		source =
 			let
-				Origen = let Coincidencia = Table.SelectRows(ArchivosSharePoint, each [Folder Path] = RutaDatosSharePoint and [Name] = "DIM_APRENDIZ.csv"), Binario = if Table.RowCount(Coincidencia) = 0 then error "No se encontró DIM_APRENDIZ.csv en SharePoint." else Coincidencia{0}[Content] in Csv.Document(Binario,[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				Origen = Csv.Document(File.Contents(RutaDatos & "\DIM_APRENDIZ.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
 				Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars=true]),
 				Tipos = Table.TransformColumnTypes(Encabezados,{{"AprendizID", type text}, {"TipoDocumento", type text}, {"DocumentoEnmascarado", type text}, {"Iniciales", type text}, {"FichaPrincipal", type text}, {"ProgramaPrincipal", type text}, {"Inasistencias", Int64.Type}, {"Horas", Int64.Type}, {"Justificadas", Int64.Type}, {"NoJustificadas", Int64.Type}, {"Retardos", Int64.Type}, {"HorasNoJustificadas", Int64.Type}, {"NivelRiesgo", type text}, {"EstadoAsistencia", type text}, {"EsReincidente", Int64.Type}, {"EsReincidenteAlto", Int64.Type}, {"AlertaDesercion", Int64.Type}, {"MotivoAlertaDesercion", type text}, {"DiasDesdeUltimaNovedad", Int64.Type}, {"PrimeraNovedad", type date}, {"UltimaNovedad", type date}}),
 				Decimales = Table.TransformColumns(Tipos,{
 					{"ScoreRiesgo", each if _ = null then null else if Text.Trim(_) = "" then null else Number.FromText(Text.Trim(_), "en-US"), type number}
 				}),
-				SinIdentidad = Table.AddColumn(Decimales, "NombreCompleto", each null, type text)
+				OrigenIdentidad = Csv.Document(File.Contents(RutaDatosRestringidos & "\DIM_APRENDIZ_PII.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				EncabezadosIdentidad = Table.PromoteHeaders(OrigenIdentidad, [PromoteAllScalars=true]),
+				SoloIdentidad = Table.SelectColumns(EncabezadosIdentidad, {"AprendizID", "NombreCompleto"}),
+				UnirIdentidad = Table.NestedJoin(Decimales, {"AprendizID"}, SoloIdentidad, {"AprendizID"}, "Identidad", JoinKind.LeftOuter),
+				ExpandirIdentidad = Table.ExpandTableColumn(UnirIdentidad, "Identidad", {"NombreCompleto"}, {"NombreCompleto"})
 			in
-				SinIdentidad
+				ExpandirIdentidad

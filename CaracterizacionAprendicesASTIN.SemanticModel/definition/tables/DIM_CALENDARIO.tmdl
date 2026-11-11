@@ -117,7 +117,7 @@ table DIM_CALENDARIO
 		mode: import
 		source =
 			let
-				Origen = let Coincidencia = Table.SelectRows(ArchivosSharePoint, each [Folder Path] = RutaDatosSharePoint and [Name] = "DIM_CALENDARIO.csv"), Binario = if Table.RowCount(Coincidencia) = 0 then error "No se encontró DIM_CALENDARIO.csv en SharePoint." else Coincidencia{0}[Content] in Csv.Document(Binario,[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				Origen = Csv.Document(File.Contents(RutaDatos & "\DIM_CALENDARIO.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
 				Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars=true]),
 				Tipos = Table.TransformColumnTypes(Encabezados,{{"Fecha", type date}, {"Anio", Int64.Type}, {"Trimestre", Int64.Type}, {"Mes", Int64.Type}, {"NombreMes", type text}, {"MesCorto", type text}, {"AnioMes", type text}, {"EtiquetaMes", type text}, {"OrdenAnioMes", Int64.Type}, {"SemanaISO", Int64.Type}, {"InicioSemana", type date}, {"Dia", Int64.Type}, {"NombreDia", type text}, {"EsFinSemana", Int64.Type}, {"Periodo", type text}, {"EsMesCompleto", Int64.Type}, {"FechaCorte", type date}, {"DiasDesdeCorte", Int64.Type}, {"FechaKey", Int64.Type}})
 			in

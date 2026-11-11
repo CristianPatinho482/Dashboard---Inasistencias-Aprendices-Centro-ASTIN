@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="theme-color" content="#00304d">
+  <meta name="description" content="Consulta nominal de inasistencias para seguimiento disciplinario y de Bienestar. Acceso restringido.">
+  <title>Consulta semanal nominal · Centro ASTIN</title>
+  <link rel="stylesheet" href="assets/consulta.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar" aria-label="Navegación principal">
+    <div class="brand">
+      <img src="assets/sena_logo.png" alt="Logo SENA">
+      <div>
+        <strong>SENA</strong>
+        <span>Centro ASTIN · Regional Valle</span>
+      </div>
+    </div>
+    <div class="nav-label">PORTAL ACADÉMICO</div>
+    <nav class="nav" aria-label="Secciones del portal">
+      <a href="index.html" title="Abrir el portal agregado">00 · Inicio</a>
+      <a href="index.html" title="Abrir el portal agregado">01 · Caracterización</a>
+      <a href="index.html" title="Abrir el portal agregado">02 · Fichas y programas en riesgo</a>
+      <a href="index.html" title="Abrir el portal agregado">03 · Análisis detallado</a>
+      <a href="index.html" title="Abrir el portal agregado">04 · Calidad de datos</a>
+      <a class="active" href="consulta.html" aria-current="page">05 · Consulta semanal</a>
+    </nav>
+    <div class="sidebar-foot">
+      <strong>ACCESO NOMINAL RESTRINGIDO</strong>
+      <span>Solo personas autorizadas por la Oficina de Bienestar o Coordinación Académica.</span>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div>
+        <div class="eyebrow">Centro ASTIN · Valle del Cauca</div>
+        <h1>Consulta semanal de aprendices</h1>
+        <p class="subtitle">Identificación nominal para gestionar inasistencias desde el acompañamiento disciplinario y de Bienestar.</p>
+      </div>
+      <div class="session" id="session" hidden>
+        <span class="session-label">Sesión autorizada</span>
+        <strong id="sessionUser"></strong>
+        <a id="logoutLink" href="/.auth/logout?post_logout_redirect_uri=/">Cerrar sesión</a>
+      </div>
+    </header>
+
+    <div class="demo-banner" id="demoBanner" hidden>
+      <strong>Modo demostración.</strong> Los nombres, fichas e instructores son sintéticos y no corresponden a aprendices reales. Para usar datos institucionales, abra la versión de Azure con su cuenta autorizada.
+    </div>
+
+    <section class="access-card" id="accessGate" hidden aria-live="polite">
+      <div class="access-icon" aria-hidden="true">🔒</div>
+      <h2 id="gateTitle">Acceso restringido</h2>
+      <p id="gateMessage"></p>
+      <div class="gate-actions" id="gateActions"></div>
+    </section>
+
+    <div id="content" hidden>
+      <div class="alert" id="errorBox" role="alert" hidden></div>
+
+      <section class="filters" aria-label="Filtros de consulta">
+        <label class="filter">Ficha
+          <select id="ficha" aria-label="Filtrar por ficha">
+            <option value="">Todas las fichas</option>
+          </select>
+        </label>
+        <label class="filter">Instructor
+          <select id="instructor" aria-label="Filtrar por instructor">
+            <option value="">Todos los instructores</option>
+          </select>
+        </label>
+        <label class="filter">Desde
+          <input id="desde" type="date" aria-label="Fecha inicial del intervalo">
+        </label>
+        <label class="filter">Hasta
+          <input id="hasta" type="date" aria-label="Fecha final del intervalo">
+        </label>
+        <label class="filter search">Buscar aprendiz
+          <input id="search" type="search" placeholder="Nombre o parte del nombre" autocomplete="off" aria-label="Buscar por nombre de aprendiz">
+        </label>
+        <div class="filters-actions">
+          <button class="button secondary" id="reset" type="button">Restablecer</button>
+          <button class="button" id="refresh" type="button">Actualizar</button>
+        </div>
+      </section>
+
+      <section class="kpis" aria-label="Indicadores del intervalo">
+        <article class="kpi">
+          <div class="label">Aprendices</div>
+          <div class="value" id="kpiAprendices">0</div>
+          <div class="hint">Personas únicas en el intervalo</div>
+        </article>
+        <article class="kpi">
+          <div class="label">Inasistencias</div>
+          <div class="value" id="kpiInasistencias">0</div>
+          <div class="hint">Registros de novedad</div>
+        </article>
+        <article class="kpi">
+          <div class="label">Horas totales</div>
+          <div class="value" id="kpiHoras">0</div>
+          <div class="hint">Horas perdidas en el intervalo</div>
+        </article>
+        <article class="kpi">
+          <div class="label">Horas no justificadas</div>
+          <div class="value" id="kpiNoJustificadas">0</div>
+          <div class="hint">Prioridad para seguimiento</div>
+        </article>
+      </section>
+
+      <div class="notice">
+        El semáforo toma la peor semana del intervalo: <strong>Verde</strong> menos de 12 h no justificadas; <strong>Amarillo</strong> de 12 a 16 h inclusive; <strong>Rojo</strong> más de 16 h. Es una señal para priorizar la revisión, no una sanción.
+      </div>
+
+      <section class="panel" aria-labelledby="tablaTitulo">
+        <div class="panel-head">
+          <div>
+            <h2 id="tablaTitulo">Aprendices del intervalo</h2>
+            <p class="note" id="resultMeta">Seleccione un intervalo para consultar.</p>
+          </div>
+          <div class="panel-actions">
+            <button class="button secondary" id="exportCsv" type="button">Exportar CSV</button>
+          </div>
+        </div>
+
+        <div class="loading" id="loading" hidden>
+          <span class="spinner" aria-hidden="true"></span>
+          <span>Consultando datos del intervalo…</span>
+        </div>
+
+        <div class="table-wrap">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Aprendiz</th>
+                <th scope="col">Ficha</th>
+                <th scope="col" class="num">Inasistencias</th>
+                <th scope="col" class="num">Horas totales</th>
+                <th scope="col" class="num">No justificadas</th>
+                <th scope="col" class="num">Peor semana</th>
+                <th scope="col">Semáforo</th>
+              </tr>
+            </thead>
+            <tbody id="rows"></tbody>
+          </table>
+          <div class="empty" id="empty" hidden>No hay aprendices para los filtros seleccionados.</div>
+        </div>
+
+        <div class="table-foot">
+          <span id="rowCount">Sin datos</span>
+          <button class="button secondary" id="showMore" type="button" hidden>Mostrar más</button>
+        </div>
+      </section>
+
+      <footer class="page-footer">
+        <span>SENA · Centro ASTIN · Regional Valle del Cauca</span>
+        <span>Datos personales de uso restringido · No compartir ni publicar</span>
+      </footer>
+    </div>
+  </main>
+</div>
+
+<script src="assets/aggregate.js"></script>
+<script src="assets/config.js"></script>
+<script src="assets/consulta.js"></script>
+</body>
+</html>

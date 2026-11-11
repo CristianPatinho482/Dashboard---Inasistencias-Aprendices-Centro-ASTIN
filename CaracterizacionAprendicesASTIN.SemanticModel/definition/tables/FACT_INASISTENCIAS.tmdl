@@ -860,7 +860,7 @@ table FACT_INASISTENCIAS
 		mode: import
 		source =
 			let
-				Origen = let Coincidencia = Table.SelectRows(ArchivosSharePoint, each [Folder Path] = RutaDatosSharePoint and [Name] = "FACT_INASISTENCIAS.csv"), Binario = if Table.RowCount(Coincidencia) = 0 then error "No se encontró FACT_INASISTENCIAS.csv en SharePoint." else Coincidencia{0}[Content] in Csv.Document(Binario,[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				Origen = Csv.Document(File.Contents(RutaDatos & "\FACT_INASISTENCIAS.csv"),[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
 				Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars=true]),
 				Tipos = Table.TransformColumnTypes(Encabezados,{{"InasistenciaID", type text}, {"Fecha", type date}, {"FechaFin", type date}, {"FichaID", type text}, {"AprendizID", type text}, {"ProgramaID", type text}, {"Instructor", type text}, {"CantidadHoras", Int64.Type}, {"DiasCubiertos", Int64.Type}, {"EsOutlierHoras", Int64.Type}, {"JustificacionOriginal", type text}, {"CategoriaJustificacion", type text}, {"TipoJustificacion", type text}, {"ConfianzaClasificacion", type text}, {"RequiereRevision", Int64.Type}, {"ReglaClasificacion", type text}, {"TieneSoporte", Int64.Type}, {"EsRetardo", Int64.Type}, {"EsAusencia", Int64.Type}, {"EsJustificada", Int64.Type}, {"EsNoJustificada", Int64.Type}, {"EsSinInformacion", Int64.Type}, {"EsReincidenteAprendiz", Int64.Type}, {"EsReincidenteAltoAprendiz", Int64.Type}, {"EsAlertaDesercionAprendiz", Int64.Type}, {"NivelRiesgoAprendiz", type text}, {"TieneDocumentoAprendiz", Int64.Type}, {"Anio", Int64.Type}, {"Mes", Int64.Type}}),
 				Decimales = Table.TransformColumns(Tipos,{
