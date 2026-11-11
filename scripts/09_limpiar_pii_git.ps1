@@ -1,20 +1,22 @@
 ﻿#Requires -Version 5.1
 <#
 .SYNOPSIS
-    Purga data/ del historial Git y fuerza la actualización del remoto.
+    Purga data/ y archivos locales de Power BI del historial Git.
 
 .DESCRIPTION
     Procedimiento de emergencia para un repositorio que publicó datos
     personales. Requiere:
 
       1. Que el repositorio ya sea privado.
-      2. Que data/ ya no esté versionado en el commit actual.
+      2. Que data/ y los archivos locales .pbi ya no estén versionados en el
+         commit actual.
       3. Un árbol de trabajo limpio (sin cambios pendientes).
       4. git-filter-repo instalado.
 
     El script crea un respaldo completo (bundle + clon espejo), reescribe todas
-    las ramas y etiquetas para eliminar cualquier ruta data/, verifica que no
-    queden rastros y hace push --force de todas las referencias.
+    las ramas y etiquetas para eliminar cualquier ruta data/, la cache del
+    modelo (.pbi/cache.abf) y la configuración local (.pbi/localSettings.json),
+    verifica que no queden rastros y hace push --force de todas las referencias.
 
     Después del push, GitHub puede conservar objetos y vistas en caché. Abra un
     ticket en https://support.github.com/contact para solicitar la purga y
@@ -72,6 +74,17 @@ if ($status.Count -gt 0) {
 $trackedData = @(& git -C $root ls-files -- data)
 if ($trackedData.Count -gt 0) {
     throw 'data/ todavía está versionado en el commit actual. Ejecute git rm -r --cached data, confirme el cambio y vuelva a intentar.'
+}
+
+$trackedLocalPbi = @(
+    & git -C $root ls-files -- `
+        'CaracterizacionAprendicesASTIN.SemanticModel/.pbi/cache.abf' `
+        'CaracterizacionAprendicesASTIN.Report/.pbi/localSettings.json' `
+        'CaracterizacionAprendicesASTIN.SemanticModel/.pbi/localSettings.json'
+)
+if ($trackedLocalPbi.Count -gt 0) {
+    $trackedLocalPbi | ForEach-Object { Write-Host "  $_" }
+    throw 'Todavía hay archivos locales de Power BI versionados. Ejecute git rm --cached sobre ellos, confirme el cambio y vuelva a intentar.'
 }
 
 $remoteUrl = (& git -C $root remote get-url origin 2>$null)
@@ -144,10 +157,14 @@ y agregue la carpeta Scripts de Python al PATH. Luego vuelva a ejecutar este scr
 '@
 }
 
-Write-Host 'Reescribiendo el historial para eliminar data/ ...' -ForegroundColor Cyan
+Write-Host 'Reescribiendo el historial para eliminar data/ y archivos locales de Power BI ...' -ForegroundColor Cyan
 Push-Location $root
 try {
-    & git filter-repo --force --invert-paths --path data/
+    & git filter-repo --force --invert-paths `
+        --path data/ `
+        --path 'CaracterizacionAprendicesASTIN.SemanticModel/.pbi/cache.abf' `
+        --path 'CaracterizacionAprendicesASTIN.Report/.pbi/localSettings.json' `
+        --path 'CaracterizacionAprendicesASTIN.SemanticModel/.pbi/localSettings.json'
     if ($LASTEXITCODE -ne 0) {
         throw 'git filter-repo falló. El respaldo está intacto; no se hizo push.'
     }
@@ -156,20 +173,20 @@ finally {
     Pop-Location
 }
 
-Write-Host 'Verificando que no queden rutas data/ en el historial...' -ForegroundColor Cyan
+Write-Host 'Verificando que no queden rutas data/ ni archivos locales .pbi ...' -ForegroundColor Cyan
 $leftover = @(
     & git -C $root log --all --name-only --pretty=format: |
-        Where-Object { $_ -match '^data/' } |
+        Where-Object { $_ -match '^data/|(^|/)\.pbi/(cache\.abf|localSettings\.json)$' } |
         Sort-Object -Unique
 )
 if ($leftover.Count -gt 0) {
     $leftover | ForEach-Object { Write-Host "  $_" }
-    throw 'Todavía hay rutas data/ en el historial. No se hizo push.'
+    throw 'Todavía hay rutas data/ o archivos locales .pbi en el historial. No se hizo push.'
 }
 
 $objects = @(
     & git -C $root rev-list --objects --branches --tags |
-        Select-String 'DIM_APRENDIZ_PII|Inasistencias\.xls'
+        Select-String 'DIM_APRENDIZ_PII|Inasistencias\.xls|\.pbi/(cache\.abf|localSettings\.json)'
 )
 if ($objects.Count -gt 0) {
     $objects | ForEach-Object { Write-Host "  $_" }
@@ -181,7 +198,7 @@ if ($LASTEXITCODE -ne 0) {
     throw 'No se pudo restaurar el remoto origin.'
 }
 
-Write-Host 'Historial local limpio. Rutas data/ eliminadas de todas las ramas y etiquetas.' -ForegroundColor Green
+Write-Host 'Historial local limpio. Rutas data/ y archivos locales .pbi eliminados de todas las ramas y etiquetas.' -ForegroundColor Green
 
 if ($NoPush) {
     Write-Host ''
@@ -210,4 +227,5 @@ Write-Host '2. Elimine artefactos de Actions y despliegues de Pages que puedan c
 Write-Host '3. Revise forks y clones existentes: conservan la historia antigua. Solicite su eliminación o purga.' -ForegroundColor Yellow
 Write-Host '4. Notifique al contacto de privacidad/seguridad del SENA y trate los datos como comprometidos.' -ForegroundColor Yellow
 Write-Host '5. Rote cualquier secreto que haya estado en el repositorio o en su historial.' -ForegroundColor Yellow
-Write-Host "6. Respaldo conservado en: $BackupDirectory" -ForegroundColor DarkGray
+Write-Host '6. Proteja o destruya el respaldo: contiene las rutas eliminadas, incluida la cache del modelo.' -ForegroundColor Yellow
+Write-Host "7. Respaldo conservado en: $BackupDirectory" -ForegroundColor DarkGray
