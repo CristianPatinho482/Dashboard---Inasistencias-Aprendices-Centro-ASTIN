@@ -20,12 +20,13 @@ documentos, identificadores de aprendices ni textos de justificación.
 - Repositorio privado, 0 forks, 1 colaborador (el propietario), 0 invitaciones, 0 deploy keys, 0 hooks y 0 releases.
 - Artefactos de Actions: 0.
 - Auditoría de los 1142 archivos versionados: sin nombres, documentos, IDs de aprendices ni instructores reales.
+- Escaneo de secretos en el árbol actual: sin patrones de claves, tokens de GitHub, cadenas de conexión ni SAS.
 
 ## 3. Pendiente
 
 1. **GitHub Support:** solicitar la purga de vistas en caché, objetos inaccesibles y artefactos/cachés asociados a los commits antiguos. Mientras no se complete, una persona con acceso al repositorio todavía puede consultar el commit antiguo por su SHA.
 2. **Privacidad/seguridad SENA:** notificar el incidente y activar el protocolo institucional. Tratar el dato como comprometido: la visibilidad privada y la reescritura no recuperan copias ya descargadas.
-3. **Secretos:** revisar y rotar cualquier credencial que haya estado en el repositorio o en su historial. El árbol actual no contiene secretos; verifique el historial antiguo y los respaldos.
+3. **Secretos:** revisar y rotar cualquier credencial que haya estado en el repositorio o en su historial. No se identificaron secretos en el árbol actual; verifique el historial antiguo y los respaldos.
 4. **Respaldos locales:** conservarlos en almacenamiento cifrado con acceso restringido, fuera del repositorio, o destruirlos cuando ya no sean necesarios. No restaurarlos en Git.
 5. **Clones y copias:** revisar equipos y unidades sincronizadas; no es posible borrar copias ya descargadas por terceros.
 
