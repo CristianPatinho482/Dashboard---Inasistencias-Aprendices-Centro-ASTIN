@@ -6,7 +6,7 @@ Solución de analítica académica para caracterizar aprendices y hacer seguimie
 
 ## Estructura
 
-- `CaracterizacionAprendicesASTIN.pbip`: punto de entrada del proyecto Power BI.
+- `Reporte_Inasistencias_ASTIN _V_3.0.pbip`: punto de entrada del proyecto Power BI.
 - `CaracterizacionAprendicesASTIN.Report`: seis páginas y visualizaciones PBIR, tema SENA y tipografía Work Sans.
 - `CaracterizacionAprendicesASTIN.SemanticModel`: modelo estrella, relaciones, columnas y medidas DAX.
 - `web/index.html`: portal agregado autocontenido para Azure Static Web Apps; no incluye PII.
@@ -76,7 +76,7 @@ En Windows, con Python y las dependencias `pandas` y `xlrd` instaladas:
    .\scripts\actualizar_datos.ps1
    ```
 
-3. Abra `CaracterizacionAprendicesASTIN.pbip` en Power BI Desktop y use **Inicio > Actualizar**.
+3. Abra `Reporte_Inasistencias_ASTIN _V_3.0.pbip` en Power BI Desktop y use **Inicio > Actualizar**.
 4. Revise `04 Calidad de Datos` y `data/processed/00_resumen_etl.json`.
 5. Para la consulta nominal, genere y suba el archivo privado:
 
