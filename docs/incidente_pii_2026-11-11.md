@@ -21,7 +21,7 @@ documentos, identificadores de aprendices ni textos de justificación.
 - Acceso anónimo al repositorio, al contenido raw y a GitHub Pages: 404.
 - Repositorio privado, 0 forks, 1 colaborador (el propietario), 0 invitaciones, 0 deploy keys, 0 hooks y 0 releases.
 - Artefactos de Actions: 0.
-- Auditoría de los 1143 archivos versionados: sin nombres, documentos, IDs de aprendices ni instructores reales.
+- Auditoría de los 1140 archivos versionados: sin nombres, documentos, IDs de aprendices ni instructores reales.
 - Escaneo de secretos en el árbol actual: sin patrones de claves, tokens de GitHub, cadenas de conexión ni SAS.
 
 ## 3. Pendiente
