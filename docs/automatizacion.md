@@ -21,6 +21,7 @@ La carpeta OneDrive debe estar sincronizada localmente en el equipo que ejecuta 
 - Se eliminó el artefacto `github-pages` (54 MB) generado antes de la purga, que podía incluir `data/`. No quedan artefactos de Actions. GitHub Pages está deshabilitado y no se ejecutó una compilación nueva después de la purga.
 - Pendiente: solicitar a GitHub Support la purga de vistas y objetos inaccesibles, notificar al contacto de privacidad/seguridad y conservar los respaldos locales fuera del repositorio. Mientras GitHub no complete la purga, una persona con acceso al repositorio todavía puede consultar el commit antiguo por su SHA.
 - No vuelva a subir las ramas antiguas ni restaure los respaldos dentro del repositorio.
+- Registro completo, verificación y plantillas de notificación: [incidente_pii_2026-11-11.md](incidente_pii_2026-11-11.md).
 
 ## 1. Portal agregado
 
