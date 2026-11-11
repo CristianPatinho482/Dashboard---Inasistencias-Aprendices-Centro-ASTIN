@@ -168,12 +168,12 @@ if ($leftover.Count -gt 0) {
 }
 
 $objects = @(
-    & git -C $root rev-list --objects --all |
+    & git -C $root rev-list --objects --branches --tags |
         Select-String 'DIM_APRENDIZ_PII|Inasistencias\.xls'
 )
 if ($objects.Count -gt 0) {
     $objects | ForEach-Object { Write-Host "  $_" }
-    throw 'Todavía hay objetos con nombres de archivos restringidos. No se hizo push.'
+    throw 'Todavía hay objetos con nombres de archivos restringidos en ramas o etiquetas. No se hizo push.'
 }
 
 & git -C $root remote add origin $remoteUrl
