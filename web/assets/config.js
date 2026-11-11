@@ -5,8 +5,8 @@
  * Si necesita una demostración en Azure, cámbielo a true de forma temporal y
  * vuelva a false antes de cargar datos reales.
  *
- * Para el plan gratuito (sin autenticación personalizada), use requiredRole: ""
- * y configure la API en AUTH_MODE=allowlist. La API seguirá protegiendo los datos.
+ * El plan Free de Static Web Apps no permite autenticación personalizada ni
+ * rolesSource. Use el plan Standard y mantenga requiredRole: "nominal".
  */
 (function () {
   'use strict';
