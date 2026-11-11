@@ -1,18 +1,20 @@
-# Publicación del portal en GitHub Pages
+# Publicación del portal agregado
 
-## Publicación en el repositorio actual
+> **Estado actual:** GitHub Pages está deshabilitado en este repositorio desde el 11 de noviembre de 2026; la URL anterior devuelve 404. El portal agregado se publica como `web/index.html` en Azure Static Web Apps. Esta guía se conserva para un repositorio público alternativo o para una reactivación deliberada.
+
+## Salidas del generador
 
 El generador `scripts/04_generar_portal_html.py` escribe el portal actualizado en:
 
 - `outputs/portal_astin.html`: copia para abrir localmente.
 - `github-pages/index.html`: copia lista para publicar como sitio.
-- `index.html`: página principal de la rama `main`, origen que usa la URL actual de Pages.
+- `index.html`: página principal de la rama `main`; se conserva como respaldo y para abrir el portal localmente.
 
 La carpeta `github-pages` contiene solo el HTML autocontenido. Chart.js, el logo y los datos agregados están dentro de `index.html`; no se necesitan rutas locales, Excel, CSV ni dependencias web al visitar el sitio.
 
-## Configuración del sitio
+## Configuración en GitHub Pages (alternativa)
 
-La URL actual estaba configurada para publicar `main` desde la raíz. Si el repositorio se hace privado, GitHub Pages solo funciona con un plan de GitHub que lo permita; para la versión institucional se recomienda Azure Static Web Apps. Si se usa otro repositorio, copie solo el contenido de `github-pages` y seleccione `main` → `/(root)` en **Settings → Pages**.
+La URL anterior publicaba `main` desde la raíz. En este repositorio Pages está desactivado y el código se sirve desde Azure Static Web Apps. Si se usa otro repositorio público, copie solo el contenido de `github-pages` y seleccione `main` → `/(root)` en **Settings → Pages**.
 
 Consulte la [documentación oficial para configurar el origen de publicación](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site).
 
@@ -29,7 +31,7 @@ Para combinar ETL y publicación en una operación, ejecute `scripts/actualizar_
 
 ## Privacidad y alcance
 
-El portal contiene datos agregados por programa, mes, motivo, ficha con muestra mínima y nivel de riesgo. Aunque excluye nombres y documentos, los resultados son información institucional y podrían ser sensibles. GitHub Pages es accesible públicamente; el repositorio debe ser privado y no debe contener `data/`. Si el historial ya publicó `data/restricted`, `data/raw` o salidas con nombres, trate el dato como comprometido y ejecute el procedimiento de purga descrito en [automatización](automatizacion.md#0-datos-git-y-privacidad).
+El portal contiene datos agregados por programa, mes, motivo, ficha con muestra mínima y nivel de riesgo. Aunque excluye nombres y documentos, los resultados son información institucional y podrían ser sensibles. Un sitio de GitHub Pages es accesible públicamente; en este repositorio está deshabilitado y el repositorio debe ser privado y no debe contener `data/`. Si el historial ya publicó `data/restricted`, `data/raw` o salidas con nombres, trate el dato como comprometido y ejecute el procedimiento de purga descrito en [automatización](automatizacion.md#0-datos-git-y-privacidad).
 
 ## Datos personales y consulta nominal
 

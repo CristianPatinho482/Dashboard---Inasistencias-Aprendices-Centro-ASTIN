@@ -21,9 +21,9 @@ La carpeta OneDrive debe estar sincronizada localmente en el equipo que ejecuta 
 - Pendiente: solicitar a GitHub Support la purga de vistas y objetos inaccesibles, notificar al contacto de privacidad/seguridad y conservar los respaldos locales fuera del repositorio. Mientras GitHub no complete la purga, una persona con acceso al repositorio todavía puede consultar el commit antiguo por su SHA.
 - No vuelva a subir las ramas antiguas ni restaure los respaldos dentro del repositorio.
 
-## 1. Portal agregado y GitHub Pages
+## 1. Portal agregado
 
-El portal es estático: GitHub Pages no lee OneDrive ni ejecuta el ETL. El proceso local debe crear el nuevo `index.html` y enviarlo al repositorio. El mismo HTML se copia a `web/index.html` para Azure Static Web Apps. La página nominal `web/consulta.html` **no** se publica en GitHub Pages.
+El portal es estático: no lee OneDrive ni ejecuta el ETL. El proceso local debe crear el nuevo `index.html` y enviarlo al repositorio. El mismo HTML se copia a `web/index.html` para Azure Static Web Apps. GitHub Pages está deshabilitado; la página nominal `web/consulta.html` **no** se publica allí.
 
 Para una actualización manual, ejecute desde PowerShell en la carpeta del proyecto:
 
@@ -41,7 +41,7 @@ Para dejarlo automático en este equipo, ejecute una vez desde PowerShell, en la
 
 La tarea revisa el archivo cada 6 horas y al iniciar sesión. Espera a que termine de cambiar, compara su huella SHA-256 y ejecuta el proceso solo si detecta un contenido nuevo. Con el bot descargando a las 16:45, el retraso máximo esperado es de 6 horas si el equipo está disponible. Copia las salidas agregadas a la carpeta de SharePoint configurada y crea un commit de `index.html` y las definiciones PBIR/TMDL si cambiaron; nunca incluye CSV de datos ni `DIM_APRENDIZ_PII.csv`. Después sincroniza la rama configurada con GitHub. El estado y los registros quedan en `%LOCALAPPDATA%\InasistenciasASTIN`; no se guardan credenciales en el repositorio.
 
-La sesión de Windows debe permanecer iniciada para que OneDrive y GitHub Credential Manager estén disponibles; el equipo debe estar encendido y conectado. En **Programador de tareas > Biblioteca del Programador**, la tarea se llama `ASTIN - Actualizar inasistencias y publicar portal`. Los registros están en la ruta indicada arriba. Para forzar una actualización manual, ejecute `./scripts/actualizar_datos.ps1 -PublicarPortal` (sin `-SoloSiFuenteNueva`). La publicación automática se envía a la rama Git activa. GitHub Pages continúa sirviendo `main` mientras no se cambie su configuración; para activar esta versión en la URL pública, primero se debe integrar la rama o cambiar la fuente de Pages.
+La sesión de Windows debe permanecer iniciada para que OneDrive y GitHub Credential Manager estén disponibles; el equipo debe estar encendido y conectado. En **Programador de tareas > Biblioteca del Programador**, la tarea se llama `ASTIN - Actualizar inasistencias y publicar portal`. Los registros están en la ruta indicada arriba. Para forzar una actualización manual, ejecute `./scripts/actualizar_datos.ps1 -PublicarPortal` (sin `-SoloSiFuenteNueva`). La publicación automática se envía a la rama Git activa. GitHub Pages está deshabilitado en este repositorio; el portal agregado y la consulta nominal se publican en Azure Static Web Apps (sección 2).
 
 ## 2. Consulta nominal en Azure
 
@@ -77,7 +77,7 @@ El detalle de recursos, variables, despliegue, validación y rotación está en 
 
 ## 3. Power BI Desktop local
 
-El pipeline regenera los CSV que consume el modelo y reconstruye las definiciones PBIR/TMDL. La fecha y hora de última descarga se toma de la modificación del Excel sincronizado y se escribe al regenerar el informe; el total de registros válidos se calcula con una medida DAX global. Power BI Desktop local no se actualiza por el solo hecho de regenerar archivos: cierre y vuelva a abrir el PBIP después de cambios estructurales, y use **Inicio > Actualizar** para recargar datos. La tarea automatizada actualiza y publica el portal GitHub Pages; no automatiza clics ni refresca Power BI Desktop.
+El pipeline regenera los CSV que consume el modelo y reconstruye las definiciones PBIR/TMDL. La fecha y hora de última descarga se toma de la modificación del Excel sincronizado y se escribe al regenerar el informe; el total de registros válidos se calcula con una medida DAX global. Power BI Desktop local no se actualiza por el solo hecho de regenerar archivos: cierre y vuelva a abrir el PBIP después de cambios estructurales, y use **Inicio > Actualizar** para recargar datos. La tarea automatizada actualiza el portal y lo envía a la rama Git configurada; no automatiza clics ni refresca Power BI Desktop.
 
 Para un flujo desatendido, no se recomienda automatizar clics de la interfaz de Desktop. Use el servicio de Power BI como destino de actualización programada, conectado a los CSV generados mediante gateway o a una ubicación cloud compatible.
 

@@ -347,7 +347,7 @@ No incluya la exportación nominal en el commit ni en el portal. El Blob conserv
 
 ## 11. Seguridad y privacidad
 
-- El repositorio debe ser privado; el sitio de GitHub Pages actual no sirve para nombres.
+- El repositorio debe ser privado; GitHub Pages está deshabilitado en este proyecto y no sirve para nombres.
 - El contenedor Blob es privado; no habilite acceso anónimo ni `$web`.
 - El SAS, el secreto de Entra y las cadenas de conexión son secretos. Use Key Vault cuando sea posible y rote antes del vencimiento.
 - El rol `nominal` debe tener el mínimo de personas. Revise el grupo trimestralmente.
