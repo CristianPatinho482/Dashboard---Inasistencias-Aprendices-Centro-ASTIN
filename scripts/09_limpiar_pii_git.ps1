@@ -206,7 +206,8 @@ else {
 Write-Host ''
 Write-Host 'PASOS OBLIGATORIOS DESPUÉS DEL PUSH' -ForegroundColor Yellow
 Write-Host '1. Abra https://support.github.com/contact y solicite purgar vistas en caché y objetos inaccesibles del repositorio.' -ForegroundColor Yellow
-Write-Host '2. Revise forks y clones existentes: conservan la historia antigua. Solicite su eliminación o purga.' -ForegroundColor Yellow
-Write-Host '3. Notifique al contacto de privacidad/seguridad del SENA y trate los datos como comprometidos.' -ForegroundColor Yellow
-Write-Host '4. Rote cualquier secreto que haya estado en el repositorio o en su historial.' -ForegroundColor Yellow
-Write-Host "5. Respaldo conservado en: $BackupDirectory" -ForegroundColor DarkGray
+Write-Host '2. Elimine artefactos de Actions y despliegues de Pages que puedan contener datos (por ejemplo, el artefacto github-pages).' -ForegroundColor Yellow
+Write-Host '3. Revise forks y clones existentes: conservan la historia antigua. Solicite su eliminación o purga.' -ForegroundColor Yellow
+Write-Host '4. Notifique al contacto de privacidad/seguridad del SENA y trate los datos como comprometidos.' -ForegroundColor Yellow
+Write-Host '5. Rote cualquier secreto que haya estado en el repositorio o en su historial.' -ForegroundColor Yellow
+Write-Host "6. Respaldo conservado en: $BackupDirectory" -ForegroundColor DarkGray
