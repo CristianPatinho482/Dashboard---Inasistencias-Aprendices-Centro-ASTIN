@@ -13,7 +13,7 @@ documentos, identificadores de aprendices ni textos de justificación.
 - Se ejecutó dos veces `scripts/09_limpiar_pii_git.ps1` con `git-filter-repo`: la primera eliminó las rutas `data/`; la segunda eliminó además `cache.abf` y los `localSettings.json`. Se hizo push forzado de todas las ramas y etiquetas.
 - Se eliminó el artefacto `github-pages` (54 MB) generado antes de la purga, que podía contener `data/`.
 - GitHub Pages quedó deshabilitado; la URL anterior devuelve 404.
-- El 11 de noviembre de 2026, después de la segunda purga y la actualización de la documentación, `main` quedó en `e4cf8f9`.
+- El 11 de noviembre de 2026, después de la segunda purga y la actualización de la documentación, `main` quedó con el historial limpio.
 
 ## 2. Verificación realizada
 
@@ -56,7 +56,7 @@ localSettings.json files.
 The repository was made private on 2026-11-11. I rewrote all branches and
 tags twice with git-filter-repo: first to remove every data/ path, then to
 remove cache.abf and localSettings.json, and force-pushed all references.
-A fresh mirror clone of the remote (current main e4cf8f9) contains no data/
+A fresh mirror clone of the remote (current main) contains no data/
 paths, no cache.abf or localSettings.json, and no objects named
 DIM_APRENDIZ_PII.csv, Inasistencias.xls, cache.abf or localSettings.json.
 The old GitHub Pages artifact was deleted and Pages is disabled.
