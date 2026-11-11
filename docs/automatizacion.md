@@ -18,7 +18,7 @@ La carpeta OneDrive debe estar sincronizada localmente en el equipo que ejecuta 
 - El repositorio se hizo privado antes de reescribir el historial y no tiene forks.
 - `scripts/09_limpiar_pii_git.ps1` se ejecutó dos veces con `git-filter-repo`: primero eliminó las rutas `data/`; después eliminó `.pbi/cache.abf` y los `.pbi/localSettings.json`. Publicó el historial reescrito con push forzado de todas las ramas y etiquetas.
 - La verificación sobre un clon espejo del remoto encontró 0 rutas `data/`, 0 rutas `.pbi/cache.abf` o `.pbi/localSettings.json` y 0 objetos `DIM_APRENDIZ_PII.csv`, `Inasistencias.xls`, `cache.abf` o `localSettings.json`. El acceso anónimo al repositorio, al contenido raw y al sitio de GitHub Pages devuelve 404.
-- La rama `main` quedó en `f1e9d24` después de la segunda purga.
+- La rama `main` quedó en `e4cf8f9` después de la segunda purga y la actualización de la documentación.
 - Se eliminó el artefacto `github-pages` (54 MB) generado antes de la purga, que podía incluir `data/`. No quedan artefactos de Actions. GitHub Pages está deshabilitado y no se ejecutó una compilación nueva después de la purga.
 - Pendiente: solicitar a GitHub Support la purga de vistas y objetos inaccesibles, incluidos los commits antiguos que contenían `data/` y `cache.abf`; notificar al contacto de privacidad/seguridad y conservar los respaldos locales fuera del repositorio. Mientras GitHub no complete la purga, una persona con acceso al repositorio todavía puede consultar esos commits por su SHA.
 - No vuelva a subir las ramas antiguas ni restaure los respaldos dentro del repositorio.
