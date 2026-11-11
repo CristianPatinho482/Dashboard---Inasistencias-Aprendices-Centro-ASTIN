@@ -13,6 +13,14 @@ La carpeta OneDrive debe estar sincronizada localmente en el equipo que ejecuta 
 - El repositorio debe ser privado. El portal agregado puede publicarse, pero la vista nominal solo se expone en Azure Static Web Apps con autenticación y Blob privado.
 - Si el repositorio estuvo público y contuvo `DIM_APRENDIZ_PII.csv`, `Inasistencias.xls` o salidas con nombres, trate el dato como comprometido: haga privado el repositorio, ejecute `scripts/09_limpiar_pii_git.ps1`, abra un ticket en GitHub Support para purgar cachés/objetos y notifique al contacto de privacidad/seguridad. Cambiar la visibilidad no borra el historial ni los forks.
 
+### Limpieza ejecutada el 11 de noviembre de 2026
+
+- El repositorio se hizo privado antes de reescribir el historial y no tiene forks.
+- `scripts/09_limpiar_pii_git.ps1` eliminó las rutas `data/` de todas las ramas y etiquetas con `git-filter-repo`, y publicó el historial reescrito con push forzado.
+- La verificación sobre un clon espejo del remoto encontró 0 rutas `data/` y 0 objetos `DIM_APRENDIZ_PII.csv` o `Inasistencias.xls`. El acceso anónimo al repositorio, al contenido raw y al sitio de GitHub Pages devuelve 404.
+- Pendiente: solicitar a GitHub Support la purga de vistas y objetos inaccesibles, notificar al contacto de privacidad/seguridad y conservar los respaldos locales fuera del repositorio. Mientras GitHub no complete la purga, una persona con acceso al repositorio todavía puede consultar el commit antiguo por su SHA.
+- No vuelva a subir las ramas antiguas ni restaure los respaldos dentro del repositorio.
+
 ## 1. Portal agregado y GitHub Pages
 
 El portal es estático: GitHub Pages no lee OneDrive ni ejecuta el ETL. El proceso local debe crear el nuevo `index.html` y enviarlo al repositorio. El mismo HTML se copia a `web/index.html` para Azure Static Web Apps. La página nominal `web/consulta.html` **no** se publica en GitHub Pages.

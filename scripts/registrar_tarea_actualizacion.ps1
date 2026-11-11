@@ -1,4 +1,4 @@
-<#
+﻿<#
 Registra una tarea del usuario actual que revisa OneDrive cada 6 horas.
 Requiere iniciar sesión en Windows para que OneDrive y GitHub Credential Manager estén disponibles.
 #>

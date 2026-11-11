@@ -1,4 +1,4 @@
-<#
+﻿<#
 Actualiza los datos, el modelo Power BI, el informe PBIR y el portal HTML desde el Excel sincronizado en OneDrive.
 Después, actualice el modelo abierto en Power BI Desktop con Inicio > Actualizar.
 #>
