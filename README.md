@@ -32,6 +32,7 @@ Solución de analítica académica para caracterizar aprendices y hacer seguimie
 - `scripts/11_limpiar_consulta_local.ps1`: borra las copias nominales locales.
 - `tools/chartjs`: distribución local de Chart.js y licencia MIT.
 - `docs/azure_static_web_apps.md`: despliegue, autenticación, Blob privado, roles y validación.
+- `docs/checklist_publicacion_azure.md`: runbook por fases para ejecutar la publicación en Azure.
 - `docs/automatizacion.md`: operación del ETL, portal, Power BI y SharePoint.
 
 ## Tablas y relaciones
