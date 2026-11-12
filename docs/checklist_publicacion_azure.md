@@ -6,6 +6,10 @@ El detalle de cada decisión está en [`azure_static_web_apps.md`](azure_static_
 > **Regla de oro:** los nombres de aprendices solo viajan del ETL local al Blob privado.
 > Nunca se versionan, nunca se suben a `web/` y nunca se pegan en el chat ni en capturas.
 
+> **Ruta de licenciamiento:** la solicitud a TI no es para instalar Azure CLI, sino
+> para acceder al servicio **Microsoft Azure** (fila 245 del catálogo). El sustento y
+> el correo sugerido están en [`solicitud_ti_azure.md`](solicitud_ti_azure.md).
+
 ## Fase 0 · Antes de tocar Azure
 
 - [ ] Repositorio de GitHub **privado** y sin PII en el historial (ver `incidente_pii_2026-11-11.md`).
@@ -15,7 +19,24 @@ El detalle de cada decisión está en [`azure_static_web_apps.md`](azure_static_
 - [ ] Confirmar que el archivo privado NO está en Git: `git check-ignore data/private/consulta_web.json`.
 - [ ] Plan **Standard** de Static Web Apps aprobado (el plan Free no permite auth personalizada ni `rolesSource`).
 
-## Fase 1 · Suscripción (la gestiona TI)
+## Fase 1 · Suscripción y licenciamiento (la gestiona TI)
+
+La solicitud no es "instalar Azure CLI"; es acceder al **servicio Microsoft Azure**.
+Azure CLI es una herramienta cliente gratuita, no un producto licenciado, y no es
+necesaria si se usa el portal o Azure Cloud Shell. El sustento completo y el correo
+sugerido están en [`solicitud_ti_azure.md`](solicitud_ti_azure.md).
+
+Antes de pedir los datos:
+
+- [ ] Confirmar la vigencia de la fila 245 del catálogo (**Microsoft Azure**, 257
+      licencias, Dirección General / Oficina de Sistemas). Registra **2024-05-31**;
+      si está vencida, pedir renovación o una nueva suscripción.
+- [ ] Radicar la solicitud con el formato que TI indique (`GTI-F-104` Azure Dev Tools
+      o `GTI-F-112` Centro de Datos) y escalarla al Gestor de Licenciamiento y al
+      Grupo de Infraestructura de la Oficina de Sistemas.
+- [ ] Confirmar que la suscripción es **institucional** y está autorizada para
+      tratar datos personales de aprendices. No usar una cuenta gratuita, Azure for
+      Students o Azure Dev Tools para PII real sin autorización expresa.
 
 Pedir a TI y anotar:
 
@@ -26,8 +47,12 @@ Pedir a TI y anotar:
 | Resource group | `rg-astin-consulta` | |
 | Región | `eastus2` | |
 | Rol asignado | `Contributor` sobre el RG | |
+| Confirmación de vigencia | Fila 245 vigente o renovada | |
+| Autorización de PII | Suscripción institucional apta para aprendices | |
 
 Si en lugar de un RG entregan solo la suscripción con permiso para crearlo, usar la Fase 2.
+Si la licencia de Azure está vencida y no hay renovación, no crear recursos con una
+cuenta personal: evaluar el Plan B de [`solicitud_ti_azure.md`](solicitud_ti_azure.md).
 
 ## Fase 2 · Infraestructura (Azure Cloud Shell, bash)
 

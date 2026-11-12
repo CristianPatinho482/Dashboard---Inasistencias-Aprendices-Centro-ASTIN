@@ -33,6 +33,7 @@ Solución de analítica académica para caracterizar aprendices y hacer seguimie
 - `tools/chartjs`: distribución local de Chart.js y licencia MIT.
 - `docs/azure_static_web_apps.md`: despliegue, autenticación, Blob privado, roles y validación.
 - `docs/checklist_publicacion_azure.md`: runbook por fases para ejecutar la publicación en Azure.
+- `docs/solicitud_ti_azure.md`: sustento de la solicitud de acceso a Microsoft Azure y correo para TI.
 - `docs/automatizacion.md`: operación del ETL, portal, Power BI y SharePoint.
 
 ## Tablas y relaciones
@@ -96,6 +97,8 @@ La página `web/consulta.html` funciona en dos modos:
 
 - **Demostración local:** se activa en `localhost`, `127.0.0.1`, `::1` o `file:`. Carga `web/data/demo_consulta.json` con nombres sintéticos.
 - **Azure:** obtiene el principal desde `/.auth/me`, exige el rol `nominal`, llama a `/api/consulta` y recibe solo agregados. La API valida `x-ms-client-principal`, lee un Blob privado y nunca devuelve registros crudos.
+
+Antes de crear recursos, revise la ruta de licenciamiento en [docs/solicitud_ti_azure.md](docs/solicitud_ti_azure.md): la solicitud es por el servicio **Microsoft Azure** (fila 245 del catálogo), no por Azure CLI.
 
 Pasos resumidos (detalle en [docs/azure_static_web_apps.md](docs/azure_static_web_apps.md)):
 
