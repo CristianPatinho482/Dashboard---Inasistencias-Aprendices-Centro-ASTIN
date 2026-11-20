@@ -3,6 +3,7 @@
 /web/data/*
 !/web/data/demo_consulta.json
 /outputs/consulta_interna.html
+/outputs/portal_local*.html
 
 # --- API y despliegue ---
 api/node_modules/

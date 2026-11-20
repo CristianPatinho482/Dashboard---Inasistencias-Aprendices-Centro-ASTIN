@@ -1,5 +1,6 @@
 ﻿<#
-Actualiza los datos, el modelo Power BI, el informe PBIR y el portal HTML desde el Excel sincronizado en OneDrive.
+Actualiza los datos, el modelo Power BI, el informe PBIR, el portal agregado y el portal local completo
+desde el Excel sincronizado en OneDrive. El portal local incluye la página 05 nominal y queda en outputs/.
 Después, actualice el modelo abierto en Power BI Desktop con Inicio > Actualizar.
 #>
 param(
@@ -18,7 +19,8 @@ $pipeline = @(
     '03_generar_reporte_pbir.py',
     '04_generar_portal_html.py',
     '05_generar_consulta_interna.py',
-    '10_sincronizar_agregacion.py'
+    '10_sincronizar_agregacion.py',
+    '12_generar_portal_local.py'
 )
 $sourceFile = Join-Path $env:USERPROFILE 'OneDrive - Servicio Nacional de Aprendizaje\Equipo ASTIN-DESAROLLOS POWER-BI - RAPS ASTIN 2026\Inasistencias.xls'
 $stateDirectory = Join-Path $env:LOCALAPPDATA 'InasistenciasASTIN'
@@ -137,7 +139,8 @@ try {
         } | ConvertTo-Json
         [System.IO.File]::WriteAllText($statePath, $state, [System.Text.UTF8Encoding]::new($false))
     }
-    Write-Host 'Datos, modelo, reporte y portal regenerados desde OneDrive. Portal: outputs\portal_astin.html; GitHub Pages: index.html. En Power BI Desktop, use Inicio > Actualizar.' -ForegroundColor Green
+    Write-Host 'Datos, modelo, reporte y portal regenerados desde OneDrive. Portal agregado: outputs\portal_astin.html; portal local completo: outputs\portal_local_completo.html; GitHub Pages: index.html. En Power BI Desktop, use Inicio > Actualizar.' -ForegroundColor Green
+    Write-Host 'El portal local completo contiene datos personales. No lo publique ni lo agregue a Git; ábralo solo en el equipo autorizado.' -ForegroundColor Yellow
     if ($ExportarConsultaNominal -or $StorageAccountConsulta) {
         Write-Host 'Consulta nominal: data\private\consulta_web.json. No la agregue a Git.' -ForegroundColor Yellow
     }

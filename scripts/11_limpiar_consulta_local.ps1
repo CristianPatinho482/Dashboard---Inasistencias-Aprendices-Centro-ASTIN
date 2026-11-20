@@ -4,10 +4,11 @@
     Elimina los archivos nominales generados en el equipo local.
 
 .DESCRIPTION
-    Borra data/private/consulta_web.json y outputs/consulta_interna.html, que
-    contienen nombres de aprendices. No borra el Blob privado de Azure ni los
-    respaldos. Úselo después de subir el archivo a Azure o al terminar una
-    revisión local.
+    Borra data/private/consulta_web.json, outputs/consulta_interna.html,
+    outputs/portal_local_completo.html y outputs/portal_local_demo.html, que
+    contienen nombres de aprendices (los dos primeros y el portal completo) o
+    datos sintéticos de revisión. No borra el Blob privado de Azure ni los
+    respaldos. Úselo después de terminar una revisión local.
 
 .EXAMPLE
     .\scripts\11_limpiar_consulta_local.ps1
@@ -24,7 +25,9 @@ $ErrorActionPreference = 'Stop'
 $root = Split-Path -Parent $PSScriptRoot
 $targets = @(
     (Join-Path $root 'data\private\consulta_web.json'),
-    (Join-Path $root 'outputs\consulta_interna.html')
+    (Join-Path $root 'outputs\consulta_interna.html'),
+    (Join-Path $root 'outputs\portal_local_completo.html'),
+    (Join-Path $root 'outputs\portal_local_demo.html')
 )
 
 $existing = @($targets | Where-Object { Test-Path -LiteralPath $_ -PathType Leaf })

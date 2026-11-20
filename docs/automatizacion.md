@@ -2,7 +2,7 @@
 
 ## Flujo común de datos
 
-El bot sobrescribe el archivo fijo `Inasistencias.xls` en la carpeta OneDrive configurada en `scripts/actualizar_datos.ps1`. La automatización local ejecuta ETL, regenera dimensiones y hechos, reconstruye el PBIR, el portal agregado y la vista nominal local `outputs/consulta_interna.html`. La salida nominal está excluida de Git y no se publica. La fecha `ultima_descarga` del resumen toma la última modificación del archivo sincronizado; `corte` conserva la máxima `Fecha Fin` dentro de los datos. Así se distinguen descarga y periodo analizado.
+El bot sobrescribe el archivo fijo `Inasistencias.xls` en la carpeta OneDrive configurada en `scripts/actualizar_datos.ps1`. La automatización local ejecuta ETL, regenera dimensiones y hechos, reconstruye el PBIR, el portal agregado y el portal local completo `outputs/portal_local_completo.html`, que reúne las seis vistas e incluye la página 05 nominal. También mantiene la vista de apoyo `outputs/consulta_interna.html`. Las salidas nominales están excluidas de Git y no se publican. La fecha `ultima_descarga` del resumen toma la última modificación del archivo sincronizado; `corte` conserva la máxima `Fecha Fin` dentro de los datos. Así se distinguen descarga y periodo analizado.
 
 La carpeta OneDrive debe estar sincronizada localmente en el equipo que ejecuta el ETL. La página nominal de Power BI combina el nombre desde `data/restricted/DIM_APRENDIZ_PII.csv`; esa consulta se mantiene local y el HTML público no la incluye.
 
@@ -10,7 +10,7 @@ La carpeta OneDrive debe estar sincronizada localmente en el equipo que ejecuta 
 
 - `data/` está excluido de Git: `data/raw`, `data/processed`, `data/restricted` y `data/private`. El ETL y el modelo los necesitan en disco, pero no deben viajar en un commit.
 - `config/sharepoint.json`, `api/local.settings.json`, `api/node_modules/` y `.swa/` también están excluidos.
-- El repositorio debe ser privado. El portal agregado puede publicarse, pero la vista nominal solo se expone en Azure Static Web Apps con autenticación y Blob privado.
+- El repositorio debe ser privado. El portal agregado puede publicarse, pero la vista nominal se entrega en el portal local completo; Azure Static Web Apps queda como alternativa si TI autoriza una suscripción institucional.
 - Si el repositorio estuvo público y contuvo `DIM_APRENDIZ_PII.csv`, `Inasistencias.xls`, salidas con nombres o la cache del modelo (`.pbi/cache.abf`), trate el dato como comprometido: haga privado el repositorio, ejecute `scripts/09_limpiar_pii_git.ps1`, abra un ticket en GitHub Support para purgar cachés/objetos y notifique al contacto de privacidad/seguridad. Cambiar la visibilidad no borra el historial ni los forks.
 
 ### Limpieza ejecutada el 11 de noviembre de 2026
@@ -44,11 +44,29 @@ Para dejarlo automático en este equipo, ejecute una vez desde PowerShell, en la
 
 La tarea revisa el archivo cada 6 horas y al iniciar sesión. Espera a que termine de cambiar, compara su huella SHA-256 y ejecuta el proceso solo si detecta un contenido nuevo. Con el bot descargando a las 16:45, el retraso máximo esperado es de 6 horas si el equipo está disponible. Copia las salidas agregadas a la carpeta de SharePoint configurada y crea un commit de `index.html` y las definiciones PBIR/TMDL si cambiaron; nunca incluye CSV de datos ni `DIM_APRENDIZ_PII.csv`. Después sincroniza la rama configurada con GitHub. El estado y los registros quedan en `%LOCALAPPDATA%\InasistenciasASTIN`; no se guardan credenciales en el repositorio.
 
-La sesión de Windows debe permanecer iniciada para que OneDrive y GitHub Credential Manager estén disponibles; el equipo debe estar encendido y conectado. En **Programador de tareas > Biblioteca del Programador**, la tarea se llama `ASTIN - Actualizar inasistencias y publicar portal`. Los registros están en la ruta indicada arriba. Para forzar una actualización manual, ejecute `./scripts/actualizar_datos.ps1 -PublicarPortal` (sin `-SoloSiFuenteNueva`). La publicación automática se envía a la rama Git activa. GitHub Pages está deshabilitado en este repositorio; el portal agregado y la consulta nominal se publican en Azure Static Web Apps (sección 2).
+La sesión de Windows debe permanecer iniciada para que OneDrive y GitHub Credential Manager estén disponibles; el equipo debe estar encendido y conectado. En **Programador de tareas > Biblioteca del Programador**, la tarea se llama `ASTIN - Actualizar inasistencias y publicar portal`. Los registros están en la ruta indicada arriba. Para forzar una actualización manual, ejecute `./scripts/actualizar_datos.ps1 -PublicarPortal` (sin `-SoloSiFuenteNueva`). La publicación automática se envía a la rama Git activa. GitHub Pages está deshabilitado en este repositorio; el portal agregado se publica solo si se autoriza, y la consulta nominal se entrega en el portal local completo (sección 2).
 
-## 2. Consulta nominal en Azure
+## 2. Portal local completo (modo principal)
 
-La página `05 · Consulta semanal` con nombres se publica en Azure Static Web Apps, no en GitHub Pages. El flujo es:
+El pipeline genera `outputs/portal_local_completo.html`, un único archivo con las seis vistas y la página 05 nominal. Funciona desde `file://`, sin servidor y sin conexión. No se publica ni se versiona.
+
+Para generarlo manualmente después del ETL:
+
+```powershell
+python .\scripts\12_generar_portal_local.py
+```
+
+Para una revisión de interfaz con datos sintéticos:
+
+```powershell
+python .\scripts\12_generar_portal_local.py --demo
+```
+
+El archivo completo contiene PII y debe borrarse al terminar con `.\scripts\11_limpiar_consulta_local.ps1`. Instrucciones, filtros, seguridad y solución de problemas: [portal_local.md](portal_local.md).
+
+## 3. Consulta nominal en Azure (alternativa)
+
+Si TI autoriza una suscripción institucional, la página `05 · Consulta semanal` con nombres se puede publicar en Azure Static Web Apps, no en GitHub Pages. El flujo es:
 
 1. Genere la exportación real (nunca dentro de `web/`):
 
@@ -78,15 +96,15 @@ La página `05 · Consulta semanal` con nombres se publica en Azure Static Web A
 
 El detalle de recursos, variables, despliegue, validación y rotación está en [azure_static_web_apps.md](azure_static_web_apps.md). **No** configure `CONSULTA_LOCAL_FILE` en Azure y **no** habilite acceso anónimo al contenedor.
 
-## 3. Power BI Desktop local
+## 4. Power BI Desktop local
 
 El pipeline regenera los CSV que consume el modelo y reconstruye las definiciones PBIR/TMDL. La fecha y hora de última descarga se toma de la modificación del Excel sincronizado y se escribe al regenerar el informe; el total de registros válidos se calcula con una medida DAX global. Power BI Desktop local no se actualiza por el solo hecho de regenerar archivos: cierre y vuelva a abrir el PBIP después de cambios estructurales, y use **Inicio > Actualizar** para recargar datos. La tarea automatizada actualiza el portal y lo envía a la rama Git configurada; no automatiza clics ni refresca Power BI Desktop.
 
 Para un flujo desatendido, no se recomienda automatizar clics de la interfaz de Desktop. Use el servicio de Power BI como destino de actualización programada, conectado a los CSV generados mediante gateway o a una ubicación cloud compatible.
 
-## 4. Power BI Service
+## 5. Power BI Service
 
-El modelo actual lee CSV locales mediante `File.Contents` y los parámetros `RutaDatos` y `RutaDatosRestringidos`. El servicio no ejecuta el script Python que transforma el Excel. La nueva página nominal debe publicarse solo en un espacio institucional con autenticación y permisos adecuados; el portal de GitHub Pages es agregado y no sirve para mostrar nombres de aprendices. Para la versión web nominal use Azure Static Web Apps con el Blob privado (sección 2). Hay dos arquitecturas para datos internos:
+El modelo actual lee CSV locales mediante `File.Contents` y los parámetros `RutaDatos` y `RutaDatosRestringidos`. El servicio no ejecuta el script Python que transforma el Excel. La nueva página nominal debe publicarse solo en un espacio institucional con autenticación y permisos adecuados; el portal de GitHub Pages es agregado y no sirve para mostrar nombres de aprendices. Para la versión web nominal use Azure Static Web Apps con el Blob privado (sección 3). Hay dos arquitecturas para datos internos:
 
 ### Mantener ETL local y usar gateway
 

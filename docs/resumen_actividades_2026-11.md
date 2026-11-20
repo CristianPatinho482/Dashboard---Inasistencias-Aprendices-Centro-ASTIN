@@ -12,11 +12,12 @@
 
 - Se completó la página **05 · Consulta semanal** con filtros, KPIs, semáforo y exportación CSV, sin agregar una página nueva al portal.
 - Se implementó una **API autenticada** (`/api/consulta` y `/api/roles`) que agrega en el servidor y nunca devuelve registros crudos.
-- Se dejó lista la arquitectura de publicación en **Azure Static Web Apps + Blob privado**, con autenticación Entra ID y rol `nominal`.
+- Se dejó lista la arquitectura de publicación en **Azure Static Web Apps + Blob privado**, con autenticación Entra ID y rol `nominal`, como alternativa sujeta a licenciamiento.
+- Se habilitó el **portal local completo** (`outputs/portal_local_completo.html`): un único HTML con las seis vistas, incluida la página 05 nominal, que funciona con doble clic y sin servidor.
 - Se corrigió el proyecto **PBIP/PBIR + TMDL** y se generó la exportación real para el Blob privado.
 - Se ejecutó la **limpieza de PII** del historial Git y una auditoría de seguridad del repositorio.
 - Se documentó la **ruta de licenciamiento ante TI**: la solicitud es por el servicio Microsoft Azure, no por Azure CLI.
-- **Estado técnico:** listo para desplegar. **Bloqueo actual:** falta una suscripción institucional de Azure y confirmar la vigencia de la licencia registrada en el catálogo de TI.
+- **Estado técnico:** entrega local lista para usar. **Bloqueo de Azure:** falta una suscripción institucional y confirmar la vigencia de la licencia registrada en el catálogo de TI.
 
 ## 2. Producto y datos
 
@@ -89,7 +90,7 @@
   - Notificar al contacto de privacidad/seguridad del SENA.
   - Mover o destruir los respaldos con PII que están en `%TEMP%`.
 
-## 4. Publicación en Azure
+## 4. Publicación y entrega
 
 ### Arquitectura preparada
 
@@ -130,7 +131,15 @@ Azure Blob Storage privado
 - `docs/checklist_publicacion_azure.md`: runbook por fases (0 a 7) con comandos para Azure Cloud Shell.
 - `docs/solicitud_ti_azure.md`: sustento de la solicitud a TI, hallazgos del catálogo, formatos y correo sugerido.
 
-### Bloqueos actuales
+### Modo local principal
+
+- `scripts/12_generar_portal_local.py` integra las seis vistas en un solo HTML y embebe los datos nominales, Chart.js, el logo y la agregación compartida.
+- `scripts/actualizar_datos.ps1` ejecuta el generador al final del pipeline, después del ETL y de la sincronización de la agregación.
+- El archivo se abre desde `file://` sin `fetch` ni servidor local; los filtros, KPIs, semáforo y CSV de la página 05 funcionan en el mismo documento.
+- `outputs/portal_local*.html` está excluido por `.gitignore`; `scripts/11_limpiar_consulta_local.ps1` borra las copias locales.
+- Documentación de uso: `docs/portal_local.md`.
+
+### Bloqueos actuales de Azure
 
 - No hay **suscripción, tenant ni resource group** de Azure asignados.
 - **Azure CLI no está autorizado** por TI y su instalación local requiere administrador. Se documentó que no es necesario: la publicación se puede gestionar desde el portal y Azure Cloud Shell.
@@ -191,19 +200,21 @@ Pendiente: validación integral en Azure (login, rol, 401/403, Blob 403/404 y au
 | Página 05 y API | Completas y probadas |
 | Modelo Power BI / PBIP | Corregido y operativo |
 | Seguridad del repositorio | PII purgada y auditoría limpia; quedan acciones externas |
+| Portal local completo | Generado y validado con datos reales y sintéticos |
 | Publicación en Azure | Preparada, bloqueada por suscripción y licenciamiento |
-| Documentación | Runbook, arquitectura y solicitud a TI disponibles |
+| Documentación | Runbook, arquitectura, solicitud a TI y modo local disponibles |
 
 ### Próximos pasos
 
-1. Enviar el correo o radicar la solicitud ante la Mesa de Servicios TIC, citando la fila 245 del catálogo.
-2. Confirmar si la licencia de Microsoft Azure está vigente o si debe renovarse.
-3. Si TI aprueba la suscripción, ejecutar la Fase 2 del runbook en Azure Cloud Shell.
-4. Crear el registro de app y el grupo en Entra ID; configurar secreto, SAS y variables de la Static Web App.
-5. Reemplazar `REPLACE_TENANT_ID`, configurar `AZURE_STATIC_WEB_APPS_API_TOKEN` y desplegar.
-6. Ejecutar la validación de seguridad de la Fase 6.
-7. Si no se autoriza Azure, evaluar el Plan B con **Power BI Pro** o **SharePoint Plan 2**.
-8. Completar las acciones pendientes del incidente de PII (GitHub Support, notificación interna y respaldos).
+1. Usar el portal local completo como entrega principal: regenerarlo con cada descarga y borrarlo al terminar la revisión.
+2. Enviar el correo o radicar la solicitud ante la Mesa de Servicios TIC, citando la fila 245 del catálogo.
+3. Confirmar si la licencia de Microsoft Azure está vigente o si debe renovarse.
+4. Si TI aprueba la suscripción, ejecutar la Fase 2 del runbook en Azure Cloud Shell.
+5. Crear el registro de app y el grupo en Entra ID; configurar secreto, SAS y variables de la Static Web App.
+6. Reemplazar `REPLACE_TENANT_ID`, configurar `AZURE_STATIC_WEB_APPS_API_TOKEN` y desplegar.
+7. Ejecutar la validación de seguridad de la Fase 6.
+8. Si no se autoriza Azure, mantener el modo local o evaluar **Power BI Pro** / **SharePoint Plan 2**.
+9. Completar las acciones pendientes del incidente de PII (GitHub Support, notificación interna y respaldos).
 
 ## 8. Notas
 
@@ -211,11 +222,12 @@ Pendiente: validación integral en Azure (login, rol, 401/403, Blob 403/404 y au
 - La trazabilidad se basa en los commits del periodo y en las sesiones de validación locales; las fechas de actividades no versionadas son aproximadas.
 - No se incluyeron nombres, documentos, correos ni registros individuales de aprendices en este resumen.
 - Las cifras de datos son agregadas y provienen de la exportación real y del conjunto sintético de demostración.
-- La publicación con datos reales no debe hacerse hasta contar con una suscripción institucional autorizada para PII.
+- El portal local completo contiene PII y no debe publicarse; Azure sigue siendo la alternativa para una publicación institucional autorizada.
 
 ## Referencias
 
 - [`README.md`](../README.md)
+- [`docs/portal_local.md`](portal_local.md)
 - [`docs/azure_static_web_apps.md`](azure_static_web_apps.md)
 - [`docs/checklist_publicacion_azure.md`](checklist_publicacion_azure.md)
 - [`docs/solicitud_ti_azure.md`](solicitud_ti_azure.md)
