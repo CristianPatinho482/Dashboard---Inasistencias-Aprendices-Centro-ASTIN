@@ -159,11 +159,14 @@ Azure Blob Storage privado
 | Consola del navegador | 0 errores |
 | Portal `index.html` | 5 secciones, sin errores |
 | Exportación real | 16.243 registros, 1.483 aprendices, 2,78 MB |
+| Portal local completo | 6 vistas, página 05 nominal, 0 errores de consola |
+| Portal local demo | 453 registros y 72 aprendices sintéticos, 0 errores |
+| CSV local | Descarga con confirmación; 79.246 bytes en el conjunto real |
 | PBIP | Abre correctamente; modelo con 5 tablas reales |
 | Auditoría de PII | 1.140 archivos, 0 hallazgos |
 | Escaneo de secretos | Sin hallazgos en el árbol actual |
 
-Pendiente: validación integral en Azure (login, rol, 401/403, Blob 403/404 y ausencia de PII en DevTools > Network).
+Pendiente: validación integral en Azure (login, rol, 401/403, Blob 403/404 y ausencia de PII en DevTools > Network). La validación del portal local se hizo por HTTP local; falta confirmar el doble clic desde `file://` en un escritorio Windows.
 
 ## 6. Trazabilidad de commits
 
@@ -188,8 +191,10 @@ Pendiente: validación integral en Azure (login, rol, 401/403, Blob 403/404 y au
 | 2026-11-11 | `aa288ab` | Evita referencias obsoletas al commit en la documentación |
 | 2026-11-12 | `747b494` | Agrega runbook de publicación en Azure |
 | 2026-11-12 | `4706df4` | Documenta la solicitud de acceso a Azure ante TI |
+| 2026-11-12 | `83ad9a4` | Agrega resumen de actividades de noviembre 2026 |
+| 2026-11-20 | `45c829c` | Agrega portal local completo con consulta nominal |
 
-**Total:** 19 commits en el periodo, aproximadamente 9.724 líneas agregadas y 169 eliminadas. El commit principal (`4016272`) concentra 46 archivos y 9.069 inserciones.
+**Total:** 21 commits en el periodo, aproximadamente 10.851 líneas agregadas y 208 eliminadas. El commit principal (`4016272`) concentra 46 archivos y 9.069 inserciones.
 
 ## 7. Estado y próximos pasos
 
