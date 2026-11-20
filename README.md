@@ -34,6 +34,7 @@ Solución de analítica académica para caracterizar aprendices y hacer seguimie
 - `docs/azure_static_web_apps.md`: despliegue, autenticación, Blob privado, roles y validación.
 - `docs/checklist_publicacion_azure.md`: runbook por fases para ejecutar la publicación en Azure.
 - `docs/solicitud_ti_azure.md`: sustento de la solicitud de acceso a Microsoft Azure y correo para TI.
+- `docs/resumen_actividades_2026-11.md`: resumen mensual de desarrollo (noviembre de 2026).
 - `docs/automatizacion.md`: operación del ETL, portal, Power BI y SharePoint.
 
 ## Tablas y relaciones
